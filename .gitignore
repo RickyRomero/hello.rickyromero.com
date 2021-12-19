@@ -32,3 +32,6 @@ yarn-error.log*
 
 # vercel
 .vercel
+
+# Exclude font files from source control due to licensing complications
+*.woff2
