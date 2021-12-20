@@ -1,0 +1,16 @@
+:root {
+  --bokeh-bg: #b5e2ff;
+
+  /* Codec Pro has some weird weight definitions */
+  --cp-thin:        38.0;
+  --cp-extra-light: 77.0;
+  --cp-light:       118.0;
+  --cp-news:        157.0;
+  --cp-regular:     177.0;
+  --cp-bold:        249.0;
+  --cp-extra-bold:  317.0;
+  --cp-heavy:       377.0;
+  --cp-ultra:       484.0;
+  --cp-ultra-black: 593.0;
+  --cp-fat:         682.0;
+}

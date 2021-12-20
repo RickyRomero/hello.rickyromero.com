@@ -44,11 +44,23 @@
   font-synthesis: none;
 }
 
-html,
+html {
+  font-family: 'PK Codec Modulo',
+               'PK Codec Modulo Full',
+               Futura,
+               'Gill Sans',
+               sans-serif;
+  background-color: var(--bokeh-bg);
+  font-weight: var(--cp-regular);
+}
+
 body {
-  padding: 0;
   margin: 0;
-  font-family: 'PK Codec Modulo', 'PK Codec Modulo Full', Futura, 'Gill Sans', sans-serif;
+  min-height: 100vh;
+}
+
+h1, h2, h3, h4, h5, h6, b, strong, th {
+  font-weight: var(--cp-ultra);
 }
 
 a {

@@ -1,8 +1,25 @@
+.bokehPlaceholder { /* FIXME */
+  position: fixed;
+  z-index: 0;
+  background: var(--bokeh-bg);
+  width: 100vw;
+  height: 100vh;
+}
+
+.bokeh {
+  position: fixed;
+  z-index: 0;
+  width: 100vw;
+  height: 100vh;
+}
+
 .container {
-  padding: 0 2rem;
+  /* padding: 0 2rem; */
 }
 
 .main {
+  position: relative;
+  z-index: 1;
   min-height: 100vh;
   padding: 4rem 0;
   flex: 1;
