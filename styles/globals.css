@@ -1,13 +1,13 @@
 @font-face {
   font-family: 'PK Codec Modulo';
   src: url('/fonts/pk-codec-modulo.woff2') format('woff2-variations');
-  font-weight: 38 682;
-  font-style: normal;
   unicode-range: U+0020-007E U+00A0 U+00A2-00A3 U+00A5 U+00A7 U+00A9 U+00AB
     U+00AD-00AE U+00B0-00B2 U+00B5 U+00B7 U+00B9 U+00BB U+00D7 U+00E3 U+00E5
     U+00E7 U+00E9 U+00F1 U+00F7 U+0192 U+0394 U+03BC U+03C0 U+2013-2014
     U+2018-2019 U+201C-201D U+2020-2022 U+2026 U+2030 U+2039-203A U+20AC U+2122
     U+2192 U+2212 U+2248 U+2260 U+2264-2265 U+25CA;
+  font-weight: 38 682;
+  font-style: normal;
   font-display: swap;
   font-synthesis: none;
 }
@@ -15,20 +15,20 @@
 @font-face {
   font-family: 'PK Codec Modulo';
   src: url('/fonts/pk-codec-modulo-italic.woff2') format('woff2-variations');
+  unicode-range: U+0020-007E U+00A0 U+00A2-00A3 U+00A5 U+00A7 U+00A9 U+00AB
+    U+00AD-00AE U+00B0-00B2 U+00B5 U+00B7 U+00B9 U+00BB U+00D7 U+00E3 U+00E5
+    U+00E7 U+00E9 U+00F1 U+00F7 U+0192 U+0394 U+03BC U+03C0 U+2013-2014
+    U+2018-2019 U+201C-201D U+2020-2022 U+2026 U+2030 U+2039-203A U+20AC U+2122
+    U+2192 U+2212 U+2248 U+2260 U+2264-2265 U+25CA;
   font-weight: 38 682;
   font-style: italic;
-  unicode-range: U+0020-007E U+00A0 U+00A2-00A3 U+00A5 U+00A7 U+00A9 U+00AB
-    U+00AD-00AE U+00B0-00B2 U+00B5 U+00B7 U+00B9 U+00BB U+00D7 U+00E3 U+00E5
-    U+00E7 U+00E9 U+00F1 U+00F7 U+0192 U+0394 U+03BC U+03C0 U+2013-2014
-    U+2018-2019 U+201C-201D U+2020-2022 U+2026 U+2030 U+2039-203A U+20AC U+2122
-    U+2192 U+2212 U+2248 U+2260 U+2264-2265 U+25CA;
   font-display: swap;
   font-synthesis: none;
 }
 
 @font-face {
-  font-family: 'PK Codec Modulo';
-  src: url('/fonts/pk-codec-modulo.woff2') format('woff2-variations');
+  font-family: 'PK Codec Modulo Full';
+  src: url('/fonts/pk-codec-modulo-full.woff2') format('woff2-variations');
   font-weight: 38 682;
   font-style: normal;
   font-display: swap;
@@ -36,8 +36,8 @@
 }
 
 @font-face {
-  font-family: 'PK Codec Modulo';
-  src: url('/fonts/pk-codec-modulo-italic.woff2') format('woff2-variations');
+  font-family: 'PK Codec Modulo Full';
+  src: url('/fonts/pk-codec-modulo-italic-full.woff2') format('woff2-variations');
   font-weight: 38 682;
   font-style: italic;
   font-display: swap;
@@ -48,7 +48,7 @@ html,
 body {
   padding: 0;
   margin: 0;
-  font-family: 'PK Codec Modulo', Futura, 'Gill Sans', sans-serif;
+  font-family: 'PK Codec Modulo', 'PK Codec Modulo Full', Futura, 'Gill Sans', sans-serif;
 }
 
 a {
