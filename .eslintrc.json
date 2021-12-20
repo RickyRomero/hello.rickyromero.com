@@ -1,3 +1,23 @@
 {
-  "extends": "next/core-web-vitals"
+  "root": true,
+  "extends": [
+    "plugin:react/recommended",
+    "plugin:react/jsx-runtime",
+    "standard"
+  ],
+  "plugins": [
+    "react"
+  ],
+  "rules": {
+    "react/prop-types": "off",
+    "react/jsx-indent": ["error", 2, {
+      "checkAttributes": true,
+      "indentLogicalExpressions": true
+    }]
+  },
+  "settings": {
+    "react": {
+      "version": "detect"
+    }
+  }
 }

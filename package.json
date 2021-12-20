@@ -5,7 +5,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "eslint ./"
   },
   "dependencies": {
     "@react-three/fiber": "^7",
@@ -17,6 +17,10 @@
   },
   "devDependencies": {
     "eslint": "^8",
-    "eslint-config-next": "^12"
+    "eslint-config-standard": "^16",
+    "eslint-plugin-import": "^2",
+    "eslint-plugin-node": "^11",
+    "eslint-plugin-promise": "^6",
+    "eslint-plugin-react": "^7"
   }
 }
