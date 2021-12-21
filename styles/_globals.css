@@ -44,6 +44,10 @@
   font-synthesis: none;
 }
 
+* {
+  box-sizing: border-box;
+}
+
 html {
   font-family: 'PK Codec Modulo',
                'PK Codec Modulo Full',
@@ -66,8 +70,4 @@ h1, h2, h3, h4, h5, h6, b, strong, th {
 a {
   color: inherit;
   text-decoration: none;
-}
-
-* {
-  box-sizing: border-box;
 }

@@ -11,6 +11,9 @@
     "@react-three/fiber": "^7",
     "framer-motion": "^5",
     "next": "^12",
+    "postcss-camel-case": "^1",
+    "postcss-preset-env": "^7",
+    "postcss-pxtorem": "^6",
     "react": "rc",
     "react-dom": "rc",
     "three": "^0.135"

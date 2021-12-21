@@ -13,4 +13,8 @@
   --cp-ultra:       484.0;
   --cp-ultra-black: 593.0;
   --cp-fat:         682.0;
+
+  --bokeh-layer:    0;
+  --page-layer:     1;
+  --lightbox-layer: 2;
 }
