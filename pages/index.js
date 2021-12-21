@@ -1,10 +1,10 @@
 import { Suspense, lazy, useEffect, useState } from 'react'
 import Head from 'next/head'
 
-import styles from '../styles/Home.module.css'
+import styles from 'styles/Home.module.css'
 
-const Canvas = lazy(() => import('../lazy/canvas'))
-const Bokeh = lazy(() => import('../scenes/bokeh'))
+const Canvas = lazy(() => import('lazy/canvas'))
+const Bokeh = lazy(() => import('scenes/bokeh'))
 
 const Home = () => {
   const [bokehBg, setBokehBg] = useState()

@@ -1,7 +1,8 @@
 .bokeh-placeholder, .bokeh-renderer-container {
-  position: fixed;
   z-index: var(--bokeh-layer);
   background: var(--bokeh-bg);
+
+  position: fixed;
   width: 100vw;
   height: 100vh;
   margin: 0;
