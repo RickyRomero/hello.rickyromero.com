@@ -1,5 +1,6 @@
 import { Suspense, lazy, useEffect, useState } from 'react'
 import Head from 'next/head'
+import Heading from 'components/heading'
 
 import styles from 'styles/Home.module.css'
 
@@ -38,10 +39,19 @@ const Home = () => {
         </figure>
       </Suspense>
 
-      <div className={styles.content}>
-        <header className={styles.header}></header>
-        <main className={styles.main}></main>
-        <footer className={styles.footer}></footer>
+      <div className={styles.page}>
+        <div className={styles.content}>
+          <header className={styles.header}></header>
+          <main className={styles.main}>
+            <Heading className="test" as="h1">Sphinx of black quartz, judge my vow.</Heading>
+            <Heading className="test" as="h2">Sphinx of black quartz, judge my vow.</Heading>
+            <Heading className="test" as="h3">Sphinx of black quartz, judge my vow.</Heading>
+            <Heading className="test" as="h4">Sphinx of black quartz, judge my vow.</Heading>
+            <Heading className="test" as="h5">Sphinx of black quartz, judge my vow.</Heading>
+            <Heading className="test" as="h6">Sphinx of black quartz, judge my vow.</Heading>
+          </main>
+          <footer className={styles.footer}></footer>
+        </div>
       </div>
     </>
   )
