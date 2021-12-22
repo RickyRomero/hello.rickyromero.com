@@ -1,11 +1,15 @@
 import { Suspense, lazy, useEffect, useState } from 'react'
 import Head from 'next/head'
 import Heading from 'components/heading'
+import Passage from 'components/passage'
+import Button from 'components/button'
 
-import styles from 'styles/Home.module.css'
+import styles from 'styles/home.module.css'
 
 const Canvas = lazy(() => import('lazy/canvas'))
 const Bokeh = lazy(() => import('scenes/bokeh'))
+
+const excerpt = 'Typography is the art and technique of arranging type to make written language legible, readable and appealing when displayed. The arrangement of type involves selecting typefaces, point sizes, line lengths, line-spacing (leading), and letter-spacing (tracking), as well as adjusting the space between pairs of letters (kerning). The term typography is also applied to the style, arrangement, and appearance of the letters, numbers, and symbols created by the process. Type design is a closely related craft, sometimes considered part of typography; most typographers do not design typefaces, and some type designers do not consider themselves typographers. Typography also may be used as an ornamental and decorative device, unrelated to the communication of information.'
 
 const Home = () => {
   const [bokehBg, setBokehBg] = useState()
@@ -42,13 +46,20 @@ const Home = () => {
       <div className={styles.page}>
         <div className={styles.content}>
           <header className={styles.header}></header>
-          <main className={styles.main}>
-            <Heading className="test" as="h1">Sphinx of black quartz, judge my vow.</Heading>
-            <Heading className="test" as="h2">Sphinx of black quartz, judge my vow.</Heading>
-            <Heading className="test" as="h3">Sphinx of black quartz, judge my vow.</Heading>
-            <Heading className="test" as="h4">Sphinx of black quartz, judge my vow.</Heading>
-            <Heading className="test" as="h5">Sphinx of black quartz, judge my vow.</Heading>
-            <Heading className="test" as="h6">Sphinx of black quartz, judge my vow.</Heading>
+          <main className={[styles.main, styles.grid].join(' ')}>
+            <Button>Say Hi</Button>
+            <Button>See my CV</Button>
+            <Heading as="h1" style={{ width: 900 }}>Sphinx of black quartz, judge my vow.</Heading>
+            <Heading as="h2" style={{ width: 650 }}>Sphinx of black quartz, judge my vow.</Heading>
+            <Heading as="h3" style={{ width: 500 }}>Sphinx of black quartz, judge my vow.</Heading>
+            <Heading as="h4" style={{ width: 400 }}>Sphinx of black quartz, judge my vow.</Heading>
+            <Heading as="h5" style={{ width: 300 }}>Sphinx of black quartz, judge my vow.</Heading>
+            <Heading as="h6" style={{ width: 250 }}>Sphinx of black quartz, judge my vow.</Heading>
+
+            <Passage as="p1" style={{ width: 550 }}>{excerpt.split('.').slice(0, 1).join('.')}.</Passage>
+            <Passage as="p2" style={{ width: 550 }}>{excerpt.split('.').slice(0, 2).join('.')}.</Passage>
+            <Passage as="p3" style={{ width: 550 }}>{excerpt.split('.').slice(0, 3).join('.')}.</Passage>
+            <Passage as="p4" style={{ width: 550 }}>{excerpt.split('.').slice(0, 4).join('.')}.</Passage>
           </main>
           <footer className={styles.footer}></footer>
         </div>

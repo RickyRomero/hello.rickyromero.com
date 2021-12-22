@@ -54,6 +54,8 @@ html {
                Futura,
                'Gill Sans',
                sans-serif;
+
+  color: var(--base-text);
   background-color: var(--bokeh-bg);
   font-weight: var(--cp-regular);
 }

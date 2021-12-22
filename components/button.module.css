@@ -1,0 +1,18 @@
+.button {
+  color: var(--button-text);
+  font-size: var(--large-text);
+  font-weight: var(--cp-ultra);
+  letter-spacing: var(--large-tracking);
+  background: linear-gradient(var(--button-top), var(--button-bottom));
+  box-shadow: 0 12px 24px var(--button-shadow),
+              0 2px 4px var(--button-shadow),
+              inset 0 2px 1px var(--button-bevel);
+  text-shadow: 0 2px 1px var(--button-text-shadow);
+
+  display: flex;
+  height: 60px;
+  padding: 0 60px;
+  border-radius: 30px;
+  align-items: center;
+  justify-content: center;
+}

@@ -1,6 +1,6 @@
-.h1 { color: red }
-.h2 { color: orange }
-.h3 { color: yellow }
-.h4 { color: green }
-.h5 { color: blue }
-.h6 { color: purple }
+.h1 { font-size: var(--xxlarge-text); line-height: var(--h1-leading); letter-spacing: var(--xxlarge-tracking); }
+.h2 { font-size: var(--xlarge-text);  line-height: var(--h2-leading);  letter-spacing: var(--xlarge-tracking); }
+.h3 { font-size: var(--large-text);   line-height: var(--h3-leading);   letter-spacing: var(--large-tracking); }
+.h4 { font-size: var(--medium-text);  line-height: var(--h4-leading);  letter-spacing: var(--medium-tracking); }
+.h5 { font-size: var(--small-text);   line-height: var(--h5-leading);   letter-spacing: var(--small-tracking); }
+.h6 { font-size: var(--xsmall-text);  line-height: var(--h6-leading);  letter-spacing: var(--xsmall-tracking); }
