@@ -1,5 +1,14 @@
 module.exports = {
   plugins: {
+    'postcss-pxtorem': {
+      propList: [
+        'font',
+        'font-size',
+        'line-height',
+        'letter-spacing',
+        '--*'
+      ]
+    },
     'postcss-preset-env': {
       autoprefixer: {
         flexbox: 'no-2009'
@@ -9,7 +18,6 @@ module.exports = {
         'custom-properties': false
       }
     },
-    'postcss-pxtorem': {},
     'postcss-camel-case': {}
   }
 }

@@ -34,7 +34,7 @@ const Home = () => {
 
       <Suspense fallback={fallbackCanvas}>
         <figure className={styles.bokehRendererContainer}>
-          <Canvas dpr={[1, 10]} gl={{ alpha: false }} shadows camera={{ position: [0, -3.2, 40], fov: 12 }}>
+          <Canvas dpr={[1, 10]} gl={{ alpha: false }} shadows camera={{ position: [0, -3.2, 40], fov: 3 }}>
             <color attach="background" args={[bokehBg]} />
             <Suspense fallback={null}>
               <Bokeh />
