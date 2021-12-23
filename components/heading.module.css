@@ -4,3 +4,5 @@
 .h4 { font-size: var(--medium-text);  line-height: var(--h4-leading);  letter-spacing: var(--medium-tracking); }
 .h5 { font-size: var(--small-text);   line-height: var(--h5-leading);   letter-spacing: var(--small-tracking); }
 .h6 { font-size: var(--xsmall-text);  line-height: var(--h6-leading);  letter-spacing: var(--xsmall-tracking); }
+
+.h1, .h2, .h3, .h4, .h5, .h6 { margin: 0; }

@@ -13,7 +13,17 @@
     "react/jsx-indent": ["error", 2, {
       "checkAttributes": true,
       "indentLogicalExpressions": true
-    }]
+    }],
+    "react/no-unescaped-entities": ["error", {
+      "forbid": [{
+        "char": ">",
+        "alternatives": ["&gt;"]
+      }, {
+        "char": "}",
+        "alternatives": ["&#125;"]
+      }]
+    }],
+    "multiline-ternary": "off"
   },
   "settings": {
     "react": {

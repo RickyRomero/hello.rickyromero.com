@@ -9,25 +9,24 @@
 }
 
 .page {
+  z-index: var(--page-layer);
+
+  position: relative;
   width: 100vw;
   display: flex;
   justify-content: center;
 }
 
 .content {
-  z-index: var(--page-layer);
+  max-width: 1280px;
 }
 
-.grid {
-  /* display: grid; */
-  /* max-width: 1280px; */
-  /* height: 600px; */
-  /* flex-grow: 1;
+.section.hello {
+  min-height: 80vh;
+}
 
-  grid-template-columns: repeat(12, 1fr); 
-  gap: 40px; */
-
-  margin-bottom: 40px;
+.section.hello p {
+  font-weight: var(--cp-bold);
 }
 
 .header {

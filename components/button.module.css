@@ -4,15 +4,15 @@
   font-weight: var(--cp-ultra);
   letter-spacing: var(--large-tracking);
   background: linear-gradient(var(--button-top), var(--button-bottom));
-  box-shadow: 0 12px 24px var(--button-shadow),
-              0 2px 4px var(--button-shadow),
-              inset 0 2px 1px var(--button-bevel);
-  text-shadow: 0 2px 1px var(--button-text-shadow);
+  box-shadow: 0 0.75rem 1.5rem var(--button-shadow),
+              0 0.125rem 0.25rem var(--button-shadow),
+              inset 0 0.125rem 0.0625rem var(--button-bevel);
+  text-shadow: 0 0.125rem 0.0625rem var(--button-text-shadow);
 
   display: flex;
-  height: 60px;
-  padding: 0 60px;
-  border-radius: 30px;
+  height: 3.75rem;
+  padding: 0 1.875rem;
+  border-radius: 1.875rem;
   align-items: center;
   justify-content: center;
 }

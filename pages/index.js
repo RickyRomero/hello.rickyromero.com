@@ -1,5 +1,6 @@
 import { Suspense, lazy, useEffect, useState } from 'react'
 import Head from 'next/head'
+import { Grid, Row } from 'components/grid'
 import Heading from 'components/heading'
 import Passage from 'components/passage'
 import Button from 'components/button'
@@ -46,20 +47,34 @@ const Home = () => {
       <div className={styles.page}>
         <div className={styles.content}>
           <header className={styles.header}></header>
-          <main className={[styles.main, styles.grid].join(' ')}>
-            <Button>Say Hi</Button>
-            <Button>See my CV</Button>
-            <Heading as="h1" style={{ width: 900 }}>Sphinx of black quartz, judge my vow.</Heading>
-            <Heading as="h2" style={{ width: 650 }}>Sphinx of black quartz, judge my vow.</Heading>
-            <Heading as="h3" style={{ width: 500 }}>Sphinx of black quartz, judge my vow.</Heading>
-            <Heading as="h4" style={{ width: 400 }}>Sphinx of black quartz, judge my vow.</Heading>
-            <Heading as="h5" style={{ width: 300 }}>Sphinx of black quartz, judge my vow.</Heading>
-            <Heading as="h6" style={{ width: 250 }}>Sphinx of black quartz, judge my vow.</Heading>
+          <main className={styles.main}>
+            <section className={[styles.section, styles.hello].join(' ')}>
+              <Grid>
+                <Row><Heading>Hi there.</Heading></Row>
+                <Row><Passage as="p1">My name's <em>Ricky.</em></Passage></Row>
+                <Row><Passage as="p1">I do <em>design + code.</em></Passage></Row>
+                <Row><Passage as="p1"><em>I'm looking for the next big thing. Right now.</em></Passage></Row>
+                <Row>
+                  <Button spans={[3]}>Say Hi</Button>
+                  <Button spans={[3]}>See my CV</Button>
+                </Row>
+                <Row>
+                  <Button spans={[3]}>Say Hi</Button>
+                  <Button spans={[3]}>See my CV</Button>
+                </Row>
+              </Grid>
+            </section>
+            <Heading as="h1">Sphinx of black quartz, judge my vow.</Heading>
+            <Heading as="h2">Sphinx of black quartz, judge my vow.</Heading>
+            <Heading as="h3">Sphinx of black quartz, judge my vow.</Heading>
+            <Heading as="h4">Sphinx of black quartz, judge my vow.</Heading>
+            <Heading as="h5">Sphinx of black quartz, judge my vow.</Heading>
+            <Heading as="h6">Sphinx of black quartz, judge my vow.</Heading>
 
-            <Passage as="p1" style={{ width: 550 }}>{excerpt.split('.').slice(0, 1).join('.')}.</Passage>
-            <Passage as="p2" style={{ width: 550 }}>{excerpt.split('.').slice(0, 2).join('.')}.</Passage>
-            <Passage as="p3" style={{ width: 550 }}>{excerpt.split('.').slice(0, 3).join('.')}.</Passage>
-            <Passage as="p4" style={{ width: 550 }}>{excerpt.split('.').slice(0, 4).join('.')}.</Passage>
+            <Passage as="p1">{excerpt.split('.').slice(0, 1).join('.')}.</Passage>
+            <Passage as="p2">{excerpt.split('.').slice(0, 2).join('.')}.</Passage>
+            <Passage as="p3">{excerpt.split('.').slice(0, 3).join('.')}.</Passage>
+            <Passage as="p4">{excerpt.split('.').slice(0, 4).join('.')}.</Passage>
           </main>
           <footer className={styles.footer}></footer>
         </div>
