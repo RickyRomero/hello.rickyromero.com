@@ -5,10 +5,12 @@
   --fog: #fff9;
   --berry-soft: #dff7ff;
   --berry-bold: #0057ff;
-  --berry-shade: var(--berry-bold);
+  --berry-shadow-sharp: var(--berry-bold);
+  --berry-shadow-diffuse: var(--berry-bold);
   --grape-soft: #f5e2ff;
   --grape-bold: #9b00ff;
-  --grape-shade: var(--grape-bold);
+  --grape-shadow-sharp: #9b00ff29;
+  --grape-shadow-diffuse: #9b00ff17;
   --dragonfruit: #ff006c;
 
   /* TYPOGRAPHIC METRICS */
@@ -45,15 +47,19 @@
   --page-layer:     1;
   --lightbox-layer: 2;
 
+
+
   /* APPLICATIONS */
   --bokeh-bg: #dff7ff; /* no wide-gamut WebGL yet */
   --emphatic: var(--dragonfruit);
+
   --button-text: var(--grape-bold);
   --button-text-shadow: white;
+  --button-bevel: white;
   --button-top: var(--fog);
   --button-bottom: var(--grape-soft);
-  --button-shadow: var(--grape-bold);
-  --button-bevel: white;
+  --button-shadow-sharp: var(--grape-shadow-sharp);
+  --button-shadow-diffuse: var(--grape-shadow-diffuse);
 }
 
 /* WIDE-GAMUT PALETTE */
@@ -63,6 +69,8 @@
     --berry-bold: color(display-p3 0 0.3333333333 1);
     --grape-soft: color(display-p3 0.9490196078 0.8901960784 1);
     --grape-bold: color(display-p3 0.5529411765 0 1);
+    --grape-shadow-sharp: color(display-p3 0.5529411765 0 1 / 0.16);
+    --grape-shadow-diffuse: color(display-p3 0.5529411765 0 1 / 0.09);
     --dragonfruit: color(display-p3 1 0 0.431372549);
   }
 }

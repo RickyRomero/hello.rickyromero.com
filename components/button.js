@@ -1,14 +1,15 @@
 import Link from 'next/link'
+import cl from 'utils/classlist'
 
 import styles from './button.module.css'
 
 const Button = props => {
   const { children, className = '' } = props
-  const classList = [styles.button, ...className.trim().split(/\s+/)]
+  const classList = cl(styles.button, className)
 
   return (
     <Link href="/">
-      <a className={classList.join(' ')}>{children}</a>
+      <a className={classList}>{children}</a>
     </Link>
   )
 }

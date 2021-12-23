@@ -4,8 +4,8 @@
   font-weight: var(--cp-ultra);
   letter-spacing: var(--large-tracking);
   background: linear-gradient(var(--button-top), var(--button-bottom));
-  box-shadow: 0 0.75rem 1.5rem var(--button-shadow),
-              0 0.125rem 0.25rem var(--button-shadow),
+  box-shadow: 0 0.75rem 1.5rem var(--button-shadow-diffuse),
+              0 0.125rem 0.25rem var(--button-shadow-sharp),
               inset 0 0.125rem 0.0625rem var(--button-bevel);
   text-shadow: 0 0.125rem 0.0625rem var(--button-text-shadow);
 
@@ -15,4 +15,5 @@
   border-radius: 1.875rem;
   align-items: center;
   justify-content: center;
+  backdrop-filter: blur(20px);
 }

@@ -48,22 +48,20 @@ const Home = () => {
         <div className={styles.content}>
           <header className={styles.header}></header>
           <main className={styles.main}>
-            <section className={[styles.section, styles.hello].join(' ')}>
-              <Grid>
-                <Row><Heading>Hi there.</Heading></Row>
-                <Row><Passage as="p1">My name's <em>Ricky.</em></Passage></Row>
-                <Row><Passage as="p1">I do <em>design + code.</em></Passage></Row>
-                <Row><Passage as="p1"><em>I'm looking for the next big thing. Right now.</em></Passage></Row>
-                <Row>
-                  <Button spans={[3]}>Say Hi</Button>
-                  <Button spans={[3]}>See my CV</Button>
-                </Row>
-                <Row>
-                  <Button spans={[3]}>Say Hi</Button>
-                  <Button spans={[3]}>See my CV</Button>
-                </Row>
-              </Grid>
-            </section>
+            <Grid className={[styles.section, styles.hello].join(' ')}>
+              <Row><Heading>Hi there.</Heading></Row>
+              <Row><Passage as="p1">My name's <em>Ricky.</em></Passage></Row>
+              <Row><Passage as="p1">I do <em>design + code.</em></Passage></Row>
+              <Row><Passage as="p1"><em>I'm looking for the next big thing. Right now.</em></Passage></Row>
+              <Row>
+                <Button spans={[3]}>Say Hi</Button>
+                <Button spans={[3]}>See my CV</Button>
+              </Row>
+              <Row>
+                <Button spans={[3]}>Say Hi</Button>
+                <Button spans={[3]}>See my CV</Button>
+              </Row>
+            </Grid>
             <Heading as="h1">Sphinx of black quartz, judge my vow.</Heading>
             <Heading as="h2">Sphinx of black quartz, judge my vow.</Heading>
             <Heading as="h3">Sphinx of black quartz, judge my vow.</Heading>

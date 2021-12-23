@@ -1,4 +1,5 @@
 import React from 'react'
+import cl from 'utils/classlist'
 
 import styles from './heading.module.css'
 
@@ -6,7 +7,7 @@ const Heading = props => {
   const { as = 'h1', className = '', children, ...rest } = props
   if (children.constructor !== String) { return }
 
-  const classList = [styles[as], ...className.trim().split(/\s+/)]
+  const classList = cl(styles[as], className)
   const text = children
   const id = text
     .toLowerCase()
@@ -16,7 +17,7 @@ const Heading = props => {
     .trim()
     .replace(/\s+/g, '-')
 
-  return React.createElement(as, { id, className: classList.join(' '), ...rest }, text)
+  return React.createElement(as, { id, className: classList, ...rest }, text)
 }
 
 export default Heading

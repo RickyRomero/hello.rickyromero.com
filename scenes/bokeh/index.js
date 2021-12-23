@@ -13,7 +13,7 @@ const Box = (props) => {
   return (
     <mesh {...props} ref={ref}>
       <boxGeometry args={[1, 1, 1]} />
-      <meshStandardMaterial color={'orange'} />
+      <meshStandardMaterial color={'skyblue'} />
     </mesh>
   )
 }
