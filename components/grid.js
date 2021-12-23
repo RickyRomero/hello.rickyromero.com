@@ -25,11 +25,15 @@ const Row = props => {
 }
 
 const Grid = props => {
-  const { className = '' } = props
+  const { className = '', children } = props
+
+  const wrappedUp = Children.map(children, child => (
+    child.type === Row ? child : <Row>{child}</Row>
+  ))
 
   return (
     <section className={cl(styles.grid, className)}>
-      {props.children}
+      {wrappedUp}
     </section>
   )
 }

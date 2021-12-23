@@ -1,5 +1,6 @@
 import { Suspense, lazy, useEffect, useState } from 'react'
 import Head from 'next/head'
+import Link from 'next/link'
 import { Grid, Row } from 'components/grid'
 import Heading from 'components/heading'
 import Passage from 'components/passage'
@@ -9,8 +10,6 @@ import styles from 'styles/home.module.css'
 
 const Canvas = lazy(() => import('lazy/canvas'))
 const Bokeh = lazy(() => import('scenes/bokeh'))
-
-const excerpt = 'Typography is the art and technique of arranging type to make written language legible, readable and appealing when displayed. The arrangement of type involves selecting typefaces, point sizes, line lengths, line-spacing (leading), and letter-spacing (tracking), as well as adjusting the space between pairs of letters (kerning). The term typography is also applied to the style, arrangement, and appearance of the letters, numbers, and symbols created by the process. Type design is a closely related craft, sometimes considered part of typography; most typographers do not design typefaces, and some type designers do not consider themselves typographers. Typography also may be used as an ornamental and decorative device, unrelated to the communication of information.'
 
 const Home = () => {
   const [bokehBg, setBokehBg] = useState()
@@ -49,30 +48,61 @@ const Home = () => {
           <header className={styles.header}></header>
           <main className={styles.main}>
             <Grid className={[styles.section, styles.hello].join(' ')}>
-              <Row><Heading>Hi there.</Heading></Row>
-              <Row><Passage as="p1">My name's <em>Ricky.</em></Passage></Row>
-              <Row><Passage as="p1">I do <em>design + code.</em></Passage></Row>
-              <Row><Passage as="p1"><em>I'm looking for the next big thing. Right now.</em></Passage></Row>
-              <Row>
-                <Button spans={[3]}>Say Hi</Button>
-                <Button spans={[3]}>See my CV</Button>
-              </Row>
+              <Heading>Hi there.</Heading>
+              <Passage as="p1">My name's <em>Ricky.</em></Passage>
+              <Passage as="p1">I do <em>design + code.</em></Passage>
+              <Passage as="p1"><em>I'm looking for the next big thing. Right now.</em></Passage>
               <Row>
                 <Button spans={[3]}>Say Hi</Button>
                 <Button spans={[3]}>See my CV</Button>
               </Row>
             </Grid>
-            <Heading as="h1">Sphinx of black quartz, judge my vow.</Heading>
-            <Heading as="h2">Sphinx of black quartz, judge my vow.</Heading>
-            <Heading as="h3">Sphinx of black quartz, judge my vow.</Heading>
-            <Heading as="h4">Sphinx of black quartz, judge my vow.</Heading>
-            <Heading as="h5">Sphinx of black quartz, judge my vow.</Heading>
-            <Heading as="h6">Sphinx of black quartz, judge my vow.</Heading>
 
-            <Passage as="p1">{excerpt.split('.').slice(0, 1).join('.')}.</Passage>
-            <Passage as="p2">{excerpt.split('.').slice(0, 2).join('.')}.</Passage>
-            <Passage as="p3">{excerpt.split('.').slice(0, 3).join('.')}.</Passage>
-            <Passage as="p4">{excerpt.split('.').slice(0, 4).join('.')}.</Passage>
+            <Grid className={[styles.section, styles.projects].join(' ')}>
+              <Heading as="h2">Projects</Heading>
+              <Row>
+                <div spans={[4]}>project</div>
+                <div spans={[4]}>project</div>
+                <div spans={[4]}>project</div>
+                <div spans={[4]}>project</div>
+                <div spans={[4]}>project</div>
+                <div spans={[4]}>project</div>
+                <div spans={[4]}>project</div>
+                <div spans={[4]}>project</div>
+                <div spans={[4]}>project</div>
+                <div spans={[4]}>project</div>
+                <div spans={[4]}>project</div>
+                <div spans={[4]}>project</div>
+                <div spans={[4]}>project</div>
+                <div spans={[4]}>project</div>
+                <div spans={[4]}>project</div>
+              </Row>
+            </Grid>
+
+            <Grid className={[styles.section, styles.about].join(' ')}>
+              <Heading as="h2">About Me</Heading>
+              <Row>
+                <figure spans={[4]}></figure>
+                <div spans={[8]}>
+                  <Heading as="h3">My name's Ricky Romero.</Heading>
+                  <Passage>I'm a designer and engineer in the scenic Bay Area of California. I've worked in web design and development (mobile and desktop) for over 10 years, and I'm dipping my toes in Swift now. I've worked on both marketing and product teams, and done both interaction and visual design.</Passage>
+                  <Passage>I've produced my best work in roles leveraging both my design and engineering talents. That said, I understand that's an uncommon role, and can specialize in design when needed.</Passage>
+                  <Passage>I'm open to both hybrid and remote work. Hybrid roles must be located south of Burlingame, CA.</Passage>
+                  <Passage>In my spare time I like to take photos, build small hobby projects, and play video games (Nintendo for life).</Passage>
+                  <Passage><strong>Follow me on <Link href="https://dribbble.com/RickyRomero"><a>Dribbble</a></Link> and <Link href="https://github.com/RickyRomero"><a>GitHub!</a></Link></strong></Passage>
+                </div>
+              </Row>
+            </Grid>
+
+            <Grid className={[styles.section, styles.letsDoThis].join(' ')}>
+              <Heading>Only 1 left in stock.</Heading>
+              <Passage as="p1"><em>I'm looking for work,</em> but won't be for much longer.</Passage>
+              <Passage as="p1">What will we build together?</Passage>
+              <Row>
+                <Button spans={[3]}>Say Hi</Button>
+                <Button spans={[3]}>See my CV</Button>
+              </Row>
+            </Grid>
           </main>
           <footer className={styles.footer}></footer>
         </div>
