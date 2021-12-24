@@ -10,10 +10,10 @@
   text-shadow: 0 0.125rem 0.0625rem var(--button-text-shadow);
 
   display: flex;
+  align-items: center;
+  justify-content: center;
   height: 3.75rem;
   padding: 0 1.875rem;
   border-radius: 1.875rem;
-  align-items: center;
-  justify-content: center;
   backdrop-filter: saturate(180%) blur(20px);
 }

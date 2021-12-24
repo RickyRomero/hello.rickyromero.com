@@ -7,12 +7,15 @@ import Passage from 'components/passage'
 import Button from 'components/button'
 
 import styles from 'styles/home.module.css'
+import Modal from 'components/modal'
 
 const Canvas = lazy(() => import('lazy/canvas'))
 const Bokeh = lazy(() => import('scenes/bokeh'))
 
 const Home = () => {
   const [bokehBg, setBokehBg] = useState()
+  const [modal, setModal] = useState(null)
+
   useEffect(() => {
     setBokehBg(
       window
@@ -61,7 +64,7 @@ const Home = () => {
             <Grid className={[styles.section, styles.projects].join(' ')}>
               <Heading as="h2">Projects</Heading>
               <Row>
-                <div spans={[4]}>project</div>
+                <div spans={[4]} onClick={() => setModal('hey')}>project</div>
                 <div spans={[4]}>project</div>
                 <div spans={[4]}>project</div>
                 <div spans={[4]}>project</div>
@@ -107,6 +110,12 @@ const Home = () => {
           <footer className={styles.footer}></footer>
         </div>
       </div>
+
+      {modal ? (
+        <Modal onDismiss={() => setModal(null)}>
+          {modal}
+        </Modal>
+      ) : null}
     </>
   )
 }
