@@ -64,21 +64,21 @@ const Home = () => {
             <Grid className={[styles.section, styles.projects].join(' ')}>
               <Heading as="h2">Projects</Heading>
               <Row>
-                <div spans={[4]} onClick={() => setModal('hey')}>project</div>
-                <div spans={[4]}>project</div>
-                <div spans={[4]}>project</div>
-                <div spans={[4]}>project</div>
-                <div spans={[4]}>project</div>
-                <div spans={[4]}>project</div>
-                <div spans={[4]}>project</div>
-                <div spans={[4]}>project</div>
-                <div spans={[4]}>project</div>
-                <div spans={[4]}>project</div>
-                <div spans={[4]}>project</div>
-                <div spans={[4]}>project</div>
-                <div spans={[4]}>project</div>
-                <div spans={[4]}>project</div>
-                <div spans={[4]}>project</div>
+                <div spans={[6]} onClick={() => setModal('hey')}>Project A</div>
+                <div spans={[6]}>Project B</div>
+                <div spans={[8]}>Project C</div>
+                <div spans={[8]}>Project D</div>
+                <div spans={[4]}>Project E</div>
+                <div spans={[4]}>Project F</div>
+                <div spans={[4]}>Project G</div>
+                <div spans={[4]}>Project H</div>
+                <div spans={[4]}>Project I</div>
+                <div spans={[4]}>Project J</div>
+                <div spans={[4]}>Project K</div>
+                <div spans={[4]}>Project L</div>
+                <div spans={[4]}>Project M</div>
+                <div spans={[4]}>Project N</div>
+                <div spans={[4]}>Project O</div>
               </Row>
             </Grid>
 
@@ -90,7 +90,7 @@ const Home = () => {
                   <Heading as="h3">My name's Ricky Romero.</Heading>
                   <Passage>I'm a designer and engineer in the scenic Bay Area of California. I've worked in web design and development (mobile and desktop) for over 10 years, and I'm dipping my toes in Swift now. I've worked on both marketing and product teams, and done both interaction and visual design.</Passage>
                   <Passage>I've produced my best work in roles leveraging both my design and engineering talents. That said, I understand that's an uncommon role, and can specialize in design when needed.</Passage>
-                  <Passage>I'm open to both hybrid and remote work. Hybrid roles must be located south of Burlingame, CA.</Passage>
+                  <Passage>I'm open to both hybrid and remote work. Hybrid roles must be located south of Burlingame or Hayward.</Passage>
                   <Passage>In my spare time I like to take photos, build small hobby projects, and play video games (Nintendo for life).</Passage>
                   <Passage><strong>Follow me on <Link href="https://dribbble.com/RickyRomero"><a>Dribbble</a></Link> and <Link href="https://github.com/RickyRomero"><a>GitHub!</a></Link></strong></Passage>
                 </div>
@@ -100,7 +100,7 @@ const Home = () => {
             <Grid className={[styles.section, styles.letsDoThis].join(' ')}>
               <Heading>Only 1 left in stock.</Heading>
               <Passage as="p1"><em>I'm looking for work,</em> but won't be for much longer.</Passage>
-              <Passage as="p1">What will we build together?</Passage>
+              <Passage as="p1">What do you want to build together?</Passage>
               <Row>
                 <Button spans={[3]}>Say Hi</Button>
                 <Button spans={[3]}>See my CV</Button>

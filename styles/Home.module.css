@@ -29,6 +29,14 @@
   font-weight: var(--cp-bold);
 }
 
+.projects {
+  grid-auto-flow: dense;
+}
+
+.projects div {
+  background: pink;
+}
+
 .header {
 
 }
