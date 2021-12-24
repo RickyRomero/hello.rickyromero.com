@@ -15,5 +15,5 @@
   border-radius: 1.875rem;
   align-items: center;
   justify-content: center;
-  backdrop-filter: blur(20px);
+  backdrop-filter: saturate(180%) blur(20px);
 }

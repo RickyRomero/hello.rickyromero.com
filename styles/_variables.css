@@ -1,7 +1,5 @@
 :root {
   /* PALETTE */
-  --base-text: black;
-
   --fog: #fff9;
   --berry-soft: #dff7ff;
   --berry-bold: #0057ff;
@@ -14,6 +12,7 @@
   --dragonfruit: #ff006c;
 
   /* TYPOGRAPHIC METRICS */
+  /* px converted to rem in PostCSS */
   --xxlarge-text: 72px;                              --xxlarge-tracking: -0.020em;
   --xlarge-text:  54px;                              --xlarge-tracking:  -0.015em;
   --large-text:   36px;  --large-leading:   1.20em;  --large-tracking:   -0.010em;
@@ -46,20 +45,6 @@
   --bokeh-layer:    0;
   --page-layer:     1;
   --lightbox-layer: 2;
-
-
-
-  /* APPLICATIONS */
-  --bokeh-bg: #dff7ff; /* no wide-gamut WebGL yet */
-  --emphatic: var(--dragonfruit);
-
-  --button-text: var(--grape-bold);
-  --button-text-shadow: white;
-  --button-bevel: white;
-  --button-top: var(--fog);
-  --button-bottom: var(--grape-soft);
-  --button-shadow-sharp: var(--grape-shadow-sharp);
-  --button-shadow-diffuse: var(--grape-shadow-diffuse);
 }
 
 /* WIDE-GAMUT PALETTE */
@@ -74,3 +59,36 @@
     --dragonfruit: color(display-p3 1 0 0.431372549);
   }
 }
+
+
+
+/* LIGHT MODE */
+:root {
+  --base-text: black;
+  --bokeh-bg: #dff7ff; /* no wide-gamut WebGL yet */
+  --emphatic: var(--dragonfruit);
+
+  --button-text: var(--grape-bold);
+  --button-text-shadow: white;
+  --button-bevel: white;
+  --button-top: var(--fog);
+  --button-bottom: var(--grape-soft);
+  --button-shadow-sharp: var(--grape-shadow-sharp);
+  --button-shadow-diffuse: var(--grape-shadow-diffuse);
+}
+
+/* DARK MODE */
+/* @media (prefers-color-scheme: dark) {
+  :root {
+    --base-text: white;
+    --bokeh-bg: #2a1e45;
+
+    --button-text: white;
+    --button-text-shadow: var(--grape-shadow-sharp);
+    --button-bevel: white;
+    --button-top: var(--grape-bold);
+    --button-bottom: var(--grape-bold);
+    --button-shadow-sharp: var(--grape-shadow-sharp);
+    --button-shadow-diffuse: var(--grape-shadow-diffuse);
+  }
+} */
