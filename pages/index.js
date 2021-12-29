@@ -1,18 +1,21 @@
 import { Suspense, lazy, useEffect, useState } from 'react'
 import Head from 'next/head'
 import Link from 'next/link'
+import Modal from 'components/modal'
 import { Grid, Row } from 'components/grid'
 import Heading from 'components/heading'
 import Passage from 'components/passage'
 import Button from 'components/button'
+import getProjects from 'generators/getProjects'
 
 import styles from 'styles/home.module.css'
-import Modal from 'components/modal'
 
 const Canvas = lazy(() => import('lazy/canvas'))
 const Bokeh = lazy(() => import('scenes/bokeh'))
 
-const Home = () => {
+const getStaticProps = getProjects
+
+const Home = ({ projects }) => {
   const [bokehBg, setBokehBg] = useState()
   const [modal, setModal] = useState(null)
 
@@ -64,21 +67,16 @@ const Home = () => {
             <Grid className={[styles.section, styles.projects].join(' ')}>
               <Heading as="h2">Projects</Heading>
               <Row>
-                <div spans={[6]} onClick={() => setModal('hey')}>Project A</div>
-                <div spans={[6]}>Project B</div>
-                <div spans={[8]}>Project C</div>
-                <div spans={[8]}>Project D</div>
-                <div spans={[4]}>Project E</div>
-                <div spans={[4]}>Project F</div>
-                <div spans={[4]}>Project G</div>
-                <div spans={[4]}>Project H</div>
-                <div spans={[4]}>Project I</div>
-                <div spans={[4]}>Project J</div>
-                <div spans={[4]}>Project K</div>
-                <div spans={[4]}>Project L</div>
-                <div spans={[4]}>Project M</div>
-                <div spans={[4]}>Project N</div>
-                <div spans={[4]}>Project O</div>
+                {projects.map(project => {
+                  return (
+                    <div
+                      key={project.slug}
+                      spans={[project.metadata.grid || 4]}
+                    >{
+                      project.metadata.title
+                    }</div>
+                  )
+                })}
               </Row>
             </Grid>
 
@@ -121,3 +119,4 @@ const Home = () => {
 }
 
 export default Home
+export { getStaticProps }

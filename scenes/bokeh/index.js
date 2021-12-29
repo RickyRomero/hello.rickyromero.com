@@ -5,9 +5,9 @@ const Box = (props) => {
   const ref = useRef()
 
   useFrame((state, delta) => {
-    ref.current.rotation.x += 0.005
-    ref.current.rotation.y += 0.005
-    ref.current.rotation.z += 0.005
+    ref.current.rotation.x += 0.5 * delta
+    ref.current.rotation.y += 0.5 * delta
+    ref.current.rotation.z += 0.5 * delta
   })
 
   return (
