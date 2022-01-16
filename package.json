@@ -8,6 +8,7 @@
     "lint": "eslint ./"
   },
   "dependencies": {
+    "@react-three/drei": "^8",
     "@react-three/fiber": "^7",
     "framer-motion": "^5",
     "gray-matter": "^4",
@@ -15,6 +16,7 @@
     "postcss-camel-case": "^1",
     "postcss-preset-env": "^7",
     "postcss-pxtorem": "^6",
+    "raw-loader": "^4",
     "react": "rc",
     "react-dom": "rc",
     "sharp": "^0.29",
