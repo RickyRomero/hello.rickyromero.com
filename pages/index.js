@@ -1,14 +1,17 @@
 import { Suspense, lazy, useEffect, useState } from 'react'
 import Head from 'next/head'
+import Image from 'next/image'
 import Link from 'next/link'
 import Modal from 'components/modal'
 import { Grid, Row } from 'components/grid'
 import Heading from 'components/heading'
 import Passage from 'components/passage'
 import Button from 'components/button'
+import Project from 'components/project'
 import getProjects from 'generators/getProjects'
 
 import styles from 'styles/home.module.css'
+import portrait from 'public/images/me.png'
 
 const Canvas = lazy(() => import('lazy/canvas'))
 const Bokeh = lazy(() => import('scenes/bokeh'))
@@ -69,12 +72,12 @@ const Home = ({ projects }) => {
               <Row>
                 {projects.map(project => {
                   return (
-                    <div
+                    <Project
                       key={project.slug}
                       spans={[project.metadata.grid || 4]}
                     >{
                       project.metadata.title
-                    }</div>
+                    }</Project>
                   )
                 })}
               </Row>
@@ -83,7 +86,15 @@ const Home = ({ projects }) => {
             <Grid className={[styles.section, styles.about].join(' ')}>
               <Heading as="h2">About Me</Heading>
               <Row>
-                <figure spans={[4]}></figure>
+                <figure className={styles.portrait} spans={[4]}>
+                  <Image
+                    layout="fill"
+                    objectFit="cover"
+                    sizes="(max-width: 640px) 94vw, 30vw"
+                    src={portrait}
+                    alt="Portrait photo of Ricky Romero"
+                  />
+                </figure>
                 <div spans={[8]}>
                   <Heading as="h3">My name's Ricky Romero.</Heading>
                   <Passage>I'm a designer and engineer in the scenic Bay Area of California. I've worked in web design and development (mobile and desktop) for over 10 years, and I'm dipping my toes in Swift now. I've worked on both marketing and product teams, and done both interaction and visual design.</Passage>

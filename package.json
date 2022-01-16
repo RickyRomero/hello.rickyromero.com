@@ -17,6 +17,7 @@
     "postcss-pxtorem": "^6",
     "react": "rc",
     "react-dom": "rc",
+    "sharp": "^0.29",
     "three": "^0.135"
   },
   "devDependencies": {

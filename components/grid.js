@@ -8,9 +8,10 @@ const Row = props => {
   let desktopSpanSum = 0
   const gridChildren = Children.map(children, (child, idx) => {
     const [desktop = desktopColCount/*, mobile */] = child.props.spans || []
+    const className = cl(styles[`desktop-${desktop}`], child.props.className || '')
     desktopSpanSum += desktop
 
-    return cloneElement(child, { className: cl(styles[`desktop-${desktop}`]) })
+    return cloneElement(child, { className })
   })
   const desktopColEmpty = desktopColCount - (desktopSpanSum % desktopColCount)
 

@@ -1,6 +1,6 @@
 .grid {
   display: grid;
-  grid-template-columns: repeat(12, 1fr); 
+  grid-template-columns: repeat(12, 1fr);
   gap: 40px;
 }
 
@@ -16,3 +16,15 @@
 .desktop-10 { grid-column-end: span 10; }
 .desktop-11 { grid-column-end: span 11; }
 .desktop-12 { grid-column-end: span 12; }
+
+@media (max-width: 640px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  .desktop-1, .desktop-2, .desktop-3, .desktop-4,
+  .desktop-5, .desktop-6, .desktop-7, .desktop-8,
+  .desktop-9, .desktop-10, .desktop-11, .desktop-12 {
+    grid-column-end: span 1;
+  }
+}

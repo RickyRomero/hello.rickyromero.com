@@ -18,7 +18,8 @@
 }
 
 .content {
-  max-width: 1280px;
+  max-width: 1440px;
+  padding: 0 clamp(10px, 3vw, 40px);
 }
 
 .section.hello {
@@ -37,6 +38,15 @@
   background: pink;
 }
 
+.portrait {
+  position: relative;
+  overflow: hidden;
+  background-color: black;
+  border-radius: clamp(36px, 5vw, 60px);
+  aspect-ratio: 5 / 6;
+  margin: 0;
+}
+
 .header {
 
 }
@@ -47,7 +57,11 @@
 .footer {
 }
 
-@media (max-width: 600px) {
+@media (max-width: 640px) {
+  .portrait {
+    aspect-ratio: 4 / 3;
+  }
+
   .content {
   }
 }
