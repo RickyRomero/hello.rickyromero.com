@@ -38,6 +38,7 @@ const DynamicRes = ({ pixelRatio, onUpdate }) => {
       newPixelRatio = Math.max(1.0, newPixelRatio)
       newPixelRatio = Math.min(dpr, newPixelRatio)
       if (pixelRatio !== newPixelRatio) {
+        console.log(newPixelRatio)
         onUpdate(newPixelRatio)
       }
     }

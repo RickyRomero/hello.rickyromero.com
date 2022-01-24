@@ -1,6 +1,6 @@
 precision highp float;
 
-#pragma glslify: random = require('glsl-random')
+#pragma glslify: random = require('./scenes/dreamscape/random.glsl')
 
 uniform mat4 modelViewMatrix;
 uniform mat4 projectionMatrix;

@@ -1,6 +1,6 @@
 import { useRef } from 'react'
 import * as THREE from 'three'
-import { useFrame } from '@react-three/fiber'
+import { useThree, useFrame } from '@react-three/fiber'
 
 import vertexShader from './far-field.vs'
 import fragmentShader from './far-field.fs'
@@ -13,21 +13,17 @@ const material = new THREE.RawShaderMaterial({
     u_time: { value: 0 },
     u_speed: { value: 0.1 },
     u_aspect: { value: 1 },
-    u_lights: { value: 1.0 }
+    u_lights: { value: 1 }
   },
   blending: THREE.AdditiveBlending
 })
 const plane = new THREE.PlaneGeometry(1, 1, 1, 1)
 
-const FarField = props => {
+const FarField = () => {
   const field = useRef()
 
-  useFrame(({ camera }, delta) => {
-    // if (field.current) {
-    //   console.log('field ready')
-    //   console.dir(field.current)
-    //   debugger
-    // }
+  useThree(({ camera }) => {
+    if (!field.current) { return }
 
     const { aspect } = camera
     const distance = camera.position.distanceTo(field.current?.position)
@@ -37,7 +33,11 @@ const FarField = props => {
 
     field.current?.scale.set(planeWidthAtDistance, planeHeightAtDistance, 1)
 
-    material.uniforms.u_aspect.value = window.innerWidth / window.innerHeight
+    material.uniforms.u_aspect.value = aspect
+  })
+
+  useFrame((_, delta) => {
+    material.uniforms.u_time.value += delta
   })
 
   return <mesh

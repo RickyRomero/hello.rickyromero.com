@@ -1,6 +1,6 @@
 precision highp float;
 
-#pragma glslify: noise = require('glsl-noise/simplex/2d')
+#pragma glslify: random = require('./scenes/dreamscape/random.glsl')
 
 uniform float u_lights;
 
@@ -11,10 +11,8 @@ varying float v_seed;
 varying vec2 v_uv;
 
 void main() {
-  float randColor = abs(noise(vec2(v_seed, v_altitude) * 10.0));
-  float randBrightness = abs(noise(vec2(v_seed + 1.0, v_altitude) * 10.0));
-  randColor = mod(randColor, 0.1) * 10.0;
-  randBrightness = mod(randBrightness, 0.1) * 10.0;
+  float randColor = random(vec2(v_seed, v_altitude));
+  float randBrightness = random(vec2(v_seed + 1.0, v_altitude));
 
   vec3 lmColor1 = vec3(1.0);
   vec3 dmColor1 = vec3(0.68, 0, 1);

@@ -6,7 +6,15 @@ module.exports = {
   webpack: (config, options) => {
     config.module.rules.push({
       test: /\.[fv]s$/,
-      use: ['raw-loader', 'glslify-loader']
+      use: [
+        'raw-loader',
+        {
+          loader: 'glslify-loader',
+          options: {
+            basedir: process.env.NODE_PATH
+          }
+        }
+      ]
     })
 
     return config

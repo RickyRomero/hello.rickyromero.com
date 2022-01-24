@@ -16,7 +16,7 @@ const material = new THREE.RawShaderMaterial({
     u_time: { value: 0 },
     u_speed: { value: 0.25 },
     u_dimensions: { value: new THREE.Vector2(width, depth) },
-    u_lights: { value: 1.0 }
+    u_lights: { value: 1 }
   },
   blending: THREE.AdditiveBlending,
   transparent: true
@@ -25,7 +25,7 @@ const plane = new THREE.PlaneGeometry(width, depth, width * meshRes, depth * mes
 plane.rotateX(-90 * Math.PI / 180)
 plane.translate(0, -0.5, (-depth / 2) + 1)
 
-const Expanse = props => {
+const Expanse = () => {
   useFrame((_, delta) => {
     material.uniforms.u_time.value += delta
   })
