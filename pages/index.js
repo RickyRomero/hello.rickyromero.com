@@ -1,4 +1,4 @@
-import { Suspense, lazy, useEffect, useState } from 'react'
+import { Suspense, lazy, useState } from 'react'
 import Head from 'next/head'
 import Image from 'next/image'
 import Link from 'next/link'
@@ -13,25 +13,15 @@ import getProjects from 'generators/getProjects'
 import styles from 'styles/home.module.css'
 import portrait from 'public/images/me.png'
 
-const Canvas = lazy(() => import('lazy/canvas'))
-const Bokeh = lazy(() => import('scenes/bokeh'))
+const ThreeWrapper = lazy(() => import('components/three-wrapper'))
+const Dreamscape = lazy(() => import('scenes/dreamscape'))
 
 const getStaticProps = getProjects
 
 const Home = ({ projects }) => {
-  const [bokehBg, setBokehBg] = useState()
   const [modal, setModal] = useState(null)
 
-  useEffect(() => {
-    setBokehBg(
-      window
-        .getComputedStyle(document.documentElement)
-        .getPropertyValue('--bokeh-bg')
-        .trim()
-    )
-  }, [])
-
-  const fallbackCanvas = <div className={styles.bokehPlaceholder} />
+  const fallbackCanvas = <div className={styles.dreamscapePlaceholder} />
 
   return (
     <>
@@ -42,13 +32,12 @@ const Home = ({ projects }) => {
       </Head>
 
       <Suspense fallback={fallbackCanvas}>
-        <figure className={styles.bokehRendererContainer}>
-          <Canvas dpr={[1, 10]} gl={{ alpha: false }} shadows camera={{ position: [0, -3.2, 40], fov: 3 }}>
-            <color attach="background" args={[bokehBg]} />
+        <figure className={styles.dreamscapeRendererContainer}>
+          <ThreeWrapper>
             <Suspense fallback={null}>
-              <Bokeh />
+              <Dreamscape />
             </Suspense>
-          </Canvas>
+          </ThreeWrapper>
         </figure>
       </Suspense>
 

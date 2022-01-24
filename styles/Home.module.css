@@ -1,4 +1,4 @@
-.bokeh-placeholder, .bokeh-renderer-container {
+.dreamscape-placeholder, .dreamscape-renderer-container {
   z-index: var(--bokeh-layer);
   background: var(--bokeh-bg);
 
