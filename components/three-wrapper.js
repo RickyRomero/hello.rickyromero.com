@@ -5,7 +5,6 @@ const Canvas = lazy(() => import('lazy/canvas'))
 
 const ThreeWrapper = ({ children }) => {
   const [pixelRatio, setPixelRatio] = useState(window.devicePixelRatio)
-  const glOpts = { powerPreference: 'high-performance' }
   const cameraOpts = {
     fov: 75,
     near: 0.001,
@@ -15,7 +14,7 @@ const ThreeWrapper = ({ children }) => {
 
   return (
     <Suspense fallback={null}>
-      <Canvas dpr={pixelRatio} gl={glOpts} camera={cameraOpts}>
+      <Canvas dpr={pixelRatio} camera={cameraOpts}>
         <DynamicRes pixelRatio={pixelRatio} onUpdate={ratio => setPixelRatio(ratio)} />
         {children}
       </Canvas>

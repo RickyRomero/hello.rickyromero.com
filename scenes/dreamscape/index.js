@@ -1,48 +1,24 @@
 import { useRef } from 'react'
 import * as THREE from 'three'
-import { extend, useFrame } from '@react-three/fiber'
-import { shaderMaterial } from '@react-three/drei'
+import { useFrame, useThree } from '@react-three/fiber'
+import { PerspectiveCamera } from '@react-three/drei'
 
-import ribbonsVertex from './ribbons.vs'
-import ribbonsFragment from './ribbons.fs'
+import Bokeh from './bokeh'
+import Expanse from './expanse'
+import FarField from './far-field'
 
-const RibbonsMaterial = shaderMaterial(
-  { u_time: 0, u_color: new THREE.Color(0.2, 0.0, 0.1) },
-  ribbonsVertex,
-  ribbonsFragment
-)
-
-extend({ RibbonsMaterial })
-
-const Box = (props) => {
-  const box = useRef()
-  const ribbon = useRef()
-
-  useFrame((state, delta) => {
-    box.current.rotation.x += 0.5 * delta
-    box.current.rotation.y += 0.5 * delta
-    box.current.rotation.z += 0.5 * delta
-    ribbon.current.u_time += delta
-  })
-
-  return (
-    <mesh {...props} ref={box}>
-      <boxGeometry args={[1, 1, 1]} />
-      <ribbonsMaterial ref={ribbon} />
-    </mesh>
-  )
-}
-
-const Bokeh = ({ children }) => {
+const Dreamscape = ({ children }) => {
   return (
     <>
       {children}
-      <ambientLight />
-      <pointLight position={[10, 10, 10]} />
-      <Box position={[-0.9, 0, 0]} />
-      <Box position={[0.9, 0, 0]} />
+      <group>
+        <PerspectiveCamera makeDefault />
+        <FarField position={[0, 0, -10]} />
+      </group>
+      <Bokeh />
+      <Expanse />
     </>
   )
 }
 
-export default Bokeh
+export default Dreamscape
