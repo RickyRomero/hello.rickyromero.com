@@ -23,10 +23,15 @@ const Dreamscape = ({ children }) => {
   // TODO: Define this without using a magic number
   useEffect(() => {
     const handleScroll = () => setRenderActive(window.scrollY < 2000)
+    const handleVis = () => setRenderActive(document.visibilityState === 'visible')
 
     handleScroll()
     window.addEventListener('scroll', handleScroll)
-    return () => window.removeEventListener('scroll', handleScroll)
+    document.addEventListener('visibilitychange', handleVis)
+    return () => {
+      window.removeEventListener('scroll', handleScroll)
+      document.removeEventListener('visibilitychange', handleVis)
+    }
   }, [])
 
   return (
