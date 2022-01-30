@@ -7,9 +7,10 @@ const encoding = 'utf8'
 
 const getProjects = async () => {
   const names = fs.readdirSync(projectsDir)
+    .filter(item => !/^\./.test(path.basename(item)))
   const projects = names.map(name => {
-    const slug = path.basename(name, '.mdx')
-    const location = path.join(projectsDir, name)
+    const slug = path.basename(name)
+    const location = path.join(projectsDir, name, 'index.mdx')
     const contents = fs.readFileSync(location, { encoding })
     const preparsed = matter(contents)
 

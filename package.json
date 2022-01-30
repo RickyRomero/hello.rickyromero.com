@@ -21,7 +21,7 @@
     "react": "rc",
     "react-dom": "rc",
     "sharp": "^0.29",
-    "three": "^0.135"
+    "three": "^0.137"
   },
   "devDependencies": {
     "eslint": "^8",
