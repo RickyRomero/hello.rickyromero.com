@@ -26,6 +26,7 @@ const Dreamscape = ({ children }) => {
     const handleVis = () => setRenderActive(document.visibilityState === 'visible')
 
     handleScroll()
+    handleVis()
     window.addEventListener('scroll', handleScroll)
     document.addEventListener('visibilitychange', handleVis)
     return () => {
