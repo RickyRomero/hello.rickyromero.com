@@ -8,9 +8,11 @@
     "lint": "eslint ./"
   },
   "dependencies": {
+    "@react-spring/web": "^9",
     "@react-three/drei": "^8",
     "@react-three/fiber": "^7",
-    "framer-motion": "^5",
+    "focus-trap-react": "^8",
+    "glsl-noise": "^0",
     "glslify-loader": "^2",
     "gray-matter": "^4",
     "next": "^12",
