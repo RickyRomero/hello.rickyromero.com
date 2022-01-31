@@ -5,9 +5,13 @@ import matter from 'gray-matter'
 const projectsDir = path.join(process.cwd(), 'projects')
 const encoding = 'utf8'
 
-const getProjects = async () => {
-  const names = fs.readdirSync(projectsDir)
+const getProjectIds = async () => {
+  return fs.readdirSync(projectsDir)
     .filter(item => !/^\./.test(path.basename(item)))
+}
+
+const getProjectsMeta = async () => {
+  const names = await getProjectIds()
   const projects = names.map(name => {
     const slug = path.basename(name)
     const location = path.join(projectsDir, name, 'index.mdx')
@@ -22,7 +26,7 @@ const getProjects = async () => {
     }
   })
 
-  return { props: { projects: projects.sort(featuredSort) } }
+  return projects.sort(featuredSort)
 }
 
 const featuredSort = (a, b) => {
@@ -32,4 +36,4 @@ const featuredSort = (a, b) => {
   return bGrid - aGrid
 }
 
-export default getProjects
+export { getProjectIds, getProjectsMeta }

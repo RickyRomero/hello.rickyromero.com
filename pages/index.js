@@ -2,13 +2,12 @@ import { Suspense, lazy, useState } from 'react'
 import Head from 'next/head'
 import Image from 'next/image'
 import Link from 'next/link'
-import Modal from 'components/modal'
 import { Grid, Row } from 'components/grid'
 import Heading from 'components/heading'
 import Passage from 'components/passage'
 import Button from 'components/button'
 import Project from 'components/project'
-import getProjects from 'generators/getProjects'
+import { getProjectsMeta } from 'generators/projects'
 
 import styles from 'styles/home.module.css'
 import portrait from 'public/images/me.png'
@@ -16,10 +15,7 @@ import portrait from 'public/images/me.png'
 const ThreeWrapper = lazy(() => import('components/three-wrapper'))
 const Dreamscape = lazy(() => import('scenes/dreamscape'))
 
-const getStaticProps = getProjects
-
-const Home = ({ projects }) => {
-  const [modal, setModal] = useState(null)
+const Home = ({ projectMetadata, activeProject }) => {
   const [dreamscapeVisible, setDreamscapeVisible] = useState(false)
 
   const fallbackCanvas = <div className={styles.dreamscapePlaceholder} />
@@ -62,14 +58,16 @@ const Home = ({ projects }) => {
             <Grid className={[styles.section, styles.projects].join(' ')}>
               <Heading as="h2">Projects</Heading>
               <Row>
-                {projects.map(project => {
+                {projectMetadata.map(summary => {
+                  const { slug } = summary
+                  const isExpanded = activeProject?.slug === slug
+                  const passedDetails = isExpanded ? activeProject : summary
                   return (
                     <Project
-                      key={project.slug}
-                      spans={[project.metadata.grid || 4]}
-                    >{
-                      project.metadata.title
-                    }</Project>
+                      key={passedDetails.slug}
+                      spans={[passedDetails.metadata.grid || 4]}
+                      expanded={isExpanded}
+                    />
                   )
                 })}
               </Row>
@@ -111,14 +109,16 @@ const Home = ({ projects }) => {
           <footer className={styles.footer}></footer>
         </div>
       </div>
-
-      {modal ? (
-        <Modal onDismiss={() => setModal(null)}>
-          {modal}
-        </Modal>
-      ) : null}
     </>
   )
+}
+
+const getStaticProps = async ({ params }) => {
+  return {
+    props: {
+      projectMetadata: await getProjectsMeta()
+    }
+  }
 }
 
 export default Home
