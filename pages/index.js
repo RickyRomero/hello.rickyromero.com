@@ -20,8 +20,11 @@ const getStaticProps = getProjects
 
 const Home = ({ projects }) => {
   const [modal, setModal] = useState(null)
+  const [dreamscapeVisible, setDreamscapeVisible] = useState(false)
 
   const fallbackCanvas = <div className={styles.dreamscapePlaceholder} />
+
+  const showDreamscape = () => setDreamscapeVisible(true)
 
   return (
     <>
@@ -33,9 +36,9 @@ const Home = ({ projects }) => {
 
       <Suspense fallback={fallbackCanvas}>
         <figure className={styles.dreamscapeRendererContainer}>
-          <ThreeWrapper>
+          <ThreeWrapper sceneStarted={dreamscapeVisible}>
             <Suspense fallback={null}>
-              <Dreamscape />
+              <Dreamscape onFirstFrame={() => showDreamscape()} />
             </Suspense>
           </ThreeWrapper>
         </figure>
