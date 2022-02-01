@@ -18,7 +18,7 @@
 }
 
 .content {
-  max-width: 1440px;
+  max-width: 1280px;
   padding: 0 clamp(10px, 3vw, 40px);
 }
 
@@ -32,10 +32,6 @@
 
 .projects {
   grid-auto-flow: dense;
-}
-
-.projects div {
-  background: pink;
 }
 
 .portrait {

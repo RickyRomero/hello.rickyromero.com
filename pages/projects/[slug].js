@@ -14,17 +14,22 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { motion } from 'framer-motion'
 import FocusTrap from 'focus-trap-react'
-import { getProjectIds, getProjectsMeta } from 'generators/projects'
+import { getProjectSlugs, getProjectsMeta, getProject } from 'generators/projects'
+import cl from 'utils/classlist'
 
 import styles from 'styles/project.module.css'
 
-const Project = ({ postData, expanded }) => {
-  const { id, title, contentHtml } = postData
+const Project = ({ data, expanded, className }) => {
+  const { slug, title, contentHtml } = data
   const primaryAnimated = useRef()
 
   const wrapperClassList = [styles.contentWrapper]
   if (expanded) { wrapperClassList.push(styles.wrapperOpen) }
   const wrapperClass = wrapperClassList.join(' ')
+
+  const spring = { type: 'spring', bounce: 0.175, duration: 1 }
+  const origin = { originX: 0, originY: 0 }
+  const initial = { borderRadius: 40 }
 
   const imgSize = /* expanded ? '100vw' : */'25.894922425952vw'
 
@@ -48,53 +53,54 @@ const Project = ({ postData, expanded }) => {
       }
 
       <FocusTrap active={expanded}>
-        <li className={styles.post}>
+        <li className={cl(styles.project, className)}>
           <div className={styles.overlay} style={{
-            pointerEvents: overlay.to(o => o > 0 && expanded ? 'auto' : 'none'),
-            opacity: overlay.to(o => o / 1000)
+            pointerEvents: expanded ? 'auto' : 'none',
+            opacity: expanded ? 1 : 0
           }}>
             <Link href="/" scroll={false}>
               <a className={styles.overlayLink} {...addlOverlayProps}>Go back home</a>
             </Link>
           </div>
           <div
-            style={{ zIndex: overlay.to(o => o > 0 ? 2 : 0) }}
+            style={{ zIndex: expanded ? 2 : 0 }}
             className={wrapperClass}
           >
-            <article
+            <motion.article
+              layout
+              initial={initial}
+              transition={spring}
+              style={origin}
               className={styles.content}
               ref={primaryAnimated}
-              style={{
-                transform: xywh.to(makeTransform),
-                borderRadius: xywh.to(makeBorderRadius)
-              }}
             >
-              <div
+              <motion.div
+                layout="position"
+                transition={spring}
+                style={origin}
                 className={styles.inverseTransform}
-                style={{ transform: xywh.to(makeInverseTransform) }}
               >
                 <figure className={styles.hero}>
                   <Image
-                    src={require(`../../projects/${postData.id}/${postData.id}.jpg`)}
+                    src={require(`../../projects/${slug}/${slug}.jpg`)}
                     layout="fill"
                     objectFit="cover"
-                    width={postData.imgSize[0]} height={postData.imgSize[1]}
                     sizes={imgSize}
                   />
-                  <h1 className={utilStyles.headingXl}>{title}</h1>
-                  <h1 className={utilStyles.headingl}>{title}</h1>
+                  <h1>{title}</h1>
+                  <h1>{title}</h1>
                 </figure>
                 <div dangerouslySetInnerHTML={{ __html: contentHtml }} />
-              </div>
-            </article>
+              </motion.div>
+            </motion.article>
           </div>
           {
             !expanded && (
               <div
                 className={styles.expandLink}
-                style={{ zIndex: overlay.to(o => o > 0 ? 3 : 0) }}
+                style={{ zIndex: expanded ? 3 : 0 }}
               >
-                <Link href={`/posts/${id}`} scroll={false}>
+                <Link href={`/projects/${slug}`} scroll={false}>
                   <a className={styles.expandLink}>{title}</a>
                 </Link>
               </div>
@@ -107,7 +113,7 @@ const Project = ({ postData, expanded }) => {
 }
 
 const getStaticPaths = async () => {
-  const paths = (await getProjectIds())
+  const paths = (await getProjectSlugs())
     .map(slug => ({ params: { slug } }))
 
   return {
@@ -120,7 +126,7 @@ const getStaticProps = async ({ params }) => {
   return {
     props: {
       projectMetadata: await getProjectsMeta(),
-      activeProject: params.slug// await getPostData(params.slug)
+      activeProject: await getProject(params.slug)// await getPostData(params.slug)
     }
   }
 }

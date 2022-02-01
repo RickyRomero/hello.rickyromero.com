@@ -1,0 +1,80 @@
+.project {
+  position: relative;
+  display: block;
+  height: 420px;
+  padding: 0;
+  flex: 0 0 40%;
+}
+
+.project:nth-child(4n + 1), .project:nth-child(4n + 4) {
+  flex: 0 0 60%;
+}
+
+.overlay {
+  z-index: 1;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.8);
+  /* backdrop-filter: brightness(1.5) blur(20px) saturate(1.8); */
+}
+
+.overlay a {
+  color: transparent;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.content-wrapper {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  display: block;
+  pointer-events: none;
+}
+
+.content-wrapper.wrapper-open {
+  position: fixed;
+  top: 0; right: 0; bottom: 0; left: 0;
+  z-index: 1;
+  overflow: hidden;
+  padding: 40px 0;
+}
+
+.content {
+  pointer-events: auto;
+  position: relative;
+  border-radius: 20px;
+  background: #facade;
+  overflow: hidden;
+  width: 100%;
+  max-width: 1340px;
+  min-height: 100%;
+  margin: 0 auto;
+}
+
+.inverse-transform {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.hero {
+  position: absolute;
+  margin: 0;
+  height: 420px;
+  width: 100vw;
+  max-width: 800px;
+  background-color: black;
+}
+
+.expand-link {
+  color: transparent;
+  position: absolute;
+  top: 0; right: 0; bottom: 0; left: 0;
+}

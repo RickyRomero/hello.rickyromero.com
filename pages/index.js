@@ -6,7 +6,7 @@ import { Grid, Row } from 'components/grid'
 import Heading from 'components/heading'
 import Passage from 'components/passage'
 import Button from 'components/button'
-import Project from 'components/project'
+import Project from './projects/[slug].js'
 import { getProjectsMeta } from 'generators/projects'
 
 import styles from 'styles/home.module.css'
@@ -66,6 +66,7 @@ const Home = ({ projectMetadata, activeProject }) => {
                     <Project
                       key={passedDetails.slug}
                       spans={[passedDetails.metadata.grid || 4]}
+                      data={passedDetails}
                       expanded={isExpanded}
                     />
                   )
