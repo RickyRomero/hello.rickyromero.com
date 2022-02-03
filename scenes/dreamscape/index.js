@@ -4,6 +4,7 @@ import { PerspectiveCamera } from '@react-three/drei'
 import { useFrame } from '@react-three/fiber'
 import { useSpring } from 'framer-motion'
 
+import useMediaQuery from 'hooks/use-media-query'
 import Bokeh from './bokeh'
 import Expanse from './expanse'
 import FarField from './far-field'
@@ -11,6 +12,9 @@ import FarField from './far-field'
 const RenderHalt = () => useFrame(() => null, 1000)
 
 const Dreamscape = ({ onFirstFrame, children }) => {
+  console.log('Dreamscape')
+  const darkMode = useMediaQuery('prefers-color-scheme', 'dark')
+  console.log('Dark mode active:', darkMode)
   const startingCameraRotation = 30
   const baseCameraRotation = -10
   const [renderActive, setRenderActive] = useState(true)

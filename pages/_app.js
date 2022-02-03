@@ -1,4 +1,3 @@
-import { SettingsDetector } from 'components/settings'
 import Home from 'pages/index.js'
 import Project from 'pages/projects/[slug]'
 
@@ -10,11 +9,9 @@ const App = ({ Component, pageProps }) => {
   const isSingleInstance = [Home, Project].includes(instance.type)
 
   return (
-    <SettingsDetector>{
-      isSingleInstance ? (
-        <Home {...pageProps} />
-      ) : instance
-    }</SettingsDetector>
+    isSingleInstance ? (
+      <Home {...pageProps} />
+    ) : instance
   )
 }
 
