@@ -1,3 +1,4 @@
+import { useEffect } from 'react'
 import * as THREE from 'three'
 import { useFrame } from '@react-three/fiber'
 
@@ -31,10 +32,12 @@ for (let i = 0; i < particleCount; i++) {
 
 bokehCloud.setAttribute('a_seed', new THREE.InstancedBufferAttribute(seeds, 1))
 
-const Bokeh = () => {
+const Bokeh = ({ lights }) => {
   useFrame((_, delta) => {
     material.uniforms.u_time.value += delta
   })
+
+  useEffect(() => lights.onChange(v => { material.uniforms.u_lights.value = v }), [])
 
   return <mesh
     geometry={bokehCloud}

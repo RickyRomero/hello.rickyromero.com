@@ -1,3 +1,4 @@
+import { useEffect } from 'react'
 import * as THREE from 'three'
 import { useFrame } from '@react-three/fiber'
 
@@ -25,10 +26,12 @@ const plane = new THREE.PlaneGeometry(width, depth, width * meshRes, depth * mes
 plane.rotateX(-90 * Math.PI / 180)
 plane.translate(0, -0.5, (-depth / 2) + 1)
 
-const Expanse = () => {
+const Expanse = ({ lights }) => {
   useFrame((_, delta) => {
     material.uniforms.u_time.value += delta
   })
+
+  useEffect(() => lights.onChange(v => { material.uniforms.u_lights.value = v }), [])
 
   return <mesh geometry={plane} material={material} />
 }

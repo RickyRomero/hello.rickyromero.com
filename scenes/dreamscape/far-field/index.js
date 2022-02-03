@@ -1,4 +1,4 @@
-import { useRef } from 'react'
+import { useEffect, useRef } from 'react'
 import * as THREE from 'three'
 import { useThree, useFrame } from '@react-three/fiber'
 
@@ -19,7 +19,7 @@ const material = new THREE.RawShaderMaterial({
 })
 const plane = new THREE.PlaneGeometry(1, 1, 1, 1)
 
-const FarField = () => {
+const FarField = ({ lights }) => {
   const field = useRef()
 
   useThree(({ camera }) => {
@@ -39,6 +39,8 @@ const FarField = () => {
   useFrame((_, delta) => {
     material.uniforms.u_time.value += delta
   })
+
+  useEffect(() => lights.onChange(v => { material.uniforms.u_lights.value = v }), [])
 
   return <mesh
     ref={field}

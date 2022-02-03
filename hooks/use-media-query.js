@@ -18,6 +18,7 @@ const useMediaQuery = (query, condition) => {
     if (!featureSupported(feature)) { return }
     const mediaQuery = window.matchMedia(match)
     const update = () => { setActive(mediaQuery.matches) }
+    update()
 
     mediaQuery.addEventListener('change', update)
     return () => { mediaQuery.removeEventListener('change', update) }
