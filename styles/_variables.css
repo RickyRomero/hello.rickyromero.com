@@ -78,7 +78,7 @@
 }
 
 /* DARK MODE */
-/* @media (prefers-color-scheme: dark) {
+@media (prefers-color-scheme: dark) {
   :root {
     --base-text: white;
     --bokeh-bg: #2a1e45;
@@ -91,4 +91,4 @@
     --button-shadow-sharp: var(--grape-shadow-sharp);
     --button-shadow-diffuse: var(--grape-shadow-diffuse);
   }
-} */
+}

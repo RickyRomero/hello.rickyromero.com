@@ -11,7 +11,7 @@ uniform float u_lights;
 varying vec2 v_uv;
 
 vec3 backgroundBlur(vec3 lightColor, vec3 deepColor, vec2 uv, float time) {
-  vec3 baseBlur = smoothstep(-0.5, 0.5, vec3(noise(vec3(uv * 0.5, time))));
+  vec3 baseBlur = vec3(noise(vec3(uv * 0.5, time))) * 5.0;
   vec3 detailBlur = vec3(noise(vec3(uv * vec2(1.25, 3.0), time)));
   vec3 combinedBlur = detailBlur * baseBlur;
   combinedBlur = mix(deepColor, lightColor, combinedBlur);
