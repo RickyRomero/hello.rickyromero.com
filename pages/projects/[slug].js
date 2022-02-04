@@ -27,7 +27,7 @@ const Project = ({ data, expanded, className }) => {
   if (expanded) { wrapperClassList.push(styles.wrapperOpen) }
   const wrapperClass = wrapperClassList.join(' ')
 
-  const spring = { type: 'spring', bounce: 0.175, duration: 1 }
+  const spring = { type: 'spring', stiffness: 200, damping: 30 }
   const origin = { originX: 0, originY: 0 }
   const initial = { borderRadius: 40 }
 
