@@ -13,13 +13,14 @@ const material = new THREE.RawShaderMaterial({
     u_time: { value: 0 },
     u_speed: { value: 0.1 },
     u_aspect: { value: 1 },
+    u_pitch: { value: 0 },
     u_lights: { value: 1 }
   },
   blending: THREE.AdditiveBlending
 })
 const plane = new THREE.PlaneGeometry(1, 1, 1, 1)
 
-const FarField = ({ lights }) => {
+const FarField = ({ lights, pitch }) => {
   const field = useRef()
 
   useThree(({ camera }) => {
@@ -41,6 +42,7 @@ const FarField = ({ lights }) => {
   })
 
   useEffect(() => lights.onChange(v => { material.uniforms.u_lights.value = v }), [])
+  useEffect(() => pitch.onChange(v => { material.uniforms.u_pitch.value = v }), [])
 
   return <mesh
     ref={field}

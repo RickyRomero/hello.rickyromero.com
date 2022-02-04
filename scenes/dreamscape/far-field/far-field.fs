@@ -7,6 +7,7 @@ uniform float u_aspect;
 uniform float u_time;
 uniform float u_speed;
 uniform float u_lights;
+uniform float u_pitch;
 
 varying vec2 v_uv;
 
@@ -54,12 +55,15 @@ void main() {
   vec3 dmGlowColor = vec3(1, 0, 0.3);
 
   float uvOffset = (u_aspect - 1.0) / 2.0;
-  vec2 aspectUv = vec2((v_uv.s * u_aspect) - uvOffset, v_uv.t);
+  vec2 aspectUv = vec2((v_uv.s * u_aspect) - uvOffset, v_uv.t - (u_pitch / 3000.0));
   float scaledTime = u_time * u_speed;
 
   vec3 lightColor = mix(dmLightColor, lmLightColor, u_lights);
   vec3 deepColor = mix(dmDeepColor, lmDeepColor, u_lights);
   vec3 blur = backgroundBlur(lightColor, deepColor, aspectUv, scaledTime);
+
+  // Fade blur out as page scrolls
+  blur = mix(deepColor, blur, vec3(clamp(0.5 + aspectUv.t * 4.0, 0.0, 1.0)));
 
   vec3 sweetBabyRays = lightRays(aspectUv, scaledTime);
   float dmGlowStrength = smoothstep(3.0, 0.0, distance(vec2(1.0, 0.0), aspectUv));

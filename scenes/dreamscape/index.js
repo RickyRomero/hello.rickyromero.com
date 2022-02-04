@@ -41,6 +41,7 @@ const Dreamscape = ({ onFirstFrame, children }) => {
     }
 
     const handleCursorPos = event => {
+      if (event.pointerType !== 'mouse') { return }
       const yaw = (event.clientX / window.innerWidth * 2) - 1
       const pitch = (event.clientY / window.innerHeight * 2) - 1
       springs.camYaw.set(yaw)
@@ -65,14 +66,14 @@ const Dreamscape = ({ onFirstFrame, children }) => {
     camGroup.current?.position.set(0, 0.1, 1)
 
     const setCameraAngle = () => {
-      let camPitch = -THREE.Math.degToRad(springs.pageScroll.get() / 32)
+      let camPitch = -THREE.Math.degToRad(springs.pageScroll.get() / 48)
       camPitch += THREE.Math.degToRad(springs.camPitch.get() * -4)
       const camYaw = THREE.Math.degToRad(springs.camYaw.get() * -4)
       const rotation = new THREE.Euler(camPitch, camYaw, 0, 'XYZ')
       camGroup.current?.setRotationFromEuler(rotation)
     }
 
-    const unsubs = [
+    const cameraUnsubs = [
       springs.camPitch,
       springs.camYaw,
       springs.pageScroll
@@ -80,7 +81,7 @@ const Dreamscape = ({ onFirstFrame, children }) => {
       spring.onChange(setCameraAngle)
     ))
 
-    return () => unsubs.forEach(unsub => unsub())
+    return () => cameraUnsubs.forEach(unsub => unsub())
   }, [camGroup.current])
 
   useFrame(() => {
@@ -97,7 +98,7 @@ const Dreamscape = ({ onFirstFrame, children }) => {
       {children}
       <group ref={camGroup}>
         <PerspectiveCamera makeDefault fov={75} near={0.001} far={100} />
-        <FarField position={[0, 0, -10]} lights={springs.light} />
+        <FarField position={[0, 0, -10]} lights={springs.light} pitch={springs.pageScroll} />
       </group>
       <Bokeh lights={springs.light} />
       <Expanse lights={springs.light} />

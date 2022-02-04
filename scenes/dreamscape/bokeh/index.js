@@ -43,6 +43,7 @@ const Bokeh = ({ lights }) => {
     geometry={bokehCloud}
     material={material}
     position={[0, 0, -10]}
+    frustumCulled={false}
   />
 }
 
