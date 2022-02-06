@@ -8,7 +8,7 @@
 // we get the `expanded` flag, we use that as a cue to animate open and display the
 // full page contents.
 
-import { useRef } from 'react'
+import { Suspense, lazy } from 'react'
 import Head from 'next/head'
 import Image from 'next/image'
 import Link from 'next/link'
@@ -19,9 +19,10 @@ import cl from 'utils/classlist'
 
 import styles from 'styles/project.module.css'
 
+const Escape = lazy(() => import('components/escape'))
+
 const Project = ({ data, expanded, className }) => {
   const { slug, title, contentHtml } = data
-  const primaryAnimated = useRef()
 
   const wrapperClassList = [styles.contentWrapper]
   if (expanded) { wrapperClassList.push(styles.wrapperOpen) }
@@ -54,14 +55,20 @@ const Project = ({ data, expanded, className }) => {
 
       <FocusTrap active={expanded}>
         <li className={cl(styles.project, className)}>
-          <div className={styles.overlay} style={{
-            pointerEvents: expanded ? 'auto' : 'none',
-            opacity: expanded ? 1 : 0
-          }}>
+          <motion.div
+            initial={false}
+            animate={{ opacity: expanded ? 1 : 0 }}
+            transition={spring}
+            className={styles.overlay}
+            style={{
+              pointerEvents: expanded ? 'auto' : 'none'
+            }
+          }>
             <Link href="/" scroll={false}>
               <a className={styles.overlayLink} {...addlOverlayProps}>Go back home</a>
             </Link>
-          </div>
+            { expanded && <Suspense fallback={null}><Escape /></Suspense> }
+          </motion.div>
           <div
             style={{ zIndex: expanded ? 2 : 0 }}
             className={wrapperClass}
@@ -72,7 +79,6 @@ const Project = ({ data, expanded, className }) => {
               transition={spring}
               style={origin}
               className={styles.content}
-              ref={primaryAnimated}
             >
               <motion.div
                 layout="position"

@@ -11,7 +11,6 @@ const useMediaQuery = (query, condition) => {
   const [active, setActive] = useState(false)
 
   useEffect(() => {
-    console.log('useMediaQuery initialization')
     const feature = `(${query})`
     const match = `(${query}: ${condition})`
 
