@@ -21,7 +21,6 @@
   z-index: var(--page-layer);
 
   position: relative;
-  width: 100vw;
   display: flex;
   justify-content: center;
 }

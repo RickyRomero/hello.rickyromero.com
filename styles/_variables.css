@@ -3,10 +3,12 @@
   --fog: #fff9;
   --berry-soft: #dff7ff;
   --berry-bold: #0057ff;
+  --berry-juice: #070029cc;
   --berry-shadow-sharp: var(--berry-bold);
   --berry-shadow-diffuse: var(--berry-bold);
   --grape-soft: #f5e2ff;
   --grape-bold: #9b00ff;
+  --grape-juice: #0c0013cc;
   --grape-shadow-sharp: #9b00ff29;
   --grape-shadow-diffuse: #9b00ff17;
   --dragonfruit: #ff006c;
@@ -53,8 +55,10 @@
   :root {
     --berry-soft: color(display-p3 0.8901960784 0.9647058824 1);
     --berry-bold: color(display-p3 0 0.3333333333 1);
+    --berry-juice: color(display-p3 0.024 0 0.155 / 0.8);
     --grape-soft: color(display-p3 0.9490196078 0.8901960784 1);
     --grape-bold: color(display-p3 0.5529411765 0 1);
+    --grape-juice: color(display-p3 0.039 0 0.07 / 0.8);
     --grape-shadow-sharp: color(display-p3 0.5529411765 0 1 / 0.16);
     --grape-shadow-diffuse: color(display-p3 0.5529411765 0 1 / 0.09);
     --dragonfruit: color(display-p3 1 0 0.431372549);
@@ -76,6 +80,8 @@
   --button-bottom: var(--grape-soft);
   --button-shadow-sharp: var(--grape-shadow-sharp);
   --button-shadow-diffuse: var(--grape-shadow-diffuse);
+
+  --overlay-bg: var(--berry-juice);
 }
 
 /* DARK MODE */
@@ -91,5 +97,7 @@
     --button-bottom: var(--grape-bold);
     --button-shadow-sharp: var(--grape-shadow-sharp);
     --button-shadow-diffuse: var(--grape-shadow-diffuse);
+
+    --overlay-bg: var(--grape-juice);
   }
 }
