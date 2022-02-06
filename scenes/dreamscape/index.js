@@ -18,7 +18,6 @@ const Dreamscape = ({ onFirstFrame, children }) => {
   const [renderActive, setRenderActive] = useState(true)
   const [firstFrameRendered, setFirstFrameRendered] = useState(false)
   const springConfig = {
-    stiffness: 600,
     damping: 40,
     restSpeed: 0.001,
     restDelta: 0.001
@@ -26,7 +25,7 @@ const Dreamscape = ({ onFirstFrame, children }) => {
   const springs = {
     camYaw: useSpring(0, { ...springConfig, stiffness: 100 }),
     camPitch: useSpring(0, { ...springConfig, stiffness: 100 }),
-    light: useSpring(Number(!darkMode), springConfig)
+    light: useSpring(Number(!darkMode), { ...springConfig, stiffness: 600 })
   }
   const camGroup = useRef()
 
