@@ -1,7 +1,7 @@
 .grid {
   display: grid;
   grid-template-columns: repeat(12, 1fr);
-  gap: 40px;
+  gap: var(--gap);
 }
 
 .desktop-1 { grid-column-end: span 1; }

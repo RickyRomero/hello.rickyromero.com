@@ -47,7 +47,12 @@
   --placeholder-layer: 0;
   --dreamscape-layer:  1;
   --page-layer:        2;
-  --lightbox-layer:    3;
+  --overlay-layer:     3;
+  --lightbox-layer:    4;
+
+  /* SPACING AND GAPS */
+  --gap: 40px;
+  --page-inset: clamp(10px, 3vw, var(--gap));
 }
 
 /* WIDE-GAMUT PALETTE */
@@ -82,6 +87,7 @@
   --button-shadow-diffuse: var(--grape-shadow-diffuse);
 
   --overlay-bg: var(--berry-juice);
+  --lightbox-shadow: var(--overlay-bg);
 }
 
 /* DARK MODE */

@@ -27,7 +27,7 @@
 
 .content {
   max-width: 1280px;
-  padding: 0 clamp(10px, 3vw, 40px);
+  padding: 0 var(--page-inset);
 }
 
 .section.hello {

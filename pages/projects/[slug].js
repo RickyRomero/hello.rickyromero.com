@@ -12,7 +12,7 @@ import { Suspense, lazy } from 'react'
 import Head from 'next/head'
 import Image from 'next/image'
 import Link from 'next/link'
-import { motion } from 'framer-motion'
+import { motion, useMotionValue } from 'framer-motion'
 import FocusTrap from 'focus-trap-react'
 import { getProjectSlugs, getProjectsMeta, getProject } from 'generators/projects'
 import cl from 'utils/classlist'
@@ -22,13 +22,19 @@ import styles from 'styles/project.module.css'
 const Escape = lazy(() => import('components/escape'))
 
 const Project = ({ data, expanded, className }) => {
+  const slowMo = true
   const { slug, title, contentHtml } = data
 
   const wrapperClassList = [styles.contentWrapper]
   if (expanded) { wrapperClassList.push(styles.wrapperOpen) }
   const wrapperClass = wrapperClassList.join(' ')
 
-  const spring = { type: 'spring', stiffness: 200, damping: 30 }
+  const lightboxLayer = useMotionValue(expanded ? 'var(--lightbox-layer)' : 0)
+  const setLightboxLayer = ({ progress }) => {
+    lightboxLayer.set(progress > 0.001 ? 'var(--lightbox-layer)' : 0)
+  }
+
+  const spring = { type: 'spring', stiffness: slowMo ? 50 : 200, damping: 30 }
   const origin = { originX: 0, originY: 0 }
   const initial = { borderRadius: 40 }
 
@@ -69,8 +75,11 @@ const Project = ({ data, expanded, className }) => {
             </Link>
             { expanded && <Suspense fallback={null}><Escape /></Suspense> }
           </motion.div>
-          <div
-            style={{ zIndex: expanded ? 2 : 0 }}
+          <motion.div
+            transition={spring}
+            animate={{ progress: expanded ? 1 : 0 }}
+            style={{ zIndex: lightboxLayer }}
+            onUpdate={setLightboxLayer}
             className={wrapperClass}
           >
             <motion.article
@@ -99,7 +108,7 @@ const Project = ({ data, expanded, className }) => {
                 <div dangerouslySetInnerHTML={{ __html: contentHtml }} />
               </motion.div>
             </motion.article>
-          </div>
+          </motion.div>
           {
             !expanded && (
               <div
