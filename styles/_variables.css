@@ -50,9 +50,11 @@
   --overlay-layer:     3;
   --lightbox-layer:    4;
 
-  /* SPACING AND GAPS */
+  /* SIZE UNITS */
+  --max-page-content-width: 1280px;
   --gap: 40px;
   --page-inset: clamp(10px, 3vw, var(--gap));
+  --max-page-width: calc(var(--max-page-content-width) + var(--page-inset) * 2);
 }
 
 /* WIDE-GAMUT PALETTE */

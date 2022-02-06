@@ -38,7 +38,7 @@ const Project = ({ data, expanded, className }) => {
   const origin = { originX: 0, originY: 0 }
   const initial = { borderRadius: 40 }
 
-  const imgSize = /* expanded ? '100vw' : */'25.894922425952vw'
+  const imgSize = /* expanded ? '100vw' : */'1360px'
 
   const dynamicOverlayProps = {
     enabled: {},
@@ -95,7 +95,12 @@ const Project = ({ data, expanded, className }) => {
                 style={origin}
                 className={styles.inverseTransform}
               >
-                <figure className={styles.hero}>
+                <motion.figure
+                  layout
+                  transition={spring}
+                  style={origin}
+                  className={styles.hero}
+                >
                   <Image
                     src={require(`projects/${slug}/${slug}.jpg`)}
                     layout="fill"
@@ -104,7 +109,7 @@ const Project = ({ data, expanded, className }) => {
                   />
                   <h1>{title}</h1>
                   <h1>{title}</h1>
-                </figure>
+                </motion.figure>
                 <div dangerouslySetInnerHTML={{ __html: contentHtml }} />
               </motion.div>
             </motion.article>

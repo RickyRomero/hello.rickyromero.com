@@ -26,7 +26,7 @@
 }
 
 .content {
-  max-width: 1280px;
+  max-width: var(--max-page-width);
   padding: 0 var(--page-inset);
 }
 
