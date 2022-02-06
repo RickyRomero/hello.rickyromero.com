@@ -88,7 +88,7 @@ const Project = ({ data, expanded, className }) => {
               >
                 <figure className={styles.hero}>
                   <Image
-                    src={require(`../../projects/${slug}/${slug}.jpg`)}
+                    src={require(`projects/${slug}/${slug}.jpg`)}
                     layout="fill"
                     objectFit="cover"
                     sizes={imgSize}

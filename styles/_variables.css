@@ -42,9 +42,10 @@
   --cp-fat:         682.0;
 
   /* Z-INDEXES */
-  --bokeh-layer:    0;
-  --page-layer:     1;
-  --lightbox-layer: 2;
+  --placeholder-layer: 0;
+  --dreamscape-layer:  1;
+  --page-layer:        2;
+  --lightbox-layer:    3;
 }
 
 /* WIDE-GAMUT PALETTE */
@@ -65,7 +66,7 @@
 /* LIGHT MODE */
 :root {
   --base-text: black;
-  --bokeh-bg: #dff7ff; /* no wide-gamut WebGL yet */
+  --dreamscape-bg: #dff7ff; /* no wide-gamut WebGL yet */
   --emphatic: var(--dragonfruit);
 
   --button-text: var(--grape-bold);
@@ -81,7 +82,7 @@
 @media (prefers-color-scheme: dark) {
   :root {
     --base-text: white;
-    --bokeh-bg: #2a1e45;
+    --dreamscape-bg: #2a1e45;
 
     --button-text: white;
     --button-text-shadow: var(--grape-shadow-sharp);

@@ -6,6 +6,7 @@ import { Grid, Row } from 'components/grid'
 import Heading from 'components/heading'
 import Passage from 'components/passage'
 import Button from 'components/button'
+import useMediaQuery from 'hooks/use-media-query'
 import Project from './projects/[slug].js'
 import { getProjectsMeta } from 'generators/projects'
 
@@ -17,10 +18,10 @@ const Dreamscape = lazy(() => import('scenes/dreamscape'))
 
 const Home = ({ projectMetadata, activeProject }) => {
   const [dreamscapeVisible, setDreamscapeVisible] = useState(false)
-
-  const fallbackCanvas = <div className={styles.dreamscapePlaceholder} />
-
   const showDreamscape = () => setDreamscapeVisible(true)
+
+  const darkMode = useMediaQuery('prefers-color-scheme', 'dark')
+  const scheme = darkMode ? 'dark' : 'light'
 
   return (
     <>
@@ -30,15 +31,26 @@ const Home = ({ projectMetadata, activeProject }) => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <Suspense fallback={fallbackCanvas}>
-        <figure className={styles.dreamscapeRendererContainer}>
-          <ThreeWrapper sceneStarted={dreamscapeVisible}>
-            <Suspense fallback={null}>
-              <Dreamscape onFirstFrame={() => showDreamscape()} />
-            </Suspense>
-          </ThreeWrapper>
-        </figure>
-      </Suspense>
+      <figure className={styles.dreamscape}>
+        <div className={styles.placeholder}>
+          <Image
+            alt=""
+            src={require(`scenes/dreamscape/loading-${scheme}.jpg`)}
+            layout="fill"
+            objectFit="cover"
+            sizes="25vw"
+          />
+        </div>
+        <div className={styles.rendererContainer}>
+          <Suspense fallback={null}>
+            <ThreeWrapper sceneStarted={dreamscapeVisible}>
+              <Suspense fallback={null}>
+                <Dreamscape onFirstFrame={() => showDreamscape()} />
+              </Suspense>
+            </ThreeWrapper>
+          </Suspense>
+        </div>
+      </figure>
 
       <div className={styles.page}>
         <div className={styles.content}>

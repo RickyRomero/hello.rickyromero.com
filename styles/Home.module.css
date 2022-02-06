@@ -1,11 +1,20 @@
-.dreamscape-placeholder, .dreamscape-renderer-container {
-  z-index: var(--bokeh-layer);
-  background: var(--bokeh-bg);
+.dreamscape {
+  margin: 0;
+}
 
+.placeholder, .renderer-container {
   position: fixed;
   width: 100vw;
   height: 100vh;
-  margin: 0;
+}
+
+.placeholder {
+  z-index: var(--placeholder-layer);
+  background: var(--dreamscape-bg);
+}
+
+.renderer-container {
+  z-index: var(--dreamscape-layer);
 }
 
 .page {
