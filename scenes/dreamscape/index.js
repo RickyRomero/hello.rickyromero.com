@@ -24,17 +24,17 @@ const Dreamscape = ({ onFirstFrame, children }) => {
     restDelta: 0.001
   }
   const springs = {
-    camYaw: useSpring(0, springConfig),
-    camPitch: useSpring(0, springConfig),
+    camYaw: useSpring(0, { ...springConfig, stiffness: 100 }),
+    camPitch: useSpring(0, { ...springConfig, stiffness: 100 }),
     pageScroll: useSpring(0, springConfig),
     light: useSpring(Number(!darkMode), springConfig)
   }
   const camGroup = useRef()
 
-  // Stop animation after a specified scroll threshold
-  // TODO: Define this without using a magic number
-  // TODO: Test with large displays in portrait mode
   useEffect(() => {
+    // Stop animation after a specified scroll threshold
+    // TODO: Define this without using a magic number
+    // TODO: Test with large displays in portrait mode
     const handleScroll = () => {
       setRenderActive(window.scrollY < 2000)
       springs.pageScroll.set(window.scrollY)
@@ -42,8 +42,15 @@ const Dreamscape = ({ onFirstFrame, children }) => {
 
     const handleCursorPos = event => {
       if (event.pointerType !== 'mouse') { return }
-      const yaw = (event.clientX / window.innerWidth * 2) - 1
-      const pitch = (event.clientY / window.innerHeight * 2) - 1
+
+      let yaw, pitch
+      if (event.type === 'pointermove') {
+        yaw = (event.clientX / window.innerWidth * 3) - 1
+        pitch = (event.clientY / window.innerHeight * 3) - 1
+      } else if (event.type === 'pointerleave') {
+        yaw = pitch = 0
+      }
+
       springs.camYaw.set(yaw)
       springs.camPitch.set(pitch)
     }
@@ -53,11 +60,13 @@ const Dreamscape = ({ onFirstFrame, children }) => {
     handleVis()
     window.addEventListener('scroll', handleScroll)
     window.addEventListener('pointermove', handleCursorPos)
+    document.addEventListener('pointerleave', handleCursorPos)
     document.addEventListener('visibilitychange', handleVis)
 
     return () => {
       window.removeEventListener('scroll', handleScroll)
       window.removeEventListener('pointermove', handleCursorPos)
+      document.removeEventListener('pointerleave', handleCursorPos)
       document.removeEventListener('visibilitychange', handleVis)
     }
   }, [])
