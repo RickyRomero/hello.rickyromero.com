@@ -20,7 +20,7 @@ const material = new THREE.RawShaderMaterial({
 })
 const plane = new THREE.PlaneGeometry(1, 1, 1, 1)
 
-const FarField = ({ lights, pitch }) => {
+const FarField = ({ lights }) => {
   const field = useRef()
 
   useThree(({ camera }) => {
@@ -39,10 +39,10 @@ const FarField = ({ lights, pitch }) => {
 
   useFrame((_, delta) => {
     material.uniforms.u_time.value += delta
+    material.uniforms.u_pitch.value = window.scrollY
   })
 
   useEffect(() => lights.onChange(v => { material.uniforms.u_lights.value = v }), [])
-  useEffect(() => pitch.onChange(v => { material.uniforms.u_pitch.value = v }), [])
 
   return <mesh
     ref={field}

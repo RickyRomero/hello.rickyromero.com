@@ -26,20 +26,11 @@ const Dreamscape = ({ onFirstFrame, children }) => {
   const springs = {
     camYaw: useSpring(0, { ...springConfig, stiffness: 100 }),
     camPitch: useSpring(0, { ...springConfig, stiffness: 100 }),
-    pageScroll: useSpring(0, springConfig),
     light: useSpring(Number(!darkMode), springConfig)
   }
   const camGroup = useRef()
 
   useEffect(() => {
-    // Stop animation after a specified scroll threshold
-    // TODO: Define this without using a magic number
-    // TODO: Test with large displays in portrait mode
-    const handleScroll = () => {
-      setRenderActive(window.scrollY < 2000)
-      springs.pageScroll.set(window.scrollY)
-    }
-
     const handleCursorPos = event => {
       if (event.pointerType !== 'mouse') { return }
 
@@ -56,15 +47,12 @@ const Dreamscape = ({ onFirstFrame, children }) => {
     }
     const handleVis = () => setRenderActive(document.visibilityState === 'visible')
 
-    handleScroll()
     handleVis()
-    window.addEventListener('scroll', handleScroll)
     window.addEventListener('pointermove', handleCursorPos)
     document.addEventListener('pointerleave', handleCursorPos)
     document.addEventListener('visibilitychange', handleVis)
 
     return () => {
-      window.removeEventListener('scroll', handleScroll)
       window.removeEventListener('pointermove', handleCursorPos)
       document.removeEventListener('pointerleave', handleCursorPos)
       document.removeEventListener('visibilitychange', handleVis)
@@ -75,22 +63,30 @@ const Dreamscape = ({ onFirstFrame, children }) => {
     camGroup.current?.position.set(0, 0.1, 1)
 
     const setCameraAngle = () => {
-      let camPitch = -THREE.Math.degToRad(springs.pageScroll.get() / 48)
+      let camPitch = -THREE.Math.degToRad(window.scrollY / 48)
       camPitch += THREE.Math.degToRad(springs.camPitch.get() * -4)
       const camYaw = THREE.Math.degToRad(springs.camYaw.get() * -4)
       const rotation = new THREE.Euler(camPitch, camYaw, 0, 'XYZ')
       camGroup.current?.setRotationFromEuler(rotation)
+
+      // Stop animation after a specified scroll threshold
+      // TODO: Define this without using a magic number
+      // TODO: Test with large displays in portrait mode
+      setRenderActive(window.scrollY < 2000)
     }
 
+    window.addEventListener('scroll', setCameraAngle)
     const cameraUnsubs = [
       springs.camPitch,
-      springs.camYaw,
-      springs.pageScroll
+      springs.camYaw
     ].map(spring => (
       spring.onChange(setCameraAngle)
     ))
 
-    return () => cameraUnsubs.forEach(unsub => unsub())
+    return () => {
+      window.removeEventListener('scroll', setCameraAngle)
+      cameraUnsubs.forEach(unsub => unsub())
+    }
   }, [camGroup.current])
 
   useFrame(() => {
@@ -107,7 +103,7 @@ const Dreamscape = ({ onFirstFrame, children }) => {
       {children}
       <group ref={camGroup}>
         <PerspectiveCamera makeDefault fov={75} near={0.001} far={100} />
-        <FarField position={[0, 0, -10]} lights={springs.light} pitch={springs.pageScroll} />
+        <FarField position={[0, 0, -10]} lights={springs.light} />
       </group>
       <Bokeh lights={springs.light} />
       <Expanse lights={springs.light} />

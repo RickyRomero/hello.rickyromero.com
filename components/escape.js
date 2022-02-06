@@ -1,13 +1,13 @@
 import { useEffect } from 'react'
 import { useRouter } from 'next/router'
 
-const Escape = () => {
+const Escape = ({ to }) => {
   const router = useRouter()
   useEffect(() => {
     const handleEsc = event => {
       if (event.key === 'Escape') {
         event.preventDefault()
-        router.push('/', null, { scroll: false })
+        router.push(to, null, { scroll: false })
       }
     }
 

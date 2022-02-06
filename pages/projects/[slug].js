@@ -22,7 +22,7 @@ import styles from 'styles/project.module.css'
 const Escape = lazy(() => import('components/escape'))
 
 const Project = ({ data, expanded, className }) => {
-  const slowMo = true
+  const slowMo = false
   const { slug, title, contentHtml } = data
 
   const wrapperClassList = [styles.contentWrapper]
@@ -73,7 +73,7 @@ const Project = ({ data, expanded, className }) => {
             <Link href="/" scroll={false}>
               <a className={styles.overlayLink} {...addlOverlayProps}>Go back home</a>
             </Link>
-            { expanded && <Suspense fallback={null}><Escape /></Suspense> }
+            { expanded && <Suspense fallback={null}><Escape to="/" /></Suspense> }
           </motion.div>
           <motion.div
             transition={spring}
