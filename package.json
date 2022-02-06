@@ -8,6 +8,7 @@
     "lint": "eslint ./"
   },
   "dependencies": {
+    "@mdx-js/react": "^2",
     "@react-three/drei": "^8",
     "@react-three/fiber": "^7",
     "focus-trap-react": "^8",
