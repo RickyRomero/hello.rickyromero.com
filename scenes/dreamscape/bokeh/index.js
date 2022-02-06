@@ -2,8 +2,8 @@ import { useEffect } from 'react'
 import * as THREE from 'three'
 import { useFrame } from '@react-three/fiber'
 
-import vertexShader from './bokeh.vs'
-import fragmentShader from './bokeh.fs'
+import vertexShader from './bokeh.vert'
+import fragmentShader from './bokeh.frag'
 
 const particleCount = 1600
 const material = new THREE.RawShaderMaterial({

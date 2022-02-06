@@ -1,6 +1,6 @@
 // Packages and code snippets exist that handle this. However on some
 // systems, the input to their functions jitters slightly. Since they
-// guarantee a unique output for every input, this magnifies the jitter
+// guarantee a unique output for every input, this amplifies the jitter
 // and causes flashing and glitching.
 // This is simply meant to generate high-frequency noise to literally
 // smooth the problem over.

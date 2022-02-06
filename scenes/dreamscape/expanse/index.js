@@ -2,8 +2,8 @@ import { useEffect } from 'react'
 import * as THREE from 'three'
 import { useFrame } from '@react-three/fiber'
 
-import vertexShader from './expanse.vs'
-import fragmentShader from './expanse.fs'
+import vertexShader from './expanse.vert'
+import fragmentShader from './expanse.frag'
 
 const width = 8
 const depth = 8

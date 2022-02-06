@@ -5,7 +5,7 @@ module.exports = {
   },
   webpack: (config, options) => {
     config.module.rules.push({
-      test: /\.[fv]s$/,
+      test: /\.(?:vert|frag)$/,
       use: [
         'raw-loader',
         {

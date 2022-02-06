@@ -2,8 +2,8 @@ import { useEffect, useRef } from 'react'
 import * as THREE from 'three'
 import { useThree, useFrame } from '@react-three/fiber'
 
-import vertexShader from './far-field.vs'
-import fragmentShader from './far-field.fs'
+import vertexShader from './far-field.vert'
+import fragmentShader from './far-field.frag'
 
 const material = new THREE.RawShaderMaterial({
   vertexShader,
