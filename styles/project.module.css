@@ -73,8 +73,8 @@
   margin: 0;
   height: calc(420px + var(--page-inset) * 2);
   width: var(--max-page-width);
-  /* max-width: 800px; */
   background-color: black;
+  pointer-events: none;
 }
 
 .wrapper-open .hero {
