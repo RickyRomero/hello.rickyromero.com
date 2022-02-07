@@ -8,12 +8,16 @@
 // we get the `expanded` flag, we use that as a cue to animate open and display the
 // full page contents.
 
-import { Suspense, lazy } from 'react'
+import { Fragment, Suspense, lazy, useEffect, useState } from 'react'
 import Head from 'next/head'
 import Image from 'next/image'
 import Link from 'next/link'
+import Passage from 'components/passage'
+import { run } from '@mdx-js/mdx'
+import * as runtime from 'react/jsx-runtime.js'
 import { motion, useMotionValue } from 'framer-motion'
 import FocusTrap from 'focus-trap-react'
+
 import { getProjectSlugs, getProjectsMeta, getProject } from 'generators/projects'
 import cl from 'utils/classlist'
 
@@ -23,7 +27,8 @@ const Escape = lazy(() => import('components/escape'))
 
 const Project = ({ data, expanded, className }) => {
   const slowMo = false
-  const { slug, title, contentHtml } = data
+  const { slug, metadata, serializedMdx } = data
+  const { title/*, tagline, summary, previews */ } = metadata
 
   const wrapperClassList = [styles.contentWrapper]
   if (expanded) { wrapperClassList.push(styles.wrapperOpen) }
@@ -39,6 +44,15 @@ const Project = ({ data, expanded, className }) => {
   const initial = { borderRadius: 40 }
 
   const imgSize = /* expanded ? '100vw' : */'1360px'
+
+  // Load and run MDX page data
+  const [mdxModule, setMdxModule] = useState()
+  const Content = mdxModule ? mdxModule.default : Fragment
+  useEffect(() => {
+    (async () => {
+      setMdxModule(await run(serializedMdx, runtime))
+    })()
+  }, [serializedMdx])
 
   const dynamicOverlayProps = {
     enabled: {},
@@ -110,7 +124,9 @@ const Project = ({ data, expanded, className }) => {
                   <h1>{title}</h1>
                   <h1>{title}</h1>
                 </motion.figure>
-                <div dangerouslySetInnerHTML={{ __html: contentHtml }} />
+                <main>
+                  <Content components={{ p: Passage }} />
+                </main>
               </motion.div>
             </motion.article>
           </motion.div>
