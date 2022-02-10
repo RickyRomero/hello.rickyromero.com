@@ -1,7 +1,6 @@
 import fs from 'fs'
 import path from 'path'
 import matter from 'gray-matter'
-import { compile } from '@mdx-js/mdx'
 
 const projectsDir = path.join(process.cwd(), 'projects')
 const encoding = 'utf8'
@@ -15,18 +14,13 @@ const getProjects = async getFull => {
   const names = await getProjectSlugs()
   const projects = await Promise.all(names.map(async name => {
     const slug = path.basename(name)
-    const location = path.join(projectsDir, name, 'index.mdx')
+    const location = path.join(projectsDir, name, 'index.md')
     const contents = fs.readFileSync(location, { encoding })
     const preparsed = matter(contents)
 
     const addendum = {}
     if (getFull) {
-      addendum.serializedMdx = String(
-        await compile(
-          preparsed.content,
-          { outputFormat: 'function-body' }
-        )
-      )
+      addendum.contents = preparsed.content
     }
 
     return {

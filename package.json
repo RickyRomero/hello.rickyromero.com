@@ -8,7 +8,6 @@
     "lint": "eslint ./"
   },
   "dependencies": {
-    "@mdx-js/mdx": "^2",
     "@react-three/drei": "^8",
     "@react-three/fiber": "^7",
     "focus-trap-react": "^8",
@@ -16,6 +15,7 @@
     "glsl-noise": "^0",
     "glslify-loader": "^2",
     "gray-matter": "^4",
+    "markdown-to-jsx": "^7",
     "next": "^12",
     "postcss-camel-case": "^1",
     "postcss-preset-env": "^7",
@@ -23,8 +23,8 @@
     "raw-loader": "^4",
     "react": "rc",
     "react-dom": "rc",
-    "sharp": "^0.29",
-    "three": "^0.137"
+    "sharp": "^0",
+    "three": "^0"
   },
   "devDependencies": {
     "eslint": "^8",

@@ -1,3 +1,6 @@
+// This component loads lazily due to next/router being a
+// rather heavy load for what it needs to accomplish.
+
 import { useEffect } from 'react'
 import { useRouter } from 'next/router'
 
