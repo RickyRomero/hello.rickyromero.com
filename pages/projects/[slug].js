@@ -7,8 +7,11 @@
 // The Home component always mounts this one and gets its static props as well. When
 // we get the `expanded` flag, we use that as a cue to animate open and display the
 // full page contents.
+//
+// The reason for doing this is to allow for a seamless transition between the project
+// open/closed states.
 
-import { Suspense, lazy } from 'react'
+import { Fragment, Suspense, lazy } from 'react'
 import Markdown from 'markdown-to-jsx'
 import Head from 'next/head'
 import Image from 'next/image'
@@ -17,13 +20,22 @@ import { motion, useMotionValue } from 'framer-motion'
 import FocusTrap from 'focus-trap-react'
 
 import PreventBodyScroll from 'components/prevent-body-scroll'
-// import Passage from 'components/passage'
+import Passage from 'components/passage'
 import { getProjectSlugs, getProjectsMeta, getProject } from 'generators/projects'
 import cl from 'utils/classlist'
 
 import styles from 'styles/project.module.css'
 
 const Escape = lazy(() => import('components/escape'))
+
+const mdOptions = {
+  wrapper: Fragment,
+  overrides: {
+    p: {
+      component: Passage
+    }
+  }
+}
 
 const Project = ({ data, expanded, className }) => {
   const slowMo = false
@@ -118,7 +130,7 @@ const Project = ({ data, expanded, className }) => {
                 </motion.figure>
                 <main>
                   {contents && (
-                    <Markdown>{contents}</Markdown>
+                    <Markdown options={mdOptions}>{contents}</Markdown>
                   )}
                 </main>
               </motion.div>
