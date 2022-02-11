@@ -173,7 +173,7 @@ const getStaticProps = async ({ params }) => {
   return {
     props: {
       projectMetadata: await getProjectsMeta(),
-      activeProject: await getProject(params.slug)// await getPostData(params.slug)
+      activeProject: await getProject(params.slug)
     }
   }
 }
