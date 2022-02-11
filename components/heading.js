@@ -1,14 +1,24 @@
-import React from 'react'
+import { createElement } from 'react'
 import cl from 'utils/classlist'
 
 import styles from './heading.module.css'
 
 const Heading = props => {
   const { as = 'h1', className = '', children, ...rest } = props
-  if (children.constructor !== String) { return }
+  let content
+
+  // markdown-to-jsx sends us single-entry String arrays for some reason.
+  if (children.constructor === Array) {
+    if (children.length > 1) { return }
+    content = children[0]
+  } else {
+    content = children
+  }
+
+  if (content.constructor !== String) { return }
 
   const classList = cl(styles[as], className)
-  const text = children
+  const text = content
   const id = text
     .toLowerCase()
     .replace(/[^a-z0-9-]+/g, ' ')
@@ -17,7 +27,7 @@ const Heading = props => {
     .trim()
     .replace(/\s+/g, '-')
 
-  return React.createElement(as, { id, className: classList, ...rest }, text)
+  return createElement(as, { id, className: classList, ...rest }, text)
 }
 
 export default Heading
