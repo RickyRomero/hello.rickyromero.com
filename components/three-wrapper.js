@@ -1,7 +1,8 @@
 import { Suspense, lazy, useState, useEffect } from 'react'
+import { motion, useSpring } from 'framer-motion'
+
 import DynamicRes from 'components/dynamic-res'
 import FpsDetect from 'components/fps-detect'
-import { motion, useSpring } from 'framer-motion'
 
 const Canvas = lazy(() => import('lazy/canvas'))
 

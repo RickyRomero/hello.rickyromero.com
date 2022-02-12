@@ -1,7 +1,8 @@
-import { useEffect } from 'react'
 import * as THREE from 'three'
 import { useFrame } from '@react-three/fiber'
 
+import { useReducedMotion } from 'hooks/use-media-query'
+import useMotionRate from 'hooks/use-motion-rate'
 import vertexShader from './expanse.vert'
 import fragmentShader from './expanse.frag'
 
@@ -27,11 +28,13 @@ plane.rotateX(-90 * Math.PI / 180)
 plane.translate(0, -0.5, (-depth / 2) + 1)
 
 const Expanse = ({ lights }) => {
-  useFrame((_, delta) => {
-    material.uniforms.u_time.value += delta
-  })
+  const reducedMotion = useReducedMotion() ? 0.2 : 1.0
+  const motionRate = useMotionRate()
 
-  useEffect(() => lights.onChange(v => { material.uniforms.u_lights.value = v }), [])
+  useFrame((_, delta) => {
+    material.uniforms.u_lights.value = lights.get()
+    material.uniforms.u_time.value += delta * motionRate.get() * reducedMotion
+  })
 
   return <mesh geometry={plane} material={material} />
 }

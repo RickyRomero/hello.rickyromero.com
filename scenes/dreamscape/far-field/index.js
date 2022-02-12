@@ -1,7 +1,9 @@
-import { useEffect, useRef } from 'react'
+import { useRef } from 'react'
 import * as THREE from 'three'
 import { useThree, useFrame } from '@react-three/fiber'
 
+import { useReducedMotion } from 'hooks/use-media-query'
+import useMotionRate from 'hooks/use-motion-rate'
 import vertexShader from './far-field.vert'
 import fragmentShader from './far-field.frag'
 
@@ -21,6 +23,8 @@ const material = new THREE.RawShaderMaterial({
 const plane = new THREE.PlaneGeometry(1, 1, 1, 1)
 
 const FarField = ({ lights }) => {
+  const reducedMotion = useReducedMotion() ? 0.2 : 1.0
+  const motionRate = useMotionRate()
   const field = useRef()
 
   useThree(({ camera }) => {
@@ -38,11 +42,10 @@ const FarField = ({ lights }) => {
   })
 
   useFrame((_, delta) => {
-    material.uniforms.u_time.value += delta
+    material.uniforms.u_time.value += delta * motionRate.get() * reducedMotion
     material.uniforms.u_pitch.value = window.scrollY
+    material.uniforms.u_lights.value = lights.get()
   })
-
-  useEffect(() => lights.onChange(v => { material.uniforms.u_lights.value = v }), [])
 
   return <mesh
     ref={field}

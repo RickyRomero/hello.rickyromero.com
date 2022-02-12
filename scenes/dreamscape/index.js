@@ -4,7 +4,8 @@ import { PerspectiveCamera } from '@react-three/drei'
 import { useFrame } from '@react-three/fiber'
 import { useSpring } from 'framer-motion'
 
-import useMediaQuery from 'hooks/use-media-query'
+import { useDarkMode, useReducedMotion } from 'hooks/use-media-query'
+import useMotionRate from 'hooks/use-motion-rate'
 import Bokeh from './bokeh'
 import Expanse from './expanse'
 import FarField from './far-field'
@@ -12,9 +13,13 @@ import FarField from './far-field'
 const RenderHalt = () => useFrame(() => null, 1000)
 
 const Dreamscape = ({ onFirstFrame, children }) => {
-  const darkMode = useMediaQuery('prefers-color-scheme', 'dark')
-  const startingCameraRotation = 30
-  const baseCameraRotation = -10
+  const motionRate = useMotionRate()
+  const darkMode = useDarkMode()
+  const reduceMotion = useReducedMotion() ? 0.2 : 1.0
+  const scrollEnabled = reduceMotion === 1
+
+  // const startingCameraRotation = 30
+  // const baseCameraRotation = -10
   const [renderActive, setRenderActive] = useState(true)
   const [firstFrameRendered, setFirstFrameRendered] = useState(false)
   const springConfig = {
@@ -35,14 +40,14 @@ const Dreamscape = ({ onFirstFrame, children }) => {
 
       let yaw, pitch
       if (event.type === 'pointermove') {
-        yaw = (event.clientX / window.innerWidth * 3) - 1
-        pitch = (event.clientY / window.innerHeight * 3) - 1
+        yaw = ((event.clientX / window.innerWidth) - 0.5) * 3
+        pitch = ((event.clientY / window.innerHeight) - 0.5) * 3
       } else if (event.type === 'pointerleave') {
         yaw = pitch = 0
       }
 
-      springs.camYaw.set(yaw)
-      springs.camPitch.set(pitch)
+      springs.camYaw.set(yaw * motionRate.get() * reduceMotion)
+      springs.camPitch.set(pitch * motionRate.get() * reduceMotion)
     }
     const handleVis = () => setRenderActive(document.visibilityState === 'visible')
 
@@ -56,36 +61,10 @@ const Dreamscape = ({ onFirstFrame, children }) => {
       document.removeEventListener('pointerleave', handleCursorPos)
       document.removeEventListener('visibilitychange', handleVis)
     }
-  }, [])
+  }, [reduceMotion])
 
   useEffect(() => {
     camGroup.current?.position.set(0, 0.1, 1)
-
-    const setCameraAngle = () => {
-      let camPitch = -THREE.Math.degToRad(window.scrollY / 48)
-      camPitch += THREE.Math.degToRad(springs.camPitch.get() * -4)
-      const camYaw = THREE.Math.degToRad(springs.camYaw.get() * -4)
-      const rotation = new THREE.Euler(camPitch, camYaw, 0, 'XYZ')
-      camGroup.current?.setRotationFromEuler(rotation)
-
-      // Stop animation after a specified scroll threshold
-      // TODO: Define this without using a magic number
-      // TODO: Test with large displays in portrait mode
-      setRenderActive(window.scrollY < 2000)
-    }
-
-    window.addEventListener('scroll', setCameraAngle)
-    const cameraUnsubs = [
-      springs.camPitch,
-      springs.camYaw
-    ].map(spring => (
-      spring.onChange(setCameraAngle)
-    ))
-
-    return () => {
-      window.removeEventListener('scroll', setCameraAngle)
-      cameraUnsubs.forEach(unsub => unsub())
-    }
   }, [camGroup.current])
 
   useFrame(() => {
@@ -93,6 +72,17 @@ const Dreamscape = ({ onFirstFrame, children }) => {
       setFirstFrameRendered(true)
       onFirstFrame()
     }
+
+    let camPitch = -THREE.Math.degToRad(window.scrollY / 48 * scrollEnabled)
+    camPitch += THREE.Math.degToRad(springs.camPitch.get() * -4)
+    const camYaw = THREE.Math.degToRad(springs.camYaw.get() * -4)
+    const rotation = new THREE.Euler(camPitch, camYaw, 0, 'XYZ')
+    camGroup.current?.setRotationFromEuler(rotation)
+
+    // Stop animation after a specified scroll threshold
+    // TODO: Define this without using a magic number
+    // TODO: Test with large displays in portrait mode
+    setRenderActive(window.scrollY < 2000 && motionRate.get() > 0)
   })
 
   springs.light.set(Number(!darkMode))

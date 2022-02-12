@@ -26,4 +26,8 @@ const useMediaQuery = (query, condition) => {
   return active
 }
 
+const useDarkMode = () => useMediaQuery('prefers-color-scheme', 'dark')
+const useReducedMotion = () => useMediaQuery('prefers-reduced-motion', 'reduce')
+
 export default useMediaQuery
+export { useDarkMode, useReducedMotion }

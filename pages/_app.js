@@ -1,8 +1,11 @@
 import Home from 'pages/index.js'
 import Project from 'pages/projects/[slug]'
+import useMotionRate from 'hooks/use-motion-rate'
 
 import 'styles/_variables.css'
 import 'styles/_globals.css'
+
+const MotionRateHost = () => { useMotionRate.use(); return null }
 
 const App = ({ Component, pageProps }) => {
   const instance = <Component {...pageProps} />
@@ -10,7 +13,10 @@ const App = ({ Component, pageProps }) => {
 
   return (
     isSingleInstance ? (
-      <Home {...pageProps} />
+      <>
+        <MotionRateHost />
+        <Home {...pageProps} />
+      </>
     ) : instance
   )
 }

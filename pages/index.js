@@ -2,11 +2,14 @@ import { Suspense, lazy, useState } from 'react'
 import Head from 'next/head'
 import Image from 'next/image'
 import Link from 'next/link'
+
 import { Grid, Row } from 'components/grid'
 import Heading from 'components/heading'
 import Passage from 'components/passage'
 import Button from 'components/button'
-import useMediaQuery from 'hooks/use-media-query'
+import { useDarkMode } from 'hooks/use-media-query'
+import useMotionRate from 'hooks/use-motion-rate'
+
 import Project from './projects/[slug].js'
 import { getProjectsMeta } from 'generators/projects'
 
@@ -20,8 +23,10 @@ const Home = ({ projectMetadata, activeProject }) => {
   const [dreamscapeVisible, setDreamscapeVisible] = useState(false)
   const showDreamscape = () => setDreamscapeVisible(true)
 
-  const darkMode = useMediaQuery('prefers-color-scheme', 'dark')
+  const darkMode = useDarkMode()
+  const motionRate = useMotionRate()
   const scheme = darkMode ? 'dark' : 'light'
+  motionRate.set(Number(!activeProject))
 
   return (
     <>
