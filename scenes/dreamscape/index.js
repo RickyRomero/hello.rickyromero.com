@@ -4,7 +4,7 @@ import { PerspectiveCamera } from '@react-three/drei'
 import { useFrame } from '@react-three/fiber'
 import { useSpring } from 'framer-motion'
 
-import { useDarkMode, useReducedMotion } from 'hooks/use-media-query'
+import { useReducedMotion } from 'hooks/use-media-query'
 import useMotionRate from 'hooks/use-motion-rate'
 import useDreamscapeOpacity from 'hooks/use-dreamscape-opacity'
 import Bokeh from './bokeh'
@@ -16,7 +16,6 @@ const RenderHalt = () => useFrame(() => null, 1000)
 const Dreamscape = ({ onFirstFrame, children }) => {
   const [opacity] = useDreamscapeOpacity()
   const motionRate = useMotionRate()
-  const darkMode = useDarkMode()
   const reduceMotion = useReducedMotion() ? 0.2 : 1.0
   const scrollEnabled = reduceMotion === 1
 
@@ -25,14 +24,14 @@ const Dreamscape = ({ onFirstFrame, children }) => {
   const [renderActive, setRenderActive] = useState(true)
   const [firstFrameRendered, setFirstFrameRendered] = useState(false)
   const springConfig = {
+    stiffness: 100,
     damping: 40,
     restSpeed: 0.001,
     restDelta: 0.001
   }
   const springs = {
-    camYaw: useSpring(0, { ...springConfig, stiffness: 100 }),
-    camPitch: useSpring(0, { ...springConfig, stiffness: 100 }),
-    light: useSpring(Number(!darkMode), { ...springConfig, stiffness: 600 })
+    camYaw: useSpring(0, springConfig),
+    camPitch: useSpring(0, springConfig)
   }
   const camGroup = useRef()
 
@@ -84,17 +83,15 @@ const Dreamscape = ({ onFirstFrame, children }) => {
     setRenderActive(opacity.get() > 0 && motionRate.get() > 0)
   })
 
-  springs.light.set(Number(!darkMode))
-
   return (
     <>
       {children}
       <group ref={camGroup}>
         <PerspectiveCamera makeDefault fov={75} near={0.001} far={100} />
-        <FarField position={[0, 0, -10]} lights={springs.light} />
+        <FarField position={[0, 0, -10]} />
       </group>
-      <Bokeh lights={springs.light} />
-      <Expanse lights={springs.light} />
+      <Bokeh />
+      <Expanse />
       { renderActive ? null : <RenderHalt /> }
     </>
   )

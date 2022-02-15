@@ -1,6 +1,7 @@
 import * as THREE from 'three'
 import { useFrame } from '@react-three/fiber'
 
+import useLights from 'hooks/use-lights'
 import { useReducedMotion } from 'hooks/use-media-query'
 import useMotionRate from 'hooks/use-motion-rate'
 import vertexShader from './bokeh.vert'
@@ -33,7 +34,8 @@ for (let i = 0; i < particleCount; i++) {
 
 bokehCloud.setAttribute('a_seed', new THREE.InstancedBufferAttribute(seeds, 1))
 
-const Bokeh = ({ lights }) => {
+const Bokeh = () => {
+  const lights = useLights()
   const reducedMotion = useReducedMotion() ? 0.2 : 1.0
   const motionRate = useMotionRate()
 

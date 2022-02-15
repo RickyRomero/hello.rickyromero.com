@@ -2,6 +2,7 @@ import { useRef } from 'react'
 import * as THREE from 'three'
 import { useThree, useFrame } from '@react-three/fiber'
 
+import useLights from 'hooks/use-lights'
 import { useHighContrast, useReducedMotion } from 'hooks/use-media-query'
 import useMotionRate from 'hooks/use-motion-rate'
 import vertexShader from './far-field.vert'
@@ -24,7 +25,8 @@ const material = new THREE.RawShaderMaterial({
 })
 const plane = new THREE.PlaneGeometry(1, 1, 1, 1)
 
-const FarField = ({ lights }) => {
+const FarField = () => {
+  const lights = useLights()
   const highContrast = useHighContrast() ? 2.0 : 1.0
   const reducedMotion = useReducedMotion() ? 0.2 : 1.0
   const motionRate = useMotionRate()

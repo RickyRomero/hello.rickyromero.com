@@ -1,6 +1,7 @@
 import * as THREE from 'three'
 import { useFrame } from '@react-three/fiber'
 
+import useLights from 'hooks/use-lights'
 import { useReducedMotion } from 'hooks/use-media-query'
 import useMotionRate from 'hooks/use-motion-rate'
 import vertexShader from './expanse.vert'
@@ -27,7 +28,8 @@ const plane = new THREE.PlaneGeometry(width, depth, width * meshRes, depth * mes
 plane.rotateX(-90 * Math.PI / 180)
 plane.translate(0, -0.5, (-depth / 2) + 1)
 
-const Expanse = ({ lights }) => {
+const Expanse = () => {
+  const lights = useLights()
   const reducedMotion = useReducedMotion() ? 0.2 : 1.0
   const motionRate = useMotionRate()
 
