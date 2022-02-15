@@ -16,7 +16,7 @@ import Markdown from 'markdown-to-jsx'
 import Head from 'next/head'
 import Image from 'next/image'
 import Link from 'next/link'
-import { motion, MotionConfig, useMotionValue } from 'framer-motion'
+import { motion, useMotionValue } from 'framer-motion'
 import FocusTrap from 'focus-trap-react'
 
 import PreventBodyScroll from 'components/prevent-body-scroll'
@@ -82,80 +82,78 @@ const Project = ({ data, expanded, className }) => {
       }
 
       <FocusTrap active={expanded}>
-        <MotionConfig reducedMotion="user">
-          <li className={cl(styles.project, className)}>
-            { expanded && <PreventBodyScroll /> }
-            <motion.div
-              initial={false}
-              animate={{ opacity: expanded ? 1 : 0 }}
+        <li className={cl(styles.project, className)}>
+          { expanded && <PreventBodyScroll /> }
+          <motion.div
+            initial={false}
+            animate={{ opacity: expanded ? 1 : 0 }}
+            transition={spring}
+            className={styles.overlay}
+            style={{
+              pointerEvents: expanded ? 'auto' : 'none'
+            }
+          }>
+            <Link href="/" scroll={false}>
+              <a className={styles.overlayLink} {...addlOverlayProps}>Go back home</a>
+            </Link>
+            { expanded && <Suspense fallback={null}><Escape to="/" /></Suspense> }
+          </motion.div>
+          <motion.div
+            transition={spring}
+            animate={{ progress: expanded ? 1 : 0 }}
+            style={{ zIndex: lightboxLayer }}
+            onUpdate={setLightboxLayer}
+            className={wrapperClass}
+          >
+            <motion.article
+              layout
+              initial={initial}
               transition={spring}
-              className={styles.overlay}
-              style={{
-                pointerEvents: expanded ? 'auto' : 'none'
-              }
-            }>
-              <Link href="/" scroll={false}>
-                <a className={styles.overlayLink} {...addlOverlayProps}>Go back home</a>
-              </Link>
-              { expanded && <Suspense fallback={null}><Escape to="/" /></Suspense> }
-            </motion.div>
-            <motion.div
-              transition={spring}
-              animate={{ progress: expanded ? 1 : 0 }}
-              style={{ zIndex: lightboxLayer }}
-              onUpdate={setLightboxLayer}
-              className={wrapperClass}
+              style={origin}
+              className={styles.content}
             >
-              <motion.article
-                layout
-                initial={initial}
+              <motion.div
+                layout="position"
                 transition={spring}
                 style={origin}
-                className={styles.content}
+                className={styles.inverseTransform}
               >
-                <motion.div
-                  layout="position"
+                <motion.figure
+                  layout
                   transition={spring}
                   style={origin}
-                  className={styles.inverseTransform}
+                  className={styles.hero}
                 >
-                  <motion.figure
-                    layout
-                    transition={spring}
-                    style={origin}
-                    className={styles.hero}
-                  >
-                    <Image
-                      src={require(`projects/${slug}/${slug}.jpg`)}
-                      layout="fill"
-                      objectFit="cover"
-                      sizes={imgSize}
-                    />
-                    <h1>{title}</h1>
-                    <h1>{title}</h1>
-                  </motion.figure>
-                  <main>
-                    {contents && (
-                      <Markdown options={mdOptions}>{contents}</Markdown>
-                    )}
-                  </main>
-                </motion.div>
-              </motion.article>
-            </motion.div>
-            {
-              !expanded && (
-                <div
-                  className={styles.expandLink}
-                  style={{ zIndex: expanded ? 3 : 0 }}
-                >
-                  <Link href={`/projects/${slug}`} scroll={false}>
-                    <a className={styles.expandLink}>{title}</a>
-                  </Link>
-                </div>
-              )
-            }
-          </li>
-        </MotionConfig>
+                  <Image
+                    src={require(`projects/${slug}/${slug}.jpg`)}
+                    layout="fill"
+                    objectFit="cover"
+                    sizes={imgSize}
+                  />
+                  <h1>{title}</h1>
+                  <h1>{title}</h1>
+                </motion.figure>
+                <main>
+                  {contents && (
+                    <Markdown options={mdOptions}>{contents}</Markdown>
+                  )}
+                </main>
+              </motion.div>
+            </motion.article>
+          </motion.div>
+          {
+            !expanded && (
+              <div
+                className={styles.expandLink}
+                style={{ zIndex: expanded ? 3 : 0 }}
+              >
+                <Link href={`/projects/${slug}`} scroll={false}>
+                  <a className={styles.expandLink}>{title}</a>
+                </Link>
+              </div>
+            )
+          }
+        </li>
       </FocusTrap>
     </>
   )

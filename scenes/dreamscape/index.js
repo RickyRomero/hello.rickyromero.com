@@ -6,6 +6,7 @@ import { useSpring } from 'framer-motion'
 
 import { useDarkMode, useReducedMotion } from 'hooks/use-media-query'
 import useMotionRate from 'hooks/use-motion-rate'
+import useDreamscapeOpacity from 'hooks/use-dreamscape-opacity'
 import Bokeh from './bokeh'
 import Expanse from './expanse'
 import FarField from './far-field'
@@ -13,6 +14,7 @@ import FarField from './far-field'
 const RenderHalt = () => useFrame(() => null, 1000)
 
 const Dreamscape = ({ onFirstFrame, children }) => {
+  const [opacity] = useDreamscapeOpacity()
   const motionRate = useMotionRate()
   const darkMode = useDarkMode()
   const reduceMotion = useReducedMotion() ? 0.2 : 1.0
@@ -79,10 +81,7 @@ const Dreamscape = ({ onFirstFrame, children }) => {
     const rotation = new THREE.Euler(camPitch, camYaw, 0, 'XYZ')
     camGroup.current?.setRotationFromEuler(rotation)
 
-    // Stop animation after a specified scroll threshold
-    // TODO: Define this without using a magic number
-    // TODO: Test with large displays in portrait mode
-    setRenderActive(window.scrollY < 2000 && motionRate.get() > 0)
+    setRenderActive(opacity.get() > 0 && motionRate.get() > 0)
   })
 
   springs.light.set(Number(!darkMode))

@@ -9,7 +9,7 @@ const snapFps = rawFps => [...targets].sort(devSort(rawFps)).shift()
 const devSort = mean => (a, b) => Math.abs(a - mean) - Math.abs(b - mean)
 const samples = []
 
-const FpsDetect = ({ onDetect }) => (
+const FpsDetect = ({ onDetect }) => {
   useFrame((_, delta) => {
     const fps = 1 / (delta + 0.000001)
 
@@ -22,6 +22,8 @@ const FpsDetect = ({ onDetect }) => (
       onDetect(detectedFps)
     }
   })
-)
+
+  return null
+}
 
 export default FpsDetect

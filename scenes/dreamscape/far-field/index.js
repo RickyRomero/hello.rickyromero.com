@@ -2,10 +2,12 @@ import { useRef } from 'react'
 import * as THREE from 'three'
 import { useThree, useFrame } from '@react-three/fiber'
 
-import { useReducedMotion } from 'hooks/use-media-query'
+import { useHighContrast, useReducedMotion } from 'hooks/use-media-query'
 import useMotionRate from 'hooks/use-motion-rate'
 import vertexShader from './far-field.vert'
 import fragmentShader from './far-field.frag'
+
+const lerp = (a, b, t) => (1 - t) * a + t * b
 
 const material = new THREE.RawShaderMaterial({
   vertexShader,
@@ -23,9 +25,11 @@ const material = new THREE.RawShaderMaterial({
 const plane = new THREE.PlaneGeometry(1, 1, 1, 1)
 
 const FarField = ({ lights }) => {
+  const highContrast = useHighContrast() ? 2.0 : 1.0
   const reducedMotion = useReducedMotion() ? 0.2 : 1.0
   const motionRate = useMotionRate()
   const field = useRef()
+  const dynamicRange = [-(highContrast - 1) / 2, 1 + (highContrast - 1) / 2]
 
   useThree(({ camera }) => {
     if (!field.current) { return }
@@ -44,7 +48,7 @@ const FarField = ({ lights }) => {
   useFrame((_, delta) => {
     material.uniforms.u_time.value += delta * motionRate.get() * reducedMotion
     material.uniforms.u_pitch.value = window.scrollY
-    material.uniforms.u_lights.value = lights.get()
+    material.uniforms.u_lights.value = lerp(...dynamicRange, lights.get())
   })
 
   return <mesh

@@ -1,10 +1,14 @@
+import { MotionConfig } from 'framer-motion'
+
 import Home from 'pages/index.js'
 import Project from 'pages/projects/[slug]'
+import useDreamscapeOpacity from 'hooks/use-dreamscape-opacity'
 import useMotionRate from 'hooks/use-motion-rate'
 
 import 'styles/_variables.css'
 import 'styles/_globals.css'
 
+const DreamscapeOpacityHost = () => { useDreamscapeOpacity.use(); return null }
 const MotionRateHost = () => { useMotionRate.use(); return null }
 
 const App = ({ Component, pageProps }) => {
@@ -13,10 +17,11 @@ const App = ({ Component, pageProps }) => {
 
   return (
     isSingleInstance ? (
-      <>
+      <MotionConfig reducedMotion="user">
+        <DreamscapeOpacityHost />
         <MotionRateHost />
         <Home {...pageProps} />
-      </>
+      </MotionConfig>
     ) : instance
   )
 }

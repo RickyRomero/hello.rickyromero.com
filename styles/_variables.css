@@ -77,7 +77,7 @@
 /* LIGHT MODE */
 :root {
   --base-text: black;
-  --dreamscape-bg: #dff7ff; /* no wide-gamut WebGL yet */
+  --dreamscape-bg: #90d6ff;
   --emphatic: var(--dragonfruit);
 
   --button-text: var(--grape-bold);
@@ -92,11 +92,18 @@
   --lightbox-shadow: var(--overlay-bg);
 }
 
+/* LIGHT MODE, HIGH CONTRAST */
+@media (prefers-contrast: more) {
+  :root {
+    --dreamscape-bg: #e3f5ff;
+  }
+}
+
 /* DARK MODE */
 @media (prefers-color-scheme: dark) {
   :root {
     --base-text: white;
-    --dreamscape-bg: #2a1e45;
+    --dreamscape-bg: #2c0026;
 
     --button-text: white;
     --button-text-shadow: var(--grape-shadow-sharp);
@@ -107,5 +114,12 @@
     --button-shadow-diffuse: var(--grape-shadow-diffuse);
 
     --overlay-bg: var(--grape-juice);
+  }
+}
+
+/* DARK MODE, HIGH CONTRAST */
+@media (prefers-color-scheme: dark) and (prefers-contrast: more) {
+  :root {
+    --dreamscape-bg: #160013;
   }
 }

@@ -1,14 +1,17 @@
-import { Suspense, lazy, useState } from 'react'
+import { Suspense, lazy } from 'react'
 import Head from 'next/head'
 import Image from 'next/image'
 import Link from 'next/link'
+import { motion, useTransform } from 'framer-motion'
 
 import { Grid, Row } from 'components/grid'
 import Heading from 'components/heading'
 import Passage from 'components/passage'
 import Button from 'components/button'
+import SkillsCloud from 'components/skills-cloud'
 import { useDarkMode } from 'hooks/use-media-query'
 import useMotionRate from 'hooks/use-motion-rate'
+import useDreamscapeOpacity from 'hooks/use-dreamscape-opacity'
 
 import Project from './projects/[slug].js'
 import { getProjectsMeta } from 'generators/projects'
@@ -20,13 +23,16 @@ const ThreeWrapper = lazy(() => import('components/three-wrapper'))
 const Dreamscape = lazy(() => import('scenes/dreamscape'))
 
 const Home = ({ projectMetadata, activeProject }) => {
-  const [dreamscapeVisible, setDreamscapeVisible] = useState(false)
-  const showDreamscape = () => setDreamscapeVisible(true)
-
+  const [scrollOpacity, initialFade] = useDreamscapeOpacity()
   const darkMode = useDarkMode()
   const motionRate = useMotionRate()
   const scheme = darkMode ? 'dark' : 'light'
+
   motionRate.set(Number(!activeProject))
+
+  const placeholderStyle = {
+    display: useTransform(initialFade, v => v < 1 ? 'block' : 'none')
+  }
 
   return (
     <>
@@ -36,8 +42,8 @@ const Home = ({ projectMetadata, activeProject }) => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <figure className={styles.dreamscape}>
-        <div className={styles.placeholder}>
+      <motion.figure className={styles.dreamscape} style={{ opacity: scrollOpacity }}>
+        <motion.div className={styles.placeholder} style={placeholderStyle}>
           <Image
             alt=""
             src={require(`scenes/dreamscape/loading-${scheme}.jpg`)}
@@ -45,17 +51,17 @@ const Home = ({ projectMetadata, activeProject }) => {
             objectFit="cover"
             sizes="25vw"
           />
-        </div>
-        <div className={styles.rendererContainer}>
+        </motion.div>
+        <motion.div className={styles.rendererContainer} style={{ opacity: initialFade }}>
           <Suspense fallback={null}>
-            <ThreeWrapper sceneStarted={dreamscapeVisible}>
+            <ThreeWrapper>
               <Suspense fallback={null}>
-                <Dreamscape onFirstFrame={() => showDreamscape()} />
+                <Dreamscape onFirstFrame={() => initialFade.set(1)} />
               </Suspense>
             </ThreeWrapper>
           </Suspense>
-        </div>
-      </figure>
+        </motion.div>
+      </motion.figure>
 
       <div className={styles.page}>
         <div className={styles.content}>
@@ -70,6 +76,11 @@ const Home = ({ projectMetadata, activeProject }) => {
                 <Button spans={[3]}>Say Hi</Button>
                 <Button spans={[3]}>See my CV</Button>
               </Row>
+            </Grid>
+
+            <Grid className={styles.section}>
+              <Heading as="h2">Here's what I can do.</Heading>
+              <SkillsCloud />
             </Grid>
 
             <Grid className={[styles.section, styles.projects].join(' ')}>
