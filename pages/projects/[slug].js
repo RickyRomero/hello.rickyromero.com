@@ -11,36 +11,21 @@
 // The reason for doing this is to allow for a seamless transition between the project
 // open/closed states.
 
-import { Fragment, Suspense, lazy } from 'react'
-import Markdown from 'markdown-to-jsx'
+import { Suspense, lazy } from 'react'
 import Head from 'next/head'
 import Image from 'next/image'
 import Link from 'next/link'
 import { motion, useMotionValue } from 'framer-motion'
 import FocusTrap from 'focus-trap-react'
 
+import MarkdownRenderer from 'components/markdown-renderer'
 import PreventBodyScroll from 'components/prevent-body-scroll'
-import Heading from 'components/heading'
-import Passage from 'components/passage'
 import { getProjectSlugs, getProjectsMeta, getProject } from 'generators/projects'
 import cl from 'utils/classlist'
 
 import styles from 'styles/project.module.css'
 
 const Escape = lazy(() => import('components/escape'))
-
-const mdOptions = {
-  wrapper: Fragment,
-  overrides: {
-    p: Passage,
-    h1: { component: Heading, props: { as: 'h1' } },
-    h2: { component: Heading, props: { as: 'h2' } },
-    h3: { component: Heading, props: { as: 'h3' } },
-    h4: { component: Heading, props: { as: 'h4' } },
-    h5: { component: Heading, props: { as: 'h5' } },
-    h6: { component: Heading, props: { as: 'h6' } }
-  }
-}
 
 const Project = ({ data, expanded, className }) => {
   const slowMo = false
@@ -135,7 +120,7 @@ const Project = ({ data, expanded, className }) => {
                 </motion.figure>
                 <main>
                   {contents && (
-                    <Markdown options={mdOptions}>{contents}</Markdown>
+                    <MarkdownRenderer>{contents}</MarkdownRenderer>
                   )}
                 </main>
               </motion.div>

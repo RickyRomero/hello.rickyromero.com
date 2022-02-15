@@ -1,10 +1,10 @@
 import { Suspense, lazy } from 'react'
 import Head from 'next/head'
 import Image from 'next/image'
-import Link from 'next/link'
 import { motion, useTransform } from 'framer-motion'
 
 import { Grid, Row } from 'components/grid'
+import MarkdownRenderer from 'components/markdown-renderer'
 import Heading from 'components/heading'
 import Passage from 'components/passage'
 import Button from 'components/button'
@@ -18,6 +18,8 @@ import { getProjectsMeta } from 'generators/projects'
 
 import styles from 'styles/home.module.css'
 import portrait from 'public/images/me.png'
+
+import aboutBlurb from 'blurbs/about.md'
 
 const ThreeWrapper = lazy(() => import('components/three-wrapper'))
 const Dreamscape = lazy(() => import('scenes/dreamscape'))
@@ -115,12 +117,7 @@ const Home = ({ projectMetadata, activeProject }) => {
                   />
                 </figure>
                 <div spans={[8]}>
-                  <Heading as="h3">My name's Ricky Romero.</Heading>
-                  <Passage>I'm a designer and engineer in the scenic Bay Area of California. I've worked in web design and development (mobile and desktop) for over 10 years, and I'm dipping my toes in Swift and WebGL now. I've worked on both marketing and product teams, and done both interaction and visual design.</Passage>
-                  <Passage>I've produced my best work in roles leveraging both my design and engineering talents. That said, I understand that's an uncommon role, and can specialize in design when needed.</Passage>
-                  <Passage>I'm open to both hybrid and remote work. Hybrid roles must be located south of Burlingame or Hayward.</Passage>
-                  <Passage>In my spare time I like to take photos, build small hobby projects, and play video games (Nintendo for life).</Passage>
-                  <Passage><strong>Follow me on <Link href="https://dribbble.com/RickyRomero"><a>Dribbble</a></Link> and <Link href="https://github.com/RickyRomero"><a>GitHub!</a></Link></strong></Passage>
+                  <MarkdownRenderer>{aboutBlurb}</MarkdownRenderer>
                 </div>
               </Row>
             </Grid>
