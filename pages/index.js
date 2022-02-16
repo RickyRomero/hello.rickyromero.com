@@ -12,6 +12,7 @@ import SkillsCloud from 'components/skills-cloud'
 import { useDarkMode } from 'hooks/use-media-query'
 import useMotionRate from 'hooks/use-motion-rate'
 import useDreamscapeOpacity from 'hooks/use-dreamscape-opacity'
+import cl from 'utils/classlist'
 
 import Project from './projects/[slug].js'
 import { getProjectsMeta } from 'generators/projects'
@@ -69,7 +70,9 @@ const Home = ({ projectMetadata, activeProject }) => {
         <div className={styles.content}>
           <header className={styles.header}></header>
           <main className={styles.main}>
-            <Grid className={[styles.section, styles.hello].join(' ')}>
+            <Grid className={cl(styles.section, styles.hello)}>
+              <Image className={cl(styles.insignia, styles.top)} alt=""
+                src="/images/insignia.svg" width={50} height={76} />
               <Heading>Hi there.</Heading>
               <Passage as="p1">My name's <em>Ricky.</em></Passage>
               <Passage as="p1">I do <em>design + code.</em></Passage>
