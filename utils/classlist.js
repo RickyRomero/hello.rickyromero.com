@@ -1,6 +1,6 @@
 const classList = (...classes) => {
   const fullList = classes
-    .flatMap(group => group.split(/\s+/))
+    .flatMap(group => (group || '').split(/\s+/))
     .filter(entry => entry.length > 0)
   const uniqueClasses = [...(new Set(fullList))]
 
