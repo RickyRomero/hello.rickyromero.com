@@ -51,8 +51,13 @@
   width: 50px;
   height: 76px;
   clip-path: url(#insignia);
-  background: rgba(0, 0, 0, 0.4);
   backdrop-filter: saturate(5) blur(20px);
+}
+
+@supports not (backdrop-filter: saturate(5) blur(20px)) {
+  .insignia-clip {
+    background: rgba(0, 0, 0, 0.4);
+  }
 }
 
 .intro-wrapper {

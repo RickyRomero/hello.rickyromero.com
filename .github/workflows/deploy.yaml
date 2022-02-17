@@ -11,6 +11,10 @@ jobs:
       - name: Rebuild app
         run: |
           echo "${{ secrets.PRIVATE_KEY }}" > $GITHUB_WORKSPACE/key
+          echo "${{ secrets.HOST_KEY }}" > $GITHUB_WORKSPACE/known_hosts
+          chmod 600 $GITHUB_WORKSPACE/key
+          chmod 600 $GITHUB_WORKSPACE/known_hosts
           ssh -i $GITHUB_WORKSPACE/key \
+            -o UserKnownHostsFile=$GITHUB_WORKSPACE/known_hosts
             ${{ secrets.USER }}@${{ secrets.HOST }} \
             "cd ${{ secrets.PATH }} && bash ./rebuild.sh"
