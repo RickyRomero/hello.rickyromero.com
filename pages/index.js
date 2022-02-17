@@ -20,7 +20,7 @@ import { getProjectsMeta } from 'generators/projects'
 
 import aboutBlurb from 'blurbs/about.md'
 
-import styles from 'styles/Home.module.css'
+import styles from 'styles/home.module.css'
 
 const ThreeWrapper = lazy(() => import('components/three-wrapper'))
 const Dreamscape = lazy(() => import('scenes/dreamscape'))

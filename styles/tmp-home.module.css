@@ -54,12 +54,6 @@
   backdrop-filter: saturate(5) blur(20px);
 }
 
-@supports not (backdrop-filter: saturate(5) blur(20px)) {
-  .insignia-clip {
-    background: rgba(0, 0, 0, 0.4);
-  }
-}
-
 .intro-wrapper {
   flex-grow: 1;
   display: flex;
@@ -94,6 +88,18 @@
 }
 
 .footer {
+}
+
+@supports not (backdrop-filter: saturate(5) blur(20px)) {
+  .insignia-clip {
+    background: rgba(0, 0, 0, 0.4);
+  }
+}
+
+@media (prefers-contrast: more) {
+  .insignia-clip {
+    background: var(--base-text);
+  }
 }
 
 @media (max-width: 640px) {
