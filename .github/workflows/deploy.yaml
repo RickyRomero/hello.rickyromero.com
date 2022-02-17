@@ -1,0 +1,16 @@
+name: deploy
+on:
+  push:
+#    branches:
+#      - main
+  workflow_dispatch:
+jobs:
+  prepare-and-deploy-update:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Rebuild app
+        run: |
+          echo "${{ secrets.PRIVATE_KEY }}" > $GITHUB_WORKSPACE/key
+          ssh -i $GITHUB_WORKSPACE/key \
+            ${{ secrets.USER }}@${{ secrets.HOST }} \
+            "cd ${{ secrets.PATH }} && bash ./rebuild.sh"
