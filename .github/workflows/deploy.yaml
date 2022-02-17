@@ -15,6 +15,6 @@ jobs:
           chmod 600 $GITHUB_WORKSPACE/key
           chmod 600 $GITHUB_WORKSPACE/known_hosts
           ssh -i $GITHUB_WORKSPACE/key \
-            -o UserKnownHostsFile=$GITHUB_WORKSPACE/known_hosts
+            -o UserKnownHostsFile=$GITHUB_WORKSPACE/known_hosts \
             ${{ secrets.USER }}@${{ secrets.HOST }} \
             "cd ${{ secrets.PATH }} && bash ./rebuild.sh"
