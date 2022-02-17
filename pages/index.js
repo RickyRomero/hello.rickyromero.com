@@ -3,12 +3,13 @@ import Head from 'next/head'
 import Image from 'next/image'
 import { motion, useTransform } from 'framer-motion'
 
+import Insignia from 'components/insignia'
 import { Grid, Row } from 'components/grid'
+import { Heading, Passage } from 'components/typography'
 import MarkdownRenderer from 'components/markdown-renderer'
-import Heading from 'components/heading'
-import Passage from 'components/passage'
 import Button from 'components/button'
 import SkillsCloud from 'components/skills-cloud'
+
 import { useDarkMode } from 'hooks/use-media-query'
 import useMotionRate from 'hooks/use-motion-rate'
 import useDreamscapeOpacity from 'hooks/use-dreamscape-opacity'
@@ -17,13 +18,34 @@ import cl from 'utils/classlist'
 import Project from './projects/[slug].js'
 import { getProjectsMeta } from 'generators/projects'
 
-import styles from 'styles/home.module.css'
-import portrait from 'public/images/me.png'
-
 import aboutBlurb from 'blurbs/about.md'
+
+import styles from 'styles/home.module.css'
 
 const ThreeWrapper = lazy(() => import('components/three-wrapper'))
 const Dreamscape = lazy(() => import('scenes/dreamscape'))
+
+const MotionHeading = motion(Heading)
+const MotionPassage = motion(Passage)
+const MotionButton = motion(Button)
+
+const transition = {
+  type: 'spring',
+  damping: 40
+}
+
+const container = {
+  show: {
+    transition: {
+      staggerChildren: 0.2
+    }
+  }
+}
+
+const item = {
+  hidden: { y: 100, opacity: 0, transition },
+  show: { y: 0, opacity: 1, transition }
+}
 
 const Home = ({ projectMetadata, activeProject }) => {
   const [scrollOpacity, initialFade] = useDreamscapeOpacity()
@@ -70,18 +92,30 @@ const Home = ({ projectMetadata, activeProject }) => {
         <div className={styles.content}>
           <header className={styles.header}></header>
           <main className={styles.main}>
-            <Grid className={cl(styles.section, styles.hello)}>
-              <Image className={cl(styles.insignia, styles.top)} alt=""
-                src="/images/insignia.svg" width={50} height={76} />
-              <Heading>Hi there.</Heading>
-              <Passage as="p1">My name's <em>Ricky.</em></Passage>
-              <Passage as="p1">I do <em>design + code.</em></Passage>
-              <Passage as="p1"><em>I'm looking for the next big thing. Right now.</em></Passage>
-              <Row>
-                <Button spans={[3]}>Say Hi</Button>
-                <Button spans={[3]}>See my CV</Button>
-              </Row>
-            </Grid>
+            <section className={cl(styles.section, styles.hello)}>
+              <div className={cl(styles.insignia, styles.top)}>
+                <div className={styles.insigniaClip} />
+              </div>
+              <motion.div
+                className={styles.introWrapper}
+                variants={container}
+                initial="hidden"
+                animate="show"
+              >
+                <Grid>
+                  <MotionHeading variants={item}>Hi there.</MotionHeading>
+                  <div className={styles.intro}>
+                    <MotionPassage as="p1" variants={item}>My name's <em>Ricky.</em></MotionPassage>
+                    <MotionPassage as="p1" variants={item}>I do <em>design + code.</em></MotionPassage>
+                    <MotionPassage as="p1" variants={item}><em>I'm looking for the next big thing. Right now.</em></MotionPassage>
+                  </div>
+                  <Row>
+                    <MotionButton spans={[3]} variants={item}>Say Hi</MotionButton>
+                    <MotionButton spans={[3]} variants={item}>See my CV</MotionButton>
+                  </Row>
+                </Grid>
+              </motion.div>
+            </section>
 
             <Grid className={styles.section}>
               <Heading as="h2">Here's what I can do.</Heading>
@@ -115,7 +149,7 @@ const Home = ({ projectMetadata, activeProject }) => {
                     layout="fill"
                     objectFit="cover"
                     sizes="(max-width: 640px) 94vw, 30vw"
-                    src={portrait}
+                    src={require('public/images/me.png')}
                     alt="Portrait photo of Ricky Romero"
                   />
                 </figure>
@@ -138,6 +172,8 @@ const Home = ({ projectMetadata, activeProject }) => {
           <footer className={styles.footer}></footer>
         </div>
       </div>
+
+      <Insignia />
     </>
   )
 }

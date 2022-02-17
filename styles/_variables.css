@@ -53,6 +53,7 @@
   /* SIZE UNITS */
   --max-page-content-width: 1280px;
   --gap: 40px;
+  --gap-l: 60px;
   --page-inset: clamp(10px, 3vw, var(--gap));
   --max-page-width: calc(var(--max-page-content-width) + var(--page-inset) * 2);
 }

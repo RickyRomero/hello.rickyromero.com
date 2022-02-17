@@ -2,8 +2,7 @@ import { Fragment } from 'react'
 import Markdown from 'markdown-to-jsx'
 import Image from 'next/image'
 import Link from 'next/link'
-import Heading from 'components/heading'
-import Passage from 'components/passage'
+import { Heading, Passage } from 'components/typography'
 
 const WrappedLink = ({ href, title, children }) => {
   return (

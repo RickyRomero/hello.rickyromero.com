@@ -1,10 +1,10 @@
-import { Children, cloneElement } from 'react'
+import { Children, cloneElement, createElement, Fragment } from 'react'
 import cl from 'utils/classlist'
 
 import styles from './grid.module.css'
 
 const Row = props => {
-  const { desktopColCount = 12, children } = props
+  const { as = Fragment, desktopColCount = 12, children } = props
   let desktopSpanSum = 0
   const gridChildren = Children.map(children, (child, idx) => {
     const [desktop = desktopColCount/*, mobile */] = child.props.spans || []
@@ -15,13 +15,13 @@ const Row = props => {
   })
   const desktopColEmpty = desktopColCount - (desktopSpanSum % desktopColCount)
 
+  const contents = []
+  contents.push(gridChildren)
+  contents.push(desktopColEmpty !== desktopColCount && (
+    <span className={styles[`desktop-${desktopColEmpty}`]} />
+  ))
   return (
-    <>
-      {gridChildren}
-      { desktopColEmpty !== desktopColCount ? (
-        <span className={styles[`desktop-${desktopColEmpty}`]} />
-      ) : null }
-    </>
+    createElement(as, {}, contents)
   )
 }
 

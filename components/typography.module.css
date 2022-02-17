@@ -5,4 +5,15 @@
 .h5 { font-size: var(--small-text);   line-height: var(--h5-leading);   letter-spacing: var(--small-tracking); }
 .h6 { font-size: var(--xsmall-text);  line-height: var(--h6-leading);  letter-spacing: var(--xsmall-tracking); }
 
+.p1 { font-size: var(--large-text);   line-height: var(--large-leading);   letter-spacing: var(--large-tracking);   }
+.p2 { font-size: var(--medium-text);  line-height: var(--medium-leading);  letter-spacing: var(--medium-tracking);  }
+.p3 { font-size: var(--small-text);   line-height: var(--small-leading);   letter-spacing: var(--small-tracking);   }
+.p4 { font-size: var(--xsmall-text);  line-height: var(--xsmall-leading);  letter-spacing: var(--xsmall-tracking);  }
+
 .h1, .h2, .h3, .h4, .h5, .h6 { margin: 0; }
+.p1, .p2, .p3, .p4 { margin: 0; }
+
+.p1 em, .p2 em, .p3 em, .p4 em {
+  font-style: normal;
+  color: var(--emphatic);
+}

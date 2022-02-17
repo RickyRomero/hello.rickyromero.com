@@ -1,9 +1,9 @@
-import { createElement } from 'react'
+import { createElement, forwardRef } from 'react'
 import cl from 'utils/classlist'
 
-import styles from './heading.module.css'
+import styles from './typography.module.css'
 
-const Heading = props => {
+const Heading = forwardRef((props, ref) => {
   const { as = 'h1', className = '', children, ...rest } = props
   let content
 
@@ -27,7 +27,16 @@ const Heading = props => {
     .trim()
     .replace(/\s+/g, '-')
 
-  return createElement(as, { id, className: classList, ...rest }, text)
-}
+  return createElement(as, { id, className: classList, ref, ...rest }, text)
+})
+Heading.displayName = 'Heading'
 
-export default Heading
+const Passage = forwardRef((props, ref) => {
+  const { as = 'p3', className = '', children, ...rest } = props
+  const classList = cl(styles[as], className)
+
+  return <p ref={ref} className={classList} {...rest}>{children}</p>
+})
+Passage.displayName = 'Passage'
+
+export { Heading, Passage }
