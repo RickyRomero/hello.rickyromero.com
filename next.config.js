@@ -1,5 +1,8 @@
 module.exports = {
   reactStrictMode: true,
+  experimental: {
+    reactRoot: true
+  },
   images: {
     formats: ['image/avif', 'image/webp']
   },

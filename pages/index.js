@@ -103,7 +103,7 @@ const Home = ({ projectMetadata, activeProject }) => {
                 animate="show"
               >
                 <Grid>
-                  <MotionHeading variants={item}>Hi there.</MotionHeading>
+                  <MotionHeading variants={item}>hi there.</MotionHeading>
                   <div className={styles.intro}>
                     <MotionPassage as="p1" variants={item}>My name's <em>Ricky.</em></MotionPassage>
                     <MotionPassage as="p1" variants={item}>I do <em>design + code.</em></MotionPassage>
@@ -118,12 +118,12 @@ const Home = ({ projectMetadata, activeProject }) => {
             </section>
 
             <Grid className={styles.section}>
-              <Heading as="h2">Here's what I can do.</Heading>
+              <Heading as="h2">what i can do.</Heading>
               <SkillsCloud />
             </Grid>
 
             <Grid className={[styles.section, styles.projects].join(' ')}>
-              <Heading as="h2">Projects</Heading>
+              <Heading as="h2">things i've done.</Heading>
               <Row>
                 {projectMetadata.map(summary => {
                   const { slug } = summary
@@ -142,7 +142,7 @@ const Home = ({ projectMetadata, activeProject }) => {
             </Grid>
 
             <Grid className={[styles.section, styles.about].join(' ')}>
-              <Heading as="h2">About Me</Heading>
+              <Heading as="h2">more about me.</Heading>
               <Row>
                 <figure className={styles.portrait} spans={[4]}>
                   <Image
@@ -160,7 +160,7 @@ const Home = ({ projectMetadata, activeProject }) => {
             </Grid>
 
             <Grid className={[styles.section, styles.letsDoThis].join(' ')}>
-              <Heading>Only 1 left in stock.</Heading>
+              <Heading>only 1 left in stock.</Heading>
               <Passage as="p1"><em>I'm looking for work,</em> but won't be for much longer.</Passage>
               <Passage as="p1">What do you want to build together?</Passage>
               <Row>

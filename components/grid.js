@@ -18,7 +18,7 @@ const Row = props => {
   const contents = []
   contents.push(gridChildren)
   contents.push(desktopColEmpty !== desktopColCount && (
-    <span className={styles[`desktop-${desktopColEmpty}`]} />
+    <span key="grid-end" className={styles[`desktop-${desktopColEmpty}`]} />
   ))
   return (
     createElement(as, {}, contents)
