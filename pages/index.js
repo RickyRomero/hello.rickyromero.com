@@ -29,20 +29,9 @@ const MotionHeading = motion(Heading)
 const MotionPassage = motion(Passage)
 const MotionButton = motion(Button)
 
-const transition = {
-  type: 'spring',
-  damping: 40
-}
-
-const container = {
-  show: {
-    transition: {
-      staggerChildren: 0.2
-    }
-  }
-}
-
-const item = {
+const transition = { type: 'spring', damping: 40 }
+const heroBase = { show: { transition: { staggerChildren: 0.2 } } }
+const heroItem = {
   hidden: { y: 100, opacity: 0, transition },
   show: { y: 0, opacity: 1, transition }
 }
@@ -98,20 +87,20 @@ const Home = ({ projectMetadata, activeProject }) => {
               </div>
               <motion.div
                 className={styles.introWrapper}
-                variants={container}
+                variants={heroBase}
                 initial="hidden"
                 animate="show"
               >
                 <Grid>
-                  <MotionHeading variants={item}>hi there.</MotionHeading>
+                  <MotionHeading variants={heroItem}>hi there.</MotionHeading>
                   <div className={styles.intro}>
-                    <MotionPassage as="p1" variants={item}>My name's <em>Ricky.</em></MotionPassage>
-                    <MotionPassage as="p1" variants={item}>I do <em>design + code.</em></MotionPassage>
-                    <MotionPassage as="p1" variants={item}><em>I'm looking for the next big thing. Right now.</em></MotionPassage>
+                    <MotionPassage as="p1" variants={heroItem}>My name's <em>Ricky.</em></MotionPassage>
+                    <MotionPassage as="p1" variants={heroItem}>I do <em>design + code.</em></MotionPassage>
+                    <MotionPassage as="p1" variants={heroItem}><em>I'm looking for the next big thing. Right now.</em></MotionPassage>
                   </div>
                   <Row>
-                    <MotionButton spans={[3]} variants={item}>Say Hi</MotionButton>
-                    <MotionButton spans={[3]} variants={item}>See my CV</MotionButton>
+                    <MotionButton spans={[3]} variants={heroItem}>Say Hi</MotionButton>
+                    <MotionButton spans={[3]} variants={heroItem}>See my CV</MotionButton>
                   </Row>
                 </Grid>
               </motion.div>

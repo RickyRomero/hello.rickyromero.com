@@ -27,15 +27,15 @@ import cl from 'utils/classlist'
 import styles from 'styles/project.module.css'
 
 const Project = ({ data, expanded, className }) => {
-  const slowMo = false
+  const slowMo = true
   const { metadata, slug, contents } = data
   const { title } = metadata
 
-  const wrapperClass = cl(styles.contentWrapper, expanded ? styles.wrapperOpen : '')
+  const wrapperClass = cl(styles.projectSlot, expanded ? styles.projectOpen : '')
 
-  const lightboxLayer = useMotionValue(expanded ? 'var(--lightbox-layer)' : 0)
+  const lightboxLayer = useMotionValue(expanded ? 4 : 0)
   const setLightboxLayer = ({ progress }) => {
-    lightboxLayer.set(progress > 0.001 ? 'var(--lightbox-layer)' : 0)
+    lightboxLayer.set(progress > 0.001 ? 4 : 0)
   }
 
   const spring = { type: 'spring', stiffness: slowMo ? 50 : 200, damping: 30 }
@@ -55,25 +55,22 @@ const Project = ({ data, expanded, className }) => {
       }
 
       <FocusTrap active={expanded}>
-        <li className={cl(styles.project, className)}>
+        <li className={cl(wrapperClass, className)}>
           { expanded && <PreventBodyScroll /> }
           <ModalOverlay expanded={expanded} spring={spring} />
           <motion.div
-            transition={spring}
             animate={{ progress: expanded ? 1 : 0 }}
+            transition={spring}
             style={{ zIndex: lightboxLayer }}
             onUpdate={setLightboxLayer}
-            className={wrapperClass}
+            className={styles.scrollable}
           >
-            <motion.article
-              layout
+            <motion.article layout
               initial={radius}
               transition={spring}
-              style={origin}
-              className={styles.content}
+              className={styles.card}
             >
-              <motion.div
-                layout="position"
+              <motion.div layout="position"
                 transition={spring}
                 style={origin}
                 className={styles.inverseTransform}
