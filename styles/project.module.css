@@ -3,11 +3,6 @@
   display: block;
   height: 420px;
   padding: 0;
-  flex: 0 0 40%;
-}
-
-.project:nth-child(4n + 1), .project:nth-child(4n + 4) {
-  flex: 0 0 60%;
 }
 
 .overlay {
