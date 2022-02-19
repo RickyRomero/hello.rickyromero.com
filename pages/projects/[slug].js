@@ -11,6 +11,7 @@
 // The reason for doing this is to allow for a seamless transition between the project
 // open/closed states.
 
+import { useEffect, useRef } from 'react'
 import Head from 'next/head'
 import Image from 'next/image'
 import Link from 'next/link'
@@ -26,16 +27,25 @@ import cl from 'utils/classlist'
 
 import styles from 'styles/project.module.css'
 
+const dynamicScrollerProps = {
+  enabled: { tabIndex: 0 },
+  disabled: {
+    tabIndex: -1,
+    'aria-disabled': true
+  }
+}
+
 const Project = ({ data, expanded, className }) => {
-  const slowMo = true
+  const scrollArea = useRef()
+  const slowMo = false
   const { metadata, slug, contents } = data
   const { title } = metadata
 
   const wrapperClass = cl(styles.projectSlot, expanded ? styles.projectOpen : '')
 
-  const lightboxLayer = useMotionValue(expanded ? 4 : 0)
+  const lightboxLayer = useMotionValue(expanded ? 'var(--lightbox-layer)' : 0)
   const setLightboxLayer = ({ progress }) => {
-    lightboxLayer.set(progress > 0.001 ? 4 : 0)
+    lightboxLayer.set(progress > 0.001 ? 'var(--lightbox-layer)' : 0)
   }
 
   const spring = { type: 'spring', stiffness: slowMo ? 50 : 200, damping: 30 }
@@ -43,6 +53,10 @@ const Project = ({ data, expanded, className }) => {
   const radius = { borderRadius: 40 }
 
   const imgSize = /* expanded ? '100vw' : */'1360px'
+
+  const scrollProps = dynamicScrollerProps[expanded ? 'enabled' : 'disabled']
+
+  useEffect(() => { expanded && scrollArea.current?.focus() }, [scrollArea, expanded])
 
   return (
     <>
@@ -57,23 +71,20 @@ const Project = ({ data, expanded, className }) => {
       <FocusTrap active={expanded}>
         <li className={cl(wrapperClass, className)}>
           { expanded && <PreventBodyScroll /> }
-          <ModalOverlay expanded={expanded} spring={spring} />
-          <motion.div
-            animate={{ progress: expanded ? 1 : 0 }}
-            transition={spring}
-            style={{ zIndex: lightboxLayer }}
-            onUpdate={setLightboxLayer}
-            className={styles.scrollable}
-          >
+          <motion.div ref={scrollArea} className={styles.scrollable} {...scrollProps}>
+            <ModalOverlay expanded={expanded} spring={spring} />
             <motion.article layout
               initial={radius}
+              animate={{ progress: expanded ? 1 : 0 }}
               transition={spring}
+              style={{ zIndex: lightboxLayer }}
+              onUpdate={setLightboxLayer}
               className={styles.card}
             >
               <motion.div layout="position"
                 transition={spring}
                 style={origin}
-                className={styles.inverseTransform}
+                className={styles.cardContents}
               >
                 <motion.figure
                   layout
