@@ -11,30 +11,27 @@
 // The reason for doing this is to allow for a seamless transition between the project
 // open/closed states.
 
-import { Suspense, lazy } from 'react'
 import Head from 'next/head'
 import Image from 'next/image'
 import Link from 'next/link'
 import { motion, useMotionValue } from 'framer-motion'
 import FocusTrap from 'focus-trap-react'
 
+import { Heading } from 'components/typography'
 import MarkdownRenderer from 'components/markdown-renderer'
 import PreventBodyScroll from 'components/prevent-body-scroll'
+import ModalOverlay from 'components/modal-overlay'
 import { getProjectSlugs, getProjectsMeta, getProject } from 'generators/projects'
 import cl from 'utils/classlist'
 
 import styles from 'styles/project.module.css'
 
-const Escape = lazy(() => import('components/escape'))
-
 const Project = ({ data, expanded, className }) => {
   const slowMo = false
-  const { slug, metadata, contents } = data
-  const { title/*, tagline, summary, previews */ } = metadata
+  const { metadata, slug, contents } = data
+  const { title } = metadata
 
-  const wrapperClassList = [styles.contentWrapper]
-  if (expanded) { wrapperClassList.push(styles.wrapperOpen) }
-  const wrapperClass = wrapperClassList.join(' ')
+  const wrapperClass = cl(styles.contentWrapper, expanded ? styles.wrapperOpen : '')
 
   const lightboxLayer = useMotionValue(expanded ? 'var(--lightbox-layer)' : 0)
   const setLightboxLayer = ({ progress }) => {
@@ -43,18 +40,9 @@ const Project = ({ data, expanded, className }) => {
 
   const spring = { type: 'spring', stiffness: slowMo ? 50 : 200, damping: 30 }
   const origin = { originX: 0, originY: 0 }
-  const initial = { borderRadius: 40 }
+  const radius = { borderRadius: 40 }
 
   const imgSize = /* expanded ? '100vw' : */'1360px'
-
-  const dynamicOverlayProps = {
-    enabled: {},
-    disabled: {
-      tabIndex: -1,
-      'aria-disabled': true
-    }
-  }
-  const addlOverlayProps = dynamicOverlayProps[expanded ? 'enabled' : 'disabled']
 
   return (
     <>
@@ -69,20 +57,7 @@ const Project = ({ data, expanded, className }) => {
       <FocusTrap active={expanded}>
         <li className={cl(styles.project, className)}>
           { expanded && <PreventBodyScroll /> }
-          <motion.div
-            initial={false}
-            animate={{ opacity: expanded ? 1 : 0 }}
-            transition={spring}
-            className={styles.overlay}
-            style={{
-              pointerEvents: expanded ? 'auto' : 'none'
-            }
-          }>
-            <Link href="/" scroll={false}>
-              <a className={styles.overlayLink} {...addlOverlayProps}>Go back home</a>
-            </Link>
-            { expanded && <Suspense fallback={null}><Escape to="/" /></Suspense> }
-          </motion.div>
+          <ModalOverlay expanded={expanded} spring={spring} />
           <motion.div
             transition={spring}
             animate={{ progress: expanded ? 1 : 0 }}
@@ -92,7 +67,7 @@ const Project = ({ data, expanded, className }) => {
           >
             <motion.article
               layout
-              initial={initial}
+              initial={radius}
               transition={spring}
               style={origin}
               className={styles.content}
@@ -110,13 +85,13 @@ const Project = ({ data, expanded, className }) => {
                   className={styles.hero}
                 >
                   <Image
+                    priority={expanded}
                     src={require(`projects/${slug}/${slug}.jpg`)}
                     layout="fill"
                     objectFit="cover"
                     sizes={imgSize}
                   />
-                  <h1>{title}</h1>
-                  <h1>{title}</h1>
+                  <Heading>{title}</Heading>
                 </motion.figure>
                 <main>
                   {contents && (
