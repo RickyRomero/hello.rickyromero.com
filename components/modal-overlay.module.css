@@ -8,7 +8,6 @@
   left: 0;
   right: 0;
   background: var(--overlay-bg);
-  backdrop-filter: brightness(1.5) blur(60px) saturate(5);
 }
 
 .overlay a {
