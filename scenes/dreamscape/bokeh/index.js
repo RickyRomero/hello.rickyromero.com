@@ -7,7 +7,7 @@ import useMotionRate from 'hooks/use-motion-rate'
 import vertexShader from './bokeh.vert'
 import fragmentShader from './bokeh.frag'
 
-const particleCount = 1600
+const particleCount = 2000
 const material = new THREE.RawShaderMaterial({
   vertexShader,
   fragmentShader,

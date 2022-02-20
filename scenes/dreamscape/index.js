@@ -75,10 +75,14 @@ const Dreamscape = ({ onFirstFrame, children }) => {
     }
 
     let camPitch = -THREE.Math.degToRad(window.scrollY / 48 * scrollEnabled)
-    camPitch += THREE.Math.degToRad(springs.camPitch.get() * -4)
-    const camYaw = THREE.Math.degToRad(springs.camYaw.get() * -4)
+    camPitch += THREE.Math.degToRad(springs.camPitch.get() * -2)
+    const camYaw = THREE.Math.degToRad(springs.camYaw.get() * -2)
     const rotation = new THREE.Euler(camPitch, camYaw, 0, 'XYZ')
+    const xOffset = springs.camYaw.get() * 0.025
+    const yOffset = springs.camPitch.get() * -0.025
+
     camGroup.current?.setRotationFromEuler(rotation)
+    camGroup.current?.position.set(0 + xOffset, 0.1 + yOffset, 1)
 
     setRenderActive(opacity.get() > 0 && motionRate.get() > 0)
   })
