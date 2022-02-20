@@ -23,14 +23,17 @@
 .desktop-11 { --grid-columns: 11; }
 .desktop-12 { --grid-columns: 12; }
 
+/* CSS grid has a bit of a quirk where if there's only 1 column,
+  some content will unintentionally overflow. We specify 2 columns
+  to work around this */
 @media (max-width: 640px) {
   .grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, 1fr);
   }
 
   .desktop-1, .desktop-2, .desktop-3, .desktop-4,
   .desktop-5, .desktop-6, .desktop-7, .desktop-8,
   .desktop-9, .desktop-10, .desktop-11, .desktop-12 {
-    --grid-columns: 1;
+    --grid-columns: 2;
   }
 }
