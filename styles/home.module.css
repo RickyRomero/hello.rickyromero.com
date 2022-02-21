@@ -62,6 +62,10 @@
   justify-content: center;
 }
 
+.hero-grid {
+  width: 100%;
+}
+
 .intro {
   /* Compensate for grid gap */
   margin-bottom: calc(var(--gap-l) - var(--gap));

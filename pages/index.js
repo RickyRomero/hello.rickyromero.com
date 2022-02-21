@@ -91,16 +91,16 @@ const Home = ({ projectMetadata, activeProject }) => {
                 initial="hidden"
                 animate="show"
               >
-                <Grid>
+                <Grid className={styles.heroGrid}>
                   <MotionHeading variants={heroItem}>hi there.</MotionHeading>
                   <div className={styles.intro}>
-                    <MotionPassage as="p1" variants={heroItem}>My name's <em>Ricky.</em></MotionPassage>
-                    <MotionPassage as="p1" variants={heroItem}>I do <em>design + code.</em></MotionPassage>
+                    <MotionPassage as="p1" variants={heroItem}>My name's Ricky.</MotionPassage>
+                    <MotionPassage as="p1" variants={heroItem}>I do design + code.</MotionPassage>
                     <MotionPassage as="p1" variants={heroItem}>I want to <em>build something incredible.</em></MotionPassage>
                   </div>
                   <Row>
-                    <MotionButton spans={[3]} variants={heroItem}>Say Hi</MotionButton>
-                    <MotionButton spans={[3]} variants={heroItem}>See my CV</MotionButton>
+                    <MotionButton spans={[4]} variants={heroItem}>Say Hi</MotionButton>
+                    <MotionButton spans={[4]} variants={heroItem}>See my CV</MotionButton>
                   </Row>
                 </Grid>
               </motion.div>
@@ -153,8 +153,8 @@ const Home = ({ projectMetadata, activeProject }) => {
               <Passage as="p1"><em>I'm looking for work,</em> but won't be for much longer.</Passage>
               <Passage as="p1">What do you want to build together?</Passage>
               <Row>
-                <Button spans={[3]}>Say Hi</Button>
-                <Button spans={[3]}>See my CV</Button>
+                <Button spans={[4]}>Say Hi</Button>
+                <Button spans={[4]}>See my CV</Button>
               </Row>
             </Grid>
           </main>

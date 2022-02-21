@@ -124,3 +124,15 @@
     --dreamscape-bg: #160013;
   }
 }
+
+/* MOBILE SIZE TWEAKS */
+@media (max-width: 640px) {
+  :root {
+    --xxlarge-text: 52px;
+    --xlarge-text:  40px;
+    --large-text:   28px;
+    --medium-text:  24px;
+    --small-text:   20px;
+    --xsmall-text:  16px;
+  }
+}

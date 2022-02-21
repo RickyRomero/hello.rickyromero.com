@@ -28,6 +28,7 @@ const SkillsCloud = () => {
       'wireframing'
     ],
     code: [
+      'Auto Layout',
       'babel',
       'CSS',
       'code review',
@@ -36,7 +37,7 @@ const SkillsCloud = () => {
       'eslint',
       'Express.js',
       'Framer Motion',
-      'Git',
+      'Git (UI-assisted)',
       'GitHub Actions',
       'GLSL',
       'HTML',
@@ -51,6 +52,7 @@ const SkillsCloud = () => {
       'SQL',
       'stylelint',
       'Swift',
+      'SwiftUI',
       'three.js',
       'Vanilla JavaScript',
       'WebGL',
