@@ -56,6 +56,7 @@
   --gap-l: 60px;
   --page-inset: clamp(10px, 3vw, var(--gap));
   --max-page-width: calc(var(--max-page-content-width) + var(--page-inset) * 2);
+  --project-key-art-height: 420px;
 }
 
 /* WIDE-GAMUT PALETTE */
@@ -134,5 +135,7 @@
     --medium-text:  24px;
     --small-text:   20px;
     --xsmall-text:  16px;
+
+    --project-key-art-height: 320px;
   }
 }
