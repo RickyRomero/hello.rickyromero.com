@@ -13,12 +13,11 @@
 
 import { useEffect, useRef } from 'react'
 import Head from 'next/head'
-import Image from 'next/image'
 import Link from 'next/link'
 import { motion, useMotionValue } from 'framer-motion'
 import FocusTrap from 'focus-trap-react'
 
-import { Heading } from 'components/typography'
+import ProjectHero from 'components/project-hero'
 import MarkdownRenderer from 'components/markdown-renderer'
 import PreventBodyScroll from 'components/prevent-body-scroll'
 import ModalOverlay from 'components/modal-overlay'
@@ -52,8 +51,6 @@ const Project = ({ data, expanded, className }) => {
   const origin = { originX: 0, originY: 0 }
   const radius = { borderRadius: 40 }
 
-  const imgSize = /* expanded ? '100vw' : */'1360px'
-
   const scrollProps = dynamicScrollerProps[expanded ? 'enabled' : 'disabled']
 
   useEffect(() => { expanded && scrollArea.current?.focus() }, [scrollArea, expanded])
@@ -86,30 +83,7 @@ const Project = ({ data, expanded, className }) => {
                 style={origin}
                 className={styles.cardContents}
               >
-                <motion.figure
-                  layout
-                  transition={spring}
-                  style={origin}
-                  className={styles.hero}
-                >
-                  <Image
-                    priority={expanded}
-                    src={require(`projects/${slug}/background.jpg`)}
-                    layout="fill"
-                    objectFit="cover"
-                    sizes={imgSize}
-                  />
-                  {slug === 'openemu' && (
-                    <Image
-                      priority={expanded}
-                      src={require('projects/openemu/foreground.png')}
-                      layout="fill"
-                      objectFit="contain"
-                      sizes="600px"
-                    />
-                  )}
-                  <Heading>{title}</Heading>
-                </motion.figure>
+                <ProjectHero {...{ project: data, expanded, spring }} />
                 <main>
                   {contents && (
                     <MarkdownRenderer>{contents}</MarkdownRenderer>

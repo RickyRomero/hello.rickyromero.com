@@ -1,0 +1,17 @@
+.hero {
+  position: relative;
+  top: calc(var(--page-inset) * -1);
+  margin: 0;
+  height: calc(var(--project-key-art-height) + var(--page-inset) * 2);
+  width: var(--max-page-width);
+  background-color: black;
+  pointer-events: none;
+}
+
+.key-art-bg {
+  filter: brightness(0.5);
+}
+
+.expanded.hero {
+  top: 0;
+}
