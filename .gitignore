@@ -35,3 +35,6 @@ yarn-error.log*
 
 # Exclude font files from source control due to licensing complications
 *.woff2
+
+# Exclude contact info to avoid email scrapers
+contact.json

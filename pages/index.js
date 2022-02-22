@@ -1,4 +1,4 @@
-import { Suspense, lazy } from 'react'
+import { Suspense, lazy, useEffect, useState } from 'react'
 import Head from 'next/head'
 import Image from 'next/image'
 import { motion, useTransform } from 'framer-motion'
@@ -37,6 +37,7 @@ const heroItem = {
 }
 
 const Home = ({ projectMetadata, activeProject }) => {
+  const [contact, setContact] = useState(null)
   const [scrollOpacity, initialFade] = useDreamscapeOpacity()
   const darkMode = useDarkMode()
   const motionRate = useMotionRate()
@@ -47,6 +48,12 @@ const Home = ({ projectMetadata, activeProject }) => {
   const placeholderStyle = {
     display: useTransform(initialFade, v => v < 1 ? 'block' : 'none')
   }
+
+  // Hide contact info from scrapers
+  useEffect(() => {
+    const contactInfo = require('contact.json')
+    setContact(`mailto:${contactInfo.main}`)
+  }, [])
 
   return (
     <>
@@ -99,7 +106,7 @@ const Home = ({ projectMetadata, activeProject }) => {
                     <MotionPassage as="p1" variants={heroItem}>I want to <em>build something incredible.</em></MotionPassage>
                   </div>
                   <Row>
-                    <MotionButton spans={[4]} variants={heroItem}>Say Hi</MotionButton>
+                    <MotionButton spans={[4]} variants={heroItem} href={contact}>Say Hi</MotionButton>
                     <MotionButton spans={[4]} variants={heroItem}>See my CV</MotionButton>
                   </Row>
                 </Grid>
@@ -153,7 +160,7 @@ const Home = ({ projectMetadata, activeProject }) => {
               <Passage as="p1"><em>I'm looking for work,</em> but won't be for much longer.</Passage>
               <Passage as="p1">What do you want to build together?</Passage>
               <Row>
-                <Button spans={[4]}>Say Hi</Button>
+                <Button spans={[4]} href={contact}>Say Hi</Button>
                 <Button spans={[4]}>See my CV</Button>
               </Row>
             </Grid>
