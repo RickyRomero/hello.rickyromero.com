@@ -94,11 +94,20 @@ const Project = ({ data, expanded, className }) => {
                 >
                   <Image
                     priority={expanded}
-                    src={require(`projects/${slug}/${slug}.jpg`)}
+                    src={require(`projects/${slug}/background.jpg`)}
                     layout="fill"
                     objectFit="cover"
                     sizes={imgSize}
                   />
+                  {slug === 'openemu' && (
+                    <Image
+                      priority={expanded}
+                      src={require('projects/openemu/foreground.png')}
+                      layout="fill"
+                      objectFit="contain"
+                      sizes="600px"
+                    />
+                  )}
                   <Heading>{title}</Heading>
                 </motion.figure>
                 <main>
