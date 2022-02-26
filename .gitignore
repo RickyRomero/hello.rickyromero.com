@@ -33,6 +33,8 @@ yarn-error.log*
 # vercel
 .vercel
 
+/pages/api/log.js
+
 # Exclude font files from source control due to licensing complications
 *.woff2
 
