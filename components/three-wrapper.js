@@ -15,15 +15,16 @@ const ThreeWrapper = ({ children }) => {
     setFpsCeiling(max)
     setPixelRatio(window.devicePixelRatio)
 
-    logTarget('#gpu')
+    logDsRes(window.devicePixelRatio)
     logFpsCeiling(max)
+    logTarget('#gpu')
   }
 
   const updatePixelRatio = ratio => {
     setPixelRatio(ratio)
 
-    logTarget('#gpu')
     logDsRes(ratio)
+    logTarget('#gpu')
   }
 
   return (

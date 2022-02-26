@@ -19,8 +19,8 @@ const DynamicRes = ({ fpsTarget, pixelRatio, onUpdate }) => {
 
   useEffect(() => {
     const timeout = setTimeout(() => {
-      logTarget('#gpu')
       logFps(fps.average())
+      logTarget('#gpu')
     }, 6000)
     return () => clearTimeout(timeout)
   }, [])
