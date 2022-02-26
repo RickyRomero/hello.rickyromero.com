@@ -1,7 +1,10 @@
 // This component is responsible for dynamically adjusting render resolution
 // in favor of high framerates.
 
+import { useEffect } from 'react'
 import { useFrame } from '@react-three/fiber'
+
+import useLogs from 'hooks/use-logs'
 
 const calcInterval = 1000
 const fps = {
@@ -12,6 +15,16 @@ const fps = {
 const dpr = window.devicePixelRatio
 
 const DynamicRes = ({ fpsTarget, pixelRatio, onUpdate }) => {
+  const [logTarget, logFps] = useLogs()
+
+  useEffect(() => {
+    const timeout = setTimeout(() => {
+      logTarget('#gpu')
+      logFps(fps.average())
+    }, 6000)
+    return () => clearTimeout(timeout)
+  }, [])
+
   useFrame((_, delta) => {
     const now = Date.now()
     if (fps.samples.unshift(delta) > 60) { fps.samples.pop() }

@@ -11,6 +11,7 @@ import Button from 'components/button'
 import SkillsCloud from 'components/skills-cloud'
 
 import { useDarkMode } from 'hooks/use-media-query'
+import useLogs from 'hooks/use-logs'
 import useMotionRate from 'hooks/use-motion-rate'
 import useDreamscapeOpacity from 'hooks/use-dreamscape-opacity'
 import cl from 'utils/classlist'
@@ -37,6 +38,7 @@ const heroItem = {
 }
 
 const Home = ({ projectMetadata, activeProject }) => {
+  const [logTarget] = useLogs()
   const [contact, setContact] = useState(null)
   const [scrollOpacity, initialFade] = useDreamscapeOpacity()
   const darkMode = useDarkMode()
@@ -54,6 +56,14 @@ const Home = ({ projectMetadata, activeProject }) => {
     const contactInfo = require('contact.json')
     setContact(`mailto:${contactInfo.main}`)
   }, [])
+
+  if (typeof window !== 'undefined') {
+    useEffect(() => {
+      window.setTimeout(() => {
+        logTarget(window.location.pathname)
+      }, 100)
+    }, [window.location.pathname])
+  }
 
   return (
     <>
