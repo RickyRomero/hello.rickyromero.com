@@ -7,7 +7,7 @@ import useLogs from 'hooks/use-logs'
 const Canvas = lazy(() => import('lazy/canvas'))
 
 const ThreeWrapper = ({ children }) => {
-  const [logTarget, , logFpsCeiling, logDsRes] = useLogs()
+  const logEntry = useLogs(state => state.logEntry)
   const [pixelRatio, setPixelRatio] = useState(0.05)
   const [fpsCeiling, setFpsCeiling] = useState(null)
 
@@ -15,16 +15,20 @@ const ThreeWrapper = ({ children }) => {
     setFpsCeiling(max)
     setPixelRatio(window.devicePixelRatio)
 
-    logDsRes(window.devicePixelRatio)
-    logFpsCeiling(max)
-    logTarget('#gpu')
+    logEntry({
+      target: '#gpu',
+      dsRes: window.devicePixelRatio,
+      fpsCeiling: max
+    })
   }
 
   const updatePixelRatio = ratio => {
     setPixelRatio(ratio)
 
-    logDsRes(ratio)
-    logTarget('#gpu')
+    logEntry({
+      target: '#gpu',
+      dsRes: ratio
+    })
   }
 
   return (

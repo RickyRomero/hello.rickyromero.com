@@ -1,8 +1,7 @@
 import { useEffect } from 'react'
-import { createHook } from 'hookleton'
 import { useMotionValue, useSpring, useTransform } from 'framer-motion'
 
-const useDreamscapeOpacity = createHook(() => {
+const useDreamscapeOpacity = () => {
   const w = typeof window !== 'undefined' ? window : {}
   const maxThreshold = 1500
   const fadeRange = 1000
@@ -33,6 +32,6 @@ const useDreamscapeOpacity = createHook(() => {
   const scrollOpacity = useTransform(offsetY, scrollInfluence)
 
   return [scrollOpacity, initialFade]
-})
+}
 
 export default useDreamscapeOpacity

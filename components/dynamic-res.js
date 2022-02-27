@@ -15,12 +15,14 @@ const fps = {
 const dpr = window.devicePixelRatio
 
 const DynamicRes = ({ fpsTarget, pixelRatio, onUpdate }) => {
-  const [logTarget, logFps] = useLogs()
+  const logEntry = useLogs(state => state.logEntry)
 
   useEffect(() => {
     const timeout = setTimeout(() => {
-      logFps(fps.average())
-      logTarget('#gpu')
+      logEntry({
+        target: '#gpu',
+        fps: fps.average()
+      })
     }, 6000)
     return () => clearTimeout(timeout)
   }, [])

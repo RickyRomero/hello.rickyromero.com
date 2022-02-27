@@ -1,18 +1,18 @@
-import { useEffect, useState } from 'react'
-import { createHook } from 'hookleton'
+import create from 'zustand'
 
-const useLogs = createHook(() => {
-  const [gpuLogged, setGpuLogged] = useState(false)
-  const [target, logTarget] = useState()
-  const [fps, logFps] = useState()
-  const [fpsCeiling, logFpsCeiling] = useState()
-  const [dsRes, logDsRes] = useState()
+const useLogs = create((set, get) => ({
+  gpuLogged: false,
+  fps: null,
+  fpsCeiling: null,
+  dsRes: null,
 
-  useEffect(() => {
-    if (!target) { return }
+  logEntry: ({ target, ...client }) => {
+    set(client)
+    const { gpuLogged, fps, fpsCeiling, dsRes } = get()
+
     if (target === '#gpu' && (!fps || !fpsCeiling || !dsRes)) { return }
     if (target === '#gpu' && gpuLogged) { return }
-    if (target === '#gpu') { setGpuLogged(true) }
+    if (target === '#gpu') { set({ gpuLogged: true }) }
 
     const w = window.innerWidth
     const h = window.innerHeight
@@ -25,14 +25,10 @@ const useLogs = createHook(() => {
 
     fetch('/api/log', {
       method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
+      headers: { 'content-type': 'application/json' },
       body: JSON.stringify(data)
     })
-  }, [target, fps, fpsCeiling, dsRes])
-
-  return [logTarget, logFps, logFpsCeiling, logDsRes]
-})
+  }
+}))
 
 export default useLogs
