@@ -15,7 +15,7 @@ const RenderHalt = () => useFrame(() => null, 1000)
 
 const Dreamscape = ({ onFirstFrame, children }) => {
   const [opacity] = useDreamscapeOpacity()
-  const motionRate = useMotionRate()
+  const motionRate = useMotionRate(state => state.motionRate)()
   const reduceMotion = useReducedMotion() ? 0.2 : 1.0
   const scrollEnabled = reduceMotion === 1
 

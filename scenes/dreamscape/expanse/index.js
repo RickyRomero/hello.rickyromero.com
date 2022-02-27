@@ -31,7 +31,7 @@ plane.translate(0, -0.5, (-depth / 2) + 1)
 const Expanse = () => {
   const lights = useLights()
   const reducedMotion = useReducedMotion() ? 0.2 : 1.0
-  const motionRate = useMotionRate()
+  const motionRate = useMotionRate(state => state.motionRate)()
 
   useFrame((_, delta) => {
     material.uniforms.u_lights.value = lights.get()

@@ -8,10 +8,16 @@
   pointer-events: none;
 }
 
-.key-art-bg {
-  filter: brightness(0.5);
-}
+/* .key-art-bg {
+  filter: contrast(0.5) brightness(2) saturate(1.2);
+} */
 
 .expanded.hero {
   top: 0;
+}
+
+@media (prefers-color-scheme: dark) {
+  /* .key-art-bg {
+    filter: brightness(0.5);
+  } */
 }

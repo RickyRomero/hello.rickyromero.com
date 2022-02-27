@@ -42,7 +42,7 @@ const Home = ({ projectMetadata, activeProject }) => {
   const [contact, setContact] = useState(null)
   const [scrollOpacity, initialFade] = useDreamscapeOpacity()
   const darkMode = useDarkMode()
-  const motionRate = useMotionRate()
+  const motionRate = useMotionRate(state => state.motionRate)()
   const scheme = darkMode ? 'dark' : 'light'
 
   motionRate.set(Number(!activeProject))
