@@ -29,7 +29,7 @@ const FarField = () => {
   const lights = useLights()
   const highContrast = useHighContrast() ? 2.0 : 1.0
   const reducedMotion = useReducedMotion() ? 0.2 : 1.0
-  const motionRate = useMotionRate(state => state.motionRate)()
+  const motionRate = useMotionRate()
   const field = useRef()
   const dynamicRange = [-(highContrast - 1) / 2, 1 + (highContrast - 1) / 2]
 

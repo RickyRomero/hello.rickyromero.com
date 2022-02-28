@@ -1,4 +1,4 @@
-import create from 'zustand'
+import { createHook } from 'hookleton'
 import { useSpring } from 'framer-motion'
 
 const springConfig = {
@@ -8,18 +8,6 @@ const springConfig = {
   restDelta: 0.01
 }
 
-const useMotionRate = create((set, get) => ({
-  spring: null,
-  motionRate: () => {
-    let spring = get().spring
-
-    if (!spring) {
-      spring = useSpring(1, springConfig)
-      set({ spring })
-    }
-
-    return spring
-  }
-}))
+const useMotionRate = createHook(() => useSpring(1, springConfig))
 
 export default useMotionRate

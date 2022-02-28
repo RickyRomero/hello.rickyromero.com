@@ -37,7 +37,7 @@ bokehCloud.setAttribute('a_seed', new THREE.InstancedBufferAttribute(seeds, 1))
 const Bokeh = () => {
   const lights = useLights()
   const reducedMotion = useReducedMotion() ? 0.2 : 1.0
-  const motionRate = useMotionRate(state => state.motionRate)()
+  const motionRate = useMotionRate()
 
   useFrame((_, delta) => {
     material.uniforms.u_lights.value = lights.get()
