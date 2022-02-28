@@ -9,7 +9,7 @@ import styles from './project-hero.module.css'
 const ProjectHero = props => {
   const { expanded, project, spring } = props
   const { metadata, slug } = project
-  const { title } = metadata
+  const { title, baseColor } = metadata
 
   const className = cl(styles.hero, expanded ? styles.expanded : '')
 
@@ -17,26 +17,29 @@ const ProjectHero = props => {
     <motion.figure
       layout
       transition={spring}
-      style={{ originX: 0, originY: 0 }}
+      style={{ backgroundColor: baseColor, originX: 0, originY: 0 }}
       className={className}
     >
-      <Image
-        priority={expanded}
-        className={styles.keyArtBg}
-        src={require(`projects/${slug}/background.jpg`)}
-        layout="fill"
-        objectFit="cover"
-        sizes="1360px"
-      />
-      {slug === 'openemu' && (
+      <motion.div
+        className={styles.bgContainer}
+        transition={spring}
+        animate={{ opacity: expanded ? 1.0 : 0.5 }}
+      >
         <Image
           priority={expanded}
-          src={require('projects/openemu/foreground.png')}
+          src={require(`projects/${slug}/background.jpg`)}
           layout="fill"
-          objectFit="contain"
-          sizes="600px"
+          objectFit="cover"
+          sizes="1360px"
         />
-      )}
+      </motion.div>
+      <Image
+        priority={expanded}
+        src={require(`projects/${slug}/foreground.png`)}
+        layout="fill"
+        objectFit="contain"
+        sizes="600px"
+      />
       <Heading>{title}</Heading>
     </motion.figure>
   )

@@ -12,6 +12,10 @@
   --grape-shadow-sharp: #9b00ff29;
   --grape-shadow-diffuse: #9b00ff17;
   --dragonfruit: #ff006c;
+  --dreamy-day: #90d6ff;
+  --bright-day: #e3f5ff;
+  --dreamy-night: #2c0026;
+  --moonless-night: #160013;
 
   /* TYPOGRAPHIC METRICS */
   /* px converted to rem in PostCSS */
@@ -79,7 +83,7 @@
 /* LIGHT MODE */
 :root {
   --base-text: black;
-  --dreamscape-bg: #90d6ff;
+  --dreamscape-bg: var(--dreamy-day);
   --emphatic: var(--dragonfruit);
 
   --button-text: var(--grape-bold);
@@ -91,13 +95,15 @@
   --button-shadow-diffuse: var(--grape-shadow-diffuse);
 
   --overlay-bg: var(--berry-juice);
+  --modal-bg: var(--bright-day);
   --lightbox-shadow: var(--overlay-bg);
 }
 
 /* LIGHT MODE, HIGH CONTRAST */
 @media (prefers-contrast: more) {
   :root {
-    --dreamscape-bg: #e3f5ff;
+    --dreamscape-bg: var(--bright-day);
+    --modal-bg: white;
   }
 }
 
@@ -105,7 +111,7 @@
 @media (prefers-color-scheme: dark) {
   :root {
     --base-text: white;
-    --dreamscape-bg: #2c0026;
+    --dreamscape-bg: var(--dreamy-night);
 
     --button-text: white;
     --button-text-shadow: var(--grape-shadow-sharp);
@@ -116,13 +122,15 @@
     --button-shadow-diffuse: var(--grape-shadow-diffuse);
 
     --overlay-bg: var(--grape-juice);
+    --modal-bg: var(--moonless-night);
   }
 }
 
 /* DARK MODE, HIGH CONTRAST */
 @media (prefers-color-scheme: dark) and (prefers-contrast: more) {
   :root {
-    --dreamscape-bg: #160013;
+    --dreamscape-bg: var(--moonless-night);
+    --modal-bg: black;
   }
 }
 

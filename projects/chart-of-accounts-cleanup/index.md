@@ -2,6 +2,7 @@
 title: 'Chart of Accounts Cleanup'
 tagline: 'Interaction and visual design'
 summary: "Understanding accountants' workflows is crucial in helping them clean up their clients' books."
+baseColor: '#9100ad'
 previews:
   - 'coa-cleanup-a.png'
   - 'coa-cleanup-b.png'

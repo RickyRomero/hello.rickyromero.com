@@ -2,6 +2,7 @@
 title: 'Cave Story HTML5'
 tagline: 'Porting tens of thousands of C++ code to JS'
 summary: 'I ported the indie hit Cave Story to HTML5.'
+baseColor: '#8d002d'
 previews:
   - 'cave-story-html5-a.png'
   - 'cave-story-html5-b.png'

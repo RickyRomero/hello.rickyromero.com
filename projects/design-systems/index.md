@@ -2,6 +2,7 @@
 title: 'Design Systems'
 tagline: 'aaaaaaaaa'
 summary: 'aaaaaaaaa'
+baseColor: '#006b4a'
 previews:
   - 'design-systems-a.png'
   - 'design-systems-b.png'
