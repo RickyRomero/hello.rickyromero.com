@@ -112,8 +112,8 @@ const Home = ({ projectMetadata, activeProject }) => {
                   <MotionHeading variants={heroItem}>hi there.</MotionHeading>
                   <div className={styles.intro}>
                     <MotionPassage as="p1" variants={heroItem}>My name's Ricky.</MotionPassage>
-                    <MotionPassage as="p1" variants={heroItem}>I do design + code.</MotionPassage>
-                    <MotionPassage as="p1" variants={heroItem}>I want to <em>build something incredible.</em></MotionPassage>
+                    <MotionPassage as="p1" variants={heroItem}>I design and code.</MotionPassage>
+                    <MotionPassage as="p1" variants={heroItem}>Let's <em>build something incredible.</em></MotionPassage>
                   </div>
                   <Row>
                     <MotionButton spans={[4]} variants={heroItem} href={contact} onClick={handleEmailCta}>Say Hi</MotionButton>

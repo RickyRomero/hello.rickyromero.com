@@ -1,20 +1,33 @@
 // This component is responsible for dynamically adjusting render resolution
 // in favor of high framerates.
 
-import { useEffect } from 'react'
+import { useEffect, useRef } from 'react'
 import { useFrame } from '@react-three/fiber'
+import { ScrollControls, Scroll } from '@react-three/drei'
 
 import useLogs from 'hooks/use-logs'
+
+const debugOverlayStyles = {
+  width: '100vw',
+  height: '100vh'
+}
+
+const debugStyles = {
+  position: 'absolute',
+  bottom: 30,
+  right: 30
+}
 
 const calcInterval = 1000
 const fps = {
   samples: [],
-  average: () => Math.round(1 / (fps.samples.reduce((a, b) => a + b) / fps.samples.length)),
+  average: () => Math.round(1 / (fps.samples.reduce((a, b) => a + b, 0) / fps.samples.length)),
   nextCalc: Date.now() + calcInterval
 }
 const dpr = window.devicePixelRatio
 
 const DynamicRes = ({ fpsTarget, pixelRatio, onUpdate }) => {
+  const debugOverlay = useRef()
   const logEntry = useLogs(state => state.logEntry)
 
   useEffect(() => {
@@ -27,7 +40,7 @@ const DynamicRes = ({ fpsTarget, pixelRatio, onUpdate }) => {
     return () => clearTimeout(timeout)
   }, [])
 
-  useFrame((_, delta) => {
+  useFrame((three, delta) => {
     const now = Date.now()
     if (fps.samples.unshift(delta) > 60) { fps.samples.pop() }
 
@@ -45,10 +58,25 @@ const DynamicRes = ({ fpsTarget, pixelRatio, onUpdate }) => {
       if (pixelRatio !== newPixelRatio) {
         onUpdate(newPixelRatio)
       }
+
+      const stats = [
+        `w:${three.size.width}`,
+        `h:${three.size.height}`,
+        `dpr:${three.viewport.dpr}`,
+        `avg:${fps.average()}`,
+        `max:${fpsTarget}`
+      ].join(' / ')
+      if (debugOverlay.current) { debugOverlay.current.innerText = stats }
     }
   })
 
-  return null
+  return (
+    <ScrollControls>
+      <Scroll html style={debugOverlayStyles}>
+        <span style={debugStyles} ref={debugOverlay} />
+      </Scroll>
+    </ScrollControls>
+  )
 }
 
 export default DynamicRes
