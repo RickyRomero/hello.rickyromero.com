@@ -1,6 +1,6 @@
 import { forwardRef, useMemo, useRef } from 'react'
 import * as THREE from 'three'
-import { createPortal, useThree, useFrame } from '@react-three/fiber'
+import { useThree, useFrame } from '@react-three/fiber'
 
 import useLights from 'hooks/use-lights'
 import { useHighContrast, useReducedMotion } from 'hooks/use-media-query'
@@ -32,21 +32,19 @@ const FarFieldPlane = forwardRef((_, ref) => {
   const motionRate = useMotionRate()
   const dynamicRange = [-(highContrast - 1) / 2, 1 + (highContrast - 1) / 2]
 
-  const [scene, target] = useMemo(() => {
-    const scene = new THREE.Scene()
-    scene.background = new THREE.Color('black')
-    const target = new THREE.WebGLRenderTarget(256, 256, {
-      format: THREE.RGBAFormat
+  const target = useMemo(() => (
+    new THREE.WebGLRenderTarget(128, 256, {
+      format: THREE.RGBAFormat,
+      encoding: THREE.LinearEncoding
     })
-    return [scene, target]
-  }, [])
+  ), [])
 
   useFrame((state, delta) => {
     state.gl.setRenderTarget(target)
     material.uniforms.u_time.value += delta * motionRate.get() * reducedMotion
     material.uniforms.u_pitch.value = window.scrollY
     material.uniforms.u_lights.value = lerp(...dynamicRange, lights.get())
-    state.gl.render(scene, offscreen.current)
+    state.gl.render(state.scene, offscreen.current)
     state.gl.setRenderTarget(null)
   })
 
@@ -55,24 +53,21 @@ const FarFieldPlane = forwardRef((_, ref) => {
       <orthographicCamera
         ref={offscreen}
         args={[-0.5, 0.5, 0.5, -0.5, 0.1, 10]}
-        position={[0, 0, 20]}
+        position={[0, 2000, 20]}
       />
-      {createPortal(
-        <mesh
-          geometry={plane}
-          material={material}
-          position={[0, 0.1, 19]}
-          scale={[1, 1, 1]}
-        />,
-        scene
-      )}
+      <mesh
+        geometry={plane}
+        material={material}
+        position={[0, 2000, 19]}
+        scale={[1, 1, 1]}
+      />
       <mesh ref={ref} position={[0, 0, -10]}>
         <planeBufferGeometry attach="geometry" args={[1, 1, 1, 1]} />
         <meshBasicMaterial
           attach="material"
           map={target.texture}
           blending={THREE.AdditiveBlending}
-          side={THREE.DoubleSide}
+          encoding={THREE.sRGBEncoding}
         />
       </mesh>
     </>
