@@ -29,7 +29,13 @@ const ModalOverlay = ({ expanded, spring }) => {
       }
     }>
       <Link href="/" scroll={false}>
-        <a className={styles.overlayLink} {...addlOverlayProps}>Go back home</a>
+        <a
+          draggable="false"
+          className={styles.overlayLink}
+          {...addlOverlayProps}
+        >
+          Go back home
+        </a>
       </Link>
       { expanded && <Suspense fallback={null}><Escape to="/" /></Suspense> }
     </motion.div>
