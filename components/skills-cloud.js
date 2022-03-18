@@ -1,64 +1,10 @@
 import { useEffect, useState } from 'react'
 import { motion } from 'framer-motion'
 
+import skills from './skills-cloud.json'
+
 const SkillsCloud = () => {
   const [activeSkillset, setActiveSkillset] = useState('design')
-  const skills = {
-    design: [
-      '3D modeling',
-      'Blender',
-      'brainstorming',
-      'color management',
-      'design critique',
-      'design systems',
-      'Figma',
-      'graphic design',
-      'icon design',
-      'Illustrator',
-      'interaction design',
-      'photography',
-      'Photoshop',
-      'prototyping',
-      'responsive design',
-      'Sketch',
-      'UX design',
-      'UI design',
-      'user testing',
-      'visual design',
-      'wireframing'
-    ],
-    code: [
-      'Auto Layout',
-      'babel',
-      'CSS',
-      'code review',
-      'docker-compose',
-      'Docker',
-      'eslint',
-      'Express.js',
-      'Framer Motion',
-      'Git (UI-assisted)',
-      'GitHub Actions',
-      'GLSL',
-      'HTML',
-      'Next.js',
-      'Node',
-      'npm/yarn',
-      'PostCSS',
-      'Puppeteer',
-      'react-three-fiber',
-      'React',
-      'Sass',
-      'SQL',
-      'stylelint',
-      'Swift',
-      'SwiftUI',
-      'three.js',
-      'Vanilla JavaScript',
-      'WebGL',
-      'Webpack'
-    ]
-  }
 
   const container = {
     hidden: { opacity: 0 },
@@ -89,7 +35,7 @@ const SkillsCloud = () => {
 
   return (
     <motion.ul variants={container} initial="hidden" animate="show" exit="hidden">
-      {skills[activeSkillset].map(skill => (
+      {Object.keys(skills[activeSkillset]).map(skill => (
         <motion.li
           key={`${activeSkillset}-${skill}`}
           variants={item}
