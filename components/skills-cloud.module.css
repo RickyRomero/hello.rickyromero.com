@@ -1,0 +1,31 @@
+.skill-cloud {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.skill {
+  position: relative;
+  border-radius: 40px;
+  padding: 10px 40px;
+  border: 2px solid #f0f;
+  cursor: default;
+}
+
+.tooltip {
+  pointer-events: none;
+  position: absolute;
+
+  /* TODO: Fix position */
+  bottom: 50px;
+  width: min(90vw, 400px);
+  padding: 20px;
+  border-radius: 20px;
+
+  /* TODO: Lighter and less saturated for light mode */
+  /* TODO: Fix drop-shadow */
+  background-color: rgba(0, 0, 0, 0.4);
+  backdrop-filter: saturate(360%) blur(40px) drop-shadow(0 10px 30px blue);
+}

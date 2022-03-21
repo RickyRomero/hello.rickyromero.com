@@ -2,209 +2,209 @@
   "design": {
     "3D modeling": {
       "level": 1,
-      "info": "I've used 3D software on and off for years. I figure out how to build models for illustrations as needed."
+      "details": "I've used 3D software on and off for years. I figure out how to build models for illustrations as needed."
     },
     "Blender": {
       "level": 1,
-      "info": "I'm still learning how to use Blender, but have already made some impressive illustrations with it for OpenEmu."
+      "details": "I'm still learning how to use Blender, but have already made some impressive illustrations with it for OpenEmu."
     },
     "brainstorming": {
       "level": 2,
-      "info": "I've facilitated product brainstorming sessions using FigJam as well as with plain old Post-Its on whiteboards."
+      "details": "I've facilitated product brainstorming sessions using FigJam as well as with plain old Post-Its on whiteboards."
     },
     "color management": {
       "level": 3,
-      "info": "I've fixed color calibration and management issues in design teams. I own a colorimeter and I'm not afraid to use it."
+      "details": "I've fixed color calibration and management issues in design teams. I own a colorimeter and I'm not afraid to use it."
     },
     "design critique": {
       "level": 3,
-      "info": "I'm happy to give and receive constructive design critique and I don't take it personally."
+      "details": "I'm happy to give and receive constructive design critique and I don't take it personally."
     },
     "design systems": {
       "level": 2,
-      "info": "I've collaborated with design systems teams, and built my own systems too."
+      "details": "I've collaborated with design systems teams, and built my own simple systems too."
     },
     "Figma": {
       "level": 3,
-      "info": "Comfortable with components, prototyping, variants, grids, and auto layout. Productive with keyboard shortcuts."
+      "details": "Comfortable with components, prototyping, variants, grids, and auto layout. Productive with keyboard shortcuts."
     },
     "graphic design": {
       "level": 3,
-      "info": "Graphic design is my passion."
+      "details": "Graphic design is my passion."
     },
     "icon design": {
       "level": 3,
-      "info": "I've worked through tricky metaphors and pixel hinting; simple icon shapes through to detailed, textured illustrations."
+      "details": "I've worked through tricky metaphors and pixel hinting; simple icon shapes through to detailed, textured illustrations."
     },
     "Illustrator": {
       "level": 3,
-      "info": "Illustrator affords a level of precision that many modern tools still can't touch. It's the king of vector tools."
+      "details": "Illustrator affords a level of precision that many modern tools still can't touch. It's the king of vector tools."
     },
     "image optimization": {
       "level": 3,
-      "info": "I understand the technical strengths of JPEG and PNG, and also newer formats like WebP and AVIF."
+      "details": "I understand the technical strengths of JPEG and PNG, and also newer formats like WebP and AVIF."
     },
     "interaction design": {
       "level": 3,
-      "info": "I have over a decade of experience designing user interfaces, optimizing and simplifying them where appropriate."
+      "details": "I have over a decade of experience designing user interfaces, optimizing and simplifying them where appropriate."
     },
     "photography": {
       "level": 2,
-      "info": "This is a hobby of mine. I'm always learning about composition, but I have all the technical concepts down pat."
+      "details": "This is a hobby of mine. I'm always learning about composition, but I have all the technical concepts down pat."
     },
     "Photoshop": {
       "level": 3,
-      "info": "Photoshop lets you do unbelievable things when illustrating icons. But, for general UI design, I reach for Figma or Sketch."
+      "details": "Photoshop lets you do unbelievable things when illustrating icons. But, for general UI design, I reach for Figma or Sketch."
     },
     "prototyping": {
       "level": 3,
-      "info": "I've done both low- and high-fidelity prototyping, tailoring to the needs of the design being tested."
+      "details": "I've done both low- and high-fidelity prototyping, tailoring to the needs of the design being tested."
     },
     "responsive design": {
       "level": 3,
-      "info": "I have over a decade of experience designing responsive web pages."
+      "details": "I have over a decade of experience designing responsive web pages."
     },
     "Sketch": {
       "level": 3,
-      "info": "Sketch was a much-needed replacement for Adobe Fireworks, and is still a robust design tool today. Mac-native, too!"
+      "details": "Sketch was a much-needed replacement for Adobe Fireworks, and is still a robust design tool today. Mac-native, too!"
     },
     "UX design": {
       "level": 3,
-      "info": "I have over a decade of experience designing successful user experiences, optimizing and simplifying them where appropriate."
+      "details": "I have over a decade of experience designing successful user experiences, optimizing and simplifying them where appropriate."
     },
     "UI design": {
       "level": 3,
-      "info": "I have over a decade of experience designing successful user interfaces, optimizing and simplifying them where appropriate."
+      "details": "I have over a decade of experience designing successful user interfaces, optimizing and simplifying them where appropriate."
     },
     "user testing": {
       "level": 3,
-      "info": "I've conducted both in-person and remote user testing, and know how to structure successful tests."
+      "details": "I've conducted both in-person and remote user testing, and know how to structure successful tests."
     },
     "visual design": {
       "level": 3,
-      "info": "I've designed countless attractive webpages, web apps, and native UIs for macOS, iOS, Android, and Windows."
+      "details": "I've designed countless attractive webpages, web apps, and native UIs for macOS, iOS, Android, and Windows."
     },
     "wireframing": {
       "level": 3,
-      "info": "Wireframing is a critical tool for quickly iterating on a design, figuring out the important stuff first."
+      "details": "Wireframing is a critical tool for quickly iterating on a design, figuring out the important stuff first."
     }
   },
   "code": {
     "Auto Layout (Xcode)": {
       "level": 1,
-      "info": "Auto Layout is tricky to work with, but I've built a couple of native apps for Apple platforms with it."
+      "details": "Auto Layout is tricky to work with, but I've built a couple of native apps for Apple platforms with it."
     },
     "babel": {
       "level": 1,
-      "info": "I use Babel in most of my frontend work to transpile JavaScript for older JS engines."
+      "details": "I use Babel in most of my frontend work to transpile JavaScript for older JS engines."
     },
     "CSS": {
       "level": 3,
-      "info": "I've written CSS for years. Custom properties, Flexbox, Grid, media queries, webfonts, and more."
+      "details": "I've written CSS for years. Custom properties, Flexbox, Grid, media queries, webfonts, and more."
     },
     "code review": {
       "level": 2,
-      "info": "I know how important it is to look past surface-level code style to get to the root of an architectural issue."
+      "details": "I know how important it is to look past surface-level code style to get to the root of an architectural issue."
     },
     "docker-compose": {
       "level": 2,
-      "info": "I use docker-compose a lot on my home server to run lots of custom software on my LAN."
+      "details": "I use docker-compose a lot on my home server to run lots of custom software on my LAN."
     },
     "Docker": {
       "level": 2,
-      "info": "I use Docker a lot on my home server to run lots of custom software on my LAN."
+      "details": "I use Docker a lot on my home server to run lots of custom software on my LAN."
     },
     "eslint": {
       "level": 1,
-      "info": "I haven't built much custom stuff in eslint, but I've written a few configs before and understand how to use it."
+      "details": "I haven't built much custom stuff in eslint, but I've written a few configs before and understand how to use it."
     },
     "Express.js": {
       "level": 2,
-      "info": "There are people more skilled than me with Express, but I've written lots of my own middleware for it."
+      "details": "There are people more skilled than me with Express, but I've written lots of my own middleware for it."
     },
     "Framer Motion": {
       "level": 1,
-      "info": "I used Framer Motion for the first time to build animations and transitions on this site."
+      "details": "I used Framer Motion for the first time to build animations and transitions on this site."
     },
     "Git": {
       "level": 2,
-      "info": "I know how to work in feature branches and resolve conflicts. I use GUI apps for Git, like Fork or Sourcetree."
+      "details": "I know how to work in feature branches and resolve conflicts. I use GUI apps for Git, like Fork or Sourcetree."
     },
     "GitHub Actions": {
       "level": 1,
-      "info": "I like GitHub Actions because it lets you test and deploy code while being relatively uncomplicated to work with."
+      "details": "I like GitHub Actions because it lets you test and deploy code while being relatively uncomplicated to work with."
     },
     "GLSL": {
       "level": 1,
-      "info": "I'm just starting out with shaders, but they're really cool (when you're not staring at a black screen)."
+      "details": "I'm just starting out with shaders, but they're really cool (when you're not staring at a black screen)."
     },
     "HTML": {
       "level": 3,
-      "info": "Remember tables and IE 6? Ahh, the bad old days..."
+      "details": "Remember tables and IE 6? Ahh, the bad old days..."
     },
     "Next.js": {
       "level": 2,
-      "info": "Next.js is a really useful framework for making performant websites with all the features users expect."
+      "details": "Next.js is a really useful framework for making performant websites with all the features users expect."
     },
     "Node": {
       "level": 3,
-      "info": "Node.js is my go-to scripting environment and I've used it for years. It's so handy to just write JS."
+      "details": "Node.js is my go-to scripting environment and I've used it for years. It's so handy to just write JS."
     },
     "npm/yarn": {
       "level": 2,
-      "info": "I published and maintained various internal packages at Intuit."
+      "details": "I published and maintained various internal packages at Intuit."
     },
     "PostCSS": {
       "level": 1,
-      "info": "Haven't done much with PostCSS yet, but I used it a bit on this site to try it out."
+      "details": "Haven't done much with PostCSS yet, but I used it a bit on this site to try it out."
     },
     "Puppeteer": {
       "level": 1,
-      "info": "I don't use Puppeteer much, but find it appealing for automating repetitive tasks."
+      "details": "I don't use Puppeteer much, but find it appealing for automating repetitive tasks."
     },
     "react-three-fiber": {
       "level": 1,
-      "info": "r3f combines the best of React and three.js. The documentation is a bit lacking, but I enjoyed building this site with it."
+      "details": "R3F combines the best of React and three.js. The documentation is a bit lacking, but I enjoyed building this site with it."
     },
     "React": {
       "level": 3,
-      "info": "I'm always learning new things that React can do, but I find it really useful for avoiding UI inconsistencies."
+      "details": "I'm always learning new things that React can do, but I find it really useful for avoiding UI inconsistencies."
     },
     "Sass": {
       "level": 3,
-      "info": "Fully comfortable with Sass and all the convenient features it adds to CSS."
+      "details": "Fully comfortable with Sass and all the convenient features it adds to CSS."
     },
     "SQL": {
       "level": 1,
-      "info": "I've used SQL in its various forms over the years, including MySQL, Postgres, and SQLite."
+      "details": "I've used SQL in its various forms over the years, including MySQL, Postgres, and SQLite."
     },
     "stylelint": {
       "level": 1,
-      "info": "I've written custom rules for stylelint to audit colors and suggest suitable on-palette replacements."
+      "details": "I've written custom rules for stylelint to audit colors and suggest suitable on-palette replacements."
     },
     "Swift": {
       "level": 2,
-      "info": "I've written Swift for a few years now, and have published a couple of Swift apps in the App Store."
+      "details": "I've written Swift for a few years now, and have published a couple of Swift apps in the App Store."
     },
     "SwiftUI": {
       "level": 1,
-      "info": "SwiftUI is still really early, but it's appealing! I like that Apple saw React and copied its core design."
+      "details": "SwiftUI is still really early, but it's appealing! I like that Apple saw React and copied its core design."
     },
     "three.js": {
       "level": 1,
-      "info": "Three.js makes WebGL palatable. I'm still new to it, but I'm learning a lot. I used it on this site."
+      "details": "Three.js makes WebGL palatable. I'm still new to it, but I'm learning a lot. I used it on this site."
     },
     "Vanilla JavaScript": {
       "level": 3,
-      "info": "I've written JS for many years now. The newer features in ES2016+ are really convenient."
+      "details": "I've written JS for many years now. The newer features in ES2016+ are really convenient."
     },
     "WebGL": {
       "level": 1,
-      "info": "I've worked in raw WebGL before, though it's been a while, and I prefer to work in abstraction layers."
+      "details": "I've written raw WebGL before, but it's been a while, and I prefer to work higher up the stack."
     },
     "Webpack": {
       "level": 1,
-      "info": "I'm not super skilled in fixing Webpack issues, but I understand what it does and have written simple configs for it."
+      "details": "I'm not super skilled in fixing Webpack issues, but I understand what it does and have written simple configs for it."
     }
   }
 }
