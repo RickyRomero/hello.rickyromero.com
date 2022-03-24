@@ -17,14 +17,15 @@
 .tooltip {
   pointer-events: none;
   position: absolute;
-
-  /* TODO: Fix position */
+  left: 50%;
+  transform: translateX(-50%);
   bottom: 50px;
   width: min(90vw, 400px);
   padding: 20px;
   border-radius: 20px;
 
   /* TODO: Lighter and less saturated for light mode */
+  /* TODO: Adapt transparency for high-contrast mode */
   /* TODO: Fix drop-shadow */
   background-color: rgba(0, 0, 0, 0.4);
   backdrop-filter: saturate(360%) blur(40px) drop-shadow(0 10px 30px blue);

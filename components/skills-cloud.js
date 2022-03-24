@@ -1,6 +1,7 @@
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import { motion } from 'framer-motion'
 
+import { Heading, Passage } from 'components/typography'
 import cl from 'utils/classlist'
 import skills from './skills-cloud.json'
 import styles from './skills-cloud.module.css'
@@ -10,11 +11,21 @@ strengthMap.set(1, 'Basic')
 strengthMap.set(2, 'Advanced')
 strengthMap.set(3, 'Fluent')
 
-const Tooltip = ({ level, details }) => {
+const colorHash = string => {
+  const chars = [...string]
+  const codes = chars.map(char => char.charCodeAt(0))
+  const hashBase = codes.reduce((prev, curr) => (prev + curr) % codes[0], 0)
+  return hashBase % 4
+}
+
+const colors = ['#f00', '#ff0', '#0f0', '#00f']
+
+const Tooltip = ({ skill, level, details }) => {
   return (
     <div className={styles.tooltip}>
-      <div><span>{strengthMap.get(level)}</span></div>
-      <p>{details}</p>
+      <Heading as="h4">{skill}</Heading>
+      <Passage as="p4">{strengthMap.get(level)}</Passage>
+      <Passage as="p4">{details}</Passage>
     </div>
   )
 }
@@ -48,13 +59,14 @@ const SkillsCloud = ({ className }) => {
       {Object.keys(skills).map(set => (
         Object.keys(skills[set]).map(skill => (
           <motion.li
+            style={{ color: colors[colorHash(skill)] }}
             className={styles.skill}
             onPointerOver={() => updateActiveSkillInfo(set, skill)}
             onPointerLeave={() => updateActiveSkillInfo(null, null)}
             key={`${set}-${skill}`}
             variants={item}
           >
-            {skill === activeSkill && <Tooltip {...{ level, details }} />}
+            {skill === activeSkill && <Tooltip {...{ skill, level, details }} />}
             {skill}
           </motion.li>
         ))
