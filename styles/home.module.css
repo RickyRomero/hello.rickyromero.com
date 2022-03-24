@@ -30,9 +30,12 @@
   padding: 0 var(--page-inset);
 }
 
+.section {
+  min-height: 90vh;
+}
+
 .section.hello {
   padding-top: clamp(10px, 5vh, var(--gap-l));
-  min-height: 90vh;
   display: flex;
   flex-direction: column;
   gap: var(--gap);
