@@ -19,7 +19,7 @@ const Dreamscape = ({ onFirstFrame, children }) => {
   const reduceMotion = useReducedMotion() ? 0.2 : 1.0
   const scrollEnabled = reduceMotion === 1
 
-  // const startingCameraRotation = 30
+  const startingCameraRotation = 30
   // const baseCameraRotation = -10
   const [renderActive, setRenderActive] = useState(true)
   const [firstFrameRendered, setFirstFrameRendered] = useState(false)
@@ -31,7 +31,12 @@ const Dreamscape = ({ onFirstFrame, children }) => {
   }
   const springs = {
     camYaw: useSpring(0, springConfig),
-    camPitch: useSpring(0, springConfig)
+    camPitch: useSpring(0, springConfig),
+    startingPan: useSpring(startingCameraRotation, {
+      ...springConfig,
+      stiffness: 25,
+      damping: 60
+    })
   }
   const camGroup = useRef()
 
@@ -66,6 +71,7 @@ const Dreamscape = ({ onFirstFrame, children }) => {
 
   useEffect(() => {
     camGroup.current?.position.set(0, 0.1, 1)
+    springs.startingPan.set(0)
   }, [camGroup.current])
 
   useFrame(() => {
@@ -76,6 +82,7 @@ const Dreamscape = ({ onFirstFrame, children }) => {
 
     let camPitch = -THREE.Math.degToRad(window.scrollY / 48 * scrollEnabled)
     camPitch += THREE.Math.degToRad(springs.camPitch.get() * -2)
+    camPitch += THREE.Math.degToRad(springs.startingPan.get() * scrollEnabled)
     const camYaw = THREE.Math.degToRad(springs.camYaw.get() * -2)
     const rotation = new THREE.Euler(camPitch, camYaw, 0, 'XYZ')
     const xOffset = springs.camYaw.get() * 0.025
