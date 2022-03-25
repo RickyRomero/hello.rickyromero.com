@@ -14,9 +14,10 @@
 import { useEffect, useRef } from 'react'
 import Head from 'next/head'
 import Link from 'next/link'
-import { motion, useMotionValue } from 'framer-motion'
+import { motion } from 'framer-motion'
 import FocusTrap from 'focus-trap-react'
 
+import useProjectMvTransform from 'hooks/use-project-motion-value-transform'
 import ProjectHero from 'components/project-hero'
 import MarkdownRenderer from 'components/markdown-renderer'
 import PreventBodyScroll from 'components/prevent-body-scroll'
@@ -36,16 +37,17 @@ const dynamicScrollerProps = {
 
 const Project = ({ data, expanded, className }) => {
   const scrollArea = useRef()
-  const slowMo = false
+  const slowMo = true
+  const lightboxLayer = typeof window !== 'undefined' ? Number(
+    window
+      .getComputedStyle(document.documentElement)
+      .getPropertyValue('--lightbox-layer')
+  ) : 0
+
   const { metadata, slug, contents } = data
   const { title } = metadata
-
+  const [computedLayer, setProjectMotionValue] = useProjectMvTransform(expanded, [0, lightboxLayer])
   const wrapperClass = cl(styles.projectSlot, expanded ? styles.projectOpen : '')
-
-  const lightboxLayer = useMotionValue(expanded ? 'var(--lightbox-layer)' : 0)
-  const setLightboxLayer = ({ progress }) => {
-    lightboxLayer.set(progress > 0.001 ? 'var(--lightbox-layer)' : 0)
-  }
 
   const spring = { type: 'spring', stiffness: slowMo ? 50 : 200, damping: 30 }
   const origin = { originX: 0, originY: 0 }
@@ -74,8 +76,8 @@ const Project = ({ data, expanded, className }) => {
               initial={radius}
               animate={{ progress: expanded ? 1 : 0 }}
               transition={spring}
-              style={{ zIndex: lightboxLayer }}
-              onUpdate={setLightboxLayer}
+              style={{ zIndex: computedLayer }}
+              onUpdate={setProjectMotionValue}
               className={styles.card}
             >
               <motion.div layout="position"
