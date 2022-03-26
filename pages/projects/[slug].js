@@ -37,7 +37,7 @@ const dynamicScrollerProps = {
 
 const Project = ({ data, expanded, className }) => {
   const scrollArea = useRef()
-  const slowMo = true
+  const slowMo = false
   const lightboxLayer = typeof window !== 'undefined' ? Number(
     window
       .getComputedStyle(document.documentElement)
