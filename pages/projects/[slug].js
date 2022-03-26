@@ -46,7 +46,9 @@ const Project = ({ data, expanded, className }) => {
 
   const { metadata, slug, contents } = data
   const { title } = metadata
-  const [computedLayer, setProjectMotionValue] = useProjectMvTransform(expanded, [0, lightboxLayer])
+  const [transformed, setProjectMotionValue] = useProjectMvTransform(expanded, {
+    zIndex: v => v ? lightboxLayer : 0
+  })
   const wrapperClass = cl(styles.projectSlot, expanded ? styles.projectOpen : '')
 
   const spring = { type: 'spring', stiffness: slowMo ? 50 : 200, damping: 30 }
@@ -76,7 +78,7 @@ const Project = ({ data, expanded, className }) => {
               initial={radius}
               animate={{ progress: expanded ? 1 : 0 }}
               transition={spring}
-              style={{ zIndex: computedLayer }}
+              style={{ ...transformed }}
               onUpdate={setProjectMotionValue}
               className={styles.card}
             >

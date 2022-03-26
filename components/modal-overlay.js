@@ -17,19 +17,22 @@ const dynamicOverlayProps = {
 }
 
 const ModalOverlay = ({ expanded, spring }) => {
-  const [position, setProjectMotionValue] = useProjectMvTransform(expanded, ['absolute', 'fixed'])
+  const [transformed, setProjectMotionValue] = useProjectMvTransform(expanded, {
+    position: v => v ? 'fixed' : 'absolute',
+    opacity: v => v
+  })
   const addlOverlayProps = dynamicOverlayProps[expanded ? 'enabled' : 'disabled']
 
   return (
     <motion.div
       initial={false}
-      animate={{ opacity: expanded ? 1 : 0, position }}
+      animate={{ progress: expanded ? 1 : 0 }}
       transition={spring}
       className={styles.overlay}
       onUpdate={setProjectMotionValue}
       style={{
-        pointerEvents: expanded ? 'auto' : 'none',
-        position
+        ...transformed,
+        pointerEvents: expanded ? 'auto' : 'none'
       }
     }>
       <Link href="/" scroll={false}>

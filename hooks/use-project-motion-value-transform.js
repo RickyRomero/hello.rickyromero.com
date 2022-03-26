@@ -1,23 +1,23 @@
-// This hook lets us convert a non-zero spring to a value, instead of
-// solely relying on the expanded boolean prop. This is useful if we
-// need a value in force for the entire open phase of the project's
-// expansion/contraction animation.
+// This hook lets us run multiple transformations on a given spring value.
+// This gives us a bit more control over how a single spring runs a given
+// animation (and works around a bug in useTransform; it's supposed to
+// map non-number transformation values and isn't actually doing that).
 
 import { useMotionValue, useTransform } from 'framer-motion'
 
-const useProjectMvTransform = (expanded, targets) => {
+const useProjectMvTransform = (expanded, properties) => {
+  const transformHooks = {}
   const projectMotionValue = useMotionValue(Number(expanded))
-  const computedTarget = useTransform(
-    projectMotionValue,
-    [0, 0.0001],
-    targets
-  )
+
+  Object.keys(properties).forEach(p => {
+    transformHooks[p] = useTransform(projectMotionValue, properties[p])
+  })
 
   const setProjectMotionValue = ({ progress }) => {
-    projectMotionValue.set(Number(progress !== 0))
+    projectMotionValue.set(progress)
   }
 
-  return [computedTarget, setProjectMotionValue]
+  return [transformHooks, setProjectMotionValue]
 }
 
 export default useProjectMvTransform
