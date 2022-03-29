@@ -12,11 +12,11 @@
 // open/closed states.
 
 import { useEffect, useRef } from 'react'
-import Head from 'next/head'
 import Link from 'next/link'
 import { motion } from 'framer-motion'
 import FocusTrap from 'focus-trap-react'
 
+import Metadata from 'components/metadata'
 import useProjectMvTransform from 'hooks/use-project-motion-value-transform'
 import ProjectHero from 'components/project-hero'
 import MarkdownRenderer from 'components/markdown-renderer'
@@ -46,7 +46,7 @@ const Project = ({ data, expanded, className }) => {
   ) : 0
 
   const { metadata, slug, contents } = data
-  const { title } = metadata
+  const { title, summary } = metadata
   const [transformed, setProjectMotionValue] = useProjectMvTransform(expanded, {
     zIndex: v => v ? lightboxLayer : 0
   })
@@ -64,9 +64,10 @@ const Project = ({ data, expanded, className }) => {
     <>
       {
         expanded && (
-          <Head>
+          <Metadata>
             <title>{title}</title>
-          </Head>
+            <meta name="description" content={summary} />
+          </Metadata>
         )
       }
 
