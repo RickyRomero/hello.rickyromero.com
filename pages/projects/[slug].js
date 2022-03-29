@@ -22,6 +22,7 @@ import ProjectHero from 'components/project-hero'
 import MarkdownRenderer from 'components/markdown-renderer'
 import PreventBodyScroll from 'components/prevent-body-scroll'
 import ModalOverlay from 'components/modal-overlay'
+import CloseButton from 'components/close-button'
 import { getProjectSlugs, getProjectsMeta, getProject } from 'generators/projects'
 import cl from 'utils/classlist'
 
@@ -87,6 +88,7 @@ const Project = ({ data, expanded, className }) => {
                 style={origin}
                 className={styles.cardContents}
               >
+                <CloseButton expanded={expanded} spring={spring} />
                 <ProjectHero {...{ project: data, expanded, spring }} />
                 <main>
                   {contents && (

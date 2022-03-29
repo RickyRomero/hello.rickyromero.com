@@ -1,0 +1,18 @@
+.close-button {
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  left: 0;
+}
+
+.close-button a {
+  display: block;
+  overflow: hidden;
+  color: transparent;
+  width: 100px;
+  height: 100px;
+  background-image: url('/images/close-modal.svg');
+  background-position: center;
+  background-repeat: no-repeat;
+  user-select: none;
+}

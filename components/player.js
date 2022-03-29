@@ -1,4 +1,4 @@
-const Player = ({ uses }) => {
+const Player = ({ uses, width, height }) => {
   const variants = [
     // I would add AV1 here, but it's really CPU heavy still...
     { suffix: 'hvc', codec: 'hvc1.1.6.H153.B0' }, // HVEC/H.265
@@ -19,7 +19,7 @@ const Player = ({ uses }) => {
   })
 
   return (
-    <video autoPlay playsInline muted loop>
+    <video {...{ width, height }} autoPlay playsInline muted loop>
       {sources}
     </video>
   )
