@@ -2,7 +2,9 @@ import { Fragment } from 'react'
 import Markdown from 'markdown-to-jsx'
 import Image from 'next/image'
 import Link from 'next/link'
+
 import { Heading, Passage } from 'components/typography'
+import Player from 'components/player'
 
 const WrappedLink = ({ href, title, children }) => {
   return (
@@ -23,7 +25,9 @@ const baseOptions = {
     h6: { component: Heading, props: { as: 'h6' } },
     p: Passage,
     a: WrappedLink,
-    img: Image
+    img: Image,
+
+    Player
   }
 }
 
