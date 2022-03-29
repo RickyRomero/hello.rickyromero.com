@@ -80,7 +80,7 @@ const Home = ({ projectMetadata, activeProject }) => {
             src={require(`scenes/dreamscape/loading-${scheme}.jpg`)}
             layout="fill"
             objectFit="cover"
-            sizes="25vw"
+            sizes="50vw"
           />
         </motion.div>
         <motion.div className={styles.rendererContainer} style={{ opacity: initialFade }}>
