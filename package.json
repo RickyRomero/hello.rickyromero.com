@@ -8,8 +8,8 @@
     "lint": "eslint ./"
   },
   "dependencies": {
-    "@react-three/drei": "^8",
-    "@react-three/fiber": "^7",
+    "@react-three/drei": "^9",
+    "@react-three/fiber": "^8",
     "focus-trap-react": "^8",
     "framer-motion": "^6",
     "glsl-noise": "^0",
@@ -23,8 +23,8 @@
     "postcss-preset-env": "^7",
     "postcss-pxtorem": "^6",
     "raw-loader": "^4",
-    "react": "rc",
-    "react-dom": "rc",
+    "react": "^18",
+    "react-dom": "^18",
     "sharp": "^0",
     "three": "^0",
     "zustand": "^3"

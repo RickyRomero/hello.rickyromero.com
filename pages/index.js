@@ -40,6 +40,7 @@ const heroItem = {
 
 const Home = ({ projectMetadata, activeProject }) => {
   const logEntry = useLogs(state => state.logEntry)
+  const [startCanvas, setStartCanvas] = useState(false)
   const [contact, setContact] = useState(null)
   const [scrollOpacity, initialFade] = useDreamscapeOpacity()
   const darkMode = useDarkMode()
@@ -58,6 +59,11 @@ const Home = ({ projectMetadata, activeProject }) => {
   useEffect(() => {
     const contactInfo = require('contact.json')
     setContact(`mailto:${contactInfo.main}`)
+  }, [])
+
+  // Only render Three.js on the client
+  useEffect(() => {
+    setStartCanvas(true)
   }, [])
 
   if (typeof window !== 'undefined') {
@@ -84,13 +90,15 @@ const Home = ({ projectMetadata, activeProject }) => {
           />
         </motion.div>
         <motion.div className={styles.rendererContainer} style={{ opacity: initialFade }}>
-          <Suspense fallback={null}>
-            <ThreeWrapper>
-              <Suspense fallback={null}>
-                <Dreamscape onFirstFrame={() => initialFade.set(1)} />
-              </Suspense>
-            </ThreeWrapper>
-          </Suspense>
+          {startCanvas && (
+            <Suspense fallback={null}>
+              <ThreeWrapper>
+                <Suspense fallback={null}>
+                  <Dreamscape onFirstFrame={() => initialFade.set(1)} />
+                </Suspense>
+              </ThreeWrapper>
+            </Suspense>
+          )}
         </motion.div>
       </motion.figure>
 
