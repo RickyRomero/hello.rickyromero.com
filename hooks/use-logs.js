@@ -1,14 +1,15 @@
 import create from 'zustand'
 
 const useLogs = create((set, get) => ({
-  gpuLogged: false,
+  dsRes: null,
   fps: null,
   fpsCeiling: null,
-  dsRes: null,
+  gpuLogged: false,
+  referrer: null,
 
   logEntry: ({ target, ...client }) => {
     set(client)
-    const { gpuLogged, fps, fpsCeiling, dsRes } = get()
+    const { gpuLogged, fps, fpsCeiling, dsRes, referrer } = get()
 
     if (target === '#gpu' && (!fps || !fpsCeiling || !dsRes)) { return }
     if (target === '#gpu' && gpuLogged) { return }
@@ -19,7 +20,7 @@ const useLogs = create((set, get) => ({
     const dpr = window.devicePixelRatio
     const viewport = `${w} x ${h} @ ${dpr}`
     const data = {
-      client: { viewport, fps, fpsCeiling, dsRes },
+      client: { viewport, fps, fpsCeiling, dsRes, referrer },
       entry: { target }
     }
 

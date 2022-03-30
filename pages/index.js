@@ -68,7 +68,14 @@ const Home = ({ projectMetadata, activeProject }) => {
 
   if (typeof window !== 'undefined') {
     useEffect(() => {
-      logEntry({ target: window.location.pathname })
+      const ref = document.referrer
+      const logData = { target: window.location.pathname }
+
+      if (ref.length > 0 && ref.indexOf(window.location.hostname) === -1) {
+        logData.referrer = ref
+      }
+
+      logEntry(logData)
     }, [window.location.pathname])
   }
 
