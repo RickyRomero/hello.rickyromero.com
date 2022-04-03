@@ -57,7 +57,7 @@ const Home = ({ projectMetadata, activeProject }) => {
   // Hide contact info from scrapers
   useEffect(() => {
     const contactInfo = require('contact.json')
-    setContact(`mailto:${contactInfo.main}`)
+    setContact(`mailto:${contactInfo.main}?subject=${encodeURIComponent('Hello!')}`)
   }, [])
 
   // Only render Three.js on the client

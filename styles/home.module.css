@@ -54,7 +54,7 @@
   width: 50px;
   height: 76px;
   clip-path: url(#insignia);
-  backdrop-filter: var(--intense-sat) var(--fuzzy-blur);
+  backdrop-filter: brightness(1.5) var(--intense-sat) var(--fuzzy-blur);
 }
 
 .intro-wrapper {
