@@ -5,13 +5,22 @@ import cl from 'utils/classlist'
 import styles from './button.module.css'
 
 const Button = forwardRef((props, ref) => {
-  const { children, className = '', href, onClick } = props
-  const classList = cl(styles.button, className)
+  const { children, className = '', href, onClick, small = false } = props
+  const classList = cl(
+    styles.wrapper,
+    small ? styles.small : '',
+    className
+  )
 
+  // Wrapping in an outer div to allow CSS to animate separately
   return (
-    <Link href={(href || '/')}>
-      <a ref={ref} className={classList} onClick={onClick}>{children}</a>
-    </Link>
+    <div ref={ref} className={classList}>
+      <Link href={(href || '/')}>
+        <a className={styles.button} onClick={onClick}>
+          <span className={styles.alignment}>{children}</span>
+        </a>
+      </Link>
+    </div>
   )
 })
 Button.displayName = 'Button'

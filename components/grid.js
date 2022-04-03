@@ -4,7 +4,12 @@ import cl from 'utils/classlist'
 import styles from './grid.module.css'
 
 const Row = props => {
-  const { as = Fragment, desktopColCount = 12, children } = props
+  const {
+    as = Fragment,
+    desktopColCount = 12,
+    openEnded = false,
+    children
+  } = props
   let desktopSpanSum = 0
   const gridChildren = Children.map(children, (child, idx) => {
     const [desktop = desktopColCount/*, mobile */] = child.props.spans || []
@@ -17,7 +22,7 @@ const Row = props => {
 
   const contents = []
   contents.push(gridChildren)
-  contents.push(desktopColEmpty !== desktopColCount && (
+  contents.push(!openEnded && desktopColEmpty !== desktopColCount && (
     <span key="grid-end" className={styles[`desktop-${desktopColEmpty}`]} />
   ))
   return (

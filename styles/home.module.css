@@ -54,7 +54,7 @@
   width: 50px;
   height: 76px;
   clip-path: url(#insignia);
-  backdrop-filter: saturate(5) blur(20px);
+  backdrop-filter: var(--intense-sat) var(--fuzzy-blur);
 }
 
 .intro-wrapper {
@@ -67,6 +67,16 @@
 
 .hero-grid {
   width: 100%;
+}
+
+.i-made-this {
+  display: flex;
+  align-items: baseline;
+  gap: calc(var(--gap) / 4);
+}
+
+.inline-button {
+  display: inline-block;
 }
 
 .intro {

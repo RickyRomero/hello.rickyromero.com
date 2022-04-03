@@ -28,5 +28,5 @@
   /* TODO: Adapt transparency for high-contrast mode */
   /* TODO: Fix drop-shadow */
   background-color: rgba(0, 0, 0, 0.4);
-  backdrop-filter: saturate(360%) blur(40px) drop-shadow(0 10px 30px blue);
+  backdrop-filter: var(--vivid-sat) var(--hazy-blur) drop-shadow(0 10px 30px blue);
 }

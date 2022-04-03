@@ -1,19 +1,49 @@
+.wrapper {
+  --height: 3.75rem;
+  --end-padding: calc(var(--height) / 2);
+  --roundy: calc(var(--height) / 2);
+  --text-center-offset: 0.3125rem; /* HACK to fix vertical centering */
+
+  height: var(--height);
+}
+
+.wrapper.small {
+  --height: 1.875rem;
+  --text-center-offset: 0.125rem;
+}
+
 .button {
   color: var(--button-text);
   font-size: var(--large-text);
   font-weight: var(--cp-ultra);
   letter-spacing: var(--large-tracking);
-  background: linear-gradient(var(--button-top), var(--button-bottom));
-  box-shadow: 0 0.75rem 1.5rem var(--button-shadow-diffuse),
-              0 0.125rem 0.25rem var(--button-shadow-sharp),
-              inset 0 0.125rem 0.0625rem var(--button-bevel);
-  text-shadow: 0 0.125rem 0.0625rem var(--button-text-shadow);
+  background: var(--button-bg);
+  border: 2px solid var(--button-stroke);
 
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 3.75rem;
-  padding: 0 1.875rem;
-  border-radius: 1.875rem;
-  backdrop-filter: saturate(180%) blur(20px);
+  height: 100%;
+  padding: 0 var(--end-padding);
+  border-radius: var(--roundy);
+  backdrop-filter: var(--vivid-sat) var(--fuzzy-blur);
+
+  transition-property: color, background-color, transform;
+  transition-timing-function: cubic-bezier(0, 0, .25, 1);
+  transition-duration: 400ms;
+}
+
+.wrapper.small .button {
+  font-size: var(--xsmall-text);
+  letter-spacing: var(--xsmall-tracking);
+}
+
+.button span {
+  padding-top: var(--text-center-offset);
+}
+
+.button:hover, .button:focus {
+  color: var(--button-text-ready);
+  background-color: var(--button-bg-ready);
+  transform: scale(1.05);
 }

@@ -1,5 +1,4 @@
 import { Suspense, lazy, useEffect, useState } from 'react'
-import Link from 'next/link'
 import Image from 'next/image'
 import { motion, useTransform } from 'framer-motion'
 
@@ -131,15 +130,20 @@ const Home = ({ projectMetadata, activeProject }) => {
                     <MotionPassage as="p1" variants={heroItem}>Let's <em>build something incredible.</em></MotionPassage>
                     <MotionPassage as="p4" variants={heroItem}>Available starting June 27.</MotionPassage>
                   </div>
-                  <Row>
+                  <Row openEnded>
                     <MotionButton spans={[4]} variants={heroItem} href={contact} onClick={handleEmailCta}>Say Hi</MotionButton>
                     <MotionButton spans={[4]} variants={heroItem}>See Résumé</MotionButton>
                   </Row>
-                  <div>
-                    <Link href="https://github.com/RickyRomero/hello.rickyromero.com/">
-                      <a>View Source</a>
-                    </Link>
-                  </div>
+                  <motion.div className={styles.iMadeThis} variants={heroItem}>
+                    <Button
+                      className={styles.inlineButton}
+                      href="https://github.com/RickyRomero/hello.rickyromero.com/"
+                      small
+                    >
+                      View Source
+                    </Button>
+                    <Passage as="p4">(Yes, I made this!)</Passage>
+                  </motion.div>
                 </Grid>
               </motion.div>
             </section>

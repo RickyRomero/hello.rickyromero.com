@@ -61,6 +61,12 @@
   --page-inset: clamp(10px, 3vw, var(--gap));
   --max-page-width: calc(var(--max-page-content-width) + var(--page-inset) * 2);
   --project-key-art-height: 420px;
+
+  /* FILTERS */
+  --fuzzy-blur: blur(20px);
+  --hazy-blur: blur(40px);
+  --vivid-sat: saturate(2.5);
+  --intense-sat: saturate(5);
 }
 
 /* WIDE-GAMUT PALETTE */
@@ -86,13 +92,11 @@
   --dreamscape-bg: var(--dreamy-day);
   --emphatic: var(--dragonfruit);
 
-  --button-text: var(--grape-bold);
-  --button-text-shadow: white;
-  --button-bevel: white;
-  --button-top: var(--fog);
-  --button-bottom: var(--grape-soft);
-  --button-shadow-sharp: var(--grape-shadow-sharp);
-  --button-shadow-diffuse: var(--grape-shadow-diffuse);
+  --button-text: black;
+  --button-stroke: transparent;
+  --button-bg: rgba(255, 255, 255, 0.2);
+  --button-text-ready: black;
+  --button-bg-ready: white;
 
   --overlay-bg: var(--berry-juice);
   --modal-bg: var(--bright-day);
@@ -104,6 +108,8 @@
   :root {
     --dreamscape-bg: var(--bright-day);
     --modal-bg: white;
+    --button-stroke: black;
+    --button-bg: white;
   }
 }
 
@@ -114,13 +120,9 @@
     --dreamscape-bg: var(--dreamy-night);
 
     --button-text: white;
-    --button-text-shadow: var(--grape-shadow-sharp);
-    --button-bevel: white;
-    --button-top: var(--grape-bold);
-    --button-bottom: var(--grape-bold);
-    --button-shadow-sharp: var(--grape-shadow-sharp);
-    --button-shadow-diffuse: var(--grape-shadow-diffuse);
-
+    --button-stroke: white;
+    --button-bg: rgba(0, 0, 0, 0.2);
+  
     --overlay-bg: var(--grape-juice);
     --modal-bg: var(--moonless-night);
   }
@@ -131,6 +133,7 @@
   :root {
     --dreamscape-bg: var(--moonless-night);
     --modal-bg: black;
+    --button-bg: black;
   }
 }
 
