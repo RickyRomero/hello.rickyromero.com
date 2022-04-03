@@ -1,4 +1,4 @@
-import { Suspense, lazy } from 'react'
+import { Suspense, lazy, useEffect, useRef } from 'react'
 import Link from 'next/link'
 import { motion } from 'framer-motion'
 
@@ -8,14 +8,56 @@ import styles from './modal-overlay.module.css'
 
 const Escape = lazy(() => import('components/escape'))
 
-const ModalOverlay = ({ expanded, spring }) => {
+const offset = target => {
+  if (target) {
+    return `translate3d(0px, ${target.scrollTop}px, 0px)`
+  }
+}
+
+const ModalOverlay = ({ expanded, spring, getScrollable }) => {
+  const overlay = useRef()
+  const passive = true
   const [transformed, setProjectMotionValue] = useProjectMvTransform(expanded, {
-    position: v => v ? 'fixed' : 'absolute',
-    opacity: v => v
+    opacity: v => v,
+    position: v => v > 0 && v < 1 ? 'fixed' : 'absolute',
+    inset: v => v < 1 ? 0 : null,
+    transform: v => v < 1 ? '' : offset(getScrollable().current),
+    width: v => v === 1 ? '100vw' : null,
+    height: v => v === 1 ? '110vh' : null
   })
+
+  const updateOverlayPos = event => {
+    let target
+    if (event) {
+      target = event.target
+    } else {
+      target = getScrollable().current
+    }
+
+    if (target) {
+      // Avoids re-rendering
+      overlay.current.style.transform = offset(target)
+    }
+  }
+
+  useEffect(() => {
+    const scrollable = getScrollable().current
+    if (scrollable) {
+      updateOverlayPos()
+      scrollable.addEventListener('scroll', updateOverlayPos, { passive })
+
+      return () => {
+        updateOverlayPos()
+        scrollable.removeEventListener('scroll', updateOverlayPos, { passive })
+      }
+    }
+  }, [getScrollable])
+
+  updateOverlayPos()
 
   return (
     <motion.div
+      ref={overlay}
       initial={false}
       animate={{ progress: expanded ? 1 : 0 }}
       transition={spring}

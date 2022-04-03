@@ -1,12 +1,7 @@
 .overlay {
-  /* TODO:
-    position: fixed overlays the scrollbar in Chrome and Firefox.
-    This could be obnoxious to work around... */
-  position: fixed;
-  top: 0;
-  bottom: 0;
-  left: 0;
+  position: absolute;
   right: 0;
+  bottom: 0;
   background: var(--overlay-bg);
 }
 

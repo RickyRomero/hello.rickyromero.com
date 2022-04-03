@@ -57,6 +57,7 @@ const Project = ({ data, expanded, className }) => {
   const radius = { borderRadius: 40 }
 
   const scrollProps = dynamicScrollerProps[expanded ? 'enabled' : 'disabled']
+  const getScrollable = () => scrollArea
 
   useEffect(() => { expanded && scrollArea.current?.focus() }, [scrollArea, expanded])
 
@@ -75,7 +76,7 @@ const Project = ({ data, expanded, className }) => {
         <li className={cl(wrapperClass, className)}>
           { expanded && <PreventBodyScroll /> }
           <motion.div ref={scrollArea} className={styles.scrollable} {...scrollProps}>
-            <ModalOverlay expanded={expanded} spring={spring} />
+            <ModalOverlay expanded={expanded} spring={spring} getScrollable={getScrollable} />
             <motion.article layout
               initial={radius}
               animate={{ progress: expanded ? 1 : 0 }}
