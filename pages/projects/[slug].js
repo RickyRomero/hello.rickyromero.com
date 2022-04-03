@@ -16,13 +16,14 @@ import Link from 'next/link'
 import { motion } from 'framer-motion'
 import FocusTrap from 'focus-trap-react'
 
-import Metadata from 'components/metadata'
 import useProjectMvTransform from 'hooks/use-project-motion-value-transform'
+import Metadata from 'components/metadata'
 import ProjectHero from 'components/project-hero'
 import MarkdownRenderer from 'components/markdown-renderer'
 import PreventBodyScroll from 'components/prevent-body-scroll'
 import ModalOverlay from 'components/modal-overlay'
 import CloseButton from 'components/close-button'
+import { Grid } from 'components/grid'
 import { getProjectSlugs, getProjectsMeta, getProject } from 'generators/projects'
 import cl from 'utils/classlist'
 
@@ -92,9 +93,9 @@ const Project = ({ data, expanded, className }) => {
               >
                 <CloseButton expanded={expanded} spring={spring} />
                 <ProjectHero {...{ project: data, expanded, spring }} />
-                <main>
+                <main className={styles.projectRenderer}>
                   {contents && (
-                    <MarkdownRenderer>{contents}</MarkdownRenderer>
+                    <MarkdownRenderer options={{ wrapper: Grid }}>{contents}</MarkdownRenderer>
                   )}
                 </main>
               </motion.div>

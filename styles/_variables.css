@@ -61,6 +61,7 @@
   --page-inset: clamp(10px, 3vw, var(--gap));
   --max-page-width: calc(var(--max-page-content-width) + var(--page-inset) * 2);
   --project-key-art-height: 420px;
+  --soft-corner: 40px;
 
   /* FILTERS */
   --fuzzy-blur: blur(20px);

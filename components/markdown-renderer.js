@@ -37,7 +37,9 @@ const MarkdownRenderer = ({ options = {}, children }) => {
     ...options
   }
 
-  return <Markdown options={consolidatedOptions}>{children}</Markdown>
+  return (
+    <Markdown options={consolidatedOptions}>{children}</Markdown>
+  )
 }
 
 export default MarkdownRenderer

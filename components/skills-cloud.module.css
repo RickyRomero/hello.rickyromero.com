@@ -8,7 +8,7 @@
 
 .skill {
   position: relative;
-  border-radius: 40px;
+  border-radius: var(--soft-corner);
   padding: 10px 40px;
   border: 2px solid #f0f;
   cursor: default;

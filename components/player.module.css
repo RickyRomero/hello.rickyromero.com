@@ -1,0 +1,5 @@
+.player {
+  border-radius: var(--soft-corner);
+  max-width: 100%;
+  height: auto;
+}
