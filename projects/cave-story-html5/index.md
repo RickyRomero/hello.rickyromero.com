@@ -19,7 +19,7 @@ Cave Story is a hit indie title from 2004 by one developer: Daisuke Amaya. I rea
 
 I found an independent clone of Cave Story's game engine called NXEngine, which is open-source. So I decided to dig in and see what I could do.
 
-<Player uses="cave-story-sizzle" width="2048" height="1536" />
+<Player uses="cave-story-ipad" width="2048" height="1536" />
 
 At first, it was slow going. JavaScript looks a lot like C++ due to its shared origins, but at the time I didn't understand C++'s type system or how pointers worked. Still, it looked similar enough to JS that I could figure it out. Starting out, I took the original C++ code, put a .js extension on it, and converted all the C++ syntax to JS syntax. I looked at the original code's routines and learned my first lesson about how games are constructed: the game loop.
 
