@@ -16,7 +16,7 @@ const Player = ({ className, uses, width, height }) => {
     return (
       <source
         key={file}
-        src={`/videos/${file}`}
+        src={`/project-media/${file}`}
         type={`video/mp4; codecs=${codec}`}
       />
     )

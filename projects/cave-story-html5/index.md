@@ -48,3 +48,5 @@ This process continued for 2 weeks until I was *finally* able to draw the game's
 (Talk about the licensing block)
 
 (Conclusion)
+
+![Heroic painting of the protagonist as seen from behind. Scarf flapping in the wind, he gazes upward, holding the Blade in one hand and the Polar Star in the other.](cave-story-key-art.jpg "4000x2667")

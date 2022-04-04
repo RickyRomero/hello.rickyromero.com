@@ -14,6 +14,25 @@ const WrappedLink = ({ href, title, children }) => {
   )
 }
 
+const WrappedImage = ({ src, title, ...props }) => {
+  let { width, height } = props
+  if (!width || !height) {
+    const components = title.split('x')
+    width = components[0]
+    height = components[1]
+  }
+
+  return (
+    <Image
+      {...props}
+      width={width}
+      height={height}
+      src={`/project-media/${src}`}
+      sizes="(max-width: 1455px) 88vw, 1280px"
+    />
+  )
+}
+
 const baseOptions = {
   wrapper: Fragment,
   overrides: {
@@ -25,7 +44,7 @@ const baseOptions = {
     h6: { component: Heading, props: { as: 'h6' } },
     p: Passage,
     a: WrappedLink,
-    img: Image,
+    img: WrappedImage,
 
     Player
   }
