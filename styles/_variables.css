@@ -2,17 +2,19 @@
   /* PALETTE */
   --fog: #fff9;
   --berry-soft: #dff7ff;
+  --berry-tasty: #0051c3;
   --berry-bold: #0057ff;
   --berry-juice: #070029cc;
   --berry-shadow-sharp: var(--berry-bold);
   --berry-shadow-diffuse: var(--berry-bold);
   --grape-soft: #f5e2ff;
+  --grape-tasty: #d381ff;
   --grape-bold: #9b00ff;
   --grape-juice: #0c0013cc;
   --grape-shadow-sharp: #9b00ff29;
   --grape-shadow-diffuse: #9b00ff17;
   --dragonfruit: #ff006c;
-  --dreamy-day: #90d6ff;
+  --dreamy-day: #ccecff;
   --bright-day: #e3f5ff;
   --dreamy-night: #2c0026;
   --moonless-night: #160013;
@@ -90,6 +92,7 @@
 /* LIGHT MODE */
 :root {
   --base-text: black;
+  --link-text: var(--berry-tasty);
   --dreamscape-bg: var(--dreamy-day);
   --emphatic: var(--dragonfruit);
 
@@ -118,6 +121,7 @@
 @media (prefers-color-scheme: dark) {
   :root {
     --base-text: white;
+    --link-text: var(--grape-tasty);
     --dreamscape-bg: var(--dreamy-night);
 
     --button-text: white;

@@ -5,6 +5,7 @@
   height: calc(var(--project-key-art-height) + var(--page-inset) * 2);
   width: var(--max-page-width);
   pointer-events: none;
+  overflow: hidden;
 }
 
 .expanded.hero {
@@ -15,4 +16,10 @@
   position: relative;
   width: 100%;
   height: 100%;
+}
+
+.title {
+  position: absolute;
+  inset: auto 0 10px 0;
+  text-align: center;
 }

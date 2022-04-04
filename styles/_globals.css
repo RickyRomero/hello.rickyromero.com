@@ -102,6 +102,11 @@ h1, h2, h3, h4, h5, h6, b, strong, th {
 }
 
 a {
-  color: inherit;
+  color: var(--link-text);
+  font-weight: var(--cp-bold);
   text-decoration: none;
+}
+
+a:hover, a:focus {
+  text-decoration: underline;
 }

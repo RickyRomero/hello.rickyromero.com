@@ -46,4 +46,5 @@
   color: var(--button-text-ready);
   background-color: var(--button-bg-ready);
   transform: scale(1.05);
+  text-decoration: none;
 }
