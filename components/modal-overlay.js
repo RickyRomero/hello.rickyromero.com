@@ -45,10 +45,12 @@ const ModalOverlay = ({ expanded, spring, getScrollable }) => {
     if (scrollable) {
       updateOverlayPos()
       scrollable.addEventListener('scroll', updateOverlayPos, { passive })
+      window.addEventListener('resize', updateOverlayPos)
 
       return () => {
         updateOverlayPos()
         scrollable.removeEventListener('scroll', updateOverlayPos, { passive })
+        window.removeEventListener('resize', updateOverlayPos)
       }
     }
   }, [getScrollable])
