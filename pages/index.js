@@ -10,6 +10,7 @@ import MarkdownRenderer from 'components/markdown-renderer'
 import Button from 'components/button'
 import SkillsCloud from 'components/skills-cloud'
 
+import useContactInfo from 'hooks/use-contact-info'
 import { useDarkMode } from 'hooks/use-media-query'
 import useLogs from 'hooks/use-logs'
 import useMotionRate from 'hooks/use-motion-rate'
@@ -39,8 +40,8 @@ const heroItem = {
 
 const Home = ({ projectMetadata, activeProject }) => {
   const logEntry = useLogs(state => state.logEntry)
+  const contact = useContactInfo()
   const [startCanvas, setStartCanvas] = useState(false)
-  const [contact, setContact] = useState(null)
   const [scrollOpacity, initialFade] = useDreamscapeOpacity()
   const darkMode = useDarkMode()
   const motionRate = useMotionRate()
@@ -48,17 +49,12 @@ const Home = ({ projectMetadata, activeProject }) => {
 
   motionRate.set(Number(!activeProject))
 
+  const contactHref = `mailto:${contact}?subject=${encodeURIComponent('Hello!')}`
   const placeholderStyle = {
     display: useTransform(initialFade, v => v < 1 ? 'block' : 'none')
   }
 
   const handleEmailCta = () => logEntry({ target: '#email' })
-
-  // Hide contact info from scrapers
-  useEffect(() => {
-    const contactInfo = require('contact.json')
-    setContact(`mailto:${contactInfo.main}?subject=${encodeURIComponent('Hello!')}`)
-  }, [])
 
   // Only render Three.js on the client
   useEffect(() => {
@@ -131,7 +127,7 @@ const Home = ({ projectMetadata, activeProject }) => {
                     <MotionPassage as="p4" variants={heroItem}>Available starting June 27.</MotionPassage>
                   </div>
                   <Row openEnded>
-                    <MotionButton spans={[4]} variants={heroItem} href={contact} onClick={handleEmailCta}>Say Hi</MotionButton>
+                    <MotionButton spans={[4]} variants={heroItem} href={contactHref} onClick={handleEmailCta}>Say Hi</MotionButton>
                     <MotionButton spans={[4]} variants={heroItem}>See Résumé</MotionButton>
                   </Row>
                   <motion.div className={styles.iMadeThis} variants={heroItem}>

@@ -29,6 +29,6 @@ The final result speaks for itself. Even in 2012 and on a modest system, the gam
 
 <Player uses="cave-story-ipad" width="2048" height="1536" />
 
-I loved working on this project, because it taught me about tons of software engineering concepts and challenges. So! Do you have a moonshot project like this that I can learn even more from? If so, [please get in touch!](contact-cta)
+I loved working on this project, because it taught me about tons of software engineering concepts and challenges. So! Do you have a moonshot project like this that I can learn even more from? If so, [please get in touch!](mailto "About that Cave Story project...")
 
 ![Heroic painting of the protagonist as seen from behind. Scarf flapping in the wind, he gazes upward, holding the Blade in one hand and the Polar Star in the other.](cave-story-key-art.jpg "4000x2667")

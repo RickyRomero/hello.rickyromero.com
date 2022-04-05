@@ -3,16 +3,30 @@ import Markdown from 'markdown-to-jsx'
 import Image from 'next/image'
 import Link from 'next/link'
 
+import useContactInfo from 'hooks/use-contact-info'
+import useLogs from 'hooks/use-logs'
 import { Heading, Passage } from 'components/typography'
 import Player from 'components/player'
 import cl from 'utils/classlist'
 
 import styles from './markdown-renderer.module.css'
 
-const WrappedLink = ({ href, title, children }) => {
+const WrappedLink = ({ href, title = '', children }) => {
+  const contact = useContactInfo()
+  const logEntry = useLogs(state => state.logEntry)
+  let targetHref = href
+  let targetTitle = title
+  let onClick = () => {}
+
+  if (href === 'mailto') {
+    targetTitle = ''
+    targetHref = `mailto:${contact}?subject=${encodeURIComponent(title)}`
+    onClick = () => logEntry({ target: '#email' })
+  }
+
   return (
-    <Link href={href}>
-      <a title={title}>{children}</a>
+    <Link href={targetHref}>
+      <a title={targetTitle} onClick={onClick}>{children}</a>
     </Link>
   )
 }
