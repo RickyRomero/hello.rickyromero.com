@@ -36,6 +36,11 @@
   inset: 0;
 }
 
+.compute-border-radius {
+  border-radius: var(--soft-corner);
+  display: none;
+}
+
 .project-open .scrollable {
   width: initial;
   height: initial;

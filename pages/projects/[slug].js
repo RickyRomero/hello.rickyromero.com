@@ -40,6 +40,7 @@ const dynamicScrollerProps = {
 const Project = ({ data, expanded, className }) => {
   const [borderRadius, setBorderRadius] = useState(0)
   const scrollArea = useRef()
+  const computeRadius = useRef()
   const slowMo = false
   const lightboxLayer = typeof window !== 'undefined' ? Number(
     window
@@ -54,7 +55,7 @@ const Project = ({ data, expanded, className }) => {
   })
   const wrapperClass = cl(styles.projectSlot, expanded ? styles.projectOpen : '')
 
-  const spring = { type: 'spring', stiffness: slowMo ? 50 : 200, damping: 30 }
+  const spring = { type: 'spring', stiffness: slowMo ? 40 : 200, damping: 30 }
   const origin = { originX: 0, originY: 0 }
 
   const scrollProps = dynamicScrollerProps[expanded ? 'enabled' : 'disabled']
@@ -62,16 +63,16 @@ const Project = ({ data, expanded, className }) => {
 
   useEffect(() => { expanded && scrollArea.current?.focus() }, [scrollArea, expanded])
   useEffect(() => {
+    // https://github.com/framer/motion/issues/1464
     const updateRadius = () => {
-      const { body } = document
-      setBorderRadius(window.getComputedStyle(body).getPropertyValue('--soft-corner'))
+      setBorderRadius(window.getComputedStyle(computeRadius.current).borderRadius)
     }
 
     updateRadius()
 
     window.addEventListener('resize', updateRadius)
     return () => window.removeEventListener('resize', updateRadius)
-  }, [])
+  }, [computeRadius])
 
   return (
     <>
@@ -111,6 +112,7 @@ const Project = ({ data, expanded, className }) => {
                 </main>
               </motion.div>
             </motion.article>
+            <div ref={computeRadius} className={styles.computeBorderRadius} />
           </motion.div>
           {
             !expanded && (
