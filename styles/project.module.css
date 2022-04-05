@@ -41,7 +41,7 @@
   height: initial;
   position: fixed;
   inset: 0;
-  padding: var(--gap) var(--page-inset);
+  padding: var(--page-inset);
   overflow-y: auto;
   z-index: var(--overlay-layer);
 }

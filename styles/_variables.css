@@ -14,6 +14,7 @@
   --grape-shadow-sharp: #9b00ff29;
   --grape-shadow-diffuse: #9b00ff17;
   --dragonfruit: #ff006c;
+  --citrus: #f2ff00;
   --dreamy-day: #ccecff;
   --bright-day: #e3f5ff;
   --dreamy-night: #2c0026;
@@ -63,7 +64,7 @@
   --page-inset: clamp(10px, 3vw, var(--gap));
   --max-page-width: calc(var(--max-page-content-width) + var(--page-inset) * 2);
   --project-key-art-height: 420px;
-  --soft-corner: 40px;
+  --soft-corner: clamp(24px, 5vw, 60px);
 
   /* FILTERS */
   --fuzzy-blur: blur(20px);
@@ -84,6 +85,7 @@
     --grape-shadow-sharp: color(display-p3 0.5529411765 0 1 / 0.16);
     --grape-shadow-diffuse: color(display-p3 0.5529411765 0 1 / 0.09);
     --dragonfruit: color(display-p3 1 0 0.431372549);
+    --citrus: color(display-p3 0.936 1 0);
   }
 }
 
@@ -123,6 +125,7 @@
     --base-text: white;
     --link-text: var(--grape-tasty);
     --dreamscape-bg: var(--dreamy-night);
+    --emphatic: var(--citrus);
 
     --button-text: white;
     --button-stroke: white;
@@ -153,5 +156,6 @@
     --xsmall-text:  16px;
 
     --project-key-art-height: 320px;
+    --gap: 20px;
   }
 }

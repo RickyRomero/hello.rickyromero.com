@@ -9,15 +9,15 @@ layers:
 grid: 6
 ---
 
-[Cave Story](https://www.cavestory.org/download/cave-story.php) is a free 2004 hit indie title by one developer: [Daisuke Amaya](https://cavestory.fandom.com/wiki/Daisuke_Amaya). I love the game's blend of exploration and action gameplay.
+[Cave Story](https://www.cavestory.org/download/cave-story.php) is a free 2004 hit indie title by one developer: [Daisuke Amaya.](https://cavestory.fandom.com/wiki/Daisuke_Amaya) I love the game's blend of exploration and action gameplay.
 
 In September 2011, I was itching for a new hobby project, and web browsers supported a lot of stuff. [WebGL](https://madebyevan.com/webgl-water/), [Web Audio](https://www.arthurcarabott.com/audio-dsp-playground/), [gamepads](https://gamepad-tester.com/) and more made games a real possibility on the web platform.
 
 I found an independent clone of Cave Story's game engine called [NXEngine](https://nxengine.sourceforge.io), written in C++. So, I decided to try to get it working in a web browser!
 
-![Three stacked screenshots showing off various portions of the game.](cave-story-screenshots.png "6000x3790")
+![Three stacked screenshots showing off various portions of the game.](cave-story-screenshots.png "6000x3790xno-rounding")
 
-I learned a lot of things working on this project. To start, it involved manually porting tens of thousands of lines of C++ to JavaScript. This was also the first time I used WebGL, and the first time I synthesized audio. I'd never worked with [game loops](https://gameprogrammingpatterns.com/game-loop.html) or scripting systems before either.
+I learned a lot of things working on this project. To start, it involved manually porting tens of thousands of lines of C++ to JavaScript – something I'd never attempted. This was also the first time I used WebGL, and the first time I synthesized audio. I'd never worked with [game loops](https://gameprogrammingpatterns.com/game-loop.html) or scripting systems before either.
 
 After months of work in my spare time, all by myself, the game was playable from the beginning right up to the end credits.
 

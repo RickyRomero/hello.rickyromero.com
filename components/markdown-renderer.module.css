@@ -1,0 +1,7 @@
+.article-image {
+  border-radius: var(--soft-corner);
+}
+
+.no-rounding {
+  border-radius: 0;
+}

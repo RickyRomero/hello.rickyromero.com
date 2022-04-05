@@ -11,7 +11,7 @@
 // The reason for doing this is to allow for a seamless transition between the project
 // open/closed states.
 
-import { useEffect, useRef } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import Link from 'next/link'
 import { motion } from 'framer-motion'
 import FocusTrap from 'focus-trap-react'
@@ -38,6 +38,7 @@ const dynamicScrollerProps = {
 }
 
 const Project = ({ data, expanded, className }) => {
+  const [borderRadius, setBorderRadius] = useState(0)
   const scrollArea = useRef()
   const slowMo = false
   const lightboxLayer = typeof window !== 'undefined' ? Number(
@@ -55,12 +56,22 @@ const Project = ({ data, expanded, className }) => {
 
   const spring = { type: 'spring', stiffness: slowMo ? 50 : 200, damping: 30 }
   const origin = { originX: 0, originY: 0 }
-  const radius = { borderRadius: 40 }
 
   const scrollProps = dynamicScrollerProps[expanded ? 'enabled' : 'disabled']
   const getScrollable = () => scrollArea
 
   useEffect(() => { expanded && scrollArea.current?.focus() }, [scrollArea, expanded])
+  useEffect(() => {
+    const updateRadius = () => {
+      const { body } = document
+      setBorderRadius(window.getComputedStyle(body).getPropertyValue('--soft-corner'))
+    }
+
+    updateRadius()
+
+    window.addEventListener('resize', updateRadius)
+    return () => window.removeEventListener('resize', updateRadius)
+  }, [])
 
   return (
     <>
@@ -79,10 +90,10 @@ const Project = ({ data, expanded, className }) => {
           <motion.div ref={scrollArea} className={styles.scrollable} {...scrollProps}>
             <ModalOverlay expanded={expanded} spring={spring} getScrollable={getScrollable} />
             <motion.article layout
-              initial={radius}
+              initial={{ borderRadius }}
               animate={{ progress: expanded ? 1 : 0 }}
               transition={spring}
-              style={{ ...transformed }}
+              style={{ ...transformed, borderRadius }}
               onUpdate={setProjectMotionValue}
               className={styles.card}
             >

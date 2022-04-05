@@ -142,7 +142,7 @@ const Home = ({ projectMetadata, activeProject }) => {
                     >
                       View Source
                     </Button>
-                    <Passage as="p4">(Yes, I made this!)</Passage>
+                    <Passage as="p4">on GitHub</Passage>
                   </motion.div>
                 </Grid>
               </motion.div>

@@ -5,6 +5,9 @@ import Link from 'next/link'
 
 import { Heading, Passage } from 'components/typography'
 import Player from 'components/player'
+import cl from 'utils/classlist'
+
+import styles from './markdown-renderer.module.css'
 
 const WrappedLink = ({ href, title, children }) => {
   return (
@@ -14,17 +17,23 @@ const WrappedLink = ({ href, title, children }) => {
   )
 }
 
-const WrappedImage = ({ src, title, ...props }) => {
-  let { width, height } = props
+const WrappedImage = ({ src, title = '', ...props }) => {
+  let [width, height, ...options] = title.split('x')
   if (!width || !height) {
-    const components = title.split('x')
-    width = components[0]
-    height = components[1]
+    width = props.width
+    height = props.height
   }
+  const noRounding = options.includes('no-rounding')
+
+  const className = cl(
+    styles.articleImage,
+    noRounding ? styles.noRounding : ''
+  )
 
   return (
     <Image
       {...props}
+      className={className}
       width={width}
       height={height}
       src={`/project-media/${src}`}
