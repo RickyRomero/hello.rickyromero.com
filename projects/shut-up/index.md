@@ -1,7 +1,7 @@
 ---
 title: 'Shut Up: Comment Blocker'
-tagline: 'Full design and development'
-summary: 'I expanded an open-source comment blocking stylesheet into a suite of extensions for all major browsers.'
+description: 'I expanded an open-source comment blocking stylesheet into a suite of extensions for all major browsers.'
+preview: 'shut-up.jpg'
 baseColor: '#0070e0'
 previews:
   - 'shut-up-a.png'

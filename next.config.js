@@ -1,4 +1,9 @@
+require('dotenv').config()
+
 module.exports = {
+  env: {
+    BASEURL: `${process.env.SCHEME}${process.env.HOST}`
+  },
   reactStrictMode: true,
   images: {
     formats: ['image/avif', 'image/webp']

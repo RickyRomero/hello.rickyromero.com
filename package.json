@@ -10,6 +10,7 @@
   "dependencies": {
     "@react-three/drei": "^9",
     "@react-three/fiber": "^8",
+    "dotenv": "^16",
     "focus-trap-react": "^8",
     "framer-motion": "^6",
     "glsl-noise": "^0",

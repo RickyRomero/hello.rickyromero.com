@@ -1,7 +1,7 @@
 ---
 title: 'Konfabulator'
-tagline: 'Widget design and engineering'
-summary: 'I built lots of widgets with some very talented colleagues.'
+description: 'I built lots of widgets with some very talented colleagues.'
+preview: 'design-systems.jpg'
 baseColor: '#249fff'
 previews:
   - 'konfabulator-a.png'

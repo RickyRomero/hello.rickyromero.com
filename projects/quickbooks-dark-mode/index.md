@@ -1,7 +1,7 @@
 ---
 title: 'QuickBooks: Dark Mode'
-tagline: 'Full design, prototyping, and engineering'
-summary: "I built dark mode for QuickBooks Online primarily on my own. Here's how I did it."
+description: "I built dark mode for QuickBooks Online primarily on my own. Here's how I did it."
+preview: 'quickbooks-dark-mode.jpg'
 baseColor: '#8d0089'
 previews:
   - 'dark-mode-a.png'

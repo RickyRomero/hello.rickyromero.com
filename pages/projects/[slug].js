@@ -17,7 +17,6 @@ import { motion } from 'framer-motion'
 import FocusTrap from 'focus-trap-react'
 
 import useProjectMvTransform from 'hooks/use-project-motion-value-transform'
-import Metadata from 'components/metadata'
 import ProjectHero from 'components/project-hero'
 import MarkdownRenderer from 'components/markdown-renderer'
 import PreventBodyScroll from 'components/prevent-body-scroll'
@@ -49,7 +48,7 @@ const Project = ({ data, expanded, className }) => {
   ) : 0
 
   const { metadata, slug, contents } = data
-  const { title, summary } = metadata
+  const { title } = metadata
   const [transformed, setProjectMotionValue] = useProjectMvTransform(expanded, {
     zIndex: v => v ? lightboxLayer : 0
   })
@@ -76,15 +75,6 @@ const Project = ({ data, expanded, className }) => {
 
   return (
     <>
-      {
-        expanded && (
-          <Metadata>
-            <title>{title}</title>
-            <meta name="description" content={summary} />
-          </Metadata>
-        )
-      }
-
       <FocusTrap active={expanded}>
         <li className={cl(wrapperClass, className)}>
           { expanded && <PreventBodyScroll /> }

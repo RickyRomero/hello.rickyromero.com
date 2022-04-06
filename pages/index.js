@@ -2,7 +2,6 @@ import { Suspense, lazy, useEffect, useState } from 'react'
 import Image from 'next/image'
 import { motion, useTransform } from 'framer-motion'
 
-import Metadata from 'components/metadata'
 import Insignia from 'components/insignia'
 import { Grid, Row } from 'components/grid'
 import { Heading, Passage } from 'components/typography'
@@ -76,11 +75,6 @@ const Home = ({ projectMetadata, activeProject }) => {
 
   return (
     <>
-      <Metadata>
-        <title>Ricky Romero: Design + Code</title>
-        <meta name="description" content="My name's Ricky. I design and code. Let's build something incredible." />
-      </Metadata>
-
       <motion.figure className={styles.dreamscape} style={{ opacity: scrollOpacity }}>
         <motion.div className={styles.placeholder} style={placeholderStyle}>
           <Image

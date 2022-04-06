@@ -1,7 +1,7 @@
 ---
 title: 'Variable Fonts'
-tagline: 'Proposal for adopting variable fonts in production'
-summary: 'I pushed to get Intuit to adopt variable fonts in our products and marketing. Here are the benefits.'
+description: 'I pushed to get Intuit to adopt variable fonts in our products and marketing. Here are the benefits.'
+preview: 'variable-fonts.jpg'
 baseColor: '#ef7f00'
 previews:
   - 'variable-fonts-a.png'

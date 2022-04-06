@@ -1,7 +1,7 @@
 ---
 title: 'heatherromero.com'
-tagline: 'Design coaching, CSS and JS implementation'
-summary: 'I helped my wife Heather prepare her design portfolio for her job search.'
+description: 'aaaaaaaaaaaaaaa'
+preview: 'heatherromero.com.jpg'
 baseColor: '#0076e3'
 previews:
   - 'heatherromero.com-a.png'

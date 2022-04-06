@@ -1,7 +1,7 @@
 ---
 title: 'Zebralyzer'
-tagline: 'Helping designers understand contrast ratios'
-summary: 'Text contrast is an important part of web accesibility.'
+description: 'Text contrast is an important part of web accesibility.'
+preview: 'zebralyzer.jpg'
 baseColor: '#73a928'
 previews:
   - 'zebralyzer-a.png'
