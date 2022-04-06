@@ -60,7 +60,12 @@ const Project = ({ data, expanded, className }) => {
   const scrollProps = dynamicScrollerProps[expanded ? 'enabled' : 'disabled']
   const getScrollable = () => scrollArea
 
-  useEffect(() => { expanded && scrollArea.current?.focus() }, [scrollArea, expanded])
+  useEffect(() => {
+    if (expanded && scrollArea.current) {
+      scrollArea.current.focus()
+      scrollArea.current.scrollTop = 0
+    }
+  }, [scrollArea, expanded])
   useEffect(() => {
     // https://github.com/framer/motion/issues/1464
     const updateRadius = () => {

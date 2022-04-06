@@ -19,7 +19,7 @@ I found an independent clone of Cave Story's game engine called [NXEngine](https
 
 I learned a lot of things working on this project. To start, it involved manually porting tens of thousands of lines of C++ to JavaScript – something I'd never attempted. This was also the first time I used WebGL, and the first time I synthesized audio. I'd never worked with [game loops](https://gameprogrammingpatterns.com/game-loop.html) or scripting systems before either.
 
-After months of work in my spare time, all by myself, the game was playable from the beginning right up to the end credits.
+After months of work in my spare time, all by myself, the game was playable from the title screen right up to the end credits.
 
 <Player uses="cave-story-sizzle" width="2048" height="1536" />
 
