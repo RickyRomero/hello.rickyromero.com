@@ -1,6 +1,6 @@
 ---
 title: 'Chart of Accounts Cleanup'
-description: "Understanding accountants' workflows is crucial in helping them clean up their clients' books."
+description: "I designed a tool to help accountants clean up their clients' messy books."
 preview: 'chart-of-accounts.jpg'
 baseColor: '#9100ad'
 previews:
@@ -10,4 +10,51 @@ previews:
   - 'coa-cleanup-d.png'
 ---
 
-aaaaaaaaaaa
+In July 2019, the QuickBooks Live team wanted my help with a project. They were trying to make a tool for their accountants which would help them clean up clients' books.
+
+DIY bookkeeping is a messy issue. QuickBooks tries to make accounting more friendly by simplifying complicated concepts so mere mortals can understand them. However, because of this translation, QuickBooks' small business customers may not categorize transactions accurately. This is a problem come tax time, when tax authorities expect things to arrive in a certain format.
+
+Ideally, we'd solve this at the point of data entry. This was too hard to tackle on the team's aggressive schedule: *only two weeks!* But the team created a machine learning model which helps with cleanup. We would use and improve this model in the final product. The team could also recycle this work when they take on the data entry problem later.
+
+I was solely responsible for the UI design (interaction and visual) for this project.
+
+[img]
+
+This is a screenshot of what the project looked like when I started. As I got into further discussions with the team, however, it became clear that this design didn't match the project's needs. The interface was confusing and the cleanup flow was unclear.
+
+I started by taking a step back and redesigning the basic cleanup flow. After some discussions with our accountant partners, this was the flow we came up with as a team:
+
+[img]
+
+Let's get some terminology out of the way.
+
+- A **chart of accounts** is a standard means for a company to categorize its cashflow in a way that it can report on later.
+- **Accounts** are logical groups containing transactions.
+- The **account name** is a summary of an **account type** and a **detail type**:
+  - An **account type** is a broad category, like "Expenses" or "Cost of Goods Sold."
+  - A **detail type** is like a subcategory which gives more info about what this account is actually for.
+- A **tax line item** is a specific way to map an account for reporting to the IRS.
+
+The account names depend on the company's industry and accounting method. They aren't standardized *per se*, but they should follow a conventional format. Accountants and tax authorities expect this.
+
+[img]
+
+The first step is to review account types and detail types. We want to make sure these categories make sense to an accountant. The machine learning model first looks at the account name and transactions. It predicts the correct account type and detail type. Then, based on its confidence level, it recommends actions the accountant can take. For accounts where it's less certain, it requires explicit categorization from the accountant. These categorizations feed back into the model to improve it.
+
+[img]
+
+Accountants can also see transactions in the account if they need more context. After that, the model suggests accounts and detail types for the accountant to add. Authorities generally expect to see these accounts in business records.
+
+[img]
+
+The next step is to assign tax line items. Like I said earlier, there's no standard for account names, but the way businesses report them to the IRS is. The model maps these in cases where they aren't present.
+
+[img]
+
+The last bit of housekeeping asks the accountant to rename any accounts which don't make sense after all these changes. The model recommends names based on these changes.
+
+Finally, the accountant can download a CSV of the updates. They can use this for keeping a record of these changes, and to apply them to the client's books.
+
+[img]
+
+This project required deep empathy for the accountants we serve. Understanding the problems they face when they first clean up their clients' books was key to designing this tool. I can help you with your team's hairy design challenges too; [drop me a line!](mailto "About that Chart of Accounts project...")
