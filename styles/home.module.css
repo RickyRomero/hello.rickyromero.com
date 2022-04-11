@@ -65,6 +65,11 @@
   justify-content: center;
 }
 
+.hero-grid em, .lets-do-this em {
+  color: var(--emphatic);
+  font-style: normal;
+}
+
 .hero-grid {
   width: 100%;
 }
@@ -95,16 +100,6 @@
   border-radius: var(--soft-corner);
   aspect-ratio: 5 / 6;
   margin: 0;
-}
-
-.header {
-
-}
-
-.main {
-}
-
-.footer {
 }
 
 @supports not (backdrop-filter: saturate(5) blur(20px)) {

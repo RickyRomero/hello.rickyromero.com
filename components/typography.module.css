@@ -12,8 +12,3 @@
 
 .h1, .h2, .h3, .h4, .h5, .h6 { margin: 0; }
 .p1, .p2, .p3, .p4 { margin: 0; }
-
-.p1 em, .p2 em, .p3 em, .p4 em {
-  font-style: normal;
-  color: var(--emphatic);
-}

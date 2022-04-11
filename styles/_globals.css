@@ -110,3 +110,13 @@ a {
 a:hover, a:focus {
   text-decoration: underline;
 }
+
+code {
+  font-family: ui-monospace,
+               'SFMono-Regular',
+               'SF Mono',
+               Menlo,
+               Consolas,
+               'Liberation Mono',
+               monospace;
+}
