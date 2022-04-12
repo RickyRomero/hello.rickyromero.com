@@ -10,13 +10,13 @@ previews:
   - 'design-systems-d.png'
 ---
 
-Here's a grab bag of various contributions I made to design systems at Intuit. I worked in two design systems: the Intuit Design System (IDS) and QuickBooks Design System (QBDS). QBDS is a subset of IDS.
+Here's a collection of contributions I made to design systems at Intuit. I worked in two design systems: the Intuit Design System (IDS) and QuickBooks Design System (QBDS). QBDS is a subset of IDS.
 
 ### Dark Mode
 
 The biggest contribution I made to QBDS, bar none, is [dark mode in QuickBooks Online.](/projects/quickbooks-dark-mode) I prototyped this back in Spring of 2019 and was chiefly responsible for its design and implementation.
 
-[img]
+[video]
 
 My work on dark mode inspired development of more flexible color palettes in IDS.
 

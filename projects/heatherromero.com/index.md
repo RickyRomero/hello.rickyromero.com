@@ -24,7 +24,7 @@ The lightbox component I built uses the `history.pushState()` API to update the 
 
 [img]
 
-I also built the project tiles to have a simple effect when you mouse over them. They show a different preview image depending on how far left or right you move the cursor.
+I also built the project tiles to have a simple effect when you mouse over them. They show different preview images depending on how far left or right you move the cursor.
 
 [video]
 

@@ -1,6 +1,7 @@
 :root {
   /* PALETTE */
-  --fog: #fff9;
+  --fog: #fff3;
+  --smoke: #0003;
   --berry-soft: #dff7ff;
   --berry-tasty: #0051c3;
   --berry-bold: #0057ff;
@@ -106,6 +107,7 @@
 
   --overlay-bg: var(--berry-juice);
   --modal-bg: var(--bright-day);
+  --gallery-bg: var(--fog);
   --lightbox-shadow: var(--overlay-bg);
 }
 
@@ -133,6 +135,7 @@
   
     --overlay-bg: var(--grape-juice);
     --modal-bg: var(--moonless-night);
+    --gallery-bg: var(--smoke);
   }
 }
 

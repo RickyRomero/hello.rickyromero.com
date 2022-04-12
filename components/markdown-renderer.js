@@ -6,6 +6,7 @@ import Link from 'next/link'
 import useContactInfo from 'hooks/use-contact-info'
 import useLogs from 'hooks/use-logs'
 import { Heading, Passage } from 'components/typography'
+import { Gallery, Slide } from 'components/gallery'
 import Player from 'components/player'
 import cl from 'utils/classlist'
 
@@ -69,7 +70,9 @@ const baseOptions = {
     a: WrappedLink,
     img: WrappedImage,
 
-    Player
+    Player,
+    Gallery,
+    Slide
   }
 }
 
