@@ -37,15 +37,11 @@ const dynamicScrollerProps = {
 }
 
 const Project = ({ data, expanded, className }) => {
+  const [lightboxLayer, setLightboxLayer] = useState(0)
   const [borderRadius, setBorderRadius] = useState(0)
   const scrollArea = useRef()
   const computeRadius = useRef()
   const slowMo = false
-  const lightboxLayer = typeof window !== 'undefined' ? Number(
-    window
-      .getComputedStyle(document.documentElement)
-      .getPropertyValue('--lightbox-layer')
-  ) : 0
 
   const { metadata, slug, contents } = data
   const { title } = metadata
@@ -66,6 +62,7 @@ const Project = ({ data, expanded, className }) => {
       scrollArea.current.scrollTop = 0
     }
   }, [scrollArea, expanded])
+
   useEffect(() => {
     // https://github.com/framer/motion/issues/1464
     const updateRadius = () => {
@@ -77,6 +74,16 @@ const Project = ({ data, expanded, className }) => {
     window.addEventListener('resize', updateRadius)
     return () => window.removeEventListener('resize', updateRadius)
   }, [computeRadius])
+
+  useEffect(() => {
+    setLightboxLayer(
+      Number(
+        window
+          .getComputedStyle(document.documentElement)
+          .getPropertyValue('--lightbox-layer')
+      )
+    )
+  }, [])
 
   return (
     <>

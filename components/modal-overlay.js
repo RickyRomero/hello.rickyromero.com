@@ -21,7 +21,7 @@ const ModalOverlay = ({ expanded, spring, getScrollable }) => {
     opacity: v => v,
     position: v => v > 0 && v < 1 ? 'fixed' : 'absolute',
     inset: v => v < 1 ? 0 : null,
-    transform: v => v < 1 ? '' : offset(getScrollable().current),
+    transform: v => v < 1 ? null : offset(getScrollable().current),
     width: v => v === 1 ? '100vw' : null,
     height: v => v === 1 ? '110vh' : null
   })
