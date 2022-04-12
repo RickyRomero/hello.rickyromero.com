@@ -76,10 +76,15 @@ const Gallery = ({ children }) => {
             }
           }}
         >
-          <Image
-            alt={alt} src={src} width={width} height={height}
-            draggable="false"
-          />
+          <div
+            className={styles.ratioFitter}
+            style={{ aspectRatio: width / height }}
+          >
+            <Image
+              alt={alt} src={src} width={width} height={height}
+              draggable="false"
+            />
+          </div>
         </motion.figure>
       </AnimatePresence>
       {cursorNeeded && (
