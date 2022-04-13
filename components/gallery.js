@@ -22,7 +22,7 @@ const Gallery = ({ children }) => {
   const [[page, direction], setPage] = useState([0, 0])
   const imageIndex = wrap(0, children.length, page)
 
-  const { alt, src, width, height } = children[imageIndex].props
+  const { alt = '', src, width, height } = children[imageIndex].props
   const variants = {
     enter: direction => ({
       x: (direction > 0 ? 1000 : -1000) * motionRate,
