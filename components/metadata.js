@@ -31,11 +31,11 @@ const Metadata = ({ title, description, preview, type = 'article', children }) =
       <meta name="twitter:creator" content="@RickyRomero" />
       <meta property="og:type" content={type} />
 
-      <link rel="mask-icon" href={`${process.env.LENS_BASEURL}/shared/apple-pinned-tab-16x16.svg`} color="#5600cc" />
-      <link rel="icon" type="image/png" href={`${process.env.LENS_BASEURL}/shared/favicon-194x194.png`} sizes="194x194" />
-      <link rel="icon" type="image/png" href={`${process.env.LENS_BASEURL}/shared/favicon-96x96.png`} sizes="96x96" />
-      <link rel="icon" type="image/png" href={`${process.env.LENS_BASEURL}/shared/favicon-16x16.png`} sizes="16x16" />
-      <link rel="icon" type="image/png" href={`${process.env.LENS_BASEURL}/shared/favicon-32x32.png`} sizes="32x32" />
+      <link rel="mask-icon" href="/apple-pinned-tab-16x16.svg" color="#5600cc" />
+      <link rel="icon" type="image/png" href="/favicon-194x194.png" sizes="194x194" />
+      <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
+      <link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16" />
+      <link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32" />
     </Head>
   )
 }
