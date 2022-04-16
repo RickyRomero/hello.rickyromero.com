@@ -1,9 +1,8 @@
 import { useEffect, useState } from 'react'
-
-import Image from 'next/image'
 import { motion, useReducedMotion, AnimatePresence } from 'framer-motion'
 import { supportsTouchEvents } from 'detect-it'
 
+import LensImage from 'components/lens-image'
 import cl from 'utils/classlist'
 
 import styles from './gallery.module.css'
@@ -80,7 +79,7 @@ const Gallery = ({ children }) => {
             className={styles.ratioFitter}
             style={{ aspectRatio: width / height }}
           >
-            <Image
+            <LensImage
               alt={alt} src={src} width={width} height={height}
               draggable="false"
             />

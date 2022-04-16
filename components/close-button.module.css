@@ -11,7 +11,7 @@
   color: transparent;
   width: 100px;
   height: 100px;
-  background-image: url('/images/close-modal.svg');
+  background-image: url('/close-modal.svg');
   background-position: center;
   background-repeat: no-repeat;
   user-select: none;

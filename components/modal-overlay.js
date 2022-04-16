@@ -68,8 +68,8 @@ const ModalOverlay = ({ expanded, spring, getScrollable }) => {
       style={{
         ...transformed,
         pointerEvents: expanded ? 'auto' : 'none'
-      }
-    }>
+      }}
+    >
       <Link href="/" scroll={false}>
         <a
           draggable="false"

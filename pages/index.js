@@ -1,7 +1,7 @@
 import { Suspense, lazy, useEffect, useState } from 'react'
-import Image from 'next/image'
 import { motion, useTransform } from 'framer-motion'
 
+import LensImage from 'components/lens-image'
 import Insignia from 'components/insignia'
 import { Grid, Row } from 'components/grid'
 import { Heading, Passage } from 'components/typography'
@@ -77,9 +77,9 @@ const Home = ({ projectMetadata, activeProject }) => {
     <>
       <motion.figure className={styles.dreamscape} style={{ opacity: scrollOpacity }}>
         <motion.div className={styles.placeholder} style={placeholderStyle}>
-          <Image
+          <LensImage
             alt=""
-            src={require(`scenes/dreamscape/loading-${scheme}.jpg`)}
+            src={`home/loading-${scheme}.jpg`}
             layout="fill"
             objectFit="cover"
             sizes="50vw"
@@ -166,11 +166,11 @@ const Home = ({ projectMetadata, activeProject }) => {
               <Heading as="h2">more about me.</Heading>
               <Row>
                 <figure className={styles.portrait} spans={[4]}>
-                  <Image
+                  <LensImage
                     layout="fill"
                     objectFit="cover"
                     sizes="(max-width: 640px) 94vw, 30vw"
-                    src={require('public/images/me.png')}
+                    src="home/me.jpg"
                     alt="Portrait photo of Ricky Romero"
                   />
                 </figure>

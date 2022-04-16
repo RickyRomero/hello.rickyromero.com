@@ -1,10 +1,10 @@
 import { Fragment } from 'react'
 import Markdown from 'markdown-to-jsx'
-import Image from 'next/image'
 import Link from 'next/link'
 
 import useContactInfo from 'hooks/use-contact-info'
 import useLogs from 'hooks/use-logs'
+import LensImage from 'components/lens-image'
 import { Heading, Passage } from 'components/typography'
 import { Gallery, Slide } from 'components/gallery'
 import Player from 'components/player'
@@ -46,12 +46,12 @@ const WrappedImage = ({ src, title = '', ...props }) => {
   )
 
   return (
-    <Image
+    <LensImage
       {...props}
       className={className}
       width={width}
       height={height}
-      src={`/project-media/${src}`}
+      src={src}
       sizes="(max-width: 1455px) 88vw, 1280px"
     />
   )

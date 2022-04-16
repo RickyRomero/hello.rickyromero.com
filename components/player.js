@@ -11,12 +11,16 @@ const Player = ({ className, uses, width, height }) => {
     { suffix: 'avcm', codec: 'avc1.4d401f' } // AVC/H.264 main profile
   ]
 
+  const serverPath = uses.match(/^.+\//)
+  const filename = uses.match(/[^/]+$/)
   const sources = variants.map(({ suffix, codec }) => {
-    const file = `${uses}-${suffix}.mp4`
+    const file = `${filename}-${suffix}.mp4`
+    const fullPath = `${serverPath}${file}`
+    const url = `${process.env.LENS_BASEURL}/${fullPath}`
     return (
       <source
-        key={file}
-        src={`/project-media/${file}`}
+        key={url}
+        src={url}
         type={`video/mp4; codecs=${codec}`}
       />
     )

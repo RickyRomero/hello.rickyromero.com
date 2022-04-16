@@ -1,6 +1,6 @@
-import Image from 'next/image'
 import { motion } from 'framer-motion'
 
+import LensImage from 'components/lens-image'
 import { Heading } from 'components/typography'
 import cl from 'utils/classlist'
 
@@ -27,17 +27,17 @@ const ProjectHero = props => {
         transition={spring}
         animate={{ opacity: expanded ? 1.0 : 0.5 }}
       >
-        <Image
+        <LensImage
           priority={expanded}
-          src={require(`projects/${slug}/background.jpg`)}
+          src={`projects/${slug}/background.jpg`}
           layout="fill"
           objectFit="cover"
           sizes="1360px"
         />
       </motion.div>
-      <Image
+      <LensImage
         priority={expanded}
-        src={require(`projects/${slug}/foreground.png`)}
+        src={`projects/${slug}/foreground.png`}
         layout="fill"
         objectFit="contain"
         sizes="600px"

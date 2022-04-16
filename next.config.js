@@ -2,7 +2,8 @@ require('dotenv').config()
 
 module.exports = {
   env: {
-    BASEURL: `${process.env.SCHEME}${process.env.HOST}`
+    BASEURL: `${process.env.SCHEME}${process.env.HOST}`,
+    LENS_BASEURL: `${process.env.LENS_SCHEME}${process.env.LENS_HOST}`
   },
   reactStrictMode: true,
   images: {
