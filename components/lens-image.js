@@ -1,13 +1,14 @@
 import Image from 'next/image'
 
 const ssimLevels = new Map()
-ssimLevels.set(50, 'potato')
-ssimLevels.set(75, 'basic')
-ssimLevels.set(100, 'ui')
+ssimLevels.set(75, 'normal')
+ssimLevels.set(100, 'ultra')
 
 const lensLoader = ({ src, width, quality = 75 }) => {
   const ssimLevel = ssimLevels.get(quality)
-  return `${process.env.LENS_BASEURL}/${src}?w=${width}&q=${ssimLevel}`
+  const dpr = typeof window !== 'undefined' ? window.devicePixelRatio : 3
+
+  return `${process.env.LENS_BASEURL}/${src}?w=${width}&q=${ssimLevel}&d=${dpr}x`
 }
 
 const LensImage = props => <Image loader={lensLoader} {...props} />
