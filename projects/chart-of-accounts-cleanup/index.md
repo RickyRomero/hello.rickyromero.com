@@ -18,13 +18,13 @@ Ideally, we'd solve this at the point of data entry. This was too hard to tackle
 
 I was solely responsible for the UI design (interaction and visual) for this project.
 
-[img]
+![Screenshot showing a table of UI elements, some of which are crossed out for unclear reasons.](projects/chart-of-accounts-cleanup/starting-point.png "5536x4152")
 
-This is a screenshot of what the project looked like when I started. As I got into further discussions with the team, however, it became clear that this design didn't match the project's needs. The interface was confusing and the cleanup flow was unclear.
+Above is a screenshot of what the project looked like when I started. As I got into further discussions with the team, however, it became clear that this design didn't match the project's needs. The interface was confusing and the cleanup flow was unclear.
 
 I started by taking a step back and redesigning the basic cleanup flow. After some discussions with our accountant partners, this was the flow we came up with as a team:
 
-[img]
+![A four-step flow: 1. Review detail types; 2. Fill in missing detail types; 3. Assign tax line items; 4. Standardize account names.](projects/chart-of-accounts-cleanup/cleanup-overview.png "3144x2172")
 
 Let's get some terminology out of the way.
 
@@ -37,24 +37,26 @@ Let's get some terminology out of the way.
 
 The account names depend on the company's industry and accounting method. They aren't standardized *per se*, but they should follow a conventional format. Accountants and tax authorities expect this.
 
-[img]
+![A table of accounts, showing detail types with update recommendations.](projects/chart-of-accounts-cleanup/review-detail-types.png "5760x4080")
 
-The first step is to review account types and detail types. We want to make sure these categories make sense to an accountant. The machine learning model first looks at the account name and transactions. It predicts the correct account type and detail type. Then, based on its confidence level, it recommends actions the accountant can take. For accounts where it's less certain, it requires explicit categorization from the accountant. These categorizations feed back into the model to improve it.
+The first step, shown above, is to review account types and detail types. We want to make sure these categories make sense to an accountant. The machine learning model first looks at the account name and transactions. It predicts the correct account type and detail type. Then, based on its confidence level, it recommends actions the accountant can take. For accounts where it's less certain, it requires explicit categorization from the accountant. These categorizations feed back into the model to improve it.
 
-[img]
+Accountants can also see transactions in the account if they need more context:
 
-Accountants can also see transactions in the account if they need more context. After that, the model suggests accounts and detail types for the accountant to add. Authorities generally expect to see these accounts in business records.
+![A modal dialog showing the transactions in the account, alongside recommendations for updating the detail type.](projects/chart-of-accounts-cleanup/review-detail-types-modal.png "4372x3196")
 
-[img]
+After that, the model suggests accounts and detail types for the accountant to add. Authorities generally expect to see these accounts in business records:
 
-The next step is to assign tax line items. Like I said earlier, there's no standard for account names, but the way businesses report them to the IRS is. The model maps these in cases where they aren't present.
+![A table of recommended accounts and detail types, based on the business's type and industry.](projects/chart-of-accounts-cleanup/fill-in-missing-detail-types.png "5760x4080")
 
-[img]
+The next step is to assign tax line items. Like I said earlier, there's no standard for account names, but the way businesses report them to the IRS *is* standardized. The model maps these in cases where they aren't present:
+
+![Another table, this time showing tax line item mappings.](projects/chart-of-accounts-cleanup/assign-tax-line-items.png "5760x4080")
 
 The last bit of housekeeping asks the accountant to rename any accounts which don't make sense after all these changes. The model recommends names based on these changes.
 
-Finally, the accountant can download a CSV of the updates. They can use this for keeping a record of these changes, and to apply them to the client's books.
+Finally, the accountant can download a CSV of the updates. They can use this for keeping a record of these changes, and to apply them to the client's books:
 
-[img]
+![The final step, summarizing the changes being made to the Chart of Accounts.](projects/chart-of-accounts-cleanup/cleanup-summary.png "3144x2280")
 
 This project required deep empathy for the accountants we serve. Understanding the problems they face when they first clean up their clients' books was key to designing this tool. I can help you with your team's hairy design challenges too; [drop me a line!](mailto "About that Chart of Accounts project...")
