@@ -3,11 +3,6 @@ title: 'Chart of Accounts Cleanup'
 description: "I designed a tool to help accountants clean up their clients' messy books."
 preview: 'chart-of-accounts.jpg'
 baseColor: '#9100ad'
-previews:
-  - 'coa-cleanup-a.png'
-  - 'coa-cleanup-b.png'
-  - 'coa-cleanup-c.png'
-  - 'coa-cleanup-d.png'
 ---
 
 In July 2019, the QuickBooks Live team wanted my help with a project. They were trying to make a tool for their accountants which would help them clean up clients' books.
@@ -16,11 +11,11 @@ DIY bookkeeping is a messy issue. QuickBooks tries to make accounting more frien
 
 Ideally, we'd solve this at the point of data entry. This was too hard to tackle on the team's aggressive schedule: *only two weeks!* But the team created a machine learning model which helps with cleanup. We would use and improve this model in the final product. The team could also recycle this work when they take on the data entry problem later.
 
-I was solely responsible for the UI design (interaction and visual) for this project.
+I was solely responsible for the UI design (interaction and visual) for this project. Below is a screenshot of what the project looked like when I started:
 
 ![Screenshot showing a table of UI elements, some of which are crossed out for unclear reasons.](projects/chart-of-accounts-cleanup/starting-point.png "5536x4152")
 
-Above is a screenshot of what the project looked like when I started. As I got into further discussions with the team, however, it became clear that this design didn't match the project's needs. The interface was confusing and the cleanup flow was unclear.
+As I got into further discussions with the team, however, it became clear that this design didn't match the accountants' needs. The interface was confusing and the cleanup flow was unclear.
 
 I started by taking a step back and redesigning the basic cleanup flow. After some discussions with our accountant partners, this was the flow we came up with as a team:
 

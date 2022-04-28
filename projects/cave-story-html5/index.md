@@ -3,9 +3,6 @@ title: 'Cave Story HTML5'
 description: 'I ported the indie hit Cave Story to HTML5.'
 preview: 'cave-story.jpg'
 baseColor: '#8d002d'
-layers:
-  - 'foreground-b.png'
-  - 'foreground-c.png'
 grid: 6
 ---
 

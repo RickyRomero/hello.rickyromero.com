@@ -7,6 +7,8 @@ module.exports = {
   },
   reactStrictMode: true,
   images: {
+    imageSizes: [240, 480],
+    deviceSizes: [640, 800, 1280, 1920, 2560, 3840, 5120, 6016],
     formats: ['image/avif', 'image/webp']
   },
   webpack: (config, options) => {

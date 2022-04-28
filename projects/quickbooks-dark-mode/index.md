@@ -3,11 +3,6 @@ title: 'QuickBooks: Dark Mode'
 description: "I built dark mode for QuickBooks Online primarily on my own. Here's how I did it."
 preview: 'quickbooks-dark-mode.jpg'
 baseColor: '#8d0089'
-previews:
-  - 'dark-mode-a.png'
-  - 'dark-mode-b.png'
-  - 'dark-mode-c.png'
-  - 'dark-mode-d.png'
 grid: 8
 ---
 

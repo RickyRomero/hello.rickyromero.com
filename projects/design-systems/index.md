@@ -3,11 +3,6 @@ title: 'Design Systems'
 description: 'aaaaaaaaaaaaaaa'
 preview: 'design-systems.jpg'
 baseColor: '#006b4a'
-previews:
-  - 'design-systems-a.png'
-  - 'design-systems-b.png'
-  - 'design-systems-c.png'
-  - 'design-systems-d.png'
 ---
 
 Here's a collection of contributions I made to design systems at Intuit. I worked in two design systems: the Intuit Design System (IDS) and QuickBooks Design System (QBDS). QBDS is a subset of IDS.

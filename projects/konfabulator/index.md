@@ -3,11 +3,6 @@ title: 'Konfabulator'
 description: 'I built lots of widgets with some very talented colleagues.'
 preview: 'design-systems.jpg'
 baseColor: '#249fff'
-previews:
-  - 'konfabulator-a.png'
-  - 'konfabulator-b.png'
-  - 'konfabulator-c.png'
-  - 'konfabulator-d.png'
 grid: 6
 ---
 
