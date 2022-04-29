@@ -15,9 +15,9 @@ I was solely responsible for the UI design (interaction and visual) for this pro
 
 ![Screenshot showing a table of UI elements, some of which are crossed out for unclear reasons.](projects/chart-of-accounts-cleanup/starting-point.png "5536x4152")
 
-As I got into further discussions with the team, however, it became clear that this design didn't match the accountants' needs. The interface was confusing and the cleanup flow was unclear.
+As I discussed the project with the team, however, it became clear that this design didn't match our accountants' needs. The interface was confusing and the cleanup flow was unclear.
 
-I started by taking a step back and redesigning the basic cleanup flow. After some discussions with our accountant partners, this was the flow we came up with as a team:
+I started by taking a step back and redesigning the basic cleanup flow. After some discussions with our accountant partners, this was the flow we came up with together:
 
 ![A four-step flow: 1. Review detail types; 2. Fill in missing detail types; 3. Assign tax line items; 4. Standardize account names.](projects/chart-of-accounts-cleanup/cleanup-overview.png "3144x2172")
 
@@ -48,9 +48,9 @@ The next step is to assign tax line items. Like I said earlier, there's no stand
 
 ![Another table, this time showing tax line item mappings.](projects/chart-of-accounts-cleanup/assign-tax-line-items.png "5760x4080")
 
-The last bit of housekeeping asks the accountant to rename any accounts which don't make sense after all these changes. The model recommends names based on these changes.
+The last bit of housekeeping asks the accountant to rename any accounts which don't make sense after the cleanup process is done. The model recommends names based on the updates.
 
-Finally, the accountant can download a CSV of the updates. They can use this for keeping a record of these changes, and to apply them to the client's books:
+Finally, the accountant can download a CSV containing the changes. They can use this for keeping a record of what changed, and to apply the updates to the client's books:
 
 ![The final step, summarizing the changes being made to the Chart of Accounts.](projects/chart-of-accounts-cleanup/cleanup-summary.png "3144x2280")
 
