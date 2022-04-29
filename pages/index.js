@@ -71,6 +71,24 @@ const Home = ({ projectMetadata, activeProject }) => {
 
       logEntry(logData)
     }, [window.location.pathname])
+
+    // Special case for when the visitor leaves the page
+    useEffect(() => {
+      const logEgress = () => {
+        const data = { client: {}, entry: {} }
+        if (document.visibilityState === 'visible') {
+          data.entry.target = '#return'
+        } else if (document.visibilityState === 'hidden') {
+          data.entry.target = '#leave'
+        }
+
+        const blob = new Blob([JSON.stringify(data)], { type: 'application/json' })
+        navigator.sendBeacon('/api/log', blob)
+      }
+
+      document.addEventListener('visibilitychange', logEgress)
+      return () => document.removeEventListener('visibilitychange', logEgress)
+    }, [])
   }
 
   return (

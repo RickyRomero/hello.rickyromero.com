@@ -30,7 +30,7 @@
       "version": "detect"
     }
   },
-  "globals": {
-    "fetch": false
+  "env": {
+    "browser": true
   }
 }
