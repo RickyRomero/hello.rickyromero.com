@@ -6,11 +6,13 @@ baseColor: '#8d0089'
 grid: 8
 ---
 
-At the end of 2018, UI customization started hitting the mainstream. Apple launched [macOS Mojave](https://en.wikipedia.org/wiki/MacOS_Mojave) at the end of 2018 [with a system-wide dark mode.](https://www.macrumors.com/roundup/macos-10-14/#dark_mode) Rumors had it that [iOS 13](https://en.wikipedia.org/wiki/IOS_13) would follow suit in 2019 [(and it did).](https://www.macrumors.com/roundup/ios-13/#dark_mode) So, in the spring of 2019, before iOS 13 launched, I started thinking about how this accessibility mode might apply to QuickBooks.
+At the end of 2018, UI customization started hitting the mainstream. Apple launched [macOS Mojave](https://en.wikipedia.org/wiki/MacOS_Mojave) at the end of the year [with a system-wide dark mode.](https://www.macrumors.com/roundup/macos-10-14/#dark_mode) Rumors had it that [iOS 13](https://en.wikipedia.org/wiki/IOS_13) would follow suit in 2019 [(and it did).](https://www.macrumors.com/roundup/ios-13/#dark_mode) The design team had explored dark mode before in bits and pieces, but never at scale. So, in the spring of 2019, before iOS 13 launched, I started thinking about how this accessibility mode might apply to QuickBooks.
+
+![Five stacked screenshots showing off various screens with dark mode turned on.](projects/quickbooks-dark-mode/collage.png "5424x3489")
 
 I considered this an accessibility mode because, like high-contrast mode, it makes products usable for more people. For example, [my partner Heather](https://heatherromero.com) suffers from [chronic photosensitive migraines.](https://en.wikipedia.org/wiki/Photophobia) Today, she uses dark mode on all her devices in part because of that.
 
-Before this, our team at Intuit built something we called the end-to-end prototype. We meant it to represent many screens in the user's experience of signing up for and using QuickBooks, and we frequently used it to try out new UI concepts quickly. This turned out to be a great proving ground for my dark mode concept.
+Before this, our prototyping team at Intuit built something we called the end-to-end prototype. It sat outside of production so we could test and iterate quickly. We meant it to represent many screens in the user's experience of signing up for and using QuickBooks, and we frequently used it to try out new UI concepts. This turned out to be a great proving ground for my dark mode concept.
 
 (video of end-to-end prototype)
 

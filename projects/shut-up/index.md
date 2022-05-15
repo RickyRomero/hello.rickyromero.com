@@ -11,7 +11,7 @@ previews:
 grid: 8
 ---
 
-Shut Up is an open source project to hide comments on all websites by default.
+Shut Up is an open source project to hide comments on all websites by default. I've been steadily improving it in my spare time since 2010.
 
 There are lots of valid reasons to hide comments on the web. Some people simply want to enjoy their favorite sites without distractions. Others don't want to see arguments, or be exposed to statements that instill anger or sadness in them.
 
