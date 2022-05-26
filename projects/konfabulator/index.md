@@ -6,7 +6,9 @@ baseColor: '#249fff'
 grid: 6
 ---
 
-Here's a gallery of the widgets I built while I was on the team:
+Content currently under construction.
+
+<!-- Here's a gallery of the widgets I built while I was on the team:
 
 - Acura RDX Traffic
 - Backyard
@@ -28,4 +30,4 @@ In addition, I built lots of personal widgets:
 - Kitty Clock
 - Micro Suite
 - Permissions Doctor
-- World Clock Pro
+- World Clock Pro -->
