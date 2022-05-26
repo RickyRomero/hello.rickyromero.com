@@ -11,3 +11,5 @@ previews:
 ---
 
 Content currently under construction.
+
+![Mobile screenshots of the signup flow, showing the account creation, payment, and app download steps.](projects/quickbooks-signup-flow/sui.png "6144x3930xno-rounding")
