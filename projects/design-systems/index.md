@@ -11,13 +11,15 @@ Here's a collection of contributions I made to design systems at Intuit. I worke
 
 The biggest contribution I made to QBDS, bar none, is [dark mode in QuickBooks Online.](/projects/quickbooks-dark-mode) I prototyped this back in Spring of 2019 and was chiefly responsible for its design and implementation.
 
-[video]
+<Player uses="projects/quickbooks-dark-mode/sizzle" width="1920" height="1080" />
 
-My work on dark mode inspired development of more flexible color palettes in IDS.
+My work on dark mode directly inspired development of more flexible color palettes in IDS. These updates made the palettes adapt better to dark mode and offer options for higher contrast.
 
 ### color-info
 
-`color-info` is a reusable set of inner-source packages I wrote at Intuit which helps developers better understand and work with color. It's a monorepo containing several packages:
+`color-info` is a reusable set of inner-source packages I wrote at Intuit which helps developers better understand and work with color. I developed these to make my accessibility and design systems projects easier.
+
+The monorepo contains several packages:
 
 - `blend`: Composites an array of transparent or opaque colors together to calculate a final color. The result matches what you'd get out of design tools like Photoshop, Sketch, or Figma.
 - `contrast-ratio`: Calculates the WCAG 2.1 contrast ratio of two colors.
@@ -28,11 +30,11 @@ My work on dark mode inspired development of more flexible color palettes in IDS
 - `simulate-color`: Lets you change the hue or saturation of a color, or simulate what it would look like to people who experience different forms of color blindness.
 - `info`: An amalgamation of all the above packages, for quickly getting info on 1 or more colors.
 
-These low-level packages are useful for evaluating or transforming colors, and were used to compose more elaborate design and engineering tools.
+These low-level packages are useful for evaluating or transforming colors. Our prototyping team used these to compose more elaborate design and engineering tools.
 
 ### Color Linter
 
-During Global Engineering Days 202X, I teamed up with a frontend engineer and a design technologist to get [Stylelint](https://stylelint.io/) working in our build tools. I wrote a Stylelint plugin which used [ΔE color matching](https://en.wikipedia.org/wiki/Color_difference#CIELAB_%CE%94E*) to detect off-palette colors, recommending suitable swatches as replacements.
+During Global Engineering Days 2021, I teamed up with a frontend engineer and a design technologist to get [Stylelint](https://stylelint.io/) working in our build tools. I wrote a Stylelint plugin which used [ΔE color matching](https://en.wikipedia.org/wiki/Color_difference#CIELAB_%CE%94E*) to detect off-palette colors, recommending suitable swatches as replacements.
 
 [img]
 
@@ -44,9 +46,11 @@ Intuit's brand font is based on Avenir Next. During license renewal negotiations
 
 [img]
 
-Variable fonts are notable for their design flexibility and, on the web, their performance. Normally, you need several files to render a font on the web. This requires several HTTP requests, which can be slow on a cellular connection. With variable fonts, all those weights are condensed into a single file. This reduces redundant data, and removes the need for separate HTTP requests. In turn, it allows for faster font rendering, increasing performance. That's why *this* site uses a variable version of the font [Codec Pro.](https://www.zetafonts.com/codec-pro)
+Variable fonts are notable for their design flexibility and, on the web, their performance. From a design standpoint, they're great because you can render any font weight you want. It doesn't have to be one of the fixed weights. For example, if the regular weight in a variable font is a smidge too light, you can thicken it yourself. A novel (and hacky) use of this is to [compensate for macOS's thicker antialiasing on white text.](https://css-tricks.com/using-css-custom-properties-to-adjust-variable-font-weights-in-dark-mode/) Weights are just the tip of the iceberg too; [check out Cheee Variable](https://v-fonts.com/fonts/cheee-variable) to see what I mean.
 
-I submitted a brief outlining all the benefits of adopting variable fonts, and tested load times across several Intuit pages to ensure there wouldn't be any performance regressions. Later, after receiving the variable font, I wrote a boilerplate implementation, suitable for production use, that developers could reference as they adopted the font. I even coached teams on how to optimize the font for blistering load times. This involves special techniques like [instancing](https://fonttools.readthedocs.io/en/latest/varLib/instancer.html) and [subsetting](https://fonttools.readthedocs.io/en/latest/subset/index.html) using the open-source `fonttools` library.
+As for performance, you normally need several files to render a font on the web. This requires several HTTP requests, which can be slow on a cellular connection. With variable fonts, all those weights are condensed into a single file. This reduces redundant data, and removes the need for separate HTTP requests. In turn, it decrases load times, rendering the page faster. That's why *this* site is set in a variable version of the font [Codec Pro.](https://www.zetafonts.com/codec-pro)
+
+At Intuit, I proactively submitted a brief to leadership outlining all the benefits of adopting variable fonts. I also included load times tested across many Intuit pages to ensure there wouldn't be any performance regressions. Later, after receiving the variable font, I wrote a production-ready implementation which developers could reference as they adopted the font. I even coached teams on how to optimize the font for blistering load times. This involves special techniques like [instancing](https://fonttools.readthedocs.io/en/latest/varLib/instancer.html) and [subsetting](https://fonttools.readthedocs.io/en/latest/subset/index.html) using the open-source `fonttools` library.
 
 ---
 

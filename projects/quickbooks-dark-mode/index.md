@@ -10,24 +10,32 @@ At the end of 2018, UI customization started hitting the mainstream. Apple launc
 
 ![Five stacked screenshots showing off various screens with dark mode turned on.](projects/quickbooks-dark-mode/collage.png "5424x3489")
 
-I considered this an accessibility mode because, like high-contrast mode, it makes products usable for more people. For example, [my partner Heather](https://heatherromero.com) suffers from [chronic photosensitive migraines.](https://en.wikipedia.org/wiki/Photophobia) Today, she uses dark mode on all her devices in part because of that.
+I consider this an accessibility mode because, like high-contrast mode, it makes products usable for more people. For example, [my partner Heather](https://heatherromero.com) suffers from [chronic photosensitive migraines.](https://en.wikipedia.org/wiki/Photophobia) Today, she uses dark mode on all her devices in part because of that.
 
 Before this, our prototyping team at Intuit built something we called the end-to-end prototype. It sat outside of production so we could test and iterate quickly. We meant it to represent many screens in the user's experience of signing up for and using QuickBooks, and we frequently used it to try out new UI concepts. This turned out to be a great proving ground for my dark mode concept.
 
-(video of end-to-end prototype)
+<Player uses="projects/quickbooks-dark-mode/e2e" width="2048" height="1536" />
 
-I started by deconstructing how Apple applied dark mode to macOS. By exploring different palettes and UI elements, I immediately learned that it wasn't a simple inversion. We couldn't simply plop `filter: invert(100%)` on the `body` element and call it a day. Everything needed consideration, from how background layers interact to how hover states and shadows work.
+I started by deconstructing how Apple applied dark mode to macOS. By exploring different palettes and UI elements, I immediately learned that it wasn't a simple inversion. We couldn't simply plop `filter: invert(100%)` on the `body` element and call it a day. Everything needed consideration, from how background layers interact to how hover states and shadows work. I also explored how high contrast mode interacts with dark mode in the OS.
 
-(Image of some of my macOS explorations)
+![Four stacked screenshots showing combinations of UI themes.](projects/quickbooks-dark-mode/macos-explorations.png "4600x2624xno-rounding")
 
-The main thing I took away from my reverse engineering is that turning on dark mode is like turning the lights off. Light and dark things darken, but light things stay lighter. However, the grays in our light mode palette weren't suitable for dark mode because most of the grays were over 50% brightness.
+The main thing I took away from my reverse engineering is that turning on dark mode is like turning the lights off. Light and dark things darken, but light things stay lighter. The grays in our light mode palette weren't up to this task for dark mode because most of the grays were over 50% brightness, so I built a new gray palette just for dark mode.
 
-(Image)
+![A visualization of the gray values divided at 50% brightness. The dark mode palette has more colors available below this threshold.](projects/quickbooks-dark-mode/gray-palette.png "3000x2250")
 
-In under a month, I'd adapted all the screens in our prototype to dark mode. And because I'd done this using CSS custom properties, I could also make a high-contrast mode and colorblind mode. I did this to show how the various modes could combine.
+As I worked on the prototype, I documented high-level rules to define how light mode designs [adapt to dark mode](https://designsystem.quickbooks.com/bolt/dark-mode/) in the [QuickBooks Design System](https://designsystem.quickbooks.com/).
+
+![A visualization of the "lights out" rule, showing how to translate a light mode design to dark mode.](projects/quickbooks-dark-mode/adaptation.png "3000x2250")
+
+In under a month, I converted all the screens in our prototype to dark mode. And because I did this using CSS custom properties, I could also make a high-contrast mode and colorblind mode. I did this to show how the various modes could combine.
 
 <Player uses="projects/quickbooks-dark-mode/sizzle" width="1920" height="1080" />
 
-The next challenge is applying this in production. QuickBooks is a big app made up of plugins managed by many different engineering teams. We needed a way to launch this feature without going into the code of every single plugin and releasing a new version.
+The next challenge is applying this in production. QuickBooks is a big app composed of plugins managed by many different engineering teams. We needed a way to launch this feature without going into the code of every single plugin and releasing a new version.
 
-The solution I came up with was an automated conversion tool which would pull the CSS for every plugin (leveraging some prior CSS cleanup tooling) and run heuristics on that code to derive a dark mode version. It looks at the context of each CSS rule, modifying the colors depending on that context. Then it builds an overlay stylesheet which applies the colors to the page. From there, we use a few manual overrides, and apply the stylesheet using our own plugin.
+The solution I came up with was an automated conversion tool which would pull the CSS for every plugin, then run heuristics on that code to derive a dark mode version. Leveraging some prior CSS cleanup tooling, it looks at the context of each CSS rule, modifying the colors depending on that context. Then it builds an overlay stylesheet which applies the colors to the page. From there, we use a few manual overrides, and apply the stylesheet using our own plugin.
+
+Dark mode launched in QuickBooks Labs for user testing in 2020.
+
+This is [one of many contributions](/projects/design-systems) I made to Intuit's design systems. I can design and develop your company's design system too; [drop me a line!](mailto "Dark mode looks awesome!")
