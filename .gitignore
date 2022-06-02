@@ -41,3 +41,4 @@ yarn-error.log*
 
 # Exclude contact info to avoid email scrapers
 contact.json
+public/ricky-romero-resume.pdf

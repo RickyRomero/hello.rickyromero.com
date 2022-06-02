@@ -6,7 +6,7 @@ baseColor: '#8d0089'
 grid: 8
 ---
 
-At the end of 2018, UI customization started hitting the mainstream. Apple launched [macOS Mojave](https://en.wikipedia.org/wiki/MacOS_Mojave) at the end of the year [with a system-wide dark mode.](https://www.macrumors.com/roundup/macos-10-14/#dark_mode) Rumors had it that [iOS 13](https://en.wikipedia.org/wiki/IOS_13) would follow suit in 2019 [(and it did).](https://www.macrumors.com/roundup/ios-13/#dark_mode) The design team had explored dark mode before in bits and pieces, but never at scale. So, in the spring of 2019, before iOS 13 launched, I started thinking about how this accessibility mode might apply to QuickBooks.
+At the end of 2018, UI customization started hitting the mainstream. Apple launched [macOS Mojave](https://en.wikipedia.org/wiki/MacOS_Mojave) at the end of the year [with a system-wide dark mode.](https://www.macrumors.com/roundup/macos-10-14/#dark_mode) Rumors had it that [iOS 13](https://en.wikipedia.org/wiki/IOS_13) would follow suit in 2019 [(and it did).](https://www.macrumors.com/roundup/ios-13/#dark_mode) The QuickBooks design team had explored dark mode before in bits and pieces, but never at scale. So, in the spring of 2019, before iOS 13 launched, I started thinking about how this accessibility mode might apply to QuickBooks.
 
 ![Five stacked screenshots showing off various screens with dark mode turned on.](projects/quickbooks-dark-mode/collage.png "5424x3489")
 

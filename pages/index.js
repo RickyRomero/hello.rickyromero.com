@@ -54,6 +54,11 @@ const Home = ({ projectMetadata, activeProject }) => {
   }
 
   const handleEmailCta = () => logEntry({ target: '#email' })
+  const handleResumeCta = event => {
+    event.preventDefault()
+    logEntry({ target: '#resume' })
+    window.open(event.target.parentNode.href, '_blank')
+  }
 
   // Only render Three.js on the client
   useEffect(() => {
@@ -140,7 +145,7 @@ const Home = ({ projectMetadata, activeProject }) => {
                   </div>
                   <Row openEnded>
                     <MotionButton spans={[4]} variants={heroItem} href={contactHref} onClick={handleEmailCta}>Say Hi</MotionButton>
-                    <MotionButton spans={[4]} variants={heroItem}>See Résumé</MotionButton>
+                    <MotionButton spans={[4]} variants={heroItem} href="ricky-romero-resume.pdf" onClick={handleResumeCta}>See Résumé</MotionButton>
                   </Row>
                   <motion.div className={styles.iMadeThis} variants={heroItem}>
                     <Button
@@ -205,7 +210,7 @@ const Home = ({ projectMetadata, activeProject }) => {
               <Passage as="p4">Available starting June 27.</Passage>
               <Row>
                 <Button spans={[4]} href={contact} onClick={handleEmailCta}>Say Hi</Button>
-                <Button spans={[4]}>See Résumé</Button>
+                <Button spans={[4]} href="ricky-romero-resume.pdf" onClick={handleResumeCta}>See Résumé</Button>
               </Row>
             </Grid>
           </main>
