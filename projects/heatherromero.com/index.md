@@ -10,7 +10,7 @@ My partner Heather is a talented designer and illustrator. She'd wanted to remak
 
 ### Code
 
-Heather's skilled at writing HTML and Sass, so I didn't need as much of my help there. But, since PHP and JavaScript aren't as easy to write, and her portfolio uses a fair bit of both, I helped out with the heavier coding challenges.
+Heather's skilled at writing HTML and Sass, so she didn't need as much of my help there. But, since PHP and JavaScript aren't as easy to write, and her portfolio uses a fair bit of both, I helped out with the heavier coding challenges.
 
 Some of Heather's portfolio is built with [jQuery](https://jquery.com/) for its ease of implementation. The project grid is filtered and sorted using [Isotope](https://isotope.metafizzy.co/), and [Slick](https://kenwheeler.github.io/slick/) handles media carousels as shown on mobile devices.
 
