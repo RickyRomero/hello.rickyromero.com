@@ -34,8 +34,8 @@ In under a month, I converted all the screens in our prototype to dark mode. And
 
 The next challenge is applying this in production. QuickBooks is a big app composed of plugins managed by many different engineering teams. We needed a way to launch this feature without going into the code of every single plugin and releasing a new version.
 
-The solution I came up with was an automated conversion tool which would pull the CSS for every plugin, then run heuristics on that code to derive a dark mode version. Leveraging some prior CSS cleanup tooling, it looks at the context of each CSS rule, modifying the colors depending on that context. Then it builds an overlay stylesheet which applies the colors to the page. From there, we use a few manual overrides, and apply the stylesheet using our own plugin.
+The solution I developed was an automated conversion tool which would pull the CSS for every plugin, then run heuristics on that code to derive a dark mode version. Leveraging some prior CSS cleanup tooling, it looks at the context of each CSS rule, modifying the colors depending on that context. Then it builds an overlay stylesheet which applies the colors to the page. From there, we use a few manual overrides, and apply the stylesheet using our own plugin.
 
-Dark mode launched in QuickBooks Labs for user testing in 2020.
+Dark mode launched in QuickBooks Labs for user testing in 2020. Intuit recognized my efforts by honoring me as a [Level 2 Accessibility Champion](https://www.last-child.com/intuits-accessibility-champion-program/#:~:text=Level%202%20Champion%20%E2%80%93%20Training%20and%20Exploring).
 
 This is [one of many contributions](/projects/design-systems) I made to Intuit's design systems. I can design and develop your company's design system too; [drop me a line!](mailto "Dark mode looks awesome!")

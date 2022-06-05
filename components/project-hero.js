@@ -6,8 +6,6 @@ import cl from 'utils/classlist'
 
 import styles from './project-hero.module.css'
 
-const MotionHeading = motion(Heading)
-
 const ProjectHero = props => {
   const { expanded, project, spring } = props
   const { metadata, slug } = project
@@ -42,16 +40,15 @@ const ProjectHero = props => {
         objectFit="contain"
         sizes="600px"
       />
-      <MotionHeading
-        className={styles.title}
+      <motion.div
         transition={spring}
         animate={{
           opacity: Number(expanded),
           y: expanded ? 0 : 80
         }}
       >
-        {title}
-      </MotionHeading>
+        <Heading className={styles.title}>{title}</Heading>
+      </motion.div>
     </motion.figure>
   )
 }

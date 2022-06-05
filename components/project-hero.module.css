@@ -20,8 +20,15 @@
 
 .title {
   position: absolute;
-  inset: auto 0 10px 0;
+  bottom: 10px;
+  left: 50%;
+  transform: translate(-50%, 0);
   text-align: center;
   color: white;
   text-shadow: 0 4px 16px black;
+  width: calc(100vw - (var(--page-inset) * 4));
+  max-width: var(--max-page-content-width);
+
+  /* Special case to prevent long non-breaking strings from exceeding lightbox bounds */
+  font-size: clamp(var(--large-text), 6vw, var(--xxlarge-text));
 }
