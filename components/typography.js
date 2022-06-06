@@ -39,4 +39,12 @@ const Passage = forwardRef((props, ref) => {
 })
 Passage.displayName = 'Passage'
 
-export { Heading, Passage }
+const List = forwardRef((props, ref) => {
+  const { as = 'p3', className = '', ordered = false, children, ...rest } = props
+  const classList = cl(styles[as], className)
+  const listType = ordered ? 'ol' : 'ul'
+  return createElement(listType, { ref, className: classList, ...rest }, children)
+})
+List.displayName = 'List'
+
+export { Heading, Passage, List }

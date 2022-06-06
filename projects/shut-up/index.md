@@ -32,7 +32,7 @@ But there was one browser left...
 
 (Shut Up for Mac teaser)
 
-In 2019, Safari 13 dropped support for its legacy extension format. Apple replaced it with a new format which required all extensions to go through the App Store. Shut Up had to be rewritten from scratch, custom for Safari, and distributed inside a native Mac app.
+In 2019, Safari 13 dropped support for its legacy extension format. Apple replaced it with a new format which required all extensions to go through the App Store. I had to rewrite Shut Up from scratch, custom for Safari, and distribute it inside a native Mac app.
 
 I spent a few months [completing a course on iOS and Swift development](https://www.udemy.com/course/ios-13-app-development-bootcamp/), with the goal of becoming skilled enough with Swift to write a first-class Mac app. Then, in 2020, Safari got its long-awaited update to Shut Up: Shut Up for Mac.
 

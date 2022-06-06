@@ -5,7 +5,7 @@ import Link from 'next/link'
 import useContactInfo from 'hooks/use-contact-info'
 import useLogs from 'hooks/use-logs'
 import LensImage from 'components/lens-image'
-import { Heading, Passage } from 'components/typography'
+import { Heading, Passage, List } from 'components/typography'
 import { Gallery, Slide } from 'components/gallery'
 import Player from 'components/player'
 import cl from 'utils/classlist'
@@ -69,6 +69,9 @@ const baseOptions = {
     p: Passage,
     a: WrappedLink,
     img: WrappedImage,
+    ol: { component: List, props: { ordered: true } },
+    ul: List,
+    hr: { props: { className: styles.hRule } },
 
     Player,
     Gallery,

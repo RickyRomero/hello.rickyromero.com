@@ -5,3 +5,10 @@
 .no-rounding {
   border-radius: 0;
 }
+
+.hRule {
+  width: 200px;
+  margin: 0 auto;
+  border-color: var(--hr-stroke);
+  opacity: var(--hr-opacity);
+}

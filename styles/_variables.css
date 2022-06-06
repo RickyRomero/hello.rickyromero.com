@@ -109,6 +109,8 @@
   --modal-bg: var(--bright-day);
   --gallery-bg: var(--fog);
   --lightbox-shadow: var(--overlay-bg);
+  --hr-stroke: var(--base-text);
+  --hr-opacity: 0.2;
 }
 
 /* LIGHT MODE, HIGH CONTRAST */
@@ -118,6 +120,7 @@
     --modal-bg: white;
     --button-stroke: black;
     --button-bg: white;
+    --hr-opacity: 1;
   }
 }
 
