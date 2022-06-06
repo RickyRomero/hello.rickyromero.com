@@ -18,7 +18,7 @@ In 2011, I ported this extension to Google Chrome, further refining it and addin
 
 (screenshot of Shut Up 2.5's options page)
 
-In 2015, iOS 9 added a content blocker API for Safari. This API let me [bring Shut Up to iPhone and iPad](https://www.macstories.net/ios/shut-up-is-an-ios-9-content-blocker-to-hide-comments-on-the-web/) mere days after iOS 9 launched. This was also my very first iOS app!
+In 2015, iOS 9 added a content blocker API for Safari. This API let me [bring Shut Up to iPhone and iPad](https://www.macstories.net/ios/shut-up-is-an-ios-9-content-blocker-to-hide-comments-on-the-web/) mere days after iOS 9 launched. This was also my very first iPhone app!
 
 (screenshot of rickyromero.com after launching Shut Up for iOS)
 
@@ -34,7 +34,7 @@ But there was one browser left...
 
 In 2019, Safari 13 dropped support for its legacy extension format. Apple replaced it with a new format which required all extensions to go through the App Store. I had to rewrite Shut Up from scratch, custom for Safari, and distribute it inside a native Mac app.
 
-I spent a few months [completing a course on iOS and Swift development](https://www.udemy.com/course/ios-13-app-development-bootcamp/), with the goal of becoming skilled enough with Swift to write a first-class Mac app. Then, in 2020, Safari got its long-awaited update to Shut Up: Shut Up for Mac.
+I spent a few months [completing a course on iOS and Swift development,](https://www.udemy.com/course/ios-13-app-development-bootcamp/) with the goal of becoming skilled enough with Swift to write a first-class Mac app. Then, in 2020, Safari got its long-awaited update to Shut Up: Shut Up for Mac.
 
 (screenshot of Shut Up for Mac)
 

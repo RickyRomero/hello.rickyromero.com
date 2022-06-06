@@ -16,7 +16,7 @@ Before this, our prototyping team at Intuit built something we called the end-to
 
 <Player uses="projects/quickbooks-dark-mode/e2e" width="2048" height="1536" />
 
-I started by deconstructing how Apple applied dark mode to macOS. By exploring different palettes and UI elements, I immediately learned that it wasn't a simple inversion. We couldn't simply plop `filter: invert(100%)` on the `body` element and call it a day. Everything needed consideration, from how background layers interact to how hover states and shadows work. I also explored how high contrast mode interacts with dark mode in the OS.
+I started by deconstructing how Apple applied dark mode to macOS. By exploring different palettes and UI elements, I immediately learned that it wasn't a simple inversion. We couldn't simply plop `filter: invert(100%)` on the `body` element and call it a day. Everything needed consideration, from how background layers interact, to how hover states and shadows work. I also explored how high contrast mode interacts with dark mode in the OS.
 
 ![Four stacked screenshots showing combinations of UI themes.](projects/quickbooks-dark-mode/macos-explorations.png "4600x2624xno-rounding")
 
@@ -37,5 +37,7 @@ The next challenge is applying this in production. QuickBooks is a big app compo
 The solution I developed was an automated conversion tool which would pull the CSS for every plugin, then run heuristics on that code to derive a dark mode version. Leveraging some prior CSS cleanup tooling, it looks at the context of each CSS rule, modifying the colors depending on that context. Then it builds an overlay stylesheet which applies the colors to the page. From there, we use a few manual overrides, and apply the stylesheet using our own plugin.
 
 Dark mode launched in QuickBooks Labs for user testing in 2020. Intuit recognized my efforts by honoring me as a [Level 2 Accessibility Champion](https://www.last-child.com/intuits-accessibility-champion-program/#:~:text=Level%202%20Champion%20%E2%80%93%20Training%20and%20Exploring).
+
+---
 
 This is [one of many contributions](/projects/design-systems) I made to Intuit's design systems. I can design and develop your company's design system too; [drop me a line!](mailto "Dark mode looks awesome!")
