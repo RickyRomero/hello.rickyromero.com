@@ -17,7 +17,9 @@ I was solely responsible for the UI design (interaction and visual) for this pro
 
 As I discussed the project with the team, however, it became clear that this design didn't match our accountants' needs. The interface was confusing and the cleanup flow was unclear.
 
-I started by taking a step back and redesigning the basic cleanup flow. After some discussions with our accountant partners, this was the flow we came up with together:
+---
+
+I started by taking a step back and redesigning the basic cleanup flow. After some lengthy discussions with our accountant partners, this was the flow we came up with together:
 
 ![A four-step flow: 1. Review detail types; 2. Fill in missing detail types; 3. Assign tax line items; 4. Standardize account names.](projects/chart-of-accounts-cleanup/cleanup-overview.png "3144x2172")
 
@@ -34,7 +36,9 @@ The account names depend on the company's industry and accounting method. They a
 
 ![A table of accounts, showing detail types with update recommendations.](projects/chart-of-accounts-cleanup/review-detail-types.png "5760x4080")
 
-The first step, shown above, is to review account types and detail types. We want to make sure these categories make sense to an accountant. The machine learning model first looks at the account name and transactions. It predicts the correct account type and detail type. Then, based on its confidence level, it recommends actions the accountant can take. For accounts where it's less certain, it requires explicit categorization from the accountant. These categorizations feed back into the model to improve it.
+The first step, shown above, is to review account types and detail types. We want to make sure these categories make sense to an accountant. The machine learning model first looks at the account name and transactions. It predicts the correct account type and detail type. Then, based on its confidence level, it recommends actions the accountant can take. These categorizations feed back into the model to improve it.
+
+For accounts where the model is less certain, it requires explicit categorization from the accountant. This important design consideration prevents bad data from feeding back into the model.
 
 Accountants can also see transactions in the account if they need more context:
 
@@ -53,5 +57,7 @@ The last bit of housekeeping asks the accountant to rename any accounts which do
 Finally, the accountant can download a CSV containing the changes. They can use this for keeping a record of what changed, and to apply the updates to the client's books:
 
 ![The final step, summarizing the changes being made to the Chart of Accounts.](projects/chart-of-accounts-cleanup/cleanup-summary.png "3144x2280")
+
+---
 
 This project required deep empathy for the accountants we serve. Understanding the problems they face when they first clean up their clients' books was key to designing this tool. I can help you with your team's hairy design challenges too; [drop me a line!](mailto "About that Chart of Accounts project...")
