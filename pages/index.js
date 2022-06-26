@@ -141,7 +141,6 @@ const Home = ({ projectMetadata, activeProject }) => {
                     <MotionPassage as="p1" variants={heroItem}>My name's Ricky.</MotionPassage>
                     <MotionPassage as="p1" variants={heroItem}>I design and code.</MotionPassage>
                     <MotionPassage as="p1" variants={heroItem}>Let's <em>build something incredible.</em></MotionPassage>
-                    <MotionPassage as="p4" variants={heroItem}>Available starting June 27.</MotionPassage>
                   </div>
                   <Row openEnded>
                     <MotionButton spans={[4]} variants={heroItem} href={contactHref} onClick={handleEmailCta}>Say Hi</MotionButton>
@@ -207,7 +206,6 @@ const Home = ({ projectMetadata, activeProject }) => {
               <Heading>only 1 left in stock.</Heading>
               <Passage as="p1"><em>I'm looking for work,</em> but won't be for much longer.</Passage>
               <Passage as="p1">What do you want to build together?</Passage>
-              <Passage as="p4">Available starting June 27.</Passage>
               <Row>
                 <Button spans={[4]} href={contact} onClick={handleEmailCta}>Say Hi</Button>
                 <Button spans={[4]} href="ricky-romero-resume.pdf" onClick={handleResumeCta}>See Résumé</Button>
