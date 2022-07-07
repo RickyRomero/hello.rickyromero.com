@@ -65,12 +65,17 @@
   justify-content: center;
 }
 
+.lets-do-this {
+  display: flex;
+  align-items: center;
+}
+
 .hero-grid em, .lets-do-this em {
   color: var(--emphatic);
   font-style: normal;
 }
 
-.hero-grid {
+.hero-grid, .lets-do-this-grid {
   width: 100%;
 }
 
@@ -96,6 +101,14 @@
 .skills {
   display: flex;
   align-items: center;
+}
+
+.about {
+  display: flex;
+  align-items: center;
+}
+.about-content {
+  --gap: var(--gap-s);
 }
 
 .portrait {

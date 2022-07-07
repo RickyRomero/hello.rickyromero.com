@@ -61,20 +61,20 @@
 }
 
 .prev {
-  left: calc(var(--gap) / 2);
+  left: var(--gap-s);
   transform: scale(-1);
 }
 
 .next {
-  right: calc(var(--gap) / 2);
+  right: var(--gap-s);
 }
 
 .pages {
   position: absolute;
-  inset: auto auto calc(var(--gap) / 2);
+  inset: auto auto var(--gap-s);
   z-index: var(--ui-layer);
   display: flex;
-  gap: calc(var(--gap) / 2)
+  gap: var(--gap-s);
 }
 
 .page {

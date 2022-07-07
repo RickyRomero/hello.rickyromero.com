@@ -179,40 +179,49 @@ const Home = ({ projectMetadata, activeProject }) => {
               </Row>
             </Grid>
 
-            <Grid className={cl(styles.section, styles.skills)}>
-              <div>
+            <section className={cl(styles.section, styles.skills)}>
+              <Grid>
                 <Heading as="h2">what i can do.</Heading>
                 <SkillsCloud />
-              </div>
-            </Grid>
+              </Grid>
+            </section>
 
-            <Grid className={cl(styles.section, styles.about)}>
-              <Heading as="h2">more about me.</Heading>
-              <Row>
-                <figure className={styles.portrait} spans={[4]}>
-                  <LensImage
-                    layout="fill"
-                    objectFit="cover"
-                    sizes="(max-width: 640px) 94vw, 30vw"
-                    src="home/me.jpg"
-                    alt="Portrait photo of Ricky Romero"
-                  />
-                </figure>
-                <div spans={[8]}>
-                  <MarkdownRenderer>{aboutBlurb}</MarkdownRenderer>
-                </div>
-              </Row>
-            </Grid>
+            <section className={cl(styles.section, styles.about)}>
+              <Grid>
+                <Heading as="h2">more about me.</Heading>
+                <Row>
+                  <figure className={styles.portrait} spans={[4]}>
+                    <LensImage
+                      layout="fill"
+                      objectFit="cover"
+                      sizes="(max-width: 640px) 94vw, 30vw"
+                      src="home/me.jpg"
+                      alt="Portrait photo of Ricky Romero"
+                    />
+                  </figure>
+                  <div spans={[8]}>
+                    <MarkdownRenderer
+                      className={styles.aboutContent}
+                      options={{ wrapper: Grid }}
+                    >
+                      {aboutBlurb}
+                    </MarkdownRenderer>
+                  </div>
+                </Row>
+              </Grid>
+            </section>
 
-            <Grid className={cl(styles.section, styles.letsDoThis)}>
-              <Heading>only 1 left in stock.</Heading>
-              <Passage as="p1"><em>I'm looking for work,</em> but won't be for much longer.</Passage>
-              <Passage as="p1">What do you want to build together?</Passage>
-              <Row>
-                <Button spans={[4]} href={contact} onClick={handleEmailCta}>Say Hi</Button>
-                <Button spans={[4]} href="ricky-romero-resume.pdf" onClick={handleResumeCta}>See Résumé</Button>
-              </Row>
-            </Grid>
+            <section className={cl(styles.section, styles.letsDoThis)}>
+              <Grid className={styles.letsDoThisGrid}>
+                <Heading>only 1 left in stock.</Heading>
+                <Passage as="p1"><em>I'm looking for work,</em> but won't be for much longer.</Passage>
+                <Passage as="p1">What do you want to build together?</Passage>
+                <Row openEnded>
+                  <Button spans={[4]} href={contactHref} onClick={handleEmailCta}>Say Hi</Button>
+                  <Button spans={[4]} href="ricky-romero-resume.pdf" onClick={handleResumeCta}>See Résumé</Button>
+                </Row>
+              </Grid>
+            </section>
           </main>
           <footer className={styles.footer}></footer>
         </div>

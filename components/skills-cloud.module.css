@@ -41,6 +41,15 @@
   padding: var(--v-padding) var(--h-padding);
   cursor: default;
   user-select: none;
+
+  transition-property: background-color, transform;
+  transition-duration: 300ms, 200ms;
+  transition-timing-function: linear, ease-in-out;
+}
+
+.active-skill {
+  background-color: rgb(var(--skill-color));
+  transform: scale(1.1);
 }
 
 .tooltip {
@@ -55,12 +64,9 @@
   padding: 20px;
   border-radius: 20px;
 
-  /* TODO: Lighter and less saturated for light mode */
-  /* TODO: Adapt transparency for high-contrast mode */
-  /* TODO: Fix drop-shadow */
   background-color: rgba(var(--skill-color), var(--skill-bg-opacity));
   border: var(--stroke-size) solid rgb(var(--skill-color));
-  backdrop-filter: var(--vivid-sat) var(--hazy-blur) drop-shadow(0 10px 30px blue);
+  backdrop-filter: var(--vivid-sat) var(--hazy-blur);
 }
 
 @media (min-height: 800px) {

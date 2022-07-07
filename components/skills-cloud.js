@@ -66,18 +66,27 @@ const SkillsCloud = ({ className }) => {
   return (
     <motion.ul className={cl(styles.skillCloud, className)} variants={container} initial="hidden" animate="show" exit="hidden">
       {Object.keys(skills).map(set => (
-        Object.keys(skills[set]).map(skill => (
-          <motion.li
-            className={cl(styles.skill, skillVariants[styleHash(skill)])}
-            onPointerOver={() => updateActiveSkillInfo(set, skill)}
-            onPointerLeave={() => updateActiveSkillInfo(null, null)}
-            key={`${set}-${skill}`}
-            variants={item}
-          >
-            {skill === activeSkill && <Tooltip {...{ skill, level, details }} />}
-            {skill}
-          </motion.li>
-        ))
+        Object.keys(skills[set]).map(skill => {
+          const isActiveSkill = skill === activeSkill
+          const classSet = [
+            styles.skill,
+            skillVariants[styleHash(skill)],
+            isActiveSkill ? styles.activeSkill : ''
+          ]
+
+          return (
+            <motion.li
+              className={cl(...classSet)}
+              onPointerOver={() => updateActiveSkillInfo(set, skill)}
+              onPointerLeave={() => updateActiveSkillInfo(null, null)}
+              key={`${set}-${skill}`}
+              variants={item}
+            >
+              {isActiveSkill && <Tooltip {...{ skill, level, details }} />}
+              {skill}
+            </motion.li>
+          )
+        })
       ))}
     </motion.ul>
   )

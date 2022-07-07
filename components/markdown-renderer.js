@@ -79,14 +79,14 @@ const baseOptions = {
   }
 }
 
-const MarkdownRenderer = ({ options = {}, children }) => {
+const MarkdownRenderer = ({ className, options = {}, children }) => {
   const consolidatedOptions = {
     ...baseOptions,
     ...options
   }
 
   return (
-    <Markdown options={consolidatedOptions}>{children}</Markdown>
+    <Markdown className={className} options={consolidatedOptions}>{children}</Markdown>
   )
 }
 
