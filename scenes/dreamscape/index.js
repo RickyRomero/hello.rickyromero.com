@@ -80,7 +80,9 @@ const Dreamscape = ({ onFirstFrame, children }) => {
       onFirstFrame()
     }
 
-    let camPitch = -THREE.Math.degToRad(window.scrollY / 48 * scrollEnabled)
+    const scrollContribution = window.scrollY < 2500 ? window.scrollY : 0
+
+    let camPitch = -THREE.Math.degToRad(scrollContribution / 48 * scrollEnabled)
     camPitch += THREE.Math.degToRad(springs.camPitch.get() * -2)
     camPitch += THREE.Math.degToRad(springs.startingPan.get() * scrollEnabled)
     const camYaw = THREE.Math.degToRad(springs.camYaw.get() * -2)
