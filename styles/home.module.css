@@ -93,6 +93,11 @@
   grid-auto-flow: dense;
 }
 
+.skills {
+  display: flex;
+  align-items: center;
+}
+
 .portrait {
   position: relative;
   overflow: hidden;

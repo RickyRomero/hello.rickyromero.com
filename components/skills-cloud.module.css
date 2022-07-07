@@ -1,3 +1,19 @@
+.skill-variant1 {
+  --skill-color: var(--skill-1);
+}
+
+.skill-variant2 {
+  --skill-color: var(--skill-2);
+}
+
+.skill-variant3 {
+  --skill-color: var(--skill-3);
+}
+
+.skill-variant4 {
+  --skill-color: var(--skill-4);
+}
+
 .skill-cloud {
   list-style: none;
   padding: 0;
@@ -7,19 +23,34 @@
 }
 
 .skill {
+  --text-height: var(--xsmall-text);
+  --v-padding: 10px;
+  --h-padding: 40px;
+  --stroke-size: 2px;
+  --bubble-height: calc(var(--text-height) + (var(--v-padding) + var(--stroke-size)) * 2);
+
+  background-color: rgba(var(--skill-color), var(--skill-bg-opacity));
+  border: var(--stroke-size) solid rgb(var(--skill-color));
+
+  color: black;
+  font-size: var(--text-height);
+  font-weight: var(--cp-extra-bold);
+
   position: relative;
   border-radius: var(--soft-corner);
-  padding: 10px 40px;
-  border: 2px solid #f0f;
+  padding: var(--v-padding) var(--h-padding);
   cursor: default;
+  user-select: none;
 }
 
 .tooltip {
+  font-weight: var(--cp-bold);
+
   pointer-events: none;
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
-  bottom: 50px;
+  bottom: var(--bubble-height);
   width: min(90vw, 400px);
   padding: 20px;
   border-radius: 20px;
@@ -27,6 +58,13 @@
   /* TODO: Lighter and less saturated for light mode */
   /* TODO: Adapt transparency for high-contrast mode */
   /* TODO: Fix drop-shadow */
-  background-color: rgba(0, 0, 0, 0.4);
+  background-color: rgba(var(--skill-color), var(--skill-bg-opacity));
+  border: var(--stroke-size) solid rgb(var(--skill-color));
   backdrop-filter: var(--vivid-sat) var(--hazy-blur) drop-shadow(0 10px 30px blue);
+}
+
+@media (min-height: 800px) {
+  .skill {
+    --text-height: var(--small-text);
+  }
 }

@@ -179,9 +179,11 @@ const Home = ({ projectMetadata, activeProject }) => {
               </Row>
             </Grid>
 
-            <Grid className={styles.section}>
-              <Heading as="h2">what i can do.</Heading>
-              <SkillsCloud />
+            <Grid className={cl(styles.section, styles.skills)}>
+              <div>
+                <Heading as="h2">what i can do.</Heading>
+                <SkillsCloud />
+              </div>
             </Grid>
 
             <Grid className={cl(styles.section, styles.about)}>

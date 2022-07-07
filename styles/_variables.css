@@ -21,6 +21,12 @@
   --dreamy-night: #2c0026;
   --moonless-night: #160013;
 
+  --skill-1: 255, 255, 255;
+  --skill-2: 237, 253, 255;
+  --skill-3: 220, 250, 255;
+  --skill-4: 202, 248, 255;
+  --skill-bg-opacity: 0.5;
+
   /* TYPOGRAPHIC METRICS */
   /* px converted to rem in PostCSS */
   --xxlarge-text: 72px;                              --xxlarge-tracking: -0.020em;
@@ -121,6 +127,7 @@
     --button-stroke: black;
     --button-bg: white;
     --hr-opacity: 1;
+    --skill-bg-opacity: 1;
   }
 }
 
@@ -139,6 +146,12 @@
     --overlay-bg: var(--grape-juice);
     --modal-bg: var(--moonless-night);
     --gallery-bg: var(--smoke);
+
+    --skill-1: 202, 248, 255;
+    --skill-2: 255, 222, 91;
+    --skill-3: 255, 68, 155;
+    --skill-4: 255, 68, 155;
+    --skill-bg-opacity: 0.5;
   }
 }
 
@@ -148,6 +161,7 @@
     --dreamscape-bg: var(--moonless-night);
     --modal-bg: black;
     --button-bg: black;
+    --skill-bg-opacity: 1;
   }
 }
 

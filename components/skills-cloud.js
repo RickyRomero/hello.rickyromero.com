@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { motion } from 'framer-motion'
+import { deviceType } from 'detect-it'
 
 import { Heading, Passage } from 'components/typography'
 import cl from 'utils/classlist'
@@ -11,14 +12,20 @@ strengthMap.set(1, 'Basic')
 strengthMap.set(2, 'Advanced')
 strengthMap.set(3, 'Fluent')
 
-const colorHash = string => {
+// Deterministically maps strings to styles
+const styleHash = string => {
   const chars = [...string]
   const codes = chars.map(char => char.charCodeAt(0))
   const hashBase = codes.reduce((prev, curr) => (prev + curr) % codes[0], 0)
   return hashBase % 4
 }
 
-const colors = ['#f00', '#ff0', '#0f0', '#00f']
+const skillVariants = [
+  styles.skillVariant1,
+  styles.skillVariant2,
+  styles.skillVariant3,
+  styles.skillVariant4
+]
 
 const Tooltip = ({ skill, level, details }) => {
   return (
@@ -51,7 +58,9 @@ const SkillsCloud = ({ className }) => {
   }
 
   const updateActiveSkillInfo = (set, skill) => {
-    setActiveSkillInfo([set, skill])
+    if (deviceType !== 'touchOnly') {
+      setActiveSkillInfo([set, skill])
+    }
   }
 
   return (
@@ -59,8 +68,7 @@ const SkillsCloud = ({ className }) => {
       {Object.keys(skills).map(set => (
         Object.keys(skills[set]).map(skill => (
           <motion.li
-            style={{ color: colors[colorHash(skill)] }}
-            className={styles.skill}
+            className={cl(styles.skill, skillVariants[styleHash(skill)])}
             onPointerOver={() => updateActiveSkillInfo(set, skill)}
             onPointerLeave={() => updateActiveSkillInfo(null, null)}
             key={`${set}-${skill}`}
