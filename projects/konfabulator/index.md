@@ -38,7 +38,7 @@ Several of the Widgets I designed were for various brand integrations.
 
 [img]
 
-I also built and did the visual design for the official Widget Gallery widget. With it, users could install widgets directly, instead of needing to download them with their web browser.
+I also designed and built the official Widget Gallery widget. With it, users could install widgets directly, instead of needing to download them with their web browser.
 
 [img]
 

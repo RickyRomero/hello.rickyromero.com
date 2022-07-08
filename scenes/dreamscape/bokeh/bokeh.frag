@@ -13,8 +13,14 @@ varying vec2 v_uv;
 void main() {
   float randColor = random(vec2(v_seed, v_altitude));
   float randBrightness = random(vec2(v_seed + 1.0, v_altitude));
+  float shimmerReductionJitter = mix(0.5, 2.0, v_seed);
+  float shimmerLowerBound = mix(0.6, 0.6, u_lights);
+  float shimmerUpperBound = mix(1.0, 1.0, u_lights);
+  float shimmerReduction = mix(160.0, 20.0, u_lights) * shimmerReductionJitter;
+  float shimmer = random(vec2(v_seed, v_lifetime / shimmerReduction));
+  shimmer = mix(shimmerLowerBound, shimmerUpperBound, shimmer);
 
-  vec3 lmColor1 = vec3(1.0);
+  vec3 lmColor1 = vec3(1.3, 0.9, 0.35);
   vec3 dmColor1 = vec3(0.68, 0, 1);
   vec3 dmColor2 = vec3(0, 0.85, 1);
   vec3 dmColor3 = vec3(1, 0, 0.3) * 7.0;
@@ -37,12 +43,12 @@ void main() {
 
   float dimBias = 15.0; // Most bokeh should be dimmer
   float maxBrightness = mix(0.03, 1.0, pow(randBrightness, dimBias));
-  float shimmer = smoothstep(0.0, 0.25, v_lifetime);
-  shimmer *= smoothstep(1.0, 0.75, v_lifetime);
-  shimmer *= 1.0 / (v_scale / 8.0);
-  shimmer = clamp(shimmer, 0.0, maxBrightness);
-  shimmer *= pow(v_altitude, 2.0);
+  float baseBrightness = smoothstep(0.0, 0.25, v_lifetime);
+  baseBrightness *= smoothstep(1.0, 0.75, v_lifetime);
+  baseBrightness *= 1.0 / (v_scale / 8.0);
+  baseBrightness = clamp(baseBrightness, 0.0, maxBrightness);
+  baseBrightness *= pow(v_altitude, 2.0);
 
-  vec3 finalColor = pickedColor * bokeh * shimmer;
+  vec3 finalColor = pickedColor * bokeh * baseBrightness * shimmer;
   gl_FragColor = vec4(finalColor, 1.0);
 }

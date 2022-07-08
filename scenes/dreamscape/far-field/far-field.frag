@@ -48,10 +48,11 @@ vec3 lightRays(vec2 uv, float time) {
 }
 
 void main() {
-  vec3 lmLightColor = vec3(0.81, 0.93, 1.0);
+  vec3 lmLightColor = vec3(0.93, 1.0, 0.81);
   vec3 dmLightColor = vec3(0.09, 0.06, 0.45);
-  vec3 lmDeepColor = vec3(0.32, 0.75, 1.0);
+  vec3 lmDeepColor = vec3(0.65, 0.9, 0.8) * vec3(0.5, 0.8, 0.8);
   vec3 dmDeepColor = vec3(0.03, 0, 0.11);
+  vec3 lmGlowColor = vec3(0.3, 0, 1);
   vec3 dmGlowColor = vec3(1, 0, 0.3);
 
   float uvOffset = (u_aspect - 1.0) / 2.0;
@@ -60,15 +61,16 @@ void main() {
 
   vec3 lightColor = mix(dmLightColor, lmLightColor, u_lights);
   vec3 deepColor = mix(dmDeepColor, lmDeepColor, u_lights);
+  vec3 glowColor = mix(dmGlowColor, lmGlowColor, u_lights);
   vec3 blur = backgroundBlur(lightColor, deepColor, aspectUv, scaledTime);
 
   // Fade blur out as page scrolls
   blur = mix(deepColor, blur, vec3(clamp(0.5 + aspectUv.t * 4.0, 0.0, 1.0)));
 
   vec3 sweetBabyRays = lightRays(aspectUv, scaledTime);
-  float dmGlowStrength = smoothstep(3.0, 0.0, distance(vec2(1.0, 0.0), aspectUv));
-  dmGlowStrength = mix(dmGlowStrength * 0.15, 0.0, u_lights);
-  vec3 dmGlow = dmGlowColor * dmGlowStrength;
+  float glowStrength = smoothstep(3.0, 0.0, distance(vec2(1.0, 0.0), aspectUv));
+  glowStrength = mix(glowStrength * 0.15, glowStrength * 0.15, u_lights);
+  vec3 glow = glowColor * glowStrength;
 
-  gl_FragColor = vec4(dmGlow + blur + sweetBabyRays * 0.2, 1.0);
+  gl_FragColor = vec4(glow + blur + sweetBabyRays * 0.2, 1.0);
 }
