@@ -202,7 +202,7 @@ const Home = ({ projectMetadata, activeProject }) => {
                     <LensImage
                       layout="fill"
                       objectFit="cover"
-                      sizes="(max-width: 640px) 94vw, 30vw"
+                      sizes="(max-width: 1000px) 94vw, 30vw"
                       src="home/me.jpg"
                       alt="Portrait photo of Ricky Romero"
                     />

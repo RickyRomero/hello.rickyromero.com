@@ -167,7 +167,7 @@
 }
 
 /* MOBILE SIZE TWEAKS */
-@media (max-width: 640px) {
+@media (max-width: 1000px) {
   :root {
     --xxlarge-text: 52px;
     --xlarge-text:  40px;
