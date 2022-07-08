@@ -62,7 +62,12 @@ const Home = ({ projectMetadata, activeProject }) => {
 
   // Only render Three.js on the client
   useEffect(() => {
-    setStartCanvas(true)
+    // and only when WebGL is available
+    // (Apple's Lockdown Mode [2022] prevents WebGL from working)
+    const testCanvas = document.createElement('canvas')
+    const glPresent = testCanvas.getContext('webgl')
+
+    glPresent && setStartCanvas(true)
   }, [])
 
   if (typeof window !== 'undefined') {
