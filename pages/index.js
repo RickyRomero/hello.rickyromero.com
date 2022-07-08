@@ -66,8 +66,11 @@ const Home = ({ projectMetadata, activeProject }) => {
     // (Apple's Lockdown Mode [2022] prevents WebGL from working)
     const testCanvas = document.createElement('canvas')
     const glPresent = testCanvas.getContext('webgl')
-
-    glPresent && setStartCanvas(true)
+    if (glPresent) {
+      setStartCanvas(true)
+    } else {
+      logEntry({ target: '#no-gl' })
+    }
   }, [])
 
   if (typeof window !== 'undefined') {
