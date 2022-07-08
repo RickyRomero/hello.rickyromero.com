@@ -152,7 +152,7 @@ const Home = ({ projectMetadata, activeProject }) => {
                   </div>
                   <Row openEnded>
                     <MotionButton spans={[4]} variants={heroItem} href={contactHref} onClick={handleEmailCta}>Say Hi</MotionButton>
-                    <MotionButton spans={[4]} variants={heroItem} href="ricky-romero-resume.pdf" onClick={handleResumeCta}>See Résumé</MotionButton>
+                    <MotionButton spans={[4]} variants={heroItem} href="/ricky-romero-resume.pdf" onClick={handleResumeCta}>See Résumé</MotionButton>
                   </Row>
                   <motion.div className={styles.iMadeThis} variants={heroItem}>
                     <Button
@@ -226,7 +226,7 @@ const Home = ({ projectMetadata, activeProject }) => {
                 <Passage as="p1">What do you want to build together?</Passage>
                 <Row openEnded>
                   <Button spans={[4]} href={contactHref} onClick={handleEmailCta}>Say Hi</Button>
-                  <Button spans={[4]} href="ricky-romero-resume.pdf" onClick={handleResumeCta}>See Résumé</Button>
+                  <Button spans={[4]} href="/ricky-romero-resume.pdf" onClick={handleResumeCta}>See Résumé</Button>
                 </Row>
               </Grid>
             </section>
