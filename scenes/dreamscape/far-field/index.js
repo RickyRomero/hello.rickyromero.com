@@ -38,7 +38,7 @@ const FarField = () => {
 
     const { aspect } = camera
     const distance = camera.position.distanceTo(field.current?.position)
-    const vFov = THREE.Math.degToRad(camera.fov)
+    const vFov = THREE.MathUtils.degToRad(camera.fov)
     const planeHeightAtDistance = 2 * Math.tan(vFov / 2) * distance
     const planeWidthAtDistance = planeHeightAtDistance * aspect
 
