@@ -69,7 +69,7 @@ void main() {
 
   vec3 sweetBabyRays = lightRays(aspectUv, scaledTime);
   float glowStrength = smoothstep(3.0, 0.0, distance(vec2(1.0, 0.0), aspectUv));
-  glowStrength = mix(glowStrength * 0.15, glowStrength * 0.15, u_lights);
+  glowStrength *= 0.15;
   vec3 glow = glowColor * glowStrength;
 
   gl_FragColor = vec4(glow + blur + sweetBabyRays * 0.2, 1.0);
