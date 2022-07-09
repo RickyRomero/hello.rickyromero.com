@@ -13,6 +13,14 @@
   background: var(--dreamscape-bg);
 }
 
+.fallback {
+  max-width: unset;
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  border-radius: 0px;
+}
+
 .renderer-container {
   z-index: var(--dreamscape-layer);
 }
@@ -54,7 +62,7 @@
   width: 50px;
   height: 76px;
   clip-path: url(#insignia);
-  backdrop-filter: brightness(1.5) var(--intense-sat) var(--fuzzy-blur);
+  backdrop-filter: brightness(0.75) var(--intense-sat) var(--fuzzy-blur);
 }
 
 .intro-wrapper {
@@ -119,6 +127,12 @@
   border-radius: var(--soft-corner);
   aspect-ratio: 5 / 6;
   margin: 0;
+}
+
+@media (prefers-color-scheme: dark) {
+  .insignia-clip {
+    backdrop-filter: brightness(1.5) var(--intense-sat) var(--fuzzy-blur);
+  }
 }
 
 @supports not (backdrop-filter: saturate(5) blur(20px)) {

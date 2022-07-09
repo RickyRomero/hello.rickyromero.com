@@ -2,6 +2,7 @@ import { Suspense, lazy, useEffect, useState } from 'react'
 import { motion, useTransform } from 'framer-motion'
 
 import LensImage from 'components/lens-image'
+import Player from 'components/player'
 import Insignia from 'components/insignia'
 import { Grid, Row } from 'components/grid'
 import { Heading, Passage } from 'components/typography'
@@ -10,7 +11,7 @@ import Button from 'components/button'
 import SkillsCloud from 'components/skills-cloud'
 
 import useContactInfo from 'hooks/use-contact-info'
-import { useDarkMode } from 'hooks/use-media-query'
+import { useDarkMode, useReducedMotion } from 'hooks/use-media-query'
 import useLogs from 'hooks/use-logs'
 import useMotionRate from 'hooks/use-motion-rate'
 import useDreamscapeOpacity from 'hooks/use-dreamscape-opacity'
@@ -40,10 +41,12 @@ const heroItem = {
 const Home = ({ projectMetadata, activeProject }) => {
   const logEntry = useLogs(state => state.logEntry)
   const contact = useContactInfo()
-  const [startCanvas, setStartCanvas] = useState(false)
+  const [isClient, setIsClient] = useState(false)
+  const [glState, setGlState] = useState('unknown')
   const [scrollOpacity, initialFade] = useDreamscapeOpacity()
   const darkMode = useDarkMode()
   const motionRate = useMotionRate()
+  const reduceMotion = useReducedMotion()
   const scheme = darkMode ? 'dark' : 'light'
 
   motionRate.set(Number(!activeProject))
@@ -62,13 +65,14 @@ const Home = ({ projectMetadata, activeProject }) => {
 
   // Only render Three.js on the client
   useEffect(() => {
+    setIsClient(true)
     // and only when WebGL is available
     // (Apple's Lockdown Mode [2022] prevents WebGL from working)
     const testCanvas = document.createElement('canvas')
     const glPresent = testCanvas.getContext('webgl')
-    if (glPresent) {
-      setStartCanvas(true)
-    } else {
+    setGlState(glPresent ? 'available' : 'unavailable')
+
+    if (!glPresent) {
       logEntry({ target: '#no-gl' })
     }
   }, [])
@@ -117,14 +121,40 @@ const Home = ({ projectMetadata, activeProject }) => {
           />
         </motion.div>
         <motion.div className={styles.rendererContainer} style={{ opacity: initialFade }}>
-          {startCanvas && (
-            <Suspense fallback={null}>
-              <ThreeWrapper>
-                <Suspense fallback={null}>
-                  <Dreamscape onFirstFrame={() => initialFade.set(1)} />
-                </Suspense>
-              </ThreeWrapper>
-            </Suspense>
+          {isClient && (
+            (() => {
+              if (glState === 'available') {
+                // Everything nominal
+                return (
+                  <Suspense fallback={null}>
+                    <ThreeWrapper>
+                      <Suspense fallback={null}>
+                        <Dreamscape onFirstFrame={() => initialFade.set(1)} />
+                      </Suspense>
+                    </ThreeWrapper>
+                  </Suspense>
+                )
+              } else if (glState === 'unavailable') {
+                initialFade.set(1)
+                if (!reduceMotion) {
+                  // GL won't initialize; use fallback video if reduced motion not desired
+                  return (
+                    <Player className={styles.fallback} uses={`home/fallback-${scheme}`} width="2520" height="1080" />
+                  )
+                } else {
+                  // GL unavailable and reduced motion is desired
+                  return (
+                    <LensImage
+                      alt=""
+                      src={`home/static-${scheme}.jpg`}
+                      layout="fill"
+                      objectFit="cover"
+                      sizes="150vw"
+                    />
+                  )
+                }
+              }
+            })()
           )}
         </motion.div>
       </motion.figure>
