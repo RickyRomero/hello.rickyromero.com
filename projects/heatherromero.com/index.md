@@ -6,7 +6,7 @@ baseColor: '#0076e3'
 grid: 6
 ---
 
-My partner Heather is a talented designer and illustrator. She'd wanted to remake her portfolio for a long time, and when it finally came time to do so, I helped her out in limited ways.
+[My partner Heather](https://heatherromero.com/) is a talented designer and illustrator. She'd wanted to remake her portfolio for a long time, and when it finally came time to do so, I helped her out in limited ways.
 
 ### Code
 
