@@ -22,7 +22,7 @@ In 2015, iOS 9 added a content blocker API for Safari. This API let me [bring Sh
 
 ![A screenshot depicting Shut Up's landing page when it launched on iPhone in 2015. The screenshot itself is depicted on an iPhone.](projects/shut-up/ios-launch-landing-page.png "4809x2365xno-rounding")
 
-Two years later, I wrote what became the foundations for Shut Up on most major browsers. I'd learned a lot about JavaScript in the 7 years since I'd released Shut Up 1.0. Shut Up 3.0 was a complete overhaul which retained all the features users like about the extension, added new features like a configurable keyboard shortcut and localizations, and dramatically improved reliability when hiding and showing comments.
+Two years later, I wrote what became the foundations for Shut Up on most major browsers. I'd learned a lot about JavaScript in the 7 years since I'd released Shut Up 1.0. Version 3.0 was a complete overhaul which retained all the features users like about the extension, added new features like a configurable keyboard shortcut and localizations, and dramatically improved reliability when hiding and showing comments.
 
 Today, [Shut Up 7](https://github.com/RickyRomero/shut-up-webextension) runs in Chrome, Edge, Firefox, Opera, Brave, and other browsers which use the WebExtensions API. It continues to use the same foundations as its 5-years-ago rewrite.
 

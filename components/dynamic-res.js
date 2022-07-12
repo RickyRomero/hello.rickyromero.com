@@ -26,7 +26,7 @@ const fps = {
 }
 const dpr = window.devicePixelRatio
 
-const DynamicRes = ({ fpsTarget, pixelRatio, onUpdate }) => {
+const DynamicRes = ({ fpsTarget, pixelRatio, onUpdate, debug }) => {
   const debugOverlay = useRef()
   const logEntry = useLogs(state => state.logEntry)
 
@@ -70,7 +70,7 @@ const DynamicRes = ({ fpsTarget, pixelRatio, onUpdate }) => {
     }
   })
 
-  return (
+  return debug && (
     <ScrollControls>
       <Scroll html style={debugOverlayStyles}>
         <span style={debugStyles} ref={debugOverlay} />

@@ -36,19 +36,19 @@ These low-level packages are useful for evaluating or transforming colors. Our p
 
 During Global Engineering Days 2021, I teamed up with a frontend engineer and a design technologist to get [Stylelint](https://stylelint.io/) working in our build tools. I wrote a Stylelint plugin which used [ΔE color matching](https://en.wikipedia.org/wiki/Color_difference#CIELAB_%CE%94E*) to detect off-palette colors, recommending suitable swatches as replacements.
 
-[img]
+![A sample of the colors found in QuickBooks, showing 100 off-palette swatches being conformed to 1 color.](projects/design-systems/qbo-grays.png "4240x2560")
 
 The plugin also makes intelligent recommendations depending on how far the color is off-palette. For example, a ΔE value of 2.0 or less means the color can be swapped automatically, but a higher value may warrant action on the part of the developer or designer.
 
 ### Variable Fonts
 
-Intuit's brand font is based on Avenir Next. During license renewal negotiations with Monotype in 2019, I suggested we look into getting a variable version of this font.
+Variable fonts are notable for their design flexibility and, on the web, their performance. Intuit's brand font is based on Avenir Next. During license renewal negotiations with Monotype in 2019, I suggested we look into getting a variable version of this font.
 
-[img]
+<Player uses="projects/design-systems/variable-fonts" width="1920" height="1080" />
 
-Variable fonts are notable for their design flexibility and, on the web, their performance. From a design standpoint, they're great because you can render any font weight you want. It doesn't have to be one of the fixed weights. For example, if the regular weight in a variable font is a smidge too light, you can thicken it yourself. A novel (and hacky) use of this is to [compensate for macOS's thicker antialiasing on white text.](https://css-tricks.com/using-css-custom-properties-to-adjust-variable-font-weights-in-dark-mode/) Weights are just the tip of the iceberg too; [check out Cheee Variable](https://v-fonts.com/fonts/cheee-variable) to see what I mean.
+From a design standpoint, variable fonts are great because you can render any font weight you want. It doesn't have to be one of the fixed weights. For example, if the regular weight in a variable font is a smidge too light, you can thicken it yourself. A novel (and hacky) use of this is to [compensate for macOS's thicker antialiasing on white text.](https://css-tricks.com/using-css-custom-properties-to-adjust-variable-font-weights-in-dark-mode/) Weights are just the tip of the iceberg too; [check out Cheee Variable](https://v-fonts.com/fonts/cheee-variable) to see what I mean.
 
-As for performance, you normally need several files to render a font on the web. This requires several HTTP requests, which can be slow on a cellular connection. With variable fonts, all those weights get condensed into a single file. This reduces redundant data, and removes the need for multiple HTTP requests. In turn, it decrases load times, rendering the page faster. That's why *this* site is set in a variable version of the font [Codec Pro.](https://www.zetafonts.com/codec-pro)
+As for performance, you normally need several files to render a font on the web. This requires several HTTP requests, which can be slow on a cellular connection. With variable fonts, all those weights get condensed into a single file. This reduces redundant data, and removes the need for multiple HTTP requests. In turn, it decrases load times, rendering the page faster. That's why *this* site is set in a variable version of the font [Codec Pro.](https://www.zetafonts.com/codec-pro) I also heard from several frontend developers at Intuit who wanted a variable font for this reason.
 
 At Intuit, I proactively submitted a brief to leadership outlining all the benefits of adopting variable fonts. I also included load times tested across many Intuit pages to ensure there wouldn't be any performance regressions. Later, after receiving the variable font, I wrote a production-ready implementation which developers could reference as they adopted the font. I even coached teams on how to optimize the font for blistering load times. This involves special techniques like [instancing](https://fonttools.readthedocs.io/en/latest/varLib/instancer.html) and [subsetting](https://fonttools.readthedocs.io/en/latest/subset/index.html) using the open-source `fonttools` library.
 
