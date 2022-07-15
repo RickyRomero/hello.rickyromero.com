@@ -54,7 +54,7 @@ Unfortunately, all good things eventually come to an end. Yahoo! released its fi
 
 ---
 
-Konfabulator was such a fun project, and I still dearly miss designing and building widgets today. Built in an era when apps like [ShapeShifter](https://web.archive.org/web/20051102000942/http://www.unsanity.com/haxies/shapeshifter) and [CandyBar](https://en.wikipedia.org/wiki/CandyBar) were possible, it was a golden age in UI personalization.
+Konfabulator was such a fun project, and I still dearly miss designing and building widgets today. Built in an era when apps like [ShapeShifter](https://web.archive.org/web/20051102000942/http%3A%2F%2Fwww.unsanity.com%2Fhaxies%2Fshapeshifter) and [CandyBar](https://en.wikipedia.org/wiki/CandyBar) were possible, it was a golden age in UI personalization.
 
 Yahoo! was my first big gig, and I learned so much from working there. It was demanding but fun, and it gave me my first taste of what a career in tech is like.
 
