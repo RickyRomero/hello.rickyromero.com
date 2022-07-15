@@ -31,6 +31,8 @@
 
   background-color: rgba(var(--skill-color), var(--skill-bg-opacity));
   border: var(--stroke-size) solid rgb(var(--skill-color));
+  flex-grow: 1;
+  text-align: center;
 
   color: black;
   font-size: var(--text-height);

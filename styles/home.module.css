@@ -38,6 +38,12 @@
   padding: 0 var(--page-inset);
 }
 
+.content main {
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap-l);
+}
+
 .section {
   min-height: 90vh;
 }
@@ -76,7 +82,8 @@
 .lets-do-this {
   display: flex;
   align-items: center;
-  height: 100vh;
+  min-height: 100vh;
+  padding-bottom: var(--gap-l);
 }
 
 .hero-grid em, .lets-do-this em {

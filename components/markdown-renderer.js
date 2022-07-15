@@ -6,7 +6,6 @@ import useContactInfo from 'hooks/use-contact-info'
 import useLogs from 'hooks/use-logs'
 import LensImage from 'components/lens-image'
 import { Heading, Passage, List } from 'components/typography'
-import { Gallery, Slide } from 'components/gallery'
 import Player from 'components/player'
 import cl from 'utils/classlist'
 
@@ -57,6 +56,12 @@ const WrappedImage = ({ src, title = '', ...props }) => {
   )
 }
 
+const Smaller = ({ className, children }) => {
+  return (
+    <Passage as="p4" className={className}>{children}</Passage>
+  )
+}
+
 const baseOptions = {
   wrapper: Fragment,
   overrides: {
@@ -74,8 +79,7 @@ const baseOptions = {
     hr: { props: { className: styles.hRule } },
 
     Player,
-    Gallery,
-    Slide
+    Smaller
   }
 }
 
