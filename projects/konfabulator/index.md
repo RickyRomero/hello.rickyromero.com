@@ -8,7 +8,7 @@ grid: 6
 
 [Konfabulator](https://en.wikipedia.org/wiki/Konfabulator) was an easy way to put info on your Mac or Windows desktop. It ran widgets that could give you the time, weather forecast, and stock quotes. You could use it to control music playback, and it could display system info like your Wi-Fi strength or battery level. Widgets were beautiful, fun, and useful.
 
-The app was originally built by [Arlo Rose](https://twitter.com/Arlo), [Perry Clarke](https://twitter.com/perryclarke), and [Ed Voas](https://twitter.com/FieryRobot). Arlo designed and built the included widgets, Perry built the Konfabulator engine on Mac, and Ed later ported the engine to Windows. It was a [shareware product,](https://en.wikipedia.org/wiki/Shareware) meaning users could try it for free for a limited time, then pay for a code to unlock the full app.
+The app was originally built by [Arlo Rose,](https://twitter.com/Arlo) [Perry Clarke,](https://twitter.com/perryclarke) and [Ed Voas.](https://twitter.com/FieryRobot) Arlo designed and built the included widgets, Perry built the Konfabulator engine on Mac, and Ed later ported the engine to Windows. It was a [shareware product,](https://en.wikipedia.org/wiki/Shareware) meaning users could try it for free for a limited time, then pay for a code to unlock the full app.
 
 ![A contemporaneous screenshot of Konfabulator running several widgets on Mac, like iTunes Remote, Analog Clock, and Date Planner.](projects/konfabulator/konfabulator-mac.png "5120x3072xno-rounding")
 

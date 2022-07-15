@@ -8,9 +8,9 @@ grid: 6
 
 [Cave Story](https://www.cavestory.org/download/cave-story.php) is a free 2004 hit indie title by one developer: [Daisuke Amaya.](https://cavestory.fandom.com/wiki/Daisuke_Amaya) I love the game's blend of exploration and action gameplay.
 
-In September 2011, I was itching for a new hobby project, and web browsers supported a lot of stuff. [WebGL](https://madebyevan.com/webgl-water/), [Web Audio](https://www.arthurcarabott.com/audio-dsp-playground/), [gamepads](https://gamepad-tester.com/) and more made games a real possibility on the web platform.
+In September 2011, I was itching for a new hobby project, and web browsers supported a lot of stuff. [WebGL,](https://madebyevan.com/webgl-water/) [Web Audio,](https://www.arthurcarabott.com/audio-dsp-playground/) [gamepads](https://gamepad-tester.com/) and more made games a real possibility on the web platform.
 
-I found an independent clone of Cave Story's game engine called [NXEngine](https://nxengine.sourceforge.io), written in C++. So, I decided to try to get it working in a web browser!
+I found an independent clone of Cave Story's game engine called [NXEngine,](https://nxengine.sourceforge.io) written in C++. So, I decided to try to get it working in a web browser!
 
 ![Three stacked screenshots showing off various portions of the game.](projects/cave-story-html5/screenshots.png "6000x3790xno-rounding")
 
@@ -24,7 +24,7 @@ After months of work in my spare time, all by myself, the game was playable from
 
 I aimed to deliver a flawless port of Cave Story for the web platform that fans could enjoy anytime, without installing it. A port which showed off the raw capabilities and performance of web browsers. A port which you could run on a laptop without spinning the fans up.
 
-The final result speaks for itself. Even in 2012 and on a modest system, the game ran at a flawless 60 frames per second. And, thanks to [huge leaps in mobile performance](https://en.wikipedia.org/wiki/Apple_silicon), it's possible to play it on some unexpected hardware...
+The final result speaks for itself. Even in 2012 and on a modest system, the game ran at a flawless 60 frames per second. And, thanks to [huge leaps in mobile performance,](https://en.wikipedia.org/wiki/Apple_silicon) it's possible to play it on some unexpected hardware...
 
 <Player uses="projects/cave-story-html5/ipad" width="2048" height="1536" />
 

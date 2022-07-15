@@ -10,7 +10,7 @@ grid: 8
 
 There are lots of valid reasons to hide comments on the web. Some people simply want to enjoy their favorite sites without distractions. Others don't want to see arguments, or be exposed to statements that instill anger or sadness in them. As society becomes more polarized, these reasons gain importance.
 
-The core of Shut Up is an open source stylesheet called [shutup.css](https://github.com/panicsteve/shutup-css) by [Steven Frank](https://stevenf.com). Created in 2010, shutup.css acts as a user stylesheet to block comments on all websites. Because it's open source, anyone can contribute bug fixes or block comments on new websites. In fact, I continue to push fixes to this stylesheet 12 years later.
+The core of Shut Up is an open source stylesheet called [shutup.css](https://github.com/panicsteve/shutup-css) by [Steven Frank.](https://stevenf.com) Created in 2010, shutup.css acts as a user stylesheet to block comments on all websites. Because it's open source, anyone can contribute bug fixes or block comments on new websites. In fact, I continue to push fixes to this stylesheet 12 years later.
 
 Shortly after Steven introduced shutup.css, I created my first browser extension for Safari based on the stylesheet (with permission). Safari extensions were pretty simple at the time, and so was mine: all it did was wrapped Steven's stylesheet in a convenient toolbar button that you could use to show comments. Later on I added features for remembering where users show comments and automatically updating the stylesheet.
 

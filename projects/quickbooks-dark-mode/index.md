@@ -24,7 +24,7 @@ The main thing I took away from my reverse engineering is that turning on dark m
 
 ![A visualization of the gray values divided at 50% brightness. The dark mode palette has more colors available below this threshold.](projects/quickbooks-dark-mode/gray-palette.png "3000x2250")
 
-As I worked on the prototype, I documented high-level rules to define how light mode designs [adapt to dark mode](https://designsystem.quickbooks.com/bolt/dark-mode/) in the [QuickBooks Design System](https://designsystem.quickbooks.com/).
+As I worked on the prototype, I documented high-level rules to define how light mode designs [adapt to dark mode](https://designsystem.quickbooks.com/bolt/dark-mode/) in the [QuickBooks Design System.](https://designsystem.quickbooks.com/)
 
 ![A visualization of the "lights out" rule, showing how to translate a light mode design to dark mode.](projects/quickbooks-dark-mode/adaptation.png "3000x2250")
 
@@ -36,7 +36,7 @@ The next challenge is applying this in production. QuickBooks is a big app compo
 
 The solution I developed was an automated conversion tool which would pull the CSS for every plugin, then run heuristics on that code to derive a dark mode version. Leveraging some prior CSS cleanup tooling, it looks at the context of each CSS rule, modifying the colors depending on that context. Then it builds an overlay stylesheet which applies the colors to the page. From there, we use a few manual overrides, and apply the stylesheet using our own plugin.
 
-Dark mode launched in QuickBooks Labs for user testing in 2020. Intuit recognized my efforts by honoring me as a [Level 2 Accessibility Champion](https://www.last-child.com/intuits-accessibility-champion-program/#:~:text=Level%202%20Champion%20%E2%80%93%20Training%20and%20Exploring).
+Dark mode launched in QuickBooks Labs for user testing in 2020. Intuit recognized my efforts by honoring me as a [Level 2 Accessibility Champion.](https://www.last-child.com/intuits-accessibility-champion-program/#:~:text=Level%202%20Champion%20%E2%80%93%20Training%20and%20Exploring)
 
 ---
 
