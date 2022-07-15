@@ -110,54 +110,56 @@ const Home = ({ projectMetadata, activeProject }) => {
 
   return (
     <>
-      <motion.figure className={styles.dreamscape} style={{ opacity: scrollOpacity }}>
-        <motion.div className={styles.placeholder} style={placeholderStyle}>
-          <LensImage
-            alt=""
-            src={`home/loading-${scheme}.jpg`}
-            layout="fill"
-            objectFit="cover"
-            sizes="50vw"
-          />
-        </motion.div>
-        <motion.div className={styles.rendererContainer} style={{ opacity: initialFade }}>
-          {isClient && (
-            (() => {
-              if (glState === 'available') {
-                // Everything nominal
-                return (
-                  <Suspense fallback={null}>
-                    <ThreeWrapper>
-                      <Suspense fallback={null}>
-                        <Dreamscape onFirstFrame={() => initialFade.set(1)} />
-                      </Suspense>
-                    </ThreeWrapper>
-                  </Suspense>
-                )
-              } else if (glState === 'unavailable') {
-                initialFade.set(1)
-                if (!reduceMotion) {
-                  // GL won't initialize; use fallback video if reduced motion not desired
+      <figure className={styles.dreamscape}>
+        <motion.div className={styles.dreamscapeFader} style={{ opacity: scrollOpacity }}>
+          <motion.div className={styles.placeholder} style={placeholderStyle}>
+            <LensImage
+              alt=""
+              src={`home/loading-${scheme}.jpg`}
+              layout="fill"
+              objectFit="cover"
+              sizes="50vw"
+            />
+          </motion.div>
+          <motion.div className={styles.rendererContainer} style={{ opacity: initialFade }}>
+            {isClient && (
+              (() => {
+                if (glState === 'available') {
+                  // Everything nominal
                   return (
-                    <Player className={styles.fallback} uses={`home/fallback-${scheme}`} width="2520" height="1080" />
+                    <Suspense fallback={null}>
+                      <ThreeWrapper>
+                        <Suspense fallback={null}>
+                          <Dreamscape onFirstFrame={() => initialFade.set(1)} />
+                        </Suspense>
+                      </ThreeWrapper>
+                    </Suspense>
                   )
-                } else {
-                  // GL unavailable and reduced motion is desired
-                  return (
-                    <LensImage
-                      alt=""
-                      src={`home/static-${scheme}.jpg`}
-                      layout="fill"
-                      objectFit="cover"
-                      sizes="150vw"
-                    />
-                  )
+                } else if (glState === 'unavailable') {
+                  initialFade.set(1)
+                  if (!reduceMotion) {
+                    // GL won't initialize; use fallback video if reduced motion not desired
+                    return (
+                      <Player className={styles.fallback} uses={`home/fallback-${scheme}`} width="2520" height="1080" />
+                    )
+                  } else {
+                    // GL unavailable and reduced motion is desired
+                    return (
+                      <LensImage
+                        alt=""
+                        src={`home/static-${scheme}.jpg`}
+                        layout="fill"
+                        objectFit="cover"
+                        sizes="150vw"
+                      />
+                    )
+                  }
                 }
-              }
-            })()
-          )}
+              })()
+            )}
+          </motion.div>
         </motion.div>
-      </motion.figure>
+      </figure>
 
       <div className={styles.page}>
         <div className={styles.content}>

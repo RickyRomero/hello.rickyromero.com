@@ -88,7 +88,7 @@ html {
                sans-serif;
 
   color: var(--base-text);
-  background-color: var(--dreamscape-bg);
+  background: var(--dreamscape-base);
   font-weight: var(--cp-regular);
 }
 

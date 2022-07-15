@@ -16,10 +16,13 @@
   --grape-shadow-diffuse: #9b00ff17;
   --dragonfruit: #ff006c;
   --citrus: #f2ff00;
-  --dreamy-day: #ccecff;
-  --bright-day: #e3f5ff;
+  --dreamy-day: #70d8ec;
+  --lucid-day: #d0f8ff;
+  --bright-day: #e8fffd;
+  --fade-day: #ccffeb;
   --dreamy-night: #2c0026;
   --moonless-night: #160013;
+  --fade-night: #0f2867;
 
   --skill-1: 255, 255, 255;
   --skill-2: 237, 253, 255;
@@ -103,9 +106,10 @@
 :root {
   --base-text: black;
   --link-text: var(--berry-tasty);
-  --dreamscape-bg: var(--dreamy-day);
+  --dreamscape-base: var(--dreamy-day);
+  --dreamscape-fade: var(--fade-day);
+  --dreamscape-bg: radial-gradient(circle at top left, var(--dreamscape-fade) 0%, var(--dreamscape-base) 100%);
   --emphatic: var(--dragonfruit);
-
   --button-text: black;
   --button-stroke: transparent;
   --button-bg: rgba(255, 255, 255, 0.2);
@@ -113,7 +117,7 @@
   --button-bg-ready: white;
 
   --overlay-bg: var(--berry-juice);
-  --modal-bg: var(--bright-day);
+  --modal-bg: var(--lucid-day);
   --gallery-bg: var(--fog);
   --lightbox-shadow: var(--overlay-bg);
   --hr-stroke: var(--base-text);
@@ -123,8 +127,9 @@
 /* LIGHT MODE, HIGH CONTRAST */
 @media (prefers-contrast: more) {
   :root {
-    --dreamscape-bg: var(--bright-day);
-    --modal-bg: white;
+    --dreamscape-base: var(--bright-day);
+    --dreamscape-bg: var(--dreamscape-base);
+    --modal-bg: var(--bright-day);
     --button-stroke: black;
     --button-bg: white;
     --hr-opacity: 1;
@@ -137,7 +142,8 @@
   :root {
     --base-text: white;
     --link-text: var(--grape-tasty);
-    --dreamscape-bg: var(--dreamy-night);
+    --dreamscape-base: var(--dreamy-night);
+    --dreamscape-fade: var(--fade-night);
     --emphatic: var(--citrus);
 
     --button-text: white;
@@ -145,7 +151,7 @@
     --button-bg: rgba(0, 0, 0, 0.2);
   
     --overlay-bg: var(--grape-juice);
-    --modal-bg: var(--moonless-night);
+    --modal-bg: var(--dreamy-night);
     --gallery-bg: var(--smoke);
 
     --skill-1: 202, 248, 255;
@@ -159,7 +165,7 @@
 /* DARK MODE, HIGH CONTRAST */
 @media (prefers-color-scheme: dark) and (prefers-contrast: more) {
   :root {
-    --dreamscape-bg: var(--moonless-night);
+    --dreamscape-base: var(--moonless-night);
     --modal-bg: black;
     --button-bg: black;
     --skill-bg-opacity: 1;
