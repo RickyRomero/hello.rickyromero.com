@@ -39,7 +39,8 @@ void main() {
 
   float dist = distance(v_uv, vec2(0.5));
   float bokeh = smoothstep(0.43, 0.35, dist);
-  bokeh -= smoothstep(0.0, 0.4, dist) * 0.5;
+  bokeh -= smoothstep(0.4, 0.34, dist) * 0.3; // Outer halo
+  bokeh -= smoothstep(0.34, 0.0, dist) * 0.075; // Inner dimming
 
   float dimBias = 15.0; // Most bokeh should be dimmer
   float maxBrightness = mix(0.03, 1.0, pow(randBrightness, dimBias));
