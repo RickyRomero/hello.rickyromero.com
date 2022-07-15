@@ -1,7 +1,7 @@
 ---
 title: 'Cave Story HTML5'
 description: 'Read the untold story of how I ported the indie hit game Cave Story to HTML5.'
-preview: 'cave-story.jpg'
+preview: 'cave-story-html5.jpg'
 baseColor: '#8d002d'
 grid: 6
 ---
