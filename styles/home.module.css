@@ -36,6 +36,7 @@
 .content {
   max-width: var(--max-page-width);
   padding: 0 var(--page-inset);
+  overflow-x: hidden; /* HACK: Stops skills cloud from overflowing */
 }
 
 .content main {

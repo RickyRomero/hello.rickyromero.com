@@ -146,6 +146,14 @@
       "level": 3,
       "details": "Remember tables and IE 6? Ahh, the bad old days..."
     },
+    "JavaScript (vanilla)": {
+      "level": 3,
+      "details": "I've written JS for many years now. The newer features in ES2016+ are really convenient."
+    },
+    "Markdown": {
+      "level": 2,
+      "details": "I don't mix up [link text](url) with (link text)[url] anymore."
+    },
     "Next.js": {
       "level": 2,
       "details": "Next.js is a really useful framework for making performant websites with all the features users expect."
@@ -197,10 +205,6 @@
     "three.js": {
       "level": 1,
       "details": "Three.js makes WebGL palatable. I'm still new to it, but I'm learning a lot. I used it on this site."
-    },
-    "Vanilla JavaScript": {
-      "level": 3,
-      "details": "I've written JS for many years now. The newer features in ES2016+ are really convenient."
     },
     "WebGL": {
       "level": 1,
