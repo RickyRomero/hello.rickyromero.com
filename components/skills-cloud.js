@@ -1,5 +1,5 @@
-import { useState } from 'react'
-import { motion } from 'framer-motion'
+import { useEffect, useRef, useState } from 'react'
+import { motion, AnimatePresence } from 'framer-motion'
 import { deviceType } from 'detect-it'
 
 import { Heading, Passage } from 'components/typography'
@@ -28,12 +28,40 @@ const skillVariants = [
 ]
 
 const Tooltip = ({ skill, level, details }) => {
+  const [left, setLeft] = useState('50%')
+  const [x, setX] = useState('-50%')
+  const container = useRef(null)
+
+  // Positions the tooltip so it won't run off the screen
+  useEffect(() => {
+    const tooltipWidth = Math.min(window.innerWidth * 0.9, 400)
+    const parent = container.current?.parentNode
+
+    if (parent) {
+      const skill = parent.getBoundingClientRect()
+      const leadingEdge = skill.x
+      const trailingEdge = window.innerWidth - (skill.x + skill.width)
+      const nearestEdge = Math.min(leadingEdge, trailingEdge)
+
+      if (nearestEdge < 60) {
+        setLeft(0)
+        setX(leadingEdge === nearestEdge ? 0 : skill.width - tooltipWidth)
+      }
+    }
+  }, [container])
+
   return (
-    <div className={styles.tooltip}>
+    <motion.div
+      ref={container}
+      className={styles.tooltip}
+      initial={{ opacity: 0, left, x, y: 20 }}
+      animate={{ opacity: 1, left, x, y: 0, transition: { duration: 0.15 } }}
+      exit={{ opacity: 0, left, x, y: 20, transition: { duration: 0.3 } }}
+    >
       <Heading as="h4">{skill}</Heading>
       <Passage as="p4">{strengthMap.get(level)}</Passage>
       <Passage as="p4">{details}</Passage>
-    </div>
+    </motion.div>
   )
 }
 
@@ -43,18 +71,17 @@ const SkillsCloud = ({ className }) => {
   const { level, details } = activeSet ? skills[activeSet][activeSkill] : {}
 
   const container = {
-    hidden: { opacity: 0 },
+    hidden: {},
     show: {
-      opacity: 1,
       transition: {
-        staggerChildren: 0.0333
+        staggerChildren: 0.05
       }
     }
   }
 
   const item = {
-    hidden: { opacity: 0 },
-    show: { opacity: 1 }
+    hidden: { opacity: 0, y: 150 },
+    show: { transition: { duration: 1.5 }, opacity: 1, y: 0 }
   }
 
   const updateActiveSkillInfo = (set, skill) => {
@@ -64,7 +91,13 @@ const SkillsCloud = ({ className }) => {
   }
 
   return (
-    <motion.ul className={cl(styles.skillCloud, className)} variants={container} initial="hidden" animate="show" exit="hidden">
+    <motion.ul
+      className={cl(styles.skillCloud, className)}
+      variants={container}
+      initial="hidden"
+      whileInView="show"
+      viewport={{ once: true, margin: '200px 0px' }}
+    >
       {Object.keys(skills).map(set => (
         Object.keys(skills[set]).map(skill => {
           const isActiveSkill = skill === activeSkill
@@ -82,7 +115,13 @@ const SkillsCloud = ({ className }) => {
               key={`${set}-${skill}`}
               variants={item}
             >
-              {isActiveSkill && <Tooltip {...{ skill, level, details }} />}
+              {(
+                <AnimatePresence>
+                  { isActiveSkill && (
+                    <Tooltip {...{ skill, level, details }} />
+                  )}
+                </AnimatePresence>
+              )}
               {skill}
             </motion.li>
           )

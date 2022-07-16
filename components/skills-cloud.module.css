@@ -41,17 +41,16 @@
   position: relative;
   border-radius: var(--soft-corner);
   padding: var(--v-padding) var(--h-padding);
-  cursor: default;
+  cursor: help;
   user-select: none;
 
-  transition-property: background-color, transform;
-  transition-duration: 300ms, 200ms;
-  transition-timing-function: linear, ease-in-out;
+  transition-property: background-color;
+  transition-duration: 300ms;
+  transition-timing-function: linear;
 }
 
 .active-skill {
   background-color: rgb(var(--skill-color));
-  transform: scale(1.1);
 }
 
 .tooltip {
@@ -61,14 +60,21 @@
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
-  bottom: var(--bubble-height);
+  bottom: calc(var(--bubble-height) + (var(--v-padding) / 2));
   width: min(90vw, 400px);
   padding: 20px;
   border-radius: 20px;
+  text-align: start;
 
   background-color: rgba(var(--skill-color), var(--skill-bg-opacity));
   border: var(--stroke-size) solid rgb(var(--skill-color));
   backdrop-filter: var(--vivid-sat) var(--hazy-blur);
+}
+
+@supports not (backdrop-filter: var(--vivid-sat) var(--hazy-blur)) {
+  .tooltip {
+    background-color: rgb(var(--skill-color));
+  }
 }
 
 @media (min-height: 800px) {
