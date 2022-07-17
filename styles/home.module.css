@@ -45,11 +45,8 @@
   gap: var(--gap-l);
 }
 
-.section {
-  min-height: 90vh;
-}
-
 .section.hello {
+  min-height: 90vh;
   padding-top: clamp(10px, 5vh, var(--gap-l));
   display: flex;
   flex-direction: column;
@@ -58,6 +55,10 @@
 
 .section.hello p {
   font-weight: var(--cp-bold);
+}
+
+.section.skills, .section.about {
+  padding: max(10vh, var(--gap-l)) 0;
 }
 
 .insignia.top {

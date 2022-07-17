@@ -1,4 +1,5 @@
 import Image from 'next/image'
+import Link from 'next/link'
 
 const ssimLevels = new Map()
 ssimLevels.set(75, 'normal')
@@ -15,6 +16,18 @@ const lensLoader = ({ src, width, quality = 75 }) => {
   return `${process.env.LENS_BASEURL}/${src}?w=${width}&q=${ssimLevel}&d=${dpr}x`
 }
 
-const LensImage = props => <Image loader={lensLoader} {...props} />
+const LensImage = ({ linkToImage = false, ...props }) => {
+  if (linkToImage) {
+    const { src } = props
+    const href = lensLoader({ src, width: 2560 })
+    return (
+      <Link href={href}>
+        <a><Image loader={lensLoader} {...props} /></a>
+      </Link>
+    )
+  } else {
+    return <Image loader={lensLoader} {...props} />
+  }
+}
 
 export default LensImage

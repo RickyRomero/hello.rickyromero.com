@@ -52,6 +52,7 @@ const WrappedImage = ({ src, title = '', ...props }) => {
       height={height}
       src={src}
       sizes="(max-width: 1455px) 88vw, 1280px"
+      linkToImage
     />
   )
 }
