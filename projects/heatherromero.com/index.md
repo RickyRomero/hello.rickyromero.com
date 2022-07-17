@@ -28,7 +28,7 @@ Finally, I wrote some JavaScript and PHP to fetch her artwork posts from Tumblr,
 
 ### Design
 
-I acted in solely an advisory capacity on the design of Heather's portfolio. Heather explored lots of different approaches for her redesign, from staid to wild. I encouraged her to pursue a more expressive approach in the design, since she needed to stand out from a crowded field. I also coached her on how to write about her projects, helping her rewrite things more concisely.
+I acted solely in an advisory capacity on the design of Heather's portfolio. Heather explored lots of different approaches for her redesign, from staid to wild. I encouraged her to pursue a more expressive approach in the design, since she needed to stand out from a crowded field. I also coached her on how to write about her projects, helping her rewrite things more concisely.
 
 ![Screenshot of Heather's portfolio, depicting a page with an earlier design on it. The screenshot is framed in an iPad.](projects/heatherromero.com/heatherromero-ipad.png "4488x2835xno-rounding")
 

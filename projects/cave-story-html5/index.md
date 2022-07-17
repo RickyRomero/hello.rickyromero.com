@@ -28,6 +28,10 @@ The final result speaks for itself. Even in 2012 and on a modest system, the gam
 
 <Player uses="projects/cave-story-html5/ipad" width="2048" height="1536" />
 
+I'd love to end this article by linking to the game, but I unfortunately wasn't able to release this work due to licensing constraints.
+
+---
+
 I loved working on this project, because it taught me about tons of software engineering concepts and challenges. So! Do you have a moonshot project like this that I can learn even more from? If so, [please get in touch!](mailto "About that Cave Story project...")
 
 ![Heroic painting of the protagonist as seen from behind. Scarf flapping in the wind, he gazes upward, holding the Blade in one hand and the Polar Star in the other.](projects/cave-story-html5/key-art.jpg "4000x2667")
