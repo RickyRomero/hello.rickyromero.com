@@ -1,5 +1,6 @@
 import { Suspense, lazy, useEffect, useState } from 'react'
 import { motion, useTransform } from 'framer-motion'
+import Link from 'next/link'
 
 import LensImage from 'components/lens-image'
 import Player from 'components/player'
@@ -186,15 +187,11 @@ const Home = ({ projectMetadata, activeProject }) => {
                     <MotionButton spans={[4]} variants={heroItem} href={contactHref} onClick={handleEmailCta}>Say Hi</MotionButton>
                     <MotionButton spans={[4]} variants={heroItem} href="/ricky-romero-resume.pdf" onClick={handleResumeCta}>See Résumé</MotionButton>
                   </Row>
-                  <motion.div className={styles.iMadeThis} variants={heroItem}>
-                    <Button
-                      className={styles.inlineButton}
-                      href="https://github.com/RickyRomero/hello.rickyromero.com/"
-                      small
-                    >
-                      View Source
-                    </Button>
-                    <Passage as="p4">on GitHub</Passage>
+                  <motion.div variants={heroItem}>
+                    <Passage as="p3" className={styles.otherLinks}>
+                      <span><Link href="https://github.com/RickyRomero/hello.rickyromero.com">View Source</Link> on GitHub</span>
+                      <span><Link href="https://www.linkedin.com/in/RickyRomero/">Connect</Link> on LinkedIn</span>
+                    </Passage>
                   </motion.div>
                 </Grid>
               </motion.div>

@@ -3,7 +3,7 @@ title: 'Cave Story HTML5'
 description: 'Read the untold story of how I ported the indie hit game Cave Story to HTML5.'
 preview: 'cave-story-html5.jpg'
 baseColor: '#8d002d'
-grid: 6
+grid: 4
 ---
 
 [Cave Story](https://www.cavestory.org/download/cave-story.php) is a free 2004 hit indie title by one developer: [Daisuke Amaya.](https://cavestory.fandom.com/wiki/Daisuke_Amaya) I love the game's blend of exploration and action gameplay.

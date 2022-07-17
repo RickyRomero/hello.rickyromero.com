@@ -3,6 +3,7 @@ title: 'Chart of Accounts Cleanup'
 description: "I designed a tool to help accountants clean up their clients' messy books."
 preview: 'chart-of-accounts.jpg'
 baseColor: '#9100ad'
+grid: 6
 ---
 
 In July 2019, the QuickBooks Live team wanted my help with a project. They were trying to make a tool for their accountants which would help them clean up clients' books.
@@ -36,7 +37,7 @@ The account names depend on the company's industry and accounting method. They a
 
 ![A table of accounts, showing detail types with update recommendations.](projects/chart-of-accounts-cleanup/review-detail-types.png "5760x4080")
 
-The first step, shown above, is to review account types and detail types. We want to make sure these categories make sense to an accountant. The machine learning model first looks at the account name and transactions. It predicts the correct account type and detail type. Then, based on its confidence level, it recommends actions the accountant can take. These categorizations feed back into the model to improve it.
+The first step, shown above, is to review account types and detail types. We want to make sure these categories make sense to an accountant. The machine learning model first looks at the account name and transactions. It predicts the correct account type and detail type. Then, based on its confidence level, it recommends actions the accountant can take. The categorizations that result feed back into the model to improve it.
 
 For accounts where the model is less certain, it requires explicit categorization from the accountant. This important design consideration prevents bad data from feeding back into the model.
 

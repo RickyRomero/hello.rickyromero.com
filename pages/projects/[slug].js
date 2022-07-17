@@ -88,7 +88,7 @@ const Project = ({ data, expanded, className }) => {
   return (
     <>
       <FocusTrap active={expanded}>
-        <li className={cl(wrapperClass, className)}>
+        <div className={cl(wrapperClass, className)}>
           { expanded && <PreventBodyScroll /> }
           <motion.div ref={scrollArea} className={styles.scrollable} {...scrollProps}>
             <ModalOverlay expanded={expanded} spring={spring} getScrollable={getScrollable} />
@@ -128,7 +128,7 @@ const Project = ({ data, expanded, className }) => {
               </div>
             )
           }
-        </li>
+        </div>
       </FocusTrap>
     </>
   )

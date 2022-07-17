@@ -22,9 +22,9 @@ In the early 2000's, when Konfabulator was shareware, [I designed and built widg
 
 <Player uses="projects/konfabulator/my-widgets" width="1920" height="1080" />
 
-I was also active on the Konfabulator forums, where I shared info with other enthusiasts about designing and building widgets. After some time, Arlo contacted me and asked if I wanted to be a forum moderator. Then, I started working part time approving widgets on the Widget Gallery.
+I was also active on the Konfabulator forums, where I shared info with other enthusiasts about designing and building widgets. After some time, Arlo contacted me and asked if I wanted to be a forum moderator. Then, I started working part-time approving widgets on the Widget Gallery.
 
-After Apple included a [suspiciously similar feature](https://arstechnica.com/gadgets/2005/04/macosx-10-4/17/#main) for free with Mac OS X, Konfabulator's shareware business model was on shaky ground. [In 2005, Yahoo acquired Konfabulator](https://www.nbcnews.com/id/wbna8698785) and made it [freeware.](https://en.wikipedia.org/wiki/Freeware) I soon joined the Konfabulator team at Yahoo! full-time.
+After Apple included a [suspiciously similar feature](https://arstechnica.com/gadgets/2005/04/macosx-10-4/17/#main) for free with Mac OS X, Konfabulator's shareware business model was on shaky ground. [In 2005, Yahoo! acquired Konfabulator](https://www.nbcnews.com/id/wbna8698785) and made it [freeware.](https://en.wikipedia.org/wiki/Freeware) I soon joined the Konfabulator team at Yahoo! full-time.
 
 <Smaller>*Note: Yahoo! rebranded Konfabulator as Yahoo! Widgets post-acquisition. For clarity's sake, I'll only be referring to it as Konfabulator here.*</Smaller>
 

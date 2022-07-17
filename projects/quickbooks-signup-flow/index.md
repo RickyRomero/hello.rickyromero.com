@@ -3,6 +3,7 @@ title: 'QuickBooks Signup Flow'
 description: "I spent over a year refining and expanding the design of the QuickBooks signup flow for global markets while making it responsive."
 preview: 'quickbooks-signup-flow.jpg'
 baseColor: '#d39961'
+hidden: true
 ---
 
 Content currently under construction.

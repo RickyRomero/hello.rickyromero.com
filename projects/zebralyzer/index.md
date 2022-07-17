@@ -3,6 +3,7 @@ title: 'Zebralyzer'
 description: 'Text contrast is an important part of web accessibility.'
 preview: 'zebralyzer.jpg'
 baseColor: '#73a928'
+hidden: true
 ---
 
 Content currently under construction.

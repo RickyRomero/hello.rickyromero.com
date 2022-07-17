@@ -31,7 +31,7 @@ const getProjects = async getFull => {
     }
   }))
 
-  return projects.sort(featuredSort)
+  return projects.sort(featuredSort).filter(p => !p.metadata.hidden)
 }
 
 const getProjectsMeta = async () => {

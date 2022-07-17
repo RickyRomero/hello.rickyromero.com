@@ -96,11 +96,11 @@
   width: 100%;
 }
 
-.i-made-this {
+.other-links {
   display: flex;
-  align-items: baseline;
-  gap: calc(var(--gap) / 4);
+  gap: var(--gap-s);
 }
+
 
 .inline-button {
   display: inline-block;
@@ -162,5 +162,12 @@
 
   .insignia.top {
     justify-content: center;
+  }
+}
+
+@media (max-width: 500px) {
+  .other-links {
+    flex-direction: column;
+    gap: var(--gap-s);
   }
 }
