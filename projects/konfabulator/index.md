@@ -1,6 +1,6 @@
 ---
 title: 'Konfabulator'
-description: 'Konfabulator taught me JavaScript. Without it, I might not be working in Silicon Valley today.'
+description: 'Konfabulator taught me JavaScript. Find out why without it, I might not be working in Silicon Valley today.'
 preview: 'konfabulator.jpg'
 baseColor: '#249fff'
 grid: 6

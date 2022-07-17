@@ -1,7 +1,7 @@
 ---
 title: 'Chart of Accounts Cleanup'
-description: "I designed a tool to help accountants clean up their clients' messy books."
-preview: 'chart-of-accounts.jpg'
+description: "Learn how I designed with machine learning to help accountants clean up their clients' messy books."
+preview: 'chart-of-accounts-cleanup.jpg'
 baseColor: '#9100ad'
 grid: 6
 ---

@@ -1,6 +1,6 @@
 ---
 title: 'Design Systems'
-description: 'aaaaaaaaaaaaaaa'
+description: "Check out this assortment of improvements I made to Intuit's design systems."
 preview: 'design-systems.jpg'
 baseColor: '#006b4a'
 grid: 4

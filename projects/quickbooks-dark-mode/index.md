@@ -1,6 +1,6 @@
 ---
 title: 'QuickBooks: Dark Mode'
-description: "I built dark mode for QuickBooks Online primarily on my own. Here's how I did it."
+description: "I built dark mode for QuickBooks Online mostly by myself. Here's how."
 preview: 'quickbooks-dark-mode.jpg'
 baseColor: '#8d0089'
 grid: 8

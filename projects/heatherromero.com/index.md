@@ -1,6 +1,6 @@
 ---
 title: 'heatherromero.com'
-description: 'aaaaaaaaaaaaaaa'
+description: 'I helped my partner get jobs at Rambus and Intuitive by teaming up on her portfolio. Have a look.'
 preview: 'heatherromero.com.jpg'
 baseColor: '#0076e3'
 grid: 6

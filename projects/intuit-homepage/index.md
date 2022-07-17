@@ -1,6 +1,6 @@
 ---
 title: 'Intuit Homepage'
-description: 'I designed the first versions of m.intuit.com, later designing the responsive version of the intuit.com homepage.'
+description: "I designed the first versions of Intuit's mobile site, and then the intuit.com homepage. Check it out."
 preview: 'intuit-homepage.jpg'
 baseColor: '#ef7f00'
 grid: 6
