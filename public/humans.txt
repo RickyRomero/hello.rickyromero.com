@@ -1,0 +1,9 @@
+My name's Ricky Romero, and this is my professional portfolio site. I built it using Next.js, Framer Motion, and react-three-fiber. It took me about 7 months to finish it (with lots of breaks and meditation).
+
+I also have a (much less impressive) personal project site available at my root domain: https://rickyromero.com
+
+I hope you like what you see! Please also check out the source code on GitHub: https://github.com/RickyRomero/hello.rickyromero.com
+
+(There are a few ways to get in touch with me from this website itself. Sorry - spambots ruin everything.)
+
+I'd like to thank Heather, for giving me lots of encouragement and ideas, and for being supportive of me during my extended break from work; Tim, for not sugarcoating his feedback; and my dad, for cheering me on. I love you all!
