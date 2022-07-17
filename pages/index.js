@@ -200,7 +200,9 @@ const Home = ({ projectMetadata, activeProject }) => {
             <Grid className={cl(styles.section, styles.projects)}>
               <Heading as="h2">things i've done.</Heading>
               <Row>
-                {projectMetadata.map(summary => {
+                {projectMetadata.filter(summary => {
+                  return !summary.metadata.hidden
+                }).map(summary => {
                   const { slug } = summary
                   const isExpanded = activeProject?.slug === slug
                   const passedDetails = isExpanded ? activeProject : summary
