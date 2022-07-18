@@ -46,7 +46,7 @@
 }
 
 .section.hello {
-  min-height: 90vh;
+  min-height: 80vh;
   padding-top: clamp(10px, 5vh, var(--gap-l));
   display: flex;
   flex-direction: column;
