@@ -62,15 +62,15 @@
     },
     "prototyping": {
       "level": 3,
-      "details": "I've done both low- and high-fidelity prototyping, tailoring fidelity to the needs of the design being tested."
+      "details": "I specialize in high-fidelity prototyping, but have also tailored fidelity to the needs of the design being tested."
     },
     "responsive design": {
       "level": 3,
-      "details": "I have over a decade of experience designing and building responsive web pages."
+      "details": "I use media queries, flexbox, CSS grids, feature detection, and more to make designs responsive."
     },
     "Sketch": {
       "level": 3,
-      "details": "Sketch was a much-needed replacement for Adobe Fireworks, and is still a robust design tool today. Mac-native, too!"
+      "details": "I've built lots of page design artboards using components and Sketch's flexible layout controls. I love that it's a Mac-native app."
     },
     "UX design": {
       "level": 3,
@@ -82,7 +82,7 @@
     },
     "user testing": {
       "level": 3,
-      "details": "I've conducted both in-person and remote user testing, and know how to structure successful tests."
+      "details": "I've conducted both in-person and remote user testing sessions, and know how to structure successful tests."
     },
     "visual design": {
       "level": 3,
@@ -140,7 +140,7 @@
     },
     "GLSL": {
       "level": 1,
-      "details": "I'm just starting out with shaders, but they're really cool (when you're not staring at a black screen)."
+      "details": "I'm just starting out with shaders, but they're really cool (when you aren't struggling to fix a blank screen)."
     },
     "HTML": {
       "level": 3,
@@ -152,7 +152,7 @@
     },
     "Markdown": {
       "level": 2,
-      "details": "I don't mix up [link text](url) with (link text)[url] anymore."
+      "details": "I don't mix up [link text](url) with (link text)[url] anymore. Kidding aside, I've written tons of documentation in Markdown."
     },
     "Next.js": {
       "level": 2,
@@ -168,7 +168,7 @@
     },
     "PostCSS": {
       "level": 1,
-      "details": "Haven't done much with PostCSS yet, but I used it a bit on this site to try it out."
+      "details": "Haven't done much with PostCSS yet, but I used it a bit on this site to try it out, and I'd like to learn more."
     },
     "Puppeteer": {
       "level": 1,
@@ -176,7 +176,7 @@
     },
     "react-three-fiber": {
       "level": 1,
-      "details": "R3F combines the best of React and three.js. The documentation is a bit lacking, but I enjoyed building this site with it."
+      "details": "R3F combines the best of React and three.js. The documentation is a bit lacking, but building this site with it was a joy."
     },
     "React": {
       "level": 3,
@@ -188,7 +188,7 @@
     },
     "SQL": {
       "level": 1,
-      "details": "I've used SQL in its various forms over the years, including MySQL, Postgres, and SQLite."
+      "details": "I'm familiar with how to set up databases and write joined queries."
     },
     "stylelint": {
       "level": 1,
@@ -208,7 +208,7 @@
     },
     "WebGL": {
       "level": 1,
-      "details": "I've written raw WebGL before, but I prefer to work higher up the stack. I understand its fundamental concepts."
+      "details": "I've written raw WebGL before, but I prefer to work higher up the stack. I understand the rendering pipeline."
     },
     "Webpack": {
       "level": 1,

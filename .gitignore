@@ -36,6 +36,9 @@ yarn-error.log*
 
 /pages/api/log.js
 
+# Ignore social media preview images
+/public/previews
+
 # Exclude font files from source control due to licensing complications
 *.woff2
 
