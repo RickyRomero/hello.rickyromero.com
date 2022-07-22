@@ -1,4 +1,4 @@
-import { Suspense, lazy, useEffect, useState } from 'react'
+import { Suspense, lazy, useEffect, useRef, useState } from 'react'
 import { motion, useTransform } from 'framer-motion'
 import Link from 'next/link'
 
@@ -52,6 +52,10 @@ const Home = ({ projectMetadata, activeProject }) => {
 
   motionRate.set(Number(!activeProject))
 
+  const scrollLogThreshold = 500 // px
+  const lastScrollPos = useRef(0)
+  const cumulativeScroll = useRef(0)
+
   const contactHref = `mailto:${contact}?subject=${encodeURIComponent('Hello!')}`
   const placeholderStyle = {
     display: useTransform(initialFade, v => v < 1 ? 'block' : 'none')
@@ -62,6 +66,20 @@ const Home = ({ projectMetadata, activeProject }) => {
     event.preventDefault()
     logEntry({ target: '#resume' })
     window.open(event.target.parentNode.href, '_blank')
+  }
+
+  const checkCumulativeScroll = () => {
+    if (cumulativeScroll.current > scrollLogThreshold) {
+      return
+    }
+
+    const currentScrollPos = window.scrollY // Really only interested in the main page
+    const scrollDelta = Math.abs(currentScrollPos - lastScrollPos.current)
+    cumulativeScroll.current += scrollDelta
+
+    if (cumulativeScroll.current > scrollLogThreshold) {
+      logEntry({ target: '#user-scrolled' })
+    }
   }
 
   // Only render Three.js on the client
@@ -106,6 +124,14 @@ const Home = ({ projectMetadata, activeProject }) => {
 
       document.addEventListener('visibilitychange', logEgress)
       return () => document.removeEventListener('visibilitychange', logEgress)
+    }, [])
+
+    // Set up scroll events to log if the user scrolls the page
+    useEffect(() => {
+      const options = { passive: true }
+      lastScrollPos.current = window.scrollY
+      window.addEventListener('scroll', checkCumulativeScroll, options)
+      return () => window.removeEventListener('scroll', checkCumulativeScroll, options)
     }, [])
   }
 
