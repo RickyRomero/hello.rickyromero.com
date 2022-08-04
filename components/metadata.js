@@ -31,6 +31,7 @@ const Metadata = ({ title, description, preview, type = 'article', children }) =
       <meta name="twitter:creator" content="@RickyRomero" />
       <meta property="og:type" content={type} />
 
+      <link rel="preconnect" href="https://lens.hello.rickyromero.com" />
       <link rel="mask-icon" href="/apple-pinned-tab-16x16.svg" color="#5600cc" />
       <link rel="icon" type="image/png" href="/favicon-194x194.png" sizes="194x194" />
       <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
