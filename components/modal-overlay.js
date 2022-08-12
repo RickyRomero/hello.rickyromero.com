@@ -75,7 +75,7 @@ const ModalOverlay = ({ expanded, spring, getScrollable }) => {
           draggable="false"
           className={styles.overlayLink}
           tabIndex={-1}
-          aria-disabled={true}
+          aria-hidden={true}
         >
           Go back home
         </a>

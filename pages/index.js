@@ -138,6 +138,7 @@ const Home = ({ projectMetadata, activeProject }) => {
   return (
     <>
       <figure className={styles.dreamscape}>
+        <figcaption>Thousands of colorful points of light lazily drift and fade in and out, as the viewer floats ever forward across an expansive dreamscape.</figcaption>
         <motion.div className={styles.dreamscapeFader} style={{ opacity: scrollOpacity }}>
           <motion.div className={styles.placeholder} style={placeholderStyle}>
             <LensImage
