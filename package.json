@@ -12,8 +12,8 @@
     "@react-three/fiber": "^8",
     "detect-it": "^4",
     "dotenv": "^16",
-    "focus-trap-react": "^8",
-    "framer-motion": "^6",
+    "focus-trap-react": "^9",
+    "framer-motion": "^7",
     "glsl-noise": "^0",
     "glslify-loader": "^2",
     "gray-matter": "^4",
@@ -29,13 +29,13 @@
     "react-dom": "^18",
     "sharp": "^0",
     "three": "^0",
-    "zustand": "^3"
+    "zustand": "^4"
   },
   "devDependencies": {
     "eslint": "^8",
-    "eslint-config-standard": "^16",
+    "eslint-config-standard": "^17",
     "eslint-plugin-import": "^2",
-    "eslint-plugin-node": "^11",
+    "eslint-plugin-n": "^15",
     "eslint-plugin-promise": "^6",
     "eslint-plugin-react": "^7"
   }
