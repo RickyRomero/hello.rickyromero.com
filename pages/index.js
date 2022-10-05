@@ -279,9 +279,9 @@ const Home = ({ projectMetadata, activeProject }) => {
 
             <section className={cl(styles.section, styles.letsDoThis)}>
               <Grid className={styles.letsDoThisGrid}>
-                <Heading>only 1 left in stock.</Heading>
-                <Passage as="p1"><em>I'm looking for work,</em> but won't be for much longer.</Passage>
+                <Heading>let's go.</Heading>
                 <Passage as="p1">What do you want to build together?</Passage>
+                <Passage as="p1"><em>I want to hear about it.</em> Drop me a line.</Passage>
                 <Row openEnded>
                   <Button spans={[4]} href={contactHref} onClick={handleEmailCta}>Say Hi</Button>
                   <Button spans={[4]} href="/ricky-romero-resume.pdf" onClick={handleResumeCta}>See Résumé</Button>
