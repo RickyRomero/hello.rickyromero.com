@@ -26,19 +26,21 @@ const ProjectHero = props => {
         animate={{ opacity: expanded ? 1.0 : 0.5 }}
       >
         <LensImage
+          alt=""
           priority={expanded}
           src={`projects/${slug}/background.jpg`}
-          layout="fill"
-          objectFit="cover"
           sizes="1360px"
+          style={{ objectFit: 'cover' }}
+          fill
         />
       </motion.div>
       <LensImage
+        alt={title}
         priority={expanded}
         src={`projects/${slug}/foreground.png`}
-        layout="fill"
-        objectFit="contain"
         sizes="600px"
+        style={{ objectFit: 'contain' }}
+        fill
       />
       <motion.div
         transition={spring}

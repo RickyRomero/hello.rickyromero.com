@@ -144,9 +144,9 @@ const Home = ({ projectMetadata, activeProject }) => {
             <LensImage
               alt=""
               src={`home/loading-${scheme}.jpg`}
-              layout="fill"
-              objectFit="cover"
               sizes="50vw"
+              style={{ objectFit: 'cover' }}
+              fill
             />
           </motion.div>
           <motion.div className={styles.rendererContainer} style={{ opacity: initialFade }}>
@@ -177,8 +177,9 @@ const Home = ({ projectMetadata, activeProject }) => {
                         alt=""
                         src={`home/static-${scheme}.jpg`}
                         layout="fill"
-                        objectFit="cover"
                         sizes="150vw"
+                        style={{ objectFit: 'cover' }}
+                        fill
                       />
                     )
                   }
@@ -258,11 +259,11 @@ const Home = ({ projectMetadata, activeProject }) => {
                 <Row>
                   <figure className={styles.portrait} spans={[4]}>
                     <LensImage
-                      layout="fill"
-                      objectFit="cover"
                       sizes="(max-width: 1000px) 94vw, 30vw"
                       src="home/me.jpg"
                       alt="Portrait photo of Ricky Romero"
+                      style={{ objectFit: 'cover' }}
+                      fill
                     />
                   </figure>
                   <div spans={[8]}>
