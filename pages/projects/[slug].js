@@ -122,8 +122,8 @@ const Project = ({ data, expanded, className }) => {
                 className={styles.expandLink}
                 style={{ zIndex: expanded ? 3 : 0 }}
               >
-                <Link href={`/projects/${slug}`} scroll={false}>
-                  <a className={styles.expandLink}>{title}</a>
+                <Link href={`/projects/${slug}`} scroll={false} className={styles.expandLink}>
+                  {title}
                 </Link>
               </div>
             )

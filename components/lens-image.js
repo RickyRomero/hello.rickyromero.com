@@ -22,7 +22,7 @@ const LensImage = ({ linkToImage = false, ...props }) => {
     const href = lensLoader({ src, width: 2560 })
     return (
       <Link href={href}>
-        <a><Image loader={lensLoader} {...props} /></a>
+        <Image loader={lensLoader} {...props} />
       </Link>
     )
   } else {

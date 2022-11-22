@@ -32,14 +32,14 @@ const CloseButton = ({ expanded, spring }) => {
         pointerEvents: expanded ? 'auto' : 'none'
       }
     }>
-      <Link href="/" scroll={false}>
-        <a
-          draggable="false"
-          className={styles.closeButtonLink}
-          {...addlOverlayProps}
-        >
-          Go back home
-        </a>
+      <Link
+        href="/"
+        scroll={false}
+        draggable="false"
+        className={styles.closeButtonLink}
+        {...addlOverlayProps}
+      >
+        Go back home
       </Link>
     </motion.div>
   )

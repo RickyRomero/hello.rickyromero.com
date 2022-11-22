@@ -25,8 +25,8 @@ const WrappedLink = ({ href, title = '', children }) => {
   }
 
   return (
-    <Link href={targetHref}>
-      <a title={targetTitle} onClick={onClick}>{children}</a>
+    <Link href={targetHref} title={targetTitle} onClick={onClick}>
+      {children}
     </Link>
   )
 }

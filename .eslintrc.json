@@ -9,6 +9,7 @@
     "react"
   ],
   "rules": {
+    "react/no-unknown-property": "off",
     "react/prop-types": "off",
     "react/jsx-indent": ["error", 2, {
       "checkAttributes": true,

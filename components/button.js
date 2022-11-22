@@ -15,10 +15,8 @@ const Button = forwardRef((props, ref) => {
   // Wrapping in an outer div to allow CSS to animate separately
   return (
     <div ref={ref} className={classList}>
-      <Link href={(href || '/')}>
-        <a className={styles.button} onClick={onClick}>
-          <span className={styles.alignment}>{children}</span>
-        </a>
+      <Link href={(href || '/')} className={styles.button} onClick={onClick}>
+        <span className={styles.alignment}>{children}</span>
       </Link>
     </div>
   )

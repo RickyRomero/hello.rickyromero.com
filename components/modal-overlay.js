@@ -70,15 +70,15 @@ const ModalOverlay = ({ expanded, spring, getScrollable }) => {
         pointerEvents: expanded ? 'auto' : 'none'
       }}
     >
-      <Link href="/" scroll={false}>
-        <a
-          draggable="false"
-          className={styles.overlayLink}
-          tabIndex={-1}
-          aria-hidden={true}
-        >
-          Go back home
-        </a>
+      <Link
+        href="/"
+        scroll={false}
+        draggable="false"
+        className={styles.overlayLink}
+        tabIndex={-1}
+        aria-hidden={true}
+      >
+        Go back home
       </Link>
       { expanded && <Suspense fallback={null}><Escape to="/" /></Suspense> }
     </motion.div>
