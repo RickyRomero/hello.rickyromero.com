@@ -61,5 +61,7 @@
 
 .project-renderer {
   width: 100%;
-  padding: var(--page-inset) var(--page-inset) calc(var(--page-inset) * 2);
+  padding-inline: var(--page-inset);
+  padding-block-start: var(--page-inset);
+  padding-block-end: calc(var(--page-inset) * 2);
 }

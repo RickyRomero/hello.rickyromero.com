@@ -18,7 +18,7 @@ const App = ({ Component, pageProps }) => {
     ? `${metadata.title} - Ricky Romero`
     : 'Ricky Romero: Design + Code'
   const description = metadata.description ||
-    "My name's Ricky. I'm looking for work! Let's build something incredible."
+    "My name's Ricky. I design and code. Let's build something incredible."
   const preview = metadata.preview ||
     'home.jpg'
 

@@ -39,7 +39,7 @@
 }
 
 .button span {
-  padding-top: var(--text-center-offset);
+  padding-block-start: var(--text-center-offset);
 }
 
 .button:hover, .button:focus {
