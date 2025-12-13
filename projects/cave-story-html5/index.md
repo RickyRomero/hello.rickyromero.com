@@ -6,17 +6,21 @@ baseColor: '#8d002d'
 grid: 4
 ---
 
-[Cave Story](https://www.cavestory.org/download/cave-story.php) is a free 2004 hit indie title by one developer: [Daisuke Amaya.](https://cavestory.fandom.com/wiki/Daisuke_Amaya) I love the game's blend of exploration and action gameplay.
+[Cave Story](https://www.cavestory.org/download/cave-story.php) is a free 2004 hit indie title by one developer: [Daisuke "Pixel" Amaya.](https://cavestory.fandom.com/wiki/Daisuke_Amaya)
 
-In September 2011, I was itching for a new hobby project, and web browsers supported a lot of stuff. [WebGL,](https://madebyevan.com/webgl-water/) [Web Audio,](https://www.arthurcarabott.com/audio-dsp-playground/) [gamepads](https://gamepad-tester.com/) and more made games a real possibility on the web platform.
+In the game, you awaken in a cave as a robot having lost your memories. As you explore the caverns and talk to others, you learn more about yourself and where you are. Defeating enemies along the way gains experience points and powers up your weapons. But, if you take damage, your weapons will lose those hard-earned experience points and get nerfed.
 
-I found an independent clone of Cave Story's game engine called [NXEngine,](https://nxengine.sourceforge.io) written in C++. So, I decided to try to get it working in a web browser!
+Your objective is to escape the caves and stop the Doctor's evil plan.
 
 ![Three stacked screenshots showing off various portions of the game.](projects/cave-story-html5/screenshots.png "6000x3790xno-rounding")
 
+In September 2011, I was itching for a new hobby project, and web browsers supported a lot of stuff. [WebGL,](https://madebyevan.com/webgl-water/) [Web Audio,](https://www.arthurcarabott.com/audio-dsp-playground/) [gamepads](https://gamepad-tester.com/) and more made games a real possibility on the web platform.
+
+One day, I stumbled across a C++ clone of Cave Story's game engine called [NXEngine,](https://nxengine.sourceforge.io) by Caitlin Shaw. So, I decided to try getting it working in a web browser!
+
 I learned a lot of things working on this project. To start, it involved manually porting tens of thousands of lines of C++ to JavaScript – something I'd never attempted. This was also the first time I used WebGL, and the first time I synthesized audio. I'd never worked with [game loops](https://gameprogrammingpatterns.com/game-loop.html) or scripting systems before either.
 
-The process involved first trying to run the C++ files as JavaScript. I would fix whatever syntax errors appeared, re-run the code, and repeat. As I did this, more and more of the logic would run in the browser. Eventually I got to a point where the game logic would run, but nothing drew to the screen. Then I wrote code to bridge SDL calls so they'd draw graphics, play sounds, and accept input. After that the game was playable, but buggy, so I spent many weeks fixing each bug I ran into, one by one, as I played through the game. Anything that didn't match the original game needed fixing.
+The process involved first trying to run the C++ files as JavaScript. I would fix whatever syntax errors appeared, re-run the code, and repeat. As I did this, more and more of the logic would run in the browser. Eventually I got to a point where the game logic would run without crashing, but nothing drew to the screen. I wrote code to bridge SDL calls so they'd draw graphics, play sounds, and accept input. After that the game was playable, but buggy, so I spent many weeks fixing each bug I ran into, one by one, as I played through the game. Anything that didn't match the original game needed fixing.
 
 After months of work in my spare time, all by myself, the game was playable from the title screen right up to the end credits.
 
