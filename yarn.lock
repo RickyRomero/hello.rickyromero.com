@@ -3,11 +3,9 @@
 
 
 "@babel/runtime@^7.11.2", "@babel/runtime@^7.16.7", "@babel/runtime@^7.17.8":
-  version "7.20.1"
-  resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.20.1.tgz#1148bb33ab252b165a06698fde7576092a78b4a9"
-  integrity sha512-mrzLkl6U9YLF8qpqI7TB82PESyEGjm/0Ly91jG575eVxMMlb8fYfOXFZIJ8XfLrJZQbm7dlKry2bJmXBUEkdFg==
-  dependencies:
-    regenerator-runtime "^0.13.10"
+  version "7.28.4"
+  resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.28.4.tgz#a70226016fabe25c5783b2f22d3e1c9bc5ca3326"
+  integrity sha512-Q/N6JNWvIvPnLDvjlE1OUBLPQHH6l3CltCEsHIujp45zQUSSh8K+gHnaEX45yAT1nyngnINhvWtzN+Nb9D8RAQ==
 
 "@chevrotain/cst-dts-gen@10.4.2":
   version "10.4.2"
@@ -2604,11 +2602,6 @@ readable-stream@^3.1.1, readable-stream@^3.4.0:
     inherits "^2.0.3"
     string_decoder "^1.1.1"
     util-deprecate "^1.0.1"
-
-regenerator-runtime@^0.13.10:
-  version "0.13.11"
-  resolved "https://registry.yarnpkg.com/regenerator-runtime/-/regenerator-runtime-0.13.11.tgz#f6dca3e7ceec20590d07ada785636a90cdca17f9"
-  integrity sha512-kY1AZVr2Ra+t+piVaJ4gxaFaReZVH40AKNo7UCX6W+dEwBo/2oZJzqfuN1qLq1oL45o56cPaTXELwrTh8Fpggg==
 
 regexp-to-ast@0.5.0:
   version "0.5.0"
